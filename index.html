@@ -103,17 +103,47 @@
         }
         .hero-oil-drop svg { width: 80px; height: 80px; opacity: .6; }
 
-        /* ===== NAV TABS ===== */
-        .nav-wrapper {
+        /* ===== NAV SCROLL OUTER ===== */
+        .nav-scroll-outer {
             background: var(--dark);
             border-bottom: 3px solid var(--red);
+            position: relative;
+            display: flex;
+            align-items: stretch;
         }
+
+        /* Arrow buttons */
+        .nav-arr {
+            display: none; /* shown only on mobile via media query */
+            flex-shrink: 0;
+            width: 38px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,.65);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: color .2s, background .2s;
+            padding: 0;
+            position: relative;
+            z-index: 5;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .nav-arr:hover { color: white; background: rgba(255,255,255,.09); }
+        .nav-arr:active { background: rgba(255,255,255,.15); }
+        .nav-arr svg { width: 18px; height: 18px; pointer-events: none; flex-shrink: 0; }
+        .nav-arr.nav-arr-left { border-right: 1px solid rgba(255,255,255,.08); }
+        .nav-arr.nav-arr-right { border-left: 1px solid rgba(255,255,255,.08); }
+        .nav-arr.hidden { opacity: 0; pointer-events: none; }
+
+        /* Nav container */
         .nav-container {
-            max-width: 1200px; margin: 0 auto;
+            flex: 1;
             display: flex; overflow-x: auto;
             scrollbar-width: none;
             padding: 0 8px;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
         }
         .nav-container::-webkit-scrollbar { display: none; }
         .nav-item {
@@ -530,6 +560,9 @@
 
         /* --- Tablet (≤768px) --- */
         @media (max-width: 768px) {
+            /* Show nav arrows on tablet+ */
+            .nav-arr { display: flex; }
+
             /* Header */
             .header-inner { padding: 0 16px; gap: 10px; }
             .header-logo-wrap { height: 44px; }
@@ -594,10 +627,13 @@
             .hero-desc { font-size: 12px; line-height: 1.5; }
             .hero-text { padding-bottom: 22px; }
 
-            /* Nav */
+            /* Nav arrows: slightly narrower on mobile */
+            .nav-arr { width: 34px; }
+            .nav-container { padding: 0 2px; }
+
+            /* Nav items: compact */
             .nav-item { padding: 10px 12px; font-size: 8px; gap: 4px; }
             .nav-icon, .nav-icon img { width: 20px; height: 20px; }
-            .nav-container { padding: 0 4px; }
 
             /* Main */
             .main { padding: 14px 12px 36px; }
@@ -711,6 +747,7 @@
             .hero-title { font-size: 30px; }
             .nav-item { padding: 9px 10px; font-size: 7px; }
             .nav-icon, .nav-icon img { width: 18px; height: 18px; }
+            .nav-arr { width: 30px; }
             .product-img-wrap { width: 70px; }
             .brand-icon-wrap { width: 50px; height: 50px; }
             .brand-icon-wrap img { width: 44px; height: 44px; }
@@ -726,6 +763,14 @@
             .product-block:hover { transform: none; box-shadow: none; }
             .btn-search:hover { transform: none; box-shadow: none; }
         }
+
+        /* Pulse hint animation for scroll arrows (shows briefly on first load) */
+        @keyframes arrowPulse {
+            0%   { opacity: 0.65; }
+            50%  { opacity: 1; }
+            100% { opacity: 0.65; }
+        }
+        .nav-arr.pulse { animation: arrowPulse 1s ease-in-out 3; }
     </style>
 </head>
 <body>
@@ -758,8 +803,16 @@
     </div>
 </section>
 
-<!-- NAV TABS -->
-<nav class="nav-wrapper">
+<!-- NAV TABS — wrapped with scroll arrows -->
+<div class="nav-scroll-outer" id="navScrollOuter">
+    <!-- Left arrow -->
+    <button class="nav-arr nav-arr-left hidden" id="navArrLeft" aria-label="Cuộn danh mục sang trái">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"/>
+        </svg>
+    </button>
+
+    <!-- Nav items -->
     <div class="nav-container" id="navContainer">
         <div class="nav-item active" data-category="oto">
             <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/128/5035/5035167.png" alt=""></div>
@@ -794,7 +847,14 @@
             <span>Hàng hải</span>
         </div>
     </div>
-</nav>
+
+    <!-- Right arrow -->
+    <button class="nav-arr nav-arr-right" id="navArrRight" aria-label="Cuộn danh mục sang phải">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+        </svg>
+    </button>
+</div>
 
 <!-- MAIN -->
 <main class="main">
@@ -1290,6 +1350,50 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     document.body.style.overflow='hidden';
 }
 
+// ===== NAV SCROLL ARROWS =====
+(function(){
+    var cont = document.getElementById('navContainer');
+    var btnL = document.getElementById('navArrLeft');
+    var btnR = document.getElementById('navArrRight');
+
+    function updArrows(){
+        if(!btnL || !btnR || !cont) return;
+        var atLeft  = cont.scrollLeft <= 4;
+        var atRight = cont.scrollLeft >= cont.scrollWidth - cont.clientWidth - 4;
+        btnL.classList.toggle('hidden', atLeft);
+        btnR.classList.toggle('hidden', atRight);
+    }
+
+    if(cont){
+        cont.addEventListener('scroll', updArrows, {passive: true});
+        updArrows();
+    }
+
+    if(btnL){
+        btnL.addEventListener('click', function(){
+            cont.scrollBy({left: -130, behavior: 'smooth'});
+        });
+    }
+    if(btnR){
+        btnR.addEventListener('click', function(){
+            cont.scrollBy({left: 130, behavior: 'smooth'});
+        });
+    }
+
+    // Brief pulse hint on first load so users notice the arrows
+    window.addEventListener('load', function(){
+        if(btnR && !btnR.classList.contains('hidden')){
+            btnR.classList.add('pulse');
+            btnR.addEventListener('animationend', function(){
+                btnR.classList.remove('pulse');
+            }, {once: true});
+        }
+    });
+
+    window.addEventListener('resize', updArrows);
+})();
+
+// ===== MAIN NAV + CATEGORY LOGIC =====
 document.getElementById('navContainer').addEventListener('click',function(e){
     var t=e.target.closest('.nav-item');
     if(!t) return;
