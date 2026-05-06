@@ -113,6 +113,7 @@
             display: flex; overflow-x: auto;
             scrollbar-width: none;
             padding: 0 8px;
+            -webkit-overflow-scrolling: touch;
         }
         .nav-container::-webkit-scrollbar { display: none; }
         .nav-item {
@@ -122,6 +123,7 @@
             transition: all .25s; color: rgba(255,255,255,.5);
             font-size: 10px; font-weight: 700; letter-spacing: 1px;
             text-transform: uppercase; gap: 6px; font-family: var(--font-body);
+            -webkit-tap-highlight-color: transparent;
         }
         .nav-item:hover { color: rgba(255,255,255,.85); background: rgba(255,255,255,.05); }
         .nav-item.active { color: white; border-bottom-color: var(--red); }
@@ -160,9 +162,9 @@
         .finder-body { padding: 28px; }
 
         /* Steps */
-        .steps { display: flex; gap: 0; margin-bottom: 28px; }
+        .steps { display: flex; gap: 0; margin-bottom: 28px; overflow-x: auto; }
         .step-item {
-            flex: 1; position: relative;
+            flex: 1; position: relative; min-width: 0;
             background: var(--gray-100);
             padding: 14px 20px 14px 36px;
             clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
@@ -175,7 +177,7 @@
         .step-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; line-height: 1.2; margin-top: 2px; }
         .step-item.active .step-label { color: rgba(255,255,255,.9); }
         .step-item.done .step-label { color: rgba(255,255,255,.7); }
-        .step-value { font-size: 13px; font-weight: 600; color: var(--dark); margin-top: 1px; }
+        .step-value { font-size: 13px; font-weight: 600; color: var(--dark); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .step-item.active .step-value, .step-item.done .step-value { color: white; }
 
         /* Selector Row */
@@ -183,8 +185,6 @@
             display: grid; grid-template-columns: 1fr 1fr 160px auto;
             gap: 12px; align-items: flex-end;
         }
-        @media(max-width:768px){ .selector-grid { grid-template-columns: 1fr 1fr; } }
-        @media(max-width:500px){ .selector-grid { grid-template-columns: 1fr; } }
         .field-group { display: flex; flex-direction: column; gap: 6px; }
         .field-label {
             font-size: 10px; font-weight: 700; letter-spacing: 2px;
@@ -214,8 +214,10 @@
             font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
             cursor: pointer; transition: all .2s; white-space: nowrap;
             display: flex; align-items: center; gap: 8px;
+            -webkit-tap-highlight-color: transparent;
         }
         .btn-search:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,122,51,.35); }
+        .btn-search:active { transform: translateY(0); }
         .btn-search svg { width: 18px; height: 18px; fill: white; }
 
         /* Divider */
@@ -243,10 +245,9 @@
         .reverse-title::before {
             content: '';
             display: block; width: 3px; height: 16px; background: var(--red);
-            border-radius: 2px;
+            border-radius: 2px; flex-shrink: 0;
         }
         .reverse-grid { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: flex-end; }
-        @media(max-width:500px){ .reverse-grid { grid-template-columns: 1fr; } }
         .btn-reverse {
             height: 46px; padding: 0 24px;
             background: var(--dark); color: white;
@@ -254,8 +255,10 @@
             font-family: var(--font-display); font-size: 14px;
             font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
             cursor: pointer; transition: all .2s; white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
         }
         .btn-reverse:hover { background: #333; }
+        .btn-reverse:active { background: #555; }
         .reverse-results {
             margin-top: 14px; display: none;
             background: white; border-radius: 6px;
@@ -278,7 +281,6 @@
         }
         .results-subtitle { font-size: 13px; color: var(--gray-500); margin-top: 2px; font-family: var(--font-body); }
         .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media(max-width:700px){ .results-grid { grid-template-columns: 1fr; } }
 
         /* Brand Card */
         .brand-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
@@ -340,7 +342,6 @@
             padding: 12px; flex-direction: column; gap: 6px;
             align-self: stretch;
         }
-        /* Brand logo display replacing product images */
         .brand-icon-wrap {
             width: 80px; height: 80px; border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
@@ -354,7 +355,7 @@
         .brand-icon-wrap.valvoline-icon { background: #fff; border: 1.5px solid #e5e5e5; }
 
         .product-img-wrap img.prod-logo { height: 16px; width: auto; max-width: 68px; object-fit: contain; opacity: .7; }
-        .product-info { padding: 14px 16px 12px; flex: 1; display: flex; flex-direction: column; }
+        .product-info { padding: 14px 16px 12px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
         .product-name {
             font-family: var(--font-display); font-size: 20px; font-weight: 800;
             color: var(--dark); line-height: 1.05; margin-bottom: 5px; letter-spacing: .5px;
@@ -381,6 +382,7 @@
             font-family: var(--font-body); font-size: 12px; font-weight: 700;
             letter-spacing: .5px; text-transform: uppercase;
             cursor: pointer; transition: all .2s; width: fit-content; margin-top: auto;
+            -webkit-tap-highlight-color: transparent;
         }
         .btn-detail.c { background: var(--red); color: white; }
         .btn-detail.c:hover { background: var(--red-dark); box-shadow: 0 3px 10px rgba(0,122,51,.3); }
@@ -422,6 +424,7 @@
             font-family: var(--font-body); font-size: 12px; font-weight: 600;
             cursor: pointer; letter-spacing: .5px; transition: all .2s;
             display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
         }
         .modal-back:hover { background: rgba(255,255,255,.28); }
         .modal-back svg { width: 14px; height: 14px; fill: white; }
@@ -439,7 +442,6 @@
             object-fit: contain;
         }
 
-        /* Category icon in modal hero */
         .modal-hero {
             display: flex; align-items: center; gap: 20px;
             padding: 22px 24px 18px; border-bottom: 1px solid var(--gray-200);
@@ -521,6 +523,209 @@
 
         /* Scroll target */
         #resultsAnchor { scroll-margin-top: 140px; }
+
+        /* =============================================
+           MOBILE RESPONSIVE STYLES
+           ============================================= */
+
+        /* --- Tablet (≤768px) --- */
+        @media (max-width: 768px) {
+            /* Header */
+            .header-inner { padding: 0 16px; gap: 10px; }
+            .header-logo-wrap { height: 44px; }
+            .header-logo-wrap.castrol-wrap { width: 150px; }
+            .header-logo-wrap.valvoline-wrap { width: 130px; }
+            .header-logos { gap: 14px; }
+
+            /* Hero */
+            .hero { padding: 36px 16px 0; }
+            .hero-inner { grid-template-columns: 1fr; gap: 0; }
+            .hero-visual { display: none; }
+            .hero-text { padding-bottom: 28px; }
+            .hero-badge { font-size: 9px; letter-spacing: 2px; padding: 4px 10px; }
+            .hero-title { font-size: clamp(36px, 10vw, 60px); }
+            .hero-desc { font-size: 13px; }
+
+            /* Nav */
+            .nav-item { padding: 12px 14px; font-size: 9px; gap: 5px; }
+            .nav-icon, .nav-icon img { width: 22px; height: 22px; }
+
+            /* Main */
+            .main { padding: 20px 16px 40px; }
+
+            /* Finder header */
+            .finder-header { padding: 16px 20px; }
+            .finder-header-title { font-size: 16px; }
+            .finder-body { padding: 20px; }
+
+            /* Steps — hide value text on tablet */
+            .step-value { display: none; }
+            .step-num { font-size: 22px; }
+            .step-label { font-size: 9px; }
+            .step-item { padding: 12px 16px 12px 28px; }
+            .step-item:first-child { padding-left: 14px; }
+
+            /* Selectors: 2 cols */
+            .selector-grid { grid-template-columns: 1fr 1fr; }
+
+            /* Results */
+            .results-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .results-title { font-size: 22px; }
+
+            /* Reverse */
+            .reverse-card { padding: 16px; }
+            .reverse-grid { grid-template-columns: 1fr auto; }
+        }
+
+        /* --- Mobile (≤600px) --- */
+        @media (max-width: 600px) {
+            /* Header: single logo only (Castrol), hide divider & valvoline on very small */
+            .header-inner { padding: 0 12px; }
+            .header-logo-wrap.castrol-wrap { width: 120px; }
+            .logo-divider { display: none; }
+            .header-logo-wrap.valvoline-wrap { width: 100px; }
+            .header-logos { gap: 8px; }
+            .header-logo-wrap { height: 38px; }
+
+            /* Hero */
+            .hero { padding: 28px 12px 0; }
+            .hero-title { font-size: clamp(32px, 11vw, 52px); margin-bottom: 10px; }
+            .hero-badge { font-size: 8px; letter-spacing: 1.5px; margin-bottom: 10px; }
+            .hero-desc { font-size: 12px; line-height: 1.5; }
+            .hero-text { padding-bottom: 22px; }
+
+            /* Nav */
+            .nav-item { padding: 10px 12px; font-size: 8px; gap: 4px; }
+            .nav-icon, .nav-icon img { width: 20px; height: 20px; }
+            .nav-container { padding: 0 4px; }
+
+            /* Main */
+            .main { padding: 14px 12px 36px; }
+
+            /* Finder card */
+            .finder-header { padding: 14px 16px; gap: 10px; }
+            .finder-header-icon { width: 30px; height: 30px; border-radius: 5px; }
+            .finder-header-icon svg { width: 16px; height: 16px; }
+            .finder-header-title { font-size: 14px; }
+            .finder-header-sub { font-size: 10px; }
+            .finder-body { padding: 14px 14px 18px; }
+            .finder-card { margin-bottom: 16px; }
+
+            /* Steps: compact pill row */
+            .steps {
+                gap: 2px;
+                margin-bottom: 18px;
+                flex-wrap: nowrap;
+            }
+            .step-item {
+                padding: 8px 10px 8px 20px;
+                clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%);
+            }
+            .step-item:first-child {
+                padding-left: 10px;
+                clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+            }
+            .step-num { font-size: 16px; }
+            .step-label { font-size: 8px; letter-spacing: 0; }
+            .step-value { display: none; }
+
+            /* Selectors: 1 column */
+            .selector-grid { grid-template-columns: 1fr; gap: 10px; }
+            .btn-search {
+                width: 100%; justify-content: center;
+                height: 50px; font-size: 16px;
+            }
+            .field-select, .field-input { height: 48px; font-size: 15px; }
+
+            /* Divider */
+            .divider-or { margin: 16px 0; }
+
+            /* Reverse card */
+            .reverse-card { padding: 14px; }
+            .reverse-title { font-size: 12px; margin-bottom: 10px; }
+            .reverse-grid { grid-template-columns: 1fr; gap: 10px; }
+            .btn-reverse { width: 100%; height: 50px; font-size: 15px; text-align: center; }
+
+            /* Results */
+            .results-grid { grid-template-columns: 1fr; gap: 14px; }
+            .results-title { font-size: 20px; }
+            .results-subtitle { font-size: 12px; }
+
+            /* Brand card header */
+            .brand-card-head { padding: 12px 14px; gap: 8px; }
+            .brand-logo-badge { width: 74px; height: 30px; }
+            .brand-logo-badge img { max-width: 64px; max-height: 22px; }
+            .brand-head-title { font-size: 13px; }
+            .brand-card-body { padding: 12px; }
+
+            /* Product block */
+            .product-img-wrap { width: 80px; padding: 8px; }
+            .brand-icon-wrap { width: 60px; height: 60px; }
+            .brand-icon-wrap img { width: 52px; height: 52px; }
+            .product-info { padding: 10px 12px 10px; }
+            .product-name { font-size: 16px; }
+            .product-name.recommended-pad { margin-top: 14px; }
+            .product-spec { font-size: 10px; margin-bottom: 8px; }
+            .product-cap { padding: 4px 9px; font-size: 10px; margin-bottom: 8px; }
+            .product-cap strong { font-size: 15px; }
+            .btn-detail { padding: 6px 14px; font-size: 11px; }
+            .recommend-badge { font-size: 8px; padding: 3px 10px 3px 8px; }
+
+            /* Modal: full screen on mobile */
+            .modal-overlay {
+                padding: 0;
+                align-items: flex-end;
+            }
+            .modal-box {
+                border-radius: 16px 16px 0 0;
+                margin: 0;
+                max-height: 92vh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .modal-topbar { height: 52px; padding: 0 14px; }
+            .modal-back { padding: 5px 12px; font-size: 11px; }
+            .modal-brand-logo-wrap { padding: 4px 8px; }
+            .modal-brand-logo { height: 22px; max-width: 110px; }
+            .modal-hero {
+                padding: 16px;
+                gap: 14px;
+                flex-direction: row;
+                align-items: center;
+            }
+            .modal-category-icon-wrap { width: 72px; height: 72px; border-radius: 10px; flex-shrink: 0; }
+            .modal-category-icon { width: 40px; height: 40px; }
+            .modal-brand-pill { font-size: 7px; }
+            .modal-product-name { font-size: 22px; margin-bottom: 4px; }
+            .modal-vehicle-tag { font-size: 11px; padding: 4px 10px; }
+            .modal-content { padding: 14px 16px 24px; }
+            .modal-cap-value { font-size: 30px; }
+            .modal-cap-box { padding: 12px 16px; }
+            .modal-section-text { font-size: 13px; line-height: 1.65; }
+        }
+
+        /* --- Extra small (≤380px) --- */
+        @media (max-width: 380px) {
+            .header-logo-wrap.castrol-wrap { width: 100px; }
+            .header-logo-wrap.valvoline-wrap { width: 85px; }
+            .hero-title { font-size: 30px; }
+            .nav-item { padding: 9px 10px; font-size: 7px; }
+            .nav-icon, .nav-icon img { width: 18px; height: 18px; }
+            .product-img-wrap { width: 70px; }
+            .brand-icon-wrap { width: 50px; height: 50px; }
+            .brand-icon-wrap img { width: 44px; height: 44px; }
+            .product-name { font-size: 14px; }
+            .finder-header-title { font-size: 12px; }
+            .modal-product-name { font-size: 18px; }
+        }
+
+        /* Touch-friendly tap targets */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-search, .btn-reverse, .btn-detail { min-height: 44px; }
+            .nav-item { min-width: 60px; }
+            .product-block:hover { transform: none; box-shadow: none; }
+            .btn-search:hover { transform: none; box-shadow: none; }
+        }
     </style>
 </head>
 <body>
@@ -647,7 +852,7 @@
                 </div>
                 <div class="field-group">
                     <label class="field-label">Năm sản xuất</label>
-                    <input class="field-input" id="yearInput" placeholder="Ví dụ: 2022">
+                    <input class="field-input" id="yearInput" placeholder="Ví dụ: 2022" inputmode="numeric">
                 </div>
                 <button class="btn-search" id="searchBtn">
                     Tìm kiếm
@@ -710,7 +915,6 @@ var CAT_ICONS = {
     hanghai: 'https://cdn-icons-png.flaticon.com/128/903/903255.png'
 };
 
-// Castrol and Valvoline logos - original links with Wikipedia fallback
 var CASTROL_LOGO = 'https://thelubricantoracle.castrol.com/images/brand_logo.jpeg';
 var CASTROL_LOGO_FB = 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Castrol_logo.svg/320px-Castrol_logo.svg.png';
 var VALVOLINE_LOGO = 'https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad';
@@ -884,7 +1088,6 @@ var ALLP = (function(){
 
 var curCat='oto';
 
-// ===== UI FUNCTIONS =====
 function updNav(cat){
     document.querySelectorAll('.nav-item').forEach(function(el){
         el.classList.toggle('active', el.getAttribute('data-category')===cat);
@@ -969,7 +1172,6 @@ function search(){
         var isRec=!!p.r;
         var info=catalog[p.n]||{};
         var cls=isCastrol?'c':'v';
-        // Brand logo for product card
         var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
         var brandLogoFb  = isCastrol ? CASTROL_LOGO_FB : VALVOLINE_LOGO_FB;
         var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
@@ -994,7 +1196,6 @@ function search(){
     }
 
     var h='';
-    // Castrol
     h+='<div class="brand-card">';
     h+='<div class="brand-card-head castrol">';
     h+='<div class="brand-logo-badge"><img src="'+CASTROL_LOGO+'" alt="Castrol" onerror="this.onerror=null;this.src=\''+CASTROL_LOGO_FB+'\'"></div>';
@@ -1008,7 +1209,6 @@ function search(){
     } else h+='<div class="no-result">Không có dữ liệu</div>';
     h+='</div></div>';
 
-    // Valvoline
     h+='<div class="brand-card">';
     h+='<div class="brand-card-head valvoline">';
     h+='<div class="brand-logo-badge"><img src="'+VALVOLINE_LOGO+'" alt="Valvoline" onerror="this.onerror=null;this.src=\''+VALVOLINE_LOGO_FB+'\'"></div>';
@@ -1050,17 +1250,10 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
     var info=catalog[name]||{s:'Đang cập nhật',adv:'Đang cập nhật',app:'Đang cập nhật'};
     var cls=isCastrol?'c':'v';
-    
-    // Use category nav icon for the product visual
     var catIconSrc = CAT_ICONS[catKey] || CAT_ICONS['oto'];
-    
-    // Brand logo for modal header
     var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
     var brandLogoFb  = isCastrol ? CASTROL_LOGO_FB : VALVOLINE_LOGO_FB;
-    
-    var brandLabel = isCastrol ? 'CASTROL' : 'VALVOLINE';
     var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
-    
     var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
     var mb=document.getElementById('modalBox');
     mb.innerHTML=
@@ -1070,7 +1263,7 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
         +'</div>'
         +'<div class="modal-hero">'
         +'<div class="modal-category-icon-wrap '+iconWrapClass+'">'
-        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'" onerror="this.style.opacity=0.3">'
+        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'">'
         +'<span class="modal-brand-pill">'+catLabel+'</span>'
         +'</div>'
         +'<div class="modal-hero-text">'
@@ -1097,7 +1290,6 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     document.body.style.overflow='hidden';
 }
 
-// Event listeners
 document.getElementById('navContainer').addEventListener('click',function(e){
     var t=e.target.closest('.nav-item');
     if(!t) return;
@@ -1118,7 +1310,6 @@ document.getElementById('modalOverlay').addEventListener('click',function(e){
     if(e.target===this){this.style.display='none';document.body.style.overflow='';}
 });
 
-// Init
 updNav('oto'); popBrands(); popReverse();
 </script>
 </body>
