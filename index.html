@@ -8,24 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --red: #007A33;
-            --red-dark: #005C26;
-            --red-light: #00A846;
+            --red: #CC0000;
+            --red-dark: #A30000;
+            --red-light: #FF3333;
+            /* Castrol Green */
+            --castrol-green: #1A7A3C;
+            --castrol-green-dark: #145E2E;
+            --castrol-green-light: #22A04F;
+            --castrol-green-bg: #F0FAF4;
+            --castrol-green-border: #A7D9B8;
+            /* Valvoline Blue - unchanged */
             --blue: #003087;
             --blue-dark: #001f5c;
-            --dark: #111111;
+            --dark: #003087;
+            /* Hero/Nav now Castrol green */
+            --hero-bg: #1A7A3C;
+            --hero-bg-mid: #145E2E;
+            --hero-bg-dark: #0D3D1E;
+            --nav-bg: #1A7A3C;
             --gray-100: #F7F7F7;
             --gray-200: #EEEEEE;
             --gray-300: #DDDDDD;
             --gray-500: #888888;
             --gray-700: #444444;
             --white: #FFFFFF;
-            --green: #1a7f3c;
+            --green: #1565C0;
             --font-display: 'Barlow Condensed', sans-serif;
             --font-body: 'Barlow', sans-serif;
         }
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--gray-100); color: var(--dark); }
+        body { font-family: var(--font-body); background: var(--gray-100); color: #111; }
 
         /* ===== HEADER ===== */
         .site-header {
@@ -54,9 +66,9 @@
             margin-left: auto; white-space: nowrap;
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO — Castrol Green ===== */
         .hero {
-            background: linear-gradient(135deg, #007A33 0%, #005225 60%, #002E14 100%);
+            background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg-mid) 60%, var(--hero-bg-dark) 100%);
             padding: 56px 24px 0;
             position: relative; overflow: hidden;
         }
@@ -103,10 +115,10 @@
         }
         .hero-oil-drop svg { width: 80px; height: 80px; opacity: .6; }
 
-        /* ===== NAV SCROLL OUTER ===== */
+        /* ===== NAV SCROLL OUTER — Castrol Green ===== */
         .nav-scroll-outer {
-            background: var(--dark);
-            border-bottom: 3px solid var(--red);
+            background: var(--nav-bg);
+            border-bottom: 3px solid rgba(0,0,0,.25);
             position: relative;
             display: flex;
             align-items: stretch;
@@ -151,16 +163,16 @@
             flex-shrink: 0; display: flex; flex-direction: column; align-items: center;
             padding: 14px 18px; cursor: pointer;
             border-bottom: 3px solid transparent; margin-bottom: -3px;
-            transition: all .25s; color: rgba(255,255,255,.5);
+            transition: all .25s; color: rgba(255,255,255,.6);
             font-size: 10px; font-weight: 700; letter-spacing: 1px;
             text-transform: uppercase; gap: 6px; font-family: var(--font-body);
             -webkit-tap-highlight-color: transparent;
         }
-        .nav-item:hover { color: rgba(255,255,255,.85); background: rgba(255,255,255,.05); }
-        .nav-item.active { color: white; border-bottom-color: var(--red); }
+        .nav-item:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); }
+        .nav-item.active { color: white; border-bottom-color: #FFDD00; }
         .nav-icon { width: 26px; height: 26px; }
-        .nav-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .55; }
-        .nav-item.active .nav-icon img { opacity: 1; filter: brightness(0) saturate(100%) invert(35%) sepia(90%) saturate(600%) hue-rotate(105deg) brightness(95%) contrast(110%); }
+        .nav-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .6; }
+        .nav-item.active .nav-icon img { opacity: 1; filter: brightness(0) invert(1); }
 
         /* ===== MAIN ===== */
         .main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 60px; }
@@ -174,11 +186,11 @@
             margin-bottom: 28px;
         }
         .finder-header {
-            background: var(--dark); padding: 20px 28px;
+            background: var(--castrol-green); padding: 20px 28px;
             display: flex; align-items: center; gap: 14px;
         }
         .finder-header-icon {
-            width: 36px; height: 36px; background: var(--red);
+            width: 36px; height: 36px; background: rgba(0,0,0,.2);
             border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
         .finder-header-icon svg { width: 20px; height: 20px; fill: white; }
@@ -189,7 +201,7 @@
             text-transform: uppercase; letter-spacing: .5px;
             line-height: 1;
         }
-        .finder-header-sub { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 3px; font-family: var(--font-body); }
+        .finder-header-sub { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 3px; font-family: var(--font-body); }
         .finder-body { padding: 28px; }
 
         /* Steps */
@@ -201,14 +213,14 @@
             clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
         }
         .step-item:first-child { padding-left: 20px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%); }
-        .step-item.active { background: var(--red); }
-        .step-item.done { background: var(--dark); }
+        .step-item.active { background: var(--castrol-green); }
+        .step-item.done { background: var(--castrol-green-dark); }
         .step-num { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: rgba(0,0,0,.12); line-height: 1; }
         .step-item.active .step-num, .step-item.done .step-num { color: rgba(255,255,255,.25); }
         .step-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; line-height: 1.2; margin-top: 2px; }
         .step-item.active .step-label { color: rgba(255,255,255,.9); }
         .step-item.done .step-label { color: rgba(255,255,255,.7); }
-        .step-value { font-size: 13px; font-weight: 600; color: var(--dark); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .step-value { font-size: 13px; font-weight: 600; color: #111; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .step-item.active .step-value, .step-item.done .step-value { color: white; }
 
         /* Selector Row */
@@ -228,7 +240,7 @@
             border: 2px solid var(--gray-300);
             border-radius: 6px;
             font-size: 14px; font-family: var(--font-body);
-            font-weight: 500; color: var(--dark);
+            font-weight: 500; color: #111;
             background: white;
             appearance: none; -webkit-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
@@ -236,10 +248,10 @@
             cursor: pointer; transition: all .2s;
         }
         .field-input { background-image: none; padding: 0 14px; }
-        .field-select:focus, .field-input:focus { border-color: var(--red); outline: none; box-shadow: 0 0 0 3px rgba(0,122,51,.12); }
+        .field-select:focus, .field-input:focus { border-color: var(--castrol-green); outline: none; box-shadow: 0 0 0 3px rgba(26,122,60,.12); }
         .btn-search {
             height: 46px; padding: 0 28px;
-            background: var(--red); color: white;
+            background: var(--castrol-green); color: white;
             border: none; border-radius: 6px;
             font-family: var(--font-display); font-size: 15px;
             font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
@@ -247,7 +259,7 @@
             display: flex; align-items: center; gap: 8px;
             -webkit-tap-highlight-color: transparent;
         }
-        .btn-search:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,122,51,.35); }
+        .btn-search:hover { background: var(--castrol-green-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,122,60,.4); }
         .btn-search:active { transform: translateY(0); }
         .btn-search svg { width: 18px; height: 18px; fill: white; }
 
@@ -275,30 +287,30 @@
         }
         .reverse-title::before {
             content: '';
-            display: block; width: 3px; height: 16px; background: var(--red);
+            display: block; width: 3px; height: 16px; background: var(--castrol-green);
             border-radius: 2px; flex-shrink: 0;
         }
         .reverse-grid { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: flex-end; }
         .btn-reverse {
             height: 46px; padding: 0 24px;
-            background: var(--dark); color: white;
+            background: var(--castrol-green-dark); color: white;
             border: none; border-radius: 6px;
             font-family: var(--font-display); font-size: 14px;
             font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
             cursor: pointer; transition: all .2s; white-space: nowrap;
             -webkit-tap-highlight-color: transparent;
         }
-        .btn-reverse:hover { background: #333; }
-        .btn-reverse:active { background: #555; }
+        .btn-reverse:hover { background: #0D3D1E; }
+        .btn-reverse:active { background: #082A14; }
         .reverse-results {
             margin-top: 14px; display: none;
             background: white; border-radius: 6px;
-            border-left: 4px solid var(--red);
+            border-left: 4px solid var(--castrol-green);
             padding: 14px 18px;
         }
         .reverse-results ul { margin: 8px 0 0 16px; }
         .reverse-results li { font-size: 13px; color: var(--gray-700); margin-bottom: 4px; }
-        .reverse-results .rv-title { font-weight: 700; font-size: 12px; color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
+        .reverse-results .rv-title { font-weight: 700; font-size: 12px; color: var(--castrol-green); text-transform: uppercase; letter-spacing: 1px; }
 
         /* ===== RESULTS ===== */
         .results-header {
@@ -308,7 +320,7 @@
         .results-title {
             font-family: var(--font-display);
             font-size: 28px; font-weight: 900; text-transform: uppercase;
-            color: var(--dark); letter-spacing: 1px;
+            color: #111; letter-spacing: 1px;
         }
         .results-subtitle { font-size: 13px; color: var(--gray-500); margin-top: 2px; font-family: var(--font-body); }
         .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -319,7 +331,8 @@
             padding: 14px 20px;
             display: flex; align-items: center; gap: 10px;
         }
-        .brand-card-head.castrol { background: var(--red); }
+        /* Castrol = Green, Valvoline = Blue (unchanged) */
+        .brand-card-head.castrol { background: var(--castrol-green); }
         .brand-card-head.valvoline { background: var(--dark); }
         .brand-logo-badge {
             background: white;
@@ -355,24 +368,32 @@
         }
         .product-block:last-child { margin-bottom: 0; }
         .product-block:hover { border-color: #C8C8C8; box-shadow: 0 4px 18px rgba(0,0,0,.09); transform: translateY(-1px); }
-        .product-block.recommended { border-color: var(--green); border-width: 2px; }
+        /* Castrol recommended = green border */
+        .product-block.recommended.castrol-prod { border-color: var(--castrol-green); border-width: 2px; }
+        /* Valvoline recommended = blue border (unchanged) */
+        .product-block.recommended.valvoline-prod { border-color: var(--green); border-width: 2px; }
         .recommend-badge {
             position: absolute; top: 0; left: 0;
-            background: var(--green); color: white;
+            color: white;
             font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
             text-transform: uppercase; padding: 4px 14px 4px 10px;
             border-radius: 0 0 10px 0; z-index: 2;
             font-family: var(--font-body);
         }
+        .recommend-badge.castrol-badge { background: var(--castrol-green); }
+        .recommend-badge.valvoline-badge { background: var(--green); }
         .product-inner { display: flex; align-items: stretch; }
         .product-img-wrap {
             width: 110px; flex-shrink: 0;
-            background: linear-gradient(160deg, #F0FFF4 0%, #E6F9EE 100%);
             border-right: 1px solid var(--gray-200);
             display: flex; align-items: center; justify-content: center;
             padding: 12px; flex-direction: column; gap: 6px;
             align-self: stretch;
         }
+        /* Castrol icon wrap = green tint */
+        .product-img-wrap.castrol-wrap-prod { background: linear-gradient(160deg, #E8F5EE 0%, #C8E6D3 100%); }
+        /* Valvoline icon wrap = blue tint (unchanged) */
+        .product-img-wrap.valvoline-wrap-prod { background: linear-gradient(160deg, #EEF2FF 0%, #DBEAFE 100%); }
         .brand-icon-wrap {
             width: 80px; height: 80px; border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
@@ -382,14 +403,14 @@
         .brand-icon-wrap img {
             width: 72px; height: 72px; object-fit: contain;
         }
-        .brand-icon-wrap.castrol-icon { background: #F0FFF4; border: 1.5px solid #BBF7D0; }
-        .brand-icon-wrap.valvoline-icon { background: #fff; border: 1.5px solid #e5e5e5; }
+        .brand-icon-wrap.castrol-icon { background: #F0FAF4; border: 1.5px solid #A7D9B8; }
+        .brand-icon-wrap.valvoline-icon { background: #EEF2FF; border: 1.5px solid #BFDBFE; }
 
         .product-img-wrap img.prod-logo { height: 16px; width: auto; max-width: 68px; object-fit: contain; opacity: .7; }
         .product-info { padding: 14px 16px 12px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
         .product-name {
             font-family: var(--font-display); font-size: 20px; font-weight: 800;
-            color: var(--dark); line-height: 1.05; margin-bottom: 5px; letter-spacing: .5px;
+            color: #111; line-height: 1.05; margin-bottom: 5px; letter-spacing: .5px;
             text-transform: uppercase;
         }
         .product-name.recommended-pad { margin-top: 16px; }
@@ -405,8 +426,8 @@
             font-family: var(--font-body);
         }
         .product-cap strong { font-size: 17px; font-weight: 800; font-family: var(--font-display); }
-        .product-cap strong.c { color: var(--red); }
-        .product-cap strong.v { color: var(--red); }
+        .product-cap strong.c { color: var(--castrol-green); }
+        .product-cap strong.v { color: var(--blue); }
         .btn-detail {
             display: inline-flex; align-items: center; gap: 7px;
             padding: 7px 18px; border: none; border-radius: 6px;
@@ -415,10 +436,10 @@
             cursor: pointer; transition: all .2s; width: fit-content; margin-top: auto;
             -webkit-tap-highlight-color: transparent;
         }
-        .btn-detail.c { background: var(--red); color: white; }
-        .btn-detail.c:hover { background: var(--red-dark); box-shadow: 0 3px 10px rgba(0,122,51,.3); }
+        .btn-detail.c { background: var(--castrol-green); color: white; }
+        .btn-detail.c:hover { background: var(--castrol-green-dark); box-shadow: 0 3px 10px rgba(26,122,60,.35); }
         .btn-detail.v { background: var(--dark); color: white; }
-        .btn-detail.v:hover { background: #333; box-shadow: 0 3px 10px rgba(0,0,0,.2); }
+        .btn-detail.v:hover { background: #002070; box-shadow: 0 3px 10px rgba(0,48,135,.3); }
         .btn-detail svg { width: 13px; height: 13px; fill: white; }
 
         .alt-heading {
@@ -447,7 +468,8 @@
             padding: 0 20px; height: 56px;
             display: flex; align-items: center; gap: 14px;
         }
-        .modal-topbar.c { background: var(--red); }
+        /* Castrol modal = green, Valvoline = blue */
+        .modal-topbar.c { background: var(--castrol-green); }
         .modal-topbar.v { background: var(--dark); }
         .modal-back {
             background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3);
@@ -481,38 +503,43 @@
             width: 90px; height: 90px;
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
-            background: linear-gradient(135deg, #F0FFF4 0%, #DCFCE7 100%);
             border-radius: 14px;
-            border: 2px solid #BBF7D0;
+            border: 2px solid;
             position: relative;
             overflow: hidden;
         }
         .modal-category-icon-wrap.castrol-wrap-modal {
-            background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%);
-            border-color: #6EE7B7;
+            background: linear-gradient(135deg, #E8F5EE 0%, #A7D9B8 60%);
+            border-color: #6DBF8A;
         }
         .modal-category-icon-wrap.valvoline-wrap-modal {
-            background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 100%);
-            border-color: #C7D2FE;
+            background: linear-gradient(135deg, #EEF2FF 0%, #DBEAFE 100%);
+            border-color: #93C5FD;
         }
         .modal-category-icon {
             width: 52px; height: 52px; object-fit: contain;
-            filter: brightness(0) saturate(100%) invert(27%) sepia(80%) saturate(700%) hue-rotate(110deg) brightness(90%) contrast(110%);
             opacity: 0.9;
+        }
+        .modal-category-icon-wrap.castrol-wrap-modal .modal-category-icon {
+            filter: brightness(0) saturate(100%) invert(28%) sepia(60%) saturate(800%) hue-rotate(105deg) brightness(80%) contrast(110%);
+        }
+        .modal-category-icon-wrap.valvoline-wrap-modal .modal-category-icon {
+            filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(1500%) hue-rotate(210deg) brightness(85%) contrast(120%);
         }
         .modal-brand-pill {
             position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
-            background: rgba(0,122,51,.12);
             border-radius: 4px; padding: 2px 8px;
             font-size: 8px; font-weight: 800; letter-spacing: 1px;
-            text-transform: uppercase; color: #007A33; white-space: nowrap;
+            text-transform: uppercase; white-space: nowrap;
             font-family: var(--font-body);
         }
+        .castrol-wrap-modal .modal-brand-pill { background: rgba(26,122,60,.15); color: #1A7A3C; }
+        .valvoline-wrap-modal .modal-brand-pill { background: rgba(0,48,135,.12); color: #003087; }
 
         .modal-hero-text {}
         .modal-product-name {
             font-family: var(--font-display); font-size: 30px; font-weight: 900;
-            color: var(--dark); line-height: 1; margin-bottom: 6px; letter-spacing: .5px;
+            color: #111; line-height: 1; margin-bottom: 6px; letter-spacing: .5px;
             text-transform: uppercase;
         }
         .modal-vehicle-tag {
@@ -546,7 +573,8 @@
             display: flex; align-items: center; gap: 20px;
         }
         .modal-cap-label { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); font-family: var(--font-body); }
-        .modal-cap-value { font-family: var(--font-display); font-size: 38px; font-weight: 800; color: var(--dark); line-height: 1; }
+        .modal-cap-value { font-family: var(--font-display); font-size: 38px; font-weight: 800; color: var(--castrol-green); line-height: 1; }
+        .modal-cap-value.v-cap { color: var(--dark); }
         .modal-cap-unit { font-size: 13px; font-weight: 500; color: var(--gray-500); margin-top: 3px; font-family: var(--font-body); }
 
         /* Footer */
@@ -950,238 +978,16 @@ var VALVOLINE_CATALOG = {
 };
 
 var DB = {
-    oto:{label:"Ôtô",brands:{
-        TOYOTA:{models:{
-            Camry:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",c:4.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:4.5}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.5,r:1},{n:"Valvoline SynPower 5W-30",c:4.5}]},
-            Vios:{e:{o:3.9},c:[{n:"Castrol EDGE 5W-30",c:3.9,r:1},{n:"Castrol GTX Ultraclean 10W-40",c:3.9},{n:"Castrol MAGNATEC 10W-40",c:3.9}],v:[{n:"Valvoline SynPower 5W-30",c:3.9,r:1},{n:"Valvoline Daily Protection 10W-40",c:3.9}]},
-            Fortuner:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol GTX Diesel 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]},
-            Innova:{e:{o:5.6},c:[{n:"Castrol EDGE 5W-30",c:5.6,r:1},{n:"Castrol MAGNATEC 5W-30",c:5.6}],v:[{n:"Valvoline SynPower 5W-30",c:5.6,r:1}]},
-            CorollaAltis:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},
-            CorollaCross:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},
-            Yaris:{e:{o:3.9},c:[{n:"Castrol EDGE 5W-30",c:3.9,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.9}],v:[{n:"Valvoline SynPower 5W-30",c:3.9,r:1}]},
-            VelozCross:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},
-            LandCruiser:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower 5W-30",c:5.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.5}]},
-            Hilux:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]}
-        }},
-        HONDA:{models:{
-            City:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol GTX Ultraclean 10W-40",c:3.8},{n:"Castrol MAGNATEC 10W-40",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline Daily Protection 10W-40",c:3.8}]},
-            Civic:{e:{o:3.7},c:[{n:"Castrol EDGE 0W-20",c:3.7,r:1},{n:"Castrol EDGE 5W-30",c:3.7}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.7,r:1},{n:"Valvoline SynPower 5W-30",c:3.7}]},
-            CRV:{e:{o:4},c:[{n:"Castrol EDGE 0W-20",c:4,r:1},{n:"Castrol EDGE 5W-30",c:4}],v:[{n:"Valvoline Modern Engine 0W-20",c:4,r:1},{n:"Valvoline SynPower 5W-30",c:4}]},
-            HRV:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]},
-            Accord:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]},
-            Brio:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},
-            Jazz:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]}
-        }},
-        FORD:{models:{
-            Ranger:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]},
-            Everest:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]},
-            Focus:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Territory:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Transit:{e:{o:8},c:[{n:"Castrol VECTON 10W-40",c:8,r:1},{n:"Castrol VECTON 15W-40",c:8}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:8,r:1},{n:"Valvoline Premium Blue 15W-40",c:8}]},
-            Tourneo:{e:{o:5},c:[{n:"Castrol EDGE 5W-30 C3",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]}
-        }},
-        MAZDA:{models:{
-            Mazda3:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},
-            CX5:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},
-            CX30:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},
-            CX8:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",c:4.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:4.5}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Mazda2:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]},
-            Mazda6:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            BT50:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},
-            CX50:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},
-            CX9:{e:{o:5.7},c:[{n:"Castrol EDGE 5W-30",c:5.7,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.7}],v:[{n:"Valvoline SynPower 5W-30",c:5.7,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.7}]}
-        }},
-        KIA:{models:{
-            Cerato:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1},{n:"Valvoline Daily Protection 10W-40",c:4}]},
-            Morning:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]},
-            Sorento:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},
-            Seltos:{e:{o:4.2},c:[{n:"Castrol EDGE 5W-30",c:4.2,r:1},{n:"Castrol MAGNATEC 5W-30",c:4.2}],v:[{n:"Valvoline SynPower 5W-30",c:4.2,r:1}]},
-            Sedona:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},
-            Sportage:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Carnival:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]},
-            K3:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},
-            Sonet:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",c:3.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.5}],v:[{n:"Valvoline SynPower 5W-30",c:3.5,r:1}]}
-        }},
-        HYUNDAI:{models:{
-            Elantra:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1},{n:"Valvoline Daily Protection 10W-40",c:4}]},
-            Grandi10:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]},
-            SantaFe:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},
-            Accent:{e:{o:3.8},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.8,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.8}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.8,r:1}]},
-            Tucson:{e:{o:4.3},c:[{n:"Castrol EDGE 5W-30",c:4.3,r:1},{n:"Castrol EDGE 5W-40",c:4.3}],v:[{n:"Valvoline SynPower 5W-30",c:4.3,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.3}]},
-            Starex:{e:{o:7.5},c:[{n:"Castrol GTX Diesel 15W-40",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:7.5,r:1},{n:"Valvoline Premium Blue 15W-40",c:7.5}]},
-            Custin:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30 C3",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:4.5,r:1}]},
-            Creta:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},
-            Palisade:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},
-            i10:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]}
-        }},
-        MITSUBISHI:{models:{
-            Xpander:{e:{o:4},c:[{n:"Castrol GTX Ultraclean 10W-40",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline Daily Protection 10W-40",c:4,r:1}]},
-            Outlander:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Triton:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},
-            Attrage:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]},
-            PajeroSport:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol VECTON 15W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:5.5}]},
-            Eclipse:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Galant:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]}
-        }},
-        NISSAN:{models:{
-            XTrail:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},
-            Navara:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 C3",c:6.5,r:1},{n:"Castrol VECTON 15W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:6.5}]},
-            Sunny:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},
-            Terra:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 C3",c:6.5,r:1},{n:"Castrol VECTON 15W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:6.5}]},
-            Kicks:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},
-            Almera:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",c:3.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.5}],v:[{n:"Valvoline SynPower 5W-30",c:3.5,r:1}]}
-        }},
-        SUZUKI:{models:{
-            Swift:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",c:3.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.5}],v:[{n:"Valvoline SynPower 5W-30",c:3.5,r:1}]},
-            Ertiga:{e:{o:4},c:[{n:"Castrol GTX Ultraclean 10W-40",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline Daily Protection 10W-40",c:4,r:1}]},
-            Ciaz:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},
-            XL7:{e:{o:4},c:[{n:"Castrol GTX Ultraclean 10W-40",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline Daily Protection 10W-40",c:4,r:1}]},
-            Vitara:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]}
-        }},
-        MERCEDES:{models:{
-            CClass:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},
-            EClass:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},
-            GLC:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},
-            GLE:{e:{o:8},c:[{n:"Castrol EDGE 5W-30 M",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline SynPower MST 5W-30",c:8,r:1}]},
-            AClass:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 M",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]},
-            Sprinter:{e:{o:9},c:[{n:"Castrol EDGE 5W-30 C3",c:9,r:1},{n:"Castrol VECTON 15W-40",c:9}],v:[{n:"Valvoline SynPower MST 5W-30",c:9,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:9}]}
-        }},
-        BMW:{models:{
-            S320i:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},
-            X3:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},
-            X5:{e:{o:8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline Modern Engine 0W-20",c:8,r:1},{n:"Valvoline SynPower MST 5W-30",c:8}]},
-            X1:{e:{o:5},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline Modern Engine 0W-20",c:5,r:1},{n:"Valvoline SynPower MST 5W-30",c:5}]},
-            i4:{e:{o:5.4},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.4,r:1},{n:"Castrol EDGE 5W-40",c:5.4}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.4,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.4}]}
-        }},
-        VINFAST:{models:{
-            Fadil:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},
-            LuxA20:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},
-            LuxSA20:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},
-            VF3:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},
-            VF5:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},
-            VF6:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},
-            VF7:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},
-            VF8:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},
-            VF9:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},
-            President:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]}
-        }},
-        LEXUS:{models:{
-            ES250:{e:{o:4.9},c:[{n:"Castrol EDGE 0W-20",c:4.9,r:1},{n:"Castrol EDGE 5W-30",c:4.9}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.9,r:1},{n:"Valvoline SynPower 5W-30",c:4.9}]},
-            RX350:{e:{o:5.7},c:[{n:"Castrol EDGE 0W-20",c:5.7,r:1},{n:"Castrol EDGE 5W-30",c:5.7}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.7,r:1},{n:"Valvoline SynPower 5W-30",c:5.7}]},
-            NX200:{e:{o:4.9},c:[{n:"Castrol EDGE 0W-20",c:4.9,r:1},{n:"Castrol EDGE 5W-30",c:4.9}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.9,r:1},{n:"Valvoline SynPower 5W-30",c:4.9}]},
-            LX570:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30",c:7.5,r:1},{n:"Castrol EDGE 5W-40",c:7.5}],v:[{n:"Valvoline SynPower 5W-30",c:7.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:7.5}]},
-            GX460:{e:{o:6.4},c:[{n:"Castrol EDGE 5W-30",c:6.4,r:1},{n:"Castrol EDGE 5W-40",c:6.4}],v:[{n:"Valvoline SynPower 5W-30",c:6.4,r:1},{n:"Valvoline SynPower MST 5W-30",c:6.4}]},
-            IS250:{e:{o:5.2},c:[{n:"Castrol EDGE 0W-20",c:5.2,r:1},{n:"Castrol EDGE 5W-30",c:5.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.2,r:1},{n:"Valvoline SynPower 5W-30",c:5.2}]}
-        }},
-        AUDI:{models:{
-            A4:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},
-            A5:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},
-            A6:{e:{o:6},c:[{n:"Castrol EDGE 5W-30",c:6,r:1},{n:"Castrol EDGE 5W-40",c:6}],v:[{n:"Valvoline SynPower MST 5W-30",c:6,r:1}]},
-            Q3:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:4.5,r:1}]},
-            Q5:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},
-            Q7:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]}
-        }},
-        VOLKSWAGEN:{models:{
-            Tiguan:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},
-            Teramont:{e:{o:6},c:[{n:"Castrol EDGE 5W-30",c:6,r:1},{n:"Castrol EDGE 5W-40",c:6}],v:[{n:"Valvoline SynPower MST 5W-30",c:6,r:1}]},
-            Passat:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},
-            Golf:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:4.5,r:1}]}
-        }},
-        ISUZU:{models:{
-            "D-Max":{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},
-            MUX:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]}
-        }},
-        CHEVROLET:{models:{
-            Colorado:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},
-            Trailblazer:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},
-            Spark:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},
-            Trax:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]}
-        }},
-        PORSCHE:{models:{
-            Cayenne:{e:{o:8.5},c:[{n:"Castrol EDGE 5W-30",c:8.5,r:1},{n:"Castrol EDGE 5W-40",c:8.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:8.5,r:1}]},
-            Macan:{e:{o:6},c:[{n:"Castrol EDGE 5W-30",c:6,r:1},{n:"Castrol EDGE 5W-40",c:6}],v:[{n:"Valvoline SynPower MST 5W-30",c:6,r:1}]}
-        }},
-        LANDROVER:{models:{
-            Defender:{e:{o:8},c:[{n:"Castrol EDGE 5W-30",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline SynPower MST 5W-30",c:8,r:1}]},
-            Discovery:{e:{o:8},c:[{n:"Castrol EDGE 5W-30",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline SynPower MST 5W-30",c:8,r:1}]},
-            RangeRover:{e:{o:8.5},c:[{n:"Castrol EDGE 5W-30",c:8.5,r:1},{n:"Castrol EDGE 5W-40",c:8.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:8.5,r:1}]}
-        }},
-        VOLVO:{models:{
-            XC90:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},
-            XC60:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]},
-            S60:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]}
-        }}
-    }},
-    xemay:{label:"Xe máy",brands:{
-        HONDA:{models:{WinnerX:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},Winner150:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},SHMode:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.8,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.8,r:1}]},SH125:{e:{o:0.9},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.9,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.9,r:1}]},SH150:{e:{o:0.9},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.9,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.9,r:1}]},AirBlade:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},CBR150R:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},CBR300R:{e:{o:1.8},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.8,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.8,r:1}]},CBR500R:{e:{o:3.2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3.2,r:1}]},PCX:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.8,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.8,r:1}]},ADV150:{e:{o:0.9},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.9,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.9,r:1}]},CB500X:{e:{o:3.2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3.2,r:1}]},CB650R:{e:{o:3.7},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3.7,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3.7,r:1}]},WaveAlpha:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Wave125i:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},SuperCub:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Vision:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Lead:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Future:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Supra:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Blade:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Click:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Vario:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},"CB1000R":{e:{o:4.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4.2,r:1}]}}},
-        YAMAHA:{models:{Exciter:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},NVX:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},NVX155:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},Sirius:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Jupiter:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},MT03:{e:{o:2.4},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2.4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2.4,r:1}]},MT07:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3,r:1}]},MT09:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3,r:1}]},R3:{e:{o:2.4},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2.4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2.4,r:1}]},R15:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},Janus:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},FreeGo:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Grande:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},Lexi:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},Latte:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},XSR155:{e:{o:1.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.2,r:1}]},Tracer:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3,r:1}]}}},
-        SUZUKI:{models:{Raider:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},"GSX-R150":{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},"GSX-S150":{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},"V-Strom650":{e:{o:3.3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.3,r:1}]},Viva:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Address:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Avenis:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]}}},
-        PIAGGIO:{models:{Primavera:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Sprint:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},GTS:{e:{o:1.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.2,r:1}]},Liberty:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Medley:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},MP3:{e:{o:1.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.5,r:1}]},Beverly:{e:{o:1.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.2,r:1}]},Zip:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Fly:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Elettrica:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]}}},
-        SYM:{models:{Attila:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Husky:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Galaxy:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Wolf:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},Elegant:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Star:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]}}},
-        KTM:{models:{Duke390:{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2,r:1}]},Duke250:{e:{o:1.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.5,r:1}]},Duke200:{e:{o:1.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.5,r:1}]},RC390:{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2,r:1}]},"Adventure390":{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2,r:1}]}}},
-        KAWASAKI:{models:{Ninja400:{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2,r:1}]},Ninja650:{e:{o:2.1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.1,r:1}]},ZX10R:{e:{o:3.8},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.8,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.8,r:1}]},Z900:{e:{o:2.9},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.9,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.9,r:1}]},Z650:{e:{o:2.1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.1,r:1}]},Versys650:{e:{o:2.1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.1,r:1}]}}},
-        DUCATI:{models:{Monster797:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3,r:1}]},Scrambler:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3,r:1}]},Panigale:{e:{o:4},c:[{n:"Castrol Power1 Ultimate 10W-50",c:4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:4,r:1}]}}},
-        BMWMOTO:{models:{S1000RR:{e:{o:4},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4,r:1}]},R1250GS:{e:{o:4.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4.5,r:1}]},F900R:{e:{o:3.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.5,r:1}]}}},
-        HARLEY:{models:{Sportster:{e:{o:2.8},c:[{n:"Castrol Power1 Ultimate 20W-50",c:2.8,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:2.8,r:1}]},SoftailFat:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 20W-50",c:3,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:3,r:1}]},Breakout:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 20W-50",c:3,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:3,r:1}]},PanAmerica:{e:{o:3.5},c:[{n:"Castrol Power1 Ultimate 20W-50",c:3.5,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:3.5,r:1}]}}},
-        TRIUMPH:{models:{Street750:{e:{o:3.6},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.6,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.6,r:1}]},Tiger900:{e:{o:4.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4.5,r:1}]},Bonneville:{e:{o:2.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.5,r:1}]}}}
-    }},
-    xetai:{label:"Xe tải mini",brands:{
-        ISUZU:{models:{QKR:{e:{o:6},c:[{n:"Castrol VECTON 10W-40",c:6,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:6,r:1}]},NPR:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},NLR:{e:{o:7},c:[{n:"Castrol VECTON 10W-40",c:7,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:7,r:1}]},NMR:{e:{o:9},c:[{n:"Castrol VECTON 15W-40",c:9,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:9,r:1}]}}},
-        HYUNDAI:{models:{PorterH150:{e:{o:7},c:[{n:"Castrol VECTON 10W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]},MightyN250:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},Porter2:{e:{o:7},c:[{n:"Castrol VECTON 10W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},
-        HINO:{models:{XZU720:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},XZU650:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},FG8J:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",c:16,r:1}]},FC9J:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]}}},
-        SUZUKI:{models:{CarryPro:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},Super:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]}}},
-        THACO:{models:{Towner750:{e:{o:3},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3,r:1}]},Towner990:{e:{o:3},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3,r:1}]},OllinS:{e:{o:6},c:[{n:"Castrol VECTON 15W-40",c:6,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:6,r:1}]},TF2:{e:{o:5},c:[{n:"Castrol VECTON 10W-40",c:5,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:5,r:1}]}}},
-        VEAM:{models:{VT260:{e:{o:6},c:[{n:"Castrol VECTON 10W-40",c:6,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:6,r:1}]},VT340:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]},VT490:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]}}},
-        DONGFENG:{models:{B180:{e:{o:6},c:[{n:"Castrol VECTON 10W-40",c:6,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:6,r:1}]},KC3:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},
-        KAMAZ:{models:{"65115":{e:{o:24},c:[{n:"Castrol VECTON 15W-40",c:24,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:24,r:1}]},"5490":{e:{o:35},c:[{n:"Castrol VECTON 15W-40",c:35,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:35,r:1}]}}}
-    }},
-    thuongmai:{label:"Thương mại",brands:{
-        THACO:{models:{County:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Universe:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]},Meadow:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]}}},
-        HYUNDAI:{models:{Solati:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1}]},County:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Universe:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]}}},
-        DAEWOO:{models:{BS090:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},BS106:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]},GDW6117:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]}}},
-        SAMCO:{models:{Felix:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Primas:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]}}},
-        HINO:{models:{BusAC:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]},R3:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]}}}
-    }},
-    nongnghiep:{label:"Nông nghiệp",brands:{
-        KUBOTA:{models:{L3408:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]},M9540:{e:{o:12},c:[{n:"Castrol VECTON 15W-40 CK-4",c:12,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:12,r:1}]},DC60:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},DC70:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},L4018:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},M7060:{e:{o:10},c:[{n:"Castrol VECTON 15W-40 CK-4",c:10,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:10,r:1}]},KX080:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},
-        YANMAR:{models:{YM1500:{e:{o:4},c:[{n:"Castrol VECTON 15W-40",c:4,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:4,r:1}]},YM3500:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},CA70:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},RS:{e:{o:5},c:[{n:"Castrol VECTON 15W-40",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},GR:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},
-        ISEKI:{models:{TU1700:{e:{o:5},c:[{n:"Castrol VECTON 15W-40",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},TG5390:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]}}},
-        JOHNDEERE:{models:{"5045D":{e:{o:10},c:[{n:"Castrol VECTON 15W-40 CK-4",c:10,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:10,r:1}]},"3036E":{e:{o:6},c:[{n:"Castrol VECTON 15W-40",c:6,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:6,r:1}]},"5075E":{e:{o:12},c:[{n:"Castrol VECTON 15W-40 CK-4",c:12,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:12,r:1}]}}},
-        CLAAS:{models:{Arion410:{e:{o:12},c:[{n:"Castrol VECTON 15W-40 CK-4",c:12,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:12,r:1}]},Tucano:{e:{o:20},c:[{n:"Castrol VECTON 15W-40 CK-4",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]}}},
-        "Máy gặt đập":{models:{"Kubota DC70":{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},"Kubota DC93":{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},"Yanmar AW70":{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]}}},
-        "Máy bơm nước":{models:{"Kubota JNX":{e:{o:2},c:[{n:"Castrol VECTON 15W-40",c:2,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:2,r:1}]},"Yanmar MNZ":{e:{o:2},c:[{n:"Castrol VECTON 15W-40",c:2,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:2,r:1}]}}}
-    }},
-    congtrinh:{label:"Xe cơ giới công trình",brands:{
-        KOMATSU:{models:{PC200:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:20,r:1}]},PC300:{e:{o:28},c:[{n:"Castrol VECTON 15W-40",c:28,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:28,r:1}]},D65:{e:{o:25},c:[{n:"Castrol VECTON 15W-40",c:25,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:25,r:1}]},WA380:{e:{o:18},c:[{n:"Castrol VECTON 15W-40",c:18,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:18,r:1}]},GD555:{e:{o:14},c:[{n:"Castrol VECTON 15W-40",c:14,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:14,r:1}]}}},
-        HITACHI:{models:{ZX200:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:20,r:1}]},ZX330:{e:{o:30},c:[{n:"Castrol VECTON 15W-40",c:30,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:30,r:1}]},ZX120:{e:{o:14},c:[{n:"Castrol VECTON 15W-40",c:14,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:14,r:1}]},ZX50:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]}}},
-        CATERPILLAR:{models:{"320GC":{e:{o:25},c:[{n:"Castrol VECTON 15W-40 CK-4",c:25,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:25,r:1}]},"336":{e:{o:38},c:[{n:"Castrol VECTON 15W-40 CK-4",c:38,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:38,r:1}]},"950H":{e:{o:20},c:[{n:"Castrol VECTON 15W-40 CK-4",c:20,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:20,r:1}]},"14M":{e:{o:30},c:[{n:"Castrol VECTON 15W-40 CK-4",c:30,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:30,r:1}]}}},
-        DOOSAN:{models:{DX225:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},DX300:{e:{o:28},c:[{n:"Castrol VECTON 15W-40",c:28,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:28,r:1}]},DX140:{e:{o:15},c:[{n:"Castrol VECTON 15W-40",c:15,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:15,r:1}]}}},
-        SANY:{models:{SY215C:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},SY365C:{e:{o:35},c:[{n:"Castrol VECTON 15W-40",c:35,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:35,r:1}]},SY75:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]}}},
-        XCMG:{models:{XE215C:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},XE335C:{e:{o:32},c:[{n:"Castrol VECTON 15W-40",c:32,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:32,r:1}]},LW500F:{e:{o:18},c:[{n:"Castrol VECTON 15W-40",c:18,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:18,r:1}]}}},
-        LIUGONG:{models:{CLG920E:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},CLG50C:{e:{o:18},c:[{n:"Castrol VECTON 15W-40",c:18,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:18,r:1}]}}},
-        VOLVO:{models:{EC220D:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},EC350E:{e:{o:32},c:[{n:"Castrol VECTON 15W-40",c:32,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:32,r:1}]},L120H:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:20,r:1}]}}}
-    }},
-    congnghiep:{label:"Công nghiệp",brands:{
-        "Máy nén khí":{models:{"Trục vít Atlas Copco":{e:{o:12},c:[{n:"Castrol Aircol PD 46",c:12,r:1}],v:[{n:"Valvoline SynGard AC 8000",c:12,r:1}]},"Trục vít Ingersoll Rand":{e:{o:10},c:[{n:"Castrol Aircol PD 46",c:10,r:1}],v:[{n:"Valvoline SynGard AC 8000",c:10,r:1}]},"Trục vít Kaeser":{e:{o:10},c:[{n:"Castrol Aircol PD 46",c:10,r:1}],v:[{n:"Valvoline SynGard AC 8000",c:10,r:1}]},"Piston Fusheng":{e:{o:5},c:[{n:"Castrol Aircol VDL 100",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},"Piston Gardner Denver":{e:{o:5},c:[{n:"Castrol Aircol VDL 100",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]}}},
-        "Hộp giảm tốc":{models:{"SEW":{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]},"Nord":{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]},"Siemens FLENDER":{e:{o:8},c:[{n:"Castrol Optigear BM 220",c:8,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:8,r:1}]},"Bonfiglioli":{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]}}},
-        "Máy ép nhựa":{models:{"Haitian":{e:{o:15},c:[{n:"Castrol Hyspin HVI 46",c:15,r:1}],v:[{n:"Valvoline Ultramax HVLP 46",c:15,r:1}]},"Chen Hsong":{e:{o:15},c:[{n:"Castrol Hyspin HVI 46",c:15,r:1}],v:[{n:"Valvoline Ultramax HVLP 46",c:15,r:1}]},"Engel":{e:{o:20},c:[{n:"Castrol Hyspin HVI 46",c:20,r:1}],v:[{n:"Valvoline Ultramax HVLP 46",c:20,r:1}]}}},
-        "Máy phát điện":{models:{"Cummins":{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},"Perkins":{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},"Mitsubishi S4L":{e:{o:5},c:[{n:"Castrol VECTON 15W-40",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},"Doosan":{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},"Deutz":{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]}}},
-        "Máy dệt":{models:{"Toyota JAT":{e:{o:5},c:[{n:"Castrol Hyspin Spindle E 10",c:5,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:5,r:1}]},"Picanol":{e:{o:8},c:[{n:"Castrol Hyspin Spindle E 10",c:8,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:8,r:1}]},"Tsudakoma":{e:{o:5},c:[{n:"Castrol Hyspin Spindle E 10",c:5,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:5,r:1}]}}},
-        "Băng tải / Conveyor":{models:{"Thep Hong Ky":{e:{o:8},c:[{n:"Castrol Optigear BM 220",c:8,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:8,r:1}]},"Rexnord":{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]}}},
-        "Máy CNC / Gia công":{models:{"Mazak":{e:{o:3},c:[{n:"Castrol Hyspin Spindle E 10",c:3,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:3,r:1}]},"DMG Mori":{e:{o:4},c:[{n:"Castrol Hyspin Spindle E 10",c:4,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:4,r:1}]},"Fanuc":{e:{o:3},c:[{n:"Castrol Hyspin Spindle E 10",c:3,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:3,r:1}]}}}
-    }},
-    hanghai:{label:"Hàng hải",brands:{
-        YANMAR:{models:{"6LY3-ETP":{e:{o:14},c:[{n:"Castrol TLX Plus 3040",c:14,r:1}],v:[{n:"Valvoline 40 PLUS",c:14,r:1}]},"6CX-ETP":{e:{o:18},c:[{n:"Castrol TLX Plus 3040",c:18,r:1}],v:[{n:"Valvoline 40 PLUS",c:18,r:1}]},"6EY18":{e:{o:25},c:[{n:"Castrol TLX Plus 4040",c:25,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:25,r:1}]},"4JH":{e:{o:6},c:[{n:"Castrol TLX Plus 3040",c:6,r:1}],v:[{n:"Valvoline 40 PLUS",c:6,r:1}]}}},
-        MITSUBISHI:{models:{"S6R2":{e:{o:35},c:[{n:"Castrol TLX Plus 4040",c:35,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:35,r:1}]},"S12H":{e:{o:55},c:[{n:"Castrol TLX Plus 4040",c:55,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:55,r:1}]},"S6B":{e:{o:28},c:[{n:"Castrol TLX Plus 4040",c:28,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:28,r:1}]}}},
-        CUMMINS:{models:{"KTA19":{e:{o:45},c:[{n:"Castrol TLX Plus 4040",c:45,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:45,r:1}]},"QSM11":{e:{o:28},c:[{n:"Castrol TLX Plus 3040",c:28,r:1}],v:[{n:"Valvoline 40 PLUS",c:28,r:1}]},"QSB6.7":{e:{o:14},c:[{n:"Castrol TLX Plus 3040",c:14,r:1}],v:[{n:"Valvoline 40 PLUS",c:14,r:1}]}}},
-        DOOSAN:{models:{"MD196TI":{e:{o:18},c:[{n:"Castrol TLX Plus 3040",c:18,r:1}],v:[{n:"Valvoline 40 PLUS",c:18,r:1}]},"L136TI":{e:{o:12},c:[{n:"Castrol TLX Plus 3040",c:12,r:1}],v:[{n:"Valvoline 40 PLUS",c:12,r:1}]}}},
-        CATERPILLAR:{models:{"C18":{e:{o:55},c:[{n:"Castrol TLX Plus 4040",c:55,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:55,r:1}]},"C9":{e:{o:28},c:[{n:"Castrol TLX Plus 4040",c:28,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:28,r:1}]},"C4.4":{e:{o:10},c:[{n:"Castrol TLX Plus 3040",c:10,r:1}],v:[{n:"Valvoline 40 PLUS",c:10,r:1}]}}},
-        MAN:{models:{"D2862":{e:{o:45},c:[{n:"Castrol TLX Plus 4040",c:45,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:45,r:1}]},"D2066":{e:{o:30},c:[{n:"Castrol TLX Plus 4040",c:30,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:30,r:1}]}}},
-        VOLVO:{models:{"D13":{e:{o:40},c:[{n:"Castrol TLX Plus 4040",c:40,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:40,r:1}]},"D9":{e:{o:28},c:[{n:"Castrol TLX Plus 3040",c:28,r:1}],v:[{n:"Valvoline 40 PLUS",c:28,r:1}]}}}
-    }}
+    oto:{label:"Ôtô",brands:{TOYOTA:{models:{Camry:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",c:4.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:4.5}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.5,r:1},{n:"Valvoline SynPower 5W-30",c:4.5}]},Vios:{e:{o:3.9},c:[{n:"Castrol EDGE 5W-30",c:3.9,r:1},{n:"Castrol GTX Ultraclean 10W-40",c:3.9},{n:"Castrol MAGNATEC 10W-40",c:3.9}],v:[{n:"Valvoline SynPower 5W-30",c:3.9,r:1},{n:"Valvoline Daily Protection 10W-40",c:3.9}]},Fortuner:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol GTX Diesel 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]},Innova:{e:{o:5.6},c:[{n:"Castrol EDGE 5W-30",c:5.6,r:1},{n:"Castrol MAGNATEC 5W-30",c:5.6}],v:[{n:"Valvoline SynPower 5W-30",c:5.6,r:1}]},CorollaAltis:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},CorollaCross:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},Yaris:{e:{o:3.9},c:[{n:"Castrol EDGE 5W-30",c:3.9,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.9}],v:[{n:"Valvoline SynPower 5W-30",c:3.9,r:1}]},VelozCross:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},LandCruiser:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower 5W-30",c:5.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.5}]},Hilux:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]}}},HONDA:{models:{City:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol GTX Ultraclean 10W-40",c:3.8},{n:"Castrol MAGNATEC 10W-40",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline Daily Protection 10W-40",c:3.8}]},Civic:{e:{o:3.7},c:[{n:"Castrol EDGE 0W-20",c:3.7,r:1},{n:"Castrol EDGE 5W-30",c:3.7}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.7,r:1},{n:"Valvoline SynPower 5W-30",c:3.7}]},CRV:{e:{o:4},c:[{n:"Castrol EDGE 0W-20",c:4,r:1},{n:"Castrol EDGE 5W-30",c:4}],v:[{n:"Valvoline Modern Engine 0W-20",c:4,r:1},{n:"Valvoline SynPower 5W-30",c:4}]},HRV:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]},Accord:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]},Brio:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},Jazz:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]}}},FORD:{models:{Ranger:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]},Everest:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7.5}]},Focus:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Territory:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Transit:{e:{o:8},c:[{n:"Castrol VECTON 10W-40",c:8,r:1},{n:"Castrol VECTON 15W-40",c:8}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:8,r:1},{n:"Valvoline Premium Blue 15W-40",c:8}]},Tourneo:{e:{o:5},c:[{n:"Castrol EDGE 5W-30 C3",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]}}},MAZDA:{models:{Mazda3:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},CX5:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},CX30:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},CX8:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",c:4.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:4.5}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Mazda2:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",c:3.8,r:1},{n:"Castrol EDGE 5W-30",c:3.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:3.8,r:1},{n:"Valvoline SynPower 5W-30",c:3.8}]},Mazda6:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},BT50:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},CX50:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",c:4.2,r:1},{n:"Castrol EDGE 5W-30",c:4.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.2,r:1},{n:"Valvoline SynPower 5W-30",c:4.2}]},CX9:{e:{o:5.7},c:[{n:"Castrol EDGE 5W-30",c:5.7,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.7}],v:[{n:"Valvoline SynPower 5W-30",c:5.7,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.7}]}}},KIA:{models:{Cerato:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1},{n:"Valvoline Daily Protection 10W-40",c:4}]},Morning:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]},Sorento:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},Seltos:{e:{o:4.2},c:[{n:"Castrol EDGE 5W-30",c:4.2,r:1},{n:"Castrol MAGNATEC 5W-30",c:4.2}],v:[{n:"Valvoline SynPower 5W-30",c:4.2,r:1}]},Sedona:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},Sportage:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Carnival:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]},K3:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},Sonet:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",c:3.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.5}],v:[{n:"Valvoline SynPower 5W-30",c:3.5,r:1}]}}},HYUNDAI:{models:{Elantra:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1},{n:"Valvoline Daily Protection 10W-40",c:4}]},Grandi10:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]},SantaFe:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},Accent:{e:{o:3.8},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.8,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.8}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.8,r:1}]},Tucson:{e:{o:4.3},c:[{n:"Castrol EDGE 5W-30",c:4.3,r:1},{n:"Castrol EDGE 5W-40",c:4.3}],v:[{n:"Valvoline SynPower 5W-30",c:4.3,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.3}]},Starex:{e:{o:7.5},c:[{n:"Castrol GTX Diesel 15W-40",c:7.5,r:1},{n:"Castrol VECTON 15W-40",c:7.5}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:7.5,r:1},{n:"Valvoline Premium Blue 15W-40",c:7.5}]},Custin:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30 C3",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:4.5,r:1}]},Creta:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},Palisade:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol MAGNATEC SUV 5W-30",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline SynPower 5W-30",c:5.5}]},i10:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]}}},MITSUBISHI:{models:{Xpander:{e:{o:4},c:[{n:"Castrol GTX Ultraclean 10W-40",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline Daily Protection 10W-40",c:4,r:1}]},Outlander:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Triton:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},Attrage:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.2,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.2}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.2,r:1}]},PajeroSport:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",c:5.5,r:1},{n:"Castrol VECTON 15W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:5.5}]},Eclipse:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Galant:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]}}},NISSAN:{models:{XTrail:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]},Navara:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 C3",c:6.5,r:1},{n:"Castrol VECTON 15W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:6.5}]},Sunny:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},Terra:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 C3",c:6.5,r:1},{n:"Castrol VECTON 15W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:6.5}]},Kicks:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},Almera:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",c:3.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.5}],v:[{n:"Valvoline SynPower 5W-30",c:3.5,r:1}]}}},SUZUKI:{models:{Swift:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",c:3.5,r:1},{n:"Castrol MAGNATEC 5W-30",c:3.5}],v:[{n:"Valvoline SynPower 5W-30",c:3.5,r:1}]},Ertiga:{e:{o:4},c:[{n:"Castrol GTX Ultraclean 10W-40",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline Daily Protection 10W-40",c:4,r:1}]},Ciaz:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},XL7:{e:{o:4},c:[{n:"Castrol GTX Ultraclean 10W-40",c:4,r:1},{n:"Castrol MAGNATEC 10W-40",c:4}],v:[{n:"Valvoline Daily Protection 10W-40",c:4,r:1}]},Vitara:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]}}},MERCEDES:{models:{CClass:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},EClass:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},GLC:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},GLE:{e:{o:8},c:[{n:"Castrol EDGE 5W-30 M",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline SynPower MST 5W-30",c:8,r:1}]},AClass:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 M",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]},Sprinter:{e:{o:9},c:[{n:"Castrol EDGE 5W-30 C3",c:9,r:1},{n:"Castrol VECTON 15W-40",c:9}],v:[{n:"Valvoline SynPower MST 5W-30",c:9,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:9}]}}},BMW:{models:{S320i:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},X3:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},X5:{e:{o:8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline Modern Engine 0W-20",c:8,r:1},{n:"Valvoline SynPower MST 5W-30",c:8}]},X1:{e:{o:5},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline Modern Engine 0W-20",c:5,r:1},{n:"Valvoline SynPower MST 5W-30",c:5}]},i4:{e:{o:5.4},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.4,r:1},{n:"Castrol EDGE 5W-40",c:5.4}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.4,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.4}]}}},VINFAST:{models:{Fadil:{e:{o:4},c:[{n:"Castrol EDGE 5W-30",c:4,r:1},{n:"Castrol MAGNATEC 5W-30",c:4}],v:[{n:"Valvoline SynPower 5W-30",c:4,r:1}]},LuxA20:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},LuxSA20:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]},VF3:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},VF5:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},VF6:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},VF7:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},VF8:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},VF9:{e:{o:0},c:[{n:"Castrol EDGE 0W-20",c:0,r:1}],v:[{n:"Valvoline Modern Engine 0W-20",c:0,r:1}]},President:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",c:5.8,r:1},{n:"Castrol EDGE 5W-40",c:5.8}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.8,r:1},{n:"Valvoline SynPower MST 5W-30",c:5.8}]}}},LEXUS:{models:{ES250:{e:{o:4.9},c:[{n:"Castrol EDGE 0W-20",c:4.9,r:1},{n:"Castrol EDGE 5W-30",c:4.9}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.9,r:1},{n:"Valvoline SynPower 5W-30",c:4.9}]},RX350:{e:{o:5.7},c:[{n:"Castrol EDGE 0W-20",c:5.7,r:1},{n:"Castrol EDGE 5W-30",c:5.7}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.7,r:1},{n:"Valvoline SynPower 5W-30",c:5.7}]},NX200:{e:{o:4.9},c:[{n:"Castrol EDGE 0W-20",c:4.9,r:1},{n:"Castrol EDGE 5W-30",c:4.9}],v:[{n:"Valvoline Modern Engine 0W-20",c:4.9,r:1},{n:"Valvoline SynPower 5W-30",c:4.9}]},LX570:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30",c:7.5,r:1},{n:"Castrol EDGE 5W-40",c:7.5}],v:[{n:"Valvoline SynPower 5W-30",c:7.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:7.5}]},GX460:{e:{o:6.4},c:[{n:"Castrol EDGE 5W-30",c:6.4,r:1},{n:"Castrol EDGE 5W-40",c:6.4}],v:[{n:"Valvoline SynPower 5W-30",c:6.4,r:1},{n:"Valvoline SynPower MST 5W-30",c:6.4}]},IS250:{e:{o:5.2},c:[{n:"Castrol EDGE 0W-20",c:5.2,r:1},{n:"Castrol EDGE 5W-30",c:5.2}],v:[{n:"Valvoline Modern Engine 0W-20",c:5.2,r:1},{n:"Valvoline SynPower 5W-30",c:5.2}]}}},AUDI:{models:{A4:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},A5:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},A6:{e:{o:6},c:[{n:"Castrol EDGE 5W-30",c:6,r:1},{n:"Castrol EDGE 5W-40",c:6}],v:[{n:"Valvoline SynPower MST 5W-30",c:6,r:1}]},Q3:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:4.5,r:1}]},Q5:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},Q7:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]}}},VOLKSWAGEN:{models:{Tiguan:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},Teramont:{e:{o:6},c:[{n:"Castrol EDGE 5W-30",c:6,r:1},{n:"Castrol EDGE 5W-40",c:6}],v:[{n:"Valvoline SynPower MST 5W-30",c:6,r:1}]},Passat:{e:{o:5},c:[{n:"Castrol EDGE 5W-30",c:5,r:1},{n:"Castrol EDGE 5W-40",c:5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5,r:1}]},Golf:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:4.5,r:1}]}}},ISUZU:{models:{"D-Max":{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},MUX:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]}}},CHEVROLET:{models:{Colorado:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},Trailblazer:{e:{o:7},c:[{n:"Castrol EDGE 5W-30 C3",c:7,r:1},{n:"Castrol VECTON 15W-40",c:7}],v:[{n:"Valvoline SynPower MST 5W-30",c:7,r:1},{n:"Valvoline All-Fleet Plus 15W-40",c:7}]},Spark:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1},{n:"Castrol MAGNATEC 10W-40",c:3.5}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},Trax:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",c:4.5,r:1},{n:"Castrol EDGE 5W-40",c:4.5}],v:[{n:"Valvoline SynPower 5W-30",c:4.5,r:1},{n:"Valvoline SynPower MST 5W-30",c:4.5}]}}},PORSCHE:{models:{Cayenne:{e:{o:8.5},c:[{n:"Castrol EDGE 5W-30",c:8.5,r:1},{n:"Castrol EDGE 5W-40",c:8.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:8.5,r:1}]},Macan:{e:{o:6},c:[{n:"Castrol EDGE 5W-30",c:6,r:1},{n:"Castrol EDGE 5W-40",c:6}],v:[{n:"Valvoline SynPower MST 5W-30",c:6,r:1}]}}},LANDROVER:{models:{Defender:{e:{o:8},c:[{n:"Castrol EDGE 5W-30",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline SynPower MST 5W-30",c:8,r:1}]},Discovery:{e:{o:8},c:[{n:"Castrol EDGE 5W-30",c:8,r:1},{n:"Castrol EDGE 5W-40",c:8}],v:[{n:"Valvoline SynPower MST 5W-30",c:8,r:1}]},RangeRover:{e:{o:8.5},c:[{n:"Castrol EDGE 5W-30",c:8.5,r:1},{n:"Castrol EDGE 5W-40",c:8.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:8.5,r:1}]}}},VOLVO:{models:{XC90:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30",c:6.5,r:1},{n:"Castrol EDGE 5W-40",c:6.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:6.5,r:1}]},XC60:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]},S60:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",c:5.5,r:1},{n:"Castrol EDGE 5W-40",c:5.5}],v:[{n:"Valvoline SynPower MST 5W-30",c:5.5,r:1}]}}}}},
+    xemay:{label:"Xe máy",brands:{HONDA:{models:{WinnerX:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},Winner150:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},SHMode:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.8,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.8,r:1}]},SH125:{e:{o:0.9},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.9,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.9,r:1}]},SH150:{e:{o:0.9},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.9,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.9,r:1}]},AirBlade:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},CBR150R:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},CBR300R:{e:{o:1.8},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.8,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.8,r:1}]},CBR500R:{e:{o:3.2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3.2,r:1}]},PCX:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.8,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.8,r:1}]},ADV150:{e:{o:0.9},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:0.9,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:0.9,r:1}]},CB500X:{e:{o:3.2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3.2,r:1}]},CB650R:{e:{o:3.7},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3.7,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3.7,r:1}]},WaveAlpha:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Wave125i:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},SuperCub:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Vision:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Lead:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Future:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Supra:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Blade:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Click:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Vario:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},"CB1000R":{e:{o:4.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4.2,r:1}]}}},YAMAHA:{models:{Exciter:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},NVX:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},NVX155:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},Sirius:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Jupiter:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},MT03:{e:{o:2.4},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2.4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2.4,r:1}]},MT07:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3,r:1}]},MT09:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3,r:1}]},R3:{e:{o:2.4},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2.4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2.4,r:1}]},R15:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},Janus:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},FreeGo:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Grande:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},Lexi:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},Latte:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},XSR155:{e:{o:1.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.2,r:1}]},Tracer:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3,r:1}]}}},SUZUKI:{models:{Raider:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},"GSX-R150":{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},"GSX-S150":{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},"V-Strom650":{e:{o:3.3},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.3,r:1}]},Viva:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:0.8,r:1}]},Address:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Avenis:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]}}},PIAGGIO:{models:{Primavera:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Sprint:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},GTS:{e:{o:1.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.2,r:1}]},Liberty:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Medley:{e:{o:1},c:[{n:"Castrol Power1 Scooter Ultimate 5W-40",c:1,r:1}],v:[{n:"Valvoline Scooter Ultimate 5W-40",c:1,r:1}]},MP3:{e:{o:1.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.5,r:1}]},Beverly:{e:{o:1.2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.2,r:1}]},Zip:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Fly:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Elettrica:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]}}},SYM:{models:{Attila:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Husky:{e:{o:1},c:[{n:"Castrol Power1 4T 10W-30",c:1,r:1}],v:[{n:"Valvoline Premium 4T 10W-30",c:1,r:1}]},Galaxy:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Wolf:{e:{o:1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1,r:1}]},Elegant:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]},Star:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",c:0.8,r:1}],v:[{n:"Valvoline Scooter 4T 10W-30",c:0.8,r:1}]}}},KTM:{models:{Duke390:{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2,r:1}]},Duke250:{e:{o:1.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.5,r:1}]},Duke200:{e:{o:1.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:1.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:1.5,r:1}]},RC390:{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2,r:1}]},"Adventure390":{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-50",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:2,r:1}]}}},KAWASAKI:{models:{Ninja400:{e:{o:2},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2,r:1}]},Ninja650:{e:{o:2.1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.1,r:1}]},ZX10R:{e:{o:3.8},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.8,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.8,r:1}]},Z900:{e:{o:2.9},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.9,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.9,r:1}]},Z650:{e:{o:2.1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.1,r:1}]},Versys650:{e:{o:2.1},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.1,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.1,r:1}]}}},DUCATI:{models:{Monster797:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3,r:1}]},Scrambler:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 10W-50",c:3,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:3,r:1}]},Panigale:{e:{o:4},c:[{n:"Castrol Power1 Ultimate 10W-50",c:4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",c:4,r:1}]}}},BMWMOTO:{models:{S1000RR:{e:{o:4},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4,r:1}]},R1250GS:{e:{o:4.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4.5,r:1}]},F900R:{e:{o:3.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.5,r:1}]}}},HARLEY:{models:{Sportster:{e:{o:2.8},c:[{n:"Castrol Power1 Ultimate 20W-50",c:2.8,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:2.8,r:1}]},SoftailFat:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 20W-50",c:3,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:3,r:1}]},Breakout:{e:{o:3},c:[{n:"Castrol Power1 Ultimate 20W-50",c:3,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:3,r:1}]},PanAmerica:{e:{o:3.5},c:[{n:"Castrol Power1 Ultimate 20W-50",c:3.5,r:1}],v:[{n:"Valvoline VR1 Racing 20W-50",c:3.5,r:1}]}}},TRIUMPH:{models:{Street750:{e:{o:3.6},c:[{n:"Castrol Power1 Ultimate 10W-40",c:3.6,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:3.6,r:1}]},Tiger900:{e:{o:4.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:4.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:4.5,r:1}]},Bonneville:{e:{o:2.5},c:[{n:"Castrol Power1 Ultimate 10W-40",c:2.5,r:1}],v:[{n:"Valvoline SynPower 4T 10W-40",c:2.5,r:1}]}}}}},
+    xetai:{label:"Xe tải mini",brands:{ISUZU:{models:{QKR:{e:{o:6},c:[{n:"Castrol VECTON 10W-40",c:6,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:6,r:1}]},NPR:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},NLR:{e:{o:7},c:[{n:"Castrol VECTON 10W-40",c:7,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:7,r:1}]},NMR:{e:{o:9},c:[{n:"Castrol VECTON 15W-40",c:9,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:9,r:1}]}}},HYUNDAI:{models:{PorterH150:{e:{o:7},c:[{n:"Castrol VECTON 10W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]},MightyN250:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},Porter2:{e:{o:7},c:[{n:"Castrol VECTON 10W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},HINO:{models:{XZU720:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},XZU650:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},FG8J:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",c:16,r:1}]},FC9J:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]}}},SUZUKI:{models:{CarryPro:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]},Super:{e:{o:3.5},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3.5,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3.5,r:1}]}}},THACO:{models:{Towner750:{e:{o:3},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3,r:1}]},Towner990:{e:{o:3},c:[{n:"Castrol GTX Ultraclean 10W-40",c:3,r:1}],v:[{n:"Valvoline Daily Protection 10W-40",c:3,r:1}]},OllinS:{e:{o:6},c:[{n:"Castrol VECTON 15W-40",c:6,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:6,r:1}]},TF2:{e:{o:5},c:[{n:"Castrol VECTON 10W-40",c:5,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:5,r:1}]}}},VEAM:{models:{VT260:{e:{o:6},c:[{n:"Castrol VECTON 10W-40",c:6,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:6,r:1}]},VT340:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]},VT490:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]}}},DONGFENG:{models:{B180:{e:{o:6},c:[{n:"Castrol VECTON 10W-40",c:6,r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",c:6,r:1}]},KC3:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},KAMAZ:{models:{"65115":{e:{o:24},c:[{n:"Castrol VECTON 15W-40",c:24,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:24,r:1}]},"5490":{e:{o:35},c:[{n:"Castrol VECTON 15W-40",c:35,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:35,r:1}]}}}}},
+    thuongmai:{label:"Thương mại",brands:{THACO:{models:{County:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Universe:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]},Meadow:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]}}},HYUNDAI:{models:{Solati:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",c:7.5,r:1}],v:[{n:"Valvoline SynPower MST 5W-30",c:7.5,r:1}]},County:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Universe:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]}}},DAEWOO:{models:{BS090:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},BS106:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]},GDW6117:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]}}},SAMCO:{models:{Felix:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Primas:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]}}},HINO:{models:{BusAC:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]},R3:{e:{o:16},c:[{n:"Castrol VECTON 15W-40",c:16,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:16,r:1}]}}}}},
+    nongnghiep:{label:"Nông nghiệp",brands:{KUBOTA:{models:{L3408:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]},M9540:{e:{o:12},c:[{n:"Castrol VECTON 15W-40 CK-4",c:12,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:12,r:1}]},DC60:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},DC70:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},L4018:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},M7060:{e:{o:10},c:[{n:"Castrol VECTON 15W-40 CK-4",c:10,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:10,r:1}]},KX080:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},YANMAR:{models:{YM1500:{e:{o:4},c:[{n:"Castrol VECTON 15W-40",c:4,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:4,r:1}]},YM3500:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},CA70:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},RS:{e:{o:5},c:[{n:"Castrol VECTON 15W-40",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},GR:{e:{o:7},c:[{n:"Castrol VECTON 15W-40",c:7,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:7,r:1}]}}},ISEKI:{models:{TU1700:{e:{o:5},c:[{n:"Castrol VECTON 15W-40",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},TG5390:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]}}},JOHNDEERE:{models:{"5045D":{e:{o:10},c:[{n:"Castrol VECTON 15W-40 CK-4",c:10,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:10,r:1}]},"3036E":{e:{o:6},c:[{n:"Castrol VECTON 15W-40",c:6,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:6,r:1}]},"5075E":{e:{o:12},c:[{n:"Castrol VECTON 15W-40 CK-4",c:12,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:12,r:1}]}}},CLAAS:{models:{Arion410:{e:{o:12},c:[{n:"Castrol VECTON 15W-40 CK-4",c:12,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:12,r:1}]},Tucano:{e:{o:20},c:[{n:"Castrol VECTON 15W-40 CK-4",c:20,r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",c:20,r:1}]}}}}},
+    congtrinh:{label:"Xe cơ giới công trình",brands:{KOMATSU:{models:{PC200:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:20,r:1}]},PC300:{e:{o:28},c:[{n:"Castrol VECTON 15W-40",c:28,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:28,r:1}]},D65:{e:{o:25},c:[{n:"Castrol VECTON 15W-40",c:25,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:25,r:1}]},WA380:{e:{o:18},c:[{n:"Castrol VECTON 15W-40",c:18,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:18,r:1}]},GD555:{e:{o:14},c:[{n:"Castrol VECTON 15W-40",c:14,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:14,r:1}]}}},HITACHI:{models:{ZX200:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:20,r:1}]},ZX330:{e:{o:30},c:[{n:"Castrol VECTON 15W-40",c:30,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:30,r:1}]},ZX120:{e:{o:14},c:[{n:"Castrol VECTON 15W-40",c:14,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:14,r:1}]},ZX50:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]}}},CATERPILLAR:{models:{"320GC":{e:{o:25},c:[{n:"Castrol VECTON 15W-40 CK-4",c:25,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:25,r:1}]},"336":{e:{o:38},c:[{n:"Castrol VECTON 15W-40 CK-4",c:38,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:38,r:1}]},"950H":{e:{o:20},c:[{n:"Castrol VECTON 15W-40 CK-4",c:20,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:20,r:1}]},"14M":{e:{o:30},c:[{n:"Castrol VECTON 15W-40 CK-4",c:30,r:1}],v:[{n:"Valvoline Premium Blue GEO 15W-40",c:30,r:1}]}}},DOOSAN:{models:{DX225:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},DX300:{e:{o:28},c:[{n:"Castrol VECTON 15W-40",c:28,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:28,r:1}]},DX140:{e:{o:15},c:[{n:"Castrol VECTON 15W-40",c:15,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:15,r:1}]}}},SANY:{models:{SY215C:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},SY365C:{e:{o:35},c:[{n:"Castrol VECTON 15W-40",c:35,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:35,r:1}]},SY75:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]}}},XCMG:{models:{XE215C:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},XE335C:{e:{o:32},c:[{n:"Castrol VECTON 15W-40",c:32,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:32,r:1}]},LW500F:{e:{o:18},c:[{n:"Castrol VECTON 15W-40",c:18,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:18,r:1}]}}},LIUGONG:{models:{CLG920E:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},CLG50C:{e:{o:18},c:[{n:"Castrol VECTON 15W-40",c:18,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:18,r:1}]}}},VOLVO:{models:{EC220D:{e:{o:22},c:[{n:"Castrol VECTON 15W-40",c:22,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:22,r:1}]},EC350E:{e:{o:32},c:[{n:"Castrol VECTON 15W-40",c:32,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:32,r:1}]},L120H:{e:{o:20},c:[{n:"Castrol VECTON 15W-40",c:20,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:20,r:1}]}}}}},
+    congnghiep:{label:"Công nghiệp",brands:{"Máy nén khí":{models:{"Trục vít Atlas Copco":{e:{o:12},c:[{n:"Castrol Aircol PD 46",c:12,r:1}],v:[{n:"Valvoline SynGard AC 8000",c:12,r:1}]},"Trục vít Ingersoll Rand":{e:{o:10},c:[{n:"Castrol Aircol PD 46",c:10,r:1}],v:[{n:"Valvoline SynGard AC 8000",c:10,r:1}]},"Trục vít Kaeser":{e:{o:10},c:[{n:"Castrol Aircol PD 46",c:10,r:1}],v:[{n:"Valvoline SynGard AC 8000",c:10,r:1}]},"Piston Fusheng":{e:{o:5},c:[{n:"Castrol Aircol VDL 100",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},"Piston Gardner Denver":{e:{o:5},c:[{n:"Castrol Aircol VDL 100",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]}}},"Hộp giảm tốc":{models:{SEW:{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]},Nord:{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]},"Siemens FLENDER":{e:{o:8},c:[{n:"Castrol Optigear BM 220",c:8,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:8,r:1}]},Bonfiglioli:{e:{o:5},c:[{n:"Castrol Optigear BM 220",c:5,r:1}],v:[{n:"Valvoline SynPower Gear Oil 220",c:5,r:1}]}}},"Máy ép nhựa":{models:{Haitian:{e:{o:15},c:[{n:"Castrol Hyspin HVI 46",c:15,r:1}],v:[{n:"Valvoline Ultramax HVLP 46",c:15,r:1}]},"Chen Hsong":{e:{o:15},c:[{n:"Castrol Hyspin HVI 46",c:15,r:1}],v:[{n:"Valvoline Ultramax HVLP 46",c:15,r:1}]},Engel:{e:{o:20},c:[{n:"Castrol Hyspin HVI 46",c:20,r:1}],v:[{n:"Valvoline Ultramax HVLP 46",c:20,r:1}]}}},"Máy phát điện":{models:{Cummins:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]},Perkins:{e:{o:8},c:[{n:"Castrol VECTON 15W-40",c:8,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:8,r:1}]},"Mitsubishi S4L":{e:{o:5},c:[{n:"Castrol VECTON 15W-40",c:5,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:5,r:1}]},Doosan:{e:{o:12},c:[{n:"Castrol VECTON 15W-40",c:12,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:12,r:1}]},Deutz:{e:{o:10},c:[{n:"Castrol VECTON 15W-40",c:10,r:1}],v:[{n:"Valvoline Premium Blue 15W-40",c:10,r:1}]}}},"Máy dệt":{models:{"Toyota JAT":{e:{o:5},c:[{n:"Castrol Hyspin Spindle E 10",c:5,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:5,r:1}]},Picanol:{e:{o:8},c:[{n:"Castrol Hyspin Spindle E 10",c:8,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:8,r:1}]},Tsudakoma:{e:{o:5},c:[{n:"Castrol Hyspin Spindle E 10",c:5,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:5,r:1}]}}},"Máy CNC / Gia công":{models:{Mazak:{e:{o:3},c:[{n:"Castrol Hyspin Spindle E 10",c:3,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:3,r:1}]},"DMG Mori":{e:{o:4},c:[{n:"Castrol Hyspin Spindle E 10",c:4,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:4,r:1}]},Fanuc:{e:{o:3},c:[{n:"Castrol Hyspin Spindle E 10",c:3,r:1}],v:[{n:"Valvoline Light Spindle Oil 10",c:3,r:1}]}}}}},
+    hanghai:{label:"Hàng hải",brands:{YANMAR:{models:{"6LY3-ETP":{e:{o:14},c:[{n:"Castrol TLX Plus 3040",c:14,r:1}],v:[{n:"Valvoline 40 PLUS",c:14,r:1}]},"6CX-ETP":{e:{o:18},c:[{n:"Castrol TLX Plus 3040",c:18,r:1}],v:[{n:"Valvoline 40 PLUS",c:18,r:1}]},"6EY18":{e:{o:25},c:[{n:"Castrol TLX Plus 4040",c:25,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:25,r:1}]},"4JH":{e:{o:6},c:[{n:"Castrol TLX Plus 3040",c:6,r:1}],v:[{n:"Valvoline 40 PLUS",c:6,r:1}]}}},MITSUBISHI:{models:{S6R2:{e:{o:35},c:[{n:"Castrol TLX Plus 4040",c:35,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:35,r:1}]},S12H:{e:{o:55},c:[{n:"Castrol TLX Plus 4040",c:55,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:55,r:1}]},S6B:{e:{o:28},c:[{n:"Castrol TLX Plus 4040",c:28,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:28,r:1}]}}},CUMMINS:{models:{KTA19:{e:{o:45},c:[{n:"Castrol TLX Plus 4040",c:45,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:45,r:1}]},QSM11:{e:{o:28},c:[{n:"Castrol TLX Plus 3040",c:28,r:1}],v:[{n:"Valvoline 40 PLUS",c:28,r:1}]},QSB67:{e:{o:14},c:[{n:"Castrol TLX Plus 3040",c:14,r:1}],v:[{n:"Valvoline 40 PLUS",c:14,r:1}]}}},DOOSAN:{models:{MD196TI:{e:{o:18},c:[{n:"Castrol TLX Plus 3040",c:18,r:1}],v:[{n:"Valvoline 40 PLUS",c:18,r:1}]},L136TI:{e:{o:12},c:[{n:"Castrol TLX Plus 3040",c:12,r:1}],v:[{n:"Valvoline 40 PLUS",c:12,r:1}]}}},CATERPILLAR:{models:{C18:{e:{o:55},c:[{n:"Castrol TLX Plus 4040",c:55,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:55,r:1}]},C9:{e:{o:28},c:[{n:"Castrol TLX Plus 4040",c:28,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:28,r:1}]},C44:{e:{o:10},c:[{n:"Castrol TLX Plus 3040",c:10,r:1}],v:[{n:"Valvoline 40 PLUS",c:10,r:1}]}}},MAN:{models:{D2862:{e:{o:45},c:[{n:"Castrol TLX Plus 4040",c:45,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:45,r:1}]},D2066:{e:{o:30},c:[{n:"Castrol TLX Plus 4040",c:30,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:30,r:1}]}}},VOLVO:{models:{D13:{e:{o:40},c:[{n:"Castrol TLX Plus 4040",c:40,r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",c:40,r:1}]},D9:{e:{o:28},c:[{n:"Castrol TLX Plus 3040",c:28,r:1}],v:[{n:"Valvoline 40 PLUS",c:28,r:1}]}}}}}
 };
 
-// Build ALL products list for reverse lookup
 var ALLP = (function(){
     var map = {};
     function add(name, brand, model, catKey, catLabel){
@@ -1290,10 +1096,13 @@ function search(){
         var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
         var brandLogoFb  = isCastrol ? CASTROL_LOGO_FB : VALVOLINE_LOGO_FB;
         var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
-        var h='<div class="product-block'+(isRec?' recommended':'')+'">';
-        if(isRec) h+='<div class="recommend-badge">★ Khuyến nghị</div>';
+        var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
+        var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
+        var badgeClass = isCastrol ? 'castrol-badge' : 'valvoline-badge';
+        var h='<div class="product-block'+(isRec?' recommended '+blockClass:'')+'">';
+        if(isRec) h+='<div class="recommend-badge '+badgeClass+'">★ Khuyến nghị</div>';
         h+='<div class="product-inner">';
-        h+='<div class="product-img-wrap">';
+        h+='<div class="product-img-wrap '+wrapClass+'">';
         h+='<div class="brand-icon-wrap '+iconClass+'">';
         h+='<img src="'+brandLogoSrc+'" alt="brand logo" style="width:72px;height:72px;object-fit:contain;" onerror="this.onerror=null;this.src=\''+brandLogoFb+'\'">';
         h+='</div>';
@@ -1369,6 +1178,7 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
     var brandLogoFb  = isCastrol ? CASTROL_LOGO_FB : VALVOLINE_LOGO_FB;
     var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
+    var capClass = isCastrol ? '' : 'v-cap';
     var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
     var mb=document.getElementById('modalBox');
     mb.innerHTML=
@@ -1394,7 +1204,7 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
         +'<div class="modal-section"><div class="modal-section-label">Phương tiện phù hợp</div><div class="modal-section-text">'+info.app+'</div></div>'
         +'</div>'
         +'<div class="modal-cap-box">'
-        +'<div><div class="modal-cap-label">Dung tích yêu cầu</div><div class="modal-cap-value" style="color:#007A33">'+cap+'</div><div class="modal-cap-unit">lít</div></div>'
+        +'<div><div class="modal-cap-label">Dung tích yêu cầu</div><div class="modal-cap-value '+capClass+'">'+cap+'</div><div class="modal-cap-unit">lít</div></div>'
         +'</div>'
         +'</div>';
     document.getElementById('modalBack').addEventListener('click',function(){
@@ -1405,12 +1215,10 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     document.body.style.overflow='hidden';
 }
 
-// ===== NAV SCROLL ARROWS =====
 (function(){
     var cont = document.getElementById('navContainer');
     var btnL = document.getElementById('navArrLeft');
     var btnR = document.getElementById('navArrRight');
-
     function updArrows(){
         if(!btnL || !btnR || !cont) return;
         var atLeft  = cont.scrollLeft <= 4;
@@ -1418,14 +1226,9 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
         btnL.classList.toggle('hidden', atLeft);
         btnR.classList.toggle('hidden', atRight);
     }
-
-    if(cont){
-        cont.addEventListener('scroll', updArrows, {passive: true});
-        updArrows();
-    }
+    if(cont){ cont.addEventListener('scroll', updArrows, {passive: true}); updArrows(); }
     if(btnL){ btnL.addEventListener('click', function(){ cont.scrollBy({left: -130, behavior: 'smooth'}); }); }
     if(btnR){ btnR.addEventListener('click', function(){ cont.scrollBy({left: 130, behavior: 'smooth'}); }); }
-
     window.addEventListener('load', function(){
         if(btnR && !btnR.classList.contains('hidden')){
             btnR.classList.add('pulse');
@@ -1435,7 +1238,6 @@ function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     window.addEventListener('resize', updArrows);
 })();
 
-// ===== MAIN NAV + CATEGORY LOGIC =====
 document.getElementById('navContainer').addEventListener('click',function(e){
     var t=e.target.closest('.nav-item');
     if(!t) return;
