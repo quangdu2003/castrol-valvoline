@@ -140,6 +140,7 @@
         .nav-container {
             flex: 1;
             display: flex; overflow-x: auto;
+            justify-content: center;
             scrollbar-width: none;
             padding: 0 8px;
             -webkit-overflow-scrolling: touch;
@@ -560,6 +561,7 @@
 
         @media (max-width: 768px) {
             .nav-arr { display: flex; }
+            .nav-container { justify-content: flex-start; }
             .header-inner { padding: 0 16px; gap: 10px; }
             .header-logo-wrap { height: 44px; }
             .header-logo-wrap.castrol-wrap { width: 150px; }
