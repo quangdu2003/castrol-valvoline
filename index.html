@@ -74,11 +74,11 @@
     border-bottom: 3px solid rgba(0,0,0,.25); 
     display: flex; 
     align-items: stretch;
-    
-    /* Cố định thanh này */
-    position: sticky; 
-    top: 81px; /* Khoảng cách này bằng chiều cao của Header (56px logo + 24px padding) */
-    z-index: 150; 
+    /* CỐ ĐỊNH VỊ TRÍ TĨNH */
+    position: relative; /* Không dùng sticky hay fixed nữa */
+    top: 0; 
+    z-index: 10;
+    width: 100%;
 }
         .nav-arr { display: none; flex-shrink: 0; width: 38px; background: transparent; border: none; color: rgba(255,255,255,.65); cursor: pointer; align-items: center; justify-content: center; transition: color .2s, background .2s; padding: 0; position: relative; z-index: 5; -webkit-tap-highlight-color: transparent; }
         .nav-arr:hover { color: white; background: rgba(255,255,255,.09); }
@@ -87,15 +87,15 @@
         .nav-arr.nav-arr-left { border-right: 1px solid rgba(255,255,255,.08); }
         .nav-arr.nav-arr-right { border-left: 1px solid rgba(255,255,255,.08); }
         .nav-arr.hidden { opacity: 0; pointer-events: none; }
-      .nav-container { 
+     .nav-container { 
+    flex: 1; 
     display: flex; 
     overflow-x: auto; 
-    justify-content: center; /* Căn các item ra giữa */
+    overflow-y: hidden; /* KHÓA TUYỆT ĐỐI cuộn dọc tại thanh này */
+    justify-content: center; 
     scrollbar-width: none; 
-    padding: 0 8px; 
-    max-width: 1000px; /* Độ rộng tối đa của dải menu, bạn có thể chỉnh số này (ví dụ 1100px hoặc 900px) */
-    margin: 0 auto; /* Gom cả khối menu ra giữa màn hình */
-    width: 100%;
+    -webkit-overflow-scrolling: touch; /* Giúp vuốt ngang mượt hơn trên iPhone */
+    touch-action: pan-x; /* CHỈ CHO PHÉP vuốt ngang, bỏ qua vuốt dọc khi chạm vào thanh này */
 }
         .nav-container::-webkit-scrollbar { display: none; }
 .nav-item { 
