@@ -60,10 +60,38 @@
         .nav-arr.nav-arr-left { border-right: 1px solid rgba(255,255,255,.08); }
         .nav-arr.nav-arr-right { border-left: 1px solid rgba(255,255,255,.08); }
         .nav-arr.hidden { opacity: 0; pointer-events: none; }
-        .nav-container { flex: 1; display: flex; overflow-x: auto; justify-content: center; scrollbar-width: none; padding: 0 8px; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; overflow-x: auto !important; overflow-y: hidden !important; touch-action: pan-x !important; }
+      .nav-container { 
+    flex: 1; 
+    display: flex; 
+    overflow-x: auto; 
+    justify-content: stretch; /* Thay center thành stretch */
+    scrollbar-width: none; 
+    padding: 0; 
+    /* ... các dòng còn lại giữ nguyên ... */
+}
         .nav-container::-webkit-scrollbar { display: none; }
-        .nav-item { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 14px 18px; cursor: pointer; border-bottom: 4px solid transparent !important; margin-bottom: -3px; transition: all .25s; color: rgba(255,255,255,.6); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; gap: 6px; font-family: var(--font-body); -webkit-tap-highlight-color: transparent; }
-        .nav-item:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); }
+.nav-item { 
+    flex: 1; /* Thay flex-shrink: 0 thành flex: 1 để các ô tự chia đều chiều rộng */
+    min-width: 120px; /* Đảm bảo ô không bị quá hẹp trên màn hình nhỏ, bạn có thể chỉnh số này */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+    padding: 14px 10px; 
+    cursor: pointer; 
+    border-bottom: 4px solid transparent !important; 
+    margin-bottom: -3px; 
+    transition: all .25s; 
+    color: rgba(255,255,255,.6); 
+    font-size: 10px; 
+    font-weight: 700; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    gap: 6px; 
+    font-family: var(--font-body); 
+    -webkit-tap-highlight-color: transparent; 
+    text-align: center; /* Căn giữa chữ */
+}        .nav-item:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); }
         .nav-item.active { color: #FFFFFF !important; border-bottom: 4px solid #FFC107 !important; background: rgba(255,255,255,.1); }
         .nav-icon { width: 26px; height: 26px; }
         .nav-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .6; }
