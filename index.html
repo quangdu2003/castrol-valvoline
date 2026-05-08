@@ -461,102 +461,56 @@ var CAT_ICONS = {
 var CASTROL_LOGO = 'https://thelubricantoracle.castrol.com/images/brand_logo.jpeg';
 var VALVOLINE_LOGO = 'https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad';
 
-// ==================== CƠ SỞ DỮ LIỆU SẢN PHẨM ====================
+// ==================== CƠ SỞ DỮ LIỆU SẢN PHẨM & LINK ====================
+// Nơi dán link web bán hàng vào phần u: "link-cua-ban"
 var CASTROL_CATALOG = {
-    "Castrol EDGE 0W-20":{s:"SAE 0W-20 · API SP",adv:"Bảo vệ động cơ gấp 3 lần, giảm ma sát tối đa, tiết kiệm nhiên liệu.",app:"Động cơ xăng hiện đại: Camry, CR-V, CX-5."},
-    "Castrol EDGE 5W-30":{s:"SAE 5W-30 · API SP",adv:"Bảo vệ cực bền ngay từ lần khởi động đầu tiên.",app:"Toyota Vios, Innova, Kia Cerato, Hyundai Accent."},
-    "Castrol EDGE 0W-20 LL IV":{s:"SAE 0W-20 · BMW LL-17FE+",adv:"Bảo vệ tối ưu từ khởi động lạnh, kéo dài chu kỳ thay dầu.",app:"BMW, MINI, xe Đức đời mới."},
-    "Castrol EDGE 5W-30 M":{s:"SAE 5W-30 · MB-Approval",adv:"Giảm tiêu thụ nhiên liệu, bảo vệ bộ lọc DPF.",app:"Mercedes-Benz C-Class, E-Class, GLC."},
-    "Castrol EDGE 5W-30 C3":{s:"SAE 5W-30 · ACEA C3",adv:"Tương thích hoàn toàn với bộ lọc DPF/GPF.",app:"Ford Ranger, Fortuner Diesel, SantaFe."},
-    "Castrol EDGE 5W-40":{s:"SAE 5W-40 · API SP",adv:"Hiệu suất tối đa, bảo vệ ở mọi điều kiện nhiệt độ.",app:"Audi, Volkswagen, Skoda."},
-    "Castrol MAGNATEC Stop-Start 5W-30":{s:"SAE 5W-30 · DUALOCK™",adv:"Chuyên dụng cho điều kiện chạy-dừng liên tục đô thị.",app:"Xe chạy dịch vụ, Grab, Taxi."},
-    "Castrol MAGNATEC 5W-30":{s:"SAE 5W-30 · API SP",adv:"Phân tử dầu bám chặt, bảo vệ ngay từ khởi động.",app:"Đa số xe phổ thông đời mới (Xpander, City)."},
-    "Castrol MAGNATEC SUV 5W-30":{s:"SAE 5W-30 · ACEA A5/B5",adv:"Thiết kế cho SUV/CUV tải nặng.",app:"Fortuner, CR-V, CX-5."},
-    "Castrol MAGNATEC 10W-40":{s:"SAE 10W-40 · API SP",adv:"Phù hợp với khí hậu nhiệt đới, bảo vệ vượt trội.",app:"Xe 4-5 chỗ đời 2005-2015."},
-    "Castrol GTX Ultraclean 10W-40":{s:"SAE 10W-40 · API SP",adv:"Công nghệ làm sạch kép, loại bỏ cặn bùn.",app:"Xe phổ thông đời cũ."},
-    
-    "Castrol GTX Diesel 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Chống oxy hóa, chống tạo cặn dầu.",app:"Bán tải, SUV máy dầu cũ."},
-    "Castrol CRB Turbomax 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Công nghệ DuraShield™ chống mài mòn gấp đôi.",app:"Lựa chọn số 1 cho xe tải, xe khách cỡ trung."},
-    "Castrol CRB Turbomax 20W-50":{s:"SAE 20W-50 · API CH-4",adv:"Bôi trơn hoàn hảo trong điều kiện siêu tải, nhiệt cao.",app:"Xe tải hạng nặng đời cũ, xe ben, máy cày."},
-    "Castrol CRB Multi 20W-50":{s:"SAE 20W-50 · API CF-4",adv:"Làm sạch động cơ hiệu quả, kiểm soát cặn.",app:"Động cơ diesel hút khí tự nhiên đời cũ."},
-    "Castrol VECTON 15W-40 CK-4":{s:"SAE 15W-40 · API CK-4",adv:"Bảo vệ hệ thống khí thải tiên tiến DPF/SCR.",app:"Động cơ diesel hạng nặng đời mới (Euro 5/6)."},
-    "Castrol VECTON 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Bảo vệ toàn diện, giữ sạch buồng đốt.",app:"Xe tải, máy xây dựng, xe khách giường nằm."},
-    "Castrol VECTON 10W-40":{s:"SAE 10W-40 · API CJ-4",adv:"Kéo dài chu kỳ thay dầu.",app:"Xe tải trung Isuzu, Hyundai."},
-    
-    "Castrol Transmax ATF":{s:"Dầu hộp số tự động",adv:"Sang số mượt mà, chống rung giật.",app:"Hộp số AT (tự động có cấp), xe điện."},
-    "Castrol Transmax CVT":{s:"Dầu hộp số vô cấp",adv:"Chống trượt đai, kéo dài tuổi thọ hộp số.",app:"Hộp số CVT của Honda, Toyota, Mitsubishi."},
-    "Castrol Transmax Dual":{s:"Dầu hộp số ly hợp kép",adv:"Đồng bộ hóa ly hợp tuyệt vời.",app:"Hộp số DCT/DSG (Kia, Hyundai, Skoda)."},
-    "Castrol Transmax Manual 80W-90":{s:"SAE 80W-90 · Dầu hộp số sàn",adv:"Bôi trơn bánh răng hoàn hảo.",app:"Hộp số sàn MT xe ô tô, xe tải nhẹ."},
-    "Castrol Scooter Gear Oil 80W-90":{s:"SAE 80W-90 · Dầu láp xe tay ga",adv:"Giảm ồn, chống mài mòn bánh răng vi sai.",app:"Nhớt láp chuyên dụng cho xe tay ga (Honda, Yamaha, Piaggio)."},
-    "Castrol Transmax Axle 85W-140":{s:"SAE 85W-140 · Dầu cầu tải nặng",adv:"Bảo vệ bánh răng vi sai cực áp.",app:"Cầu xe tải nặng, xe ben, đầu kéo, máy công trình."},
-    "Castrol Agri Trans Plus 80W":{s:"Dầu máy kéo đa dụng (UTTO)",adv:"Chống ồn phanh ướt, bảo vệ hệ thống thủy lực.",app:"Hộp số và thủy lực máy cày Kubota, Yanmar."},
-    "Castrol Transmax Offroad 30":{s:"Dầu truyền động trợ lực",adv:"Chống mài mòn mạnh mẽ.",app:"Hộp số máy xúc, máy ủi Komatsu."},
-    "Castrol Hyspin HVI 46":{s:"ISO VG 46 · Dầu thủy lực HVI",adv:"Chỉ số độ nhớt cao, chịu nhiệt tốt.",app:"Hệ thống thủy lực máy xúc, máy ép, cẩu tháp."},
-    "Castrol Radicool SF Premix":{s:"Nước làm mát pha sẵn",adv:"Chống rỉ sét, tuổi thọ lên đến 3 năm.",app:"Ô tô, xe máy, xe điện, máy công nghiệp."},
-    "Castrol Brake Fluid DOT 3":{s:"Dầu phanh DOT 3",adv:"Hệ số sôi an toàn, truyền lực phanh chính xác.",app:"Hệ thống phanh xe du lịch phổ thông."},
-    "Castrol Brake Fluid DOT 4":{s:"Dầu phanh DOT 4",adv:"Nhiệt độ sôi cao, đảm bảo an toàn tải nặng.",app:"Mọi hệ thống phanh thủy lực hiện đại."},
-
-    "Castrol ON EV Transmission Fluid":{s:"Dầu hộp số xe điện (Reducer)",adv:"Giảm thất thoát năng lượng, tăng phạm vi hoạt động.",app:"VinFast, BYD, Wuling, xe điện hiện đại."},
-    "Castrol ON EV Thermal Fluid":{s:"Dung dịch quản lý nhiệt độ EV",adv:"Làm mát Pin nhanh chóng, ngăn ngừa quá nhiệt trạm sạc siêu tốc.",app:"VinFast, BYD, Tesla, các dòng xe điện hiệu suất cao."},
-
-    "Castrol Power1 Ultimate 10W-40":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Công nghệ Power Release™ bứt tốc vượt trội.",app:"Xe côn tay: Exciter, Winner X, Raider."},
-    "Castrol Power1 Ultimate 10W-50":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Ổn định dưới nhiệt độ cực cao.",app:"Xe phân khối lớn, đi tour."},
-    "Castrol Power1 Scooter Ultimate 5W-40":{s:"Tổng hợp toàn phần · JASO MB",adv:"Giảm ma sát, tối ưu hóa công suất.",app:"SH, NVX, Vespa, xe ga cao cấp."},
-    "Castrol Power1 Scooter 10W-30":{s:"Dầu bán tổng hợp · JASO MB",adv:"Bảo vệ bền bỉ trong điều kiện kẹt xe.",app:"Air Blade, Vision, Lead, Grande."},
-    "Castrol Power1 4T 10W-30":{s:"Dầu bán tổng hợp · JASO MA2",adv:"Sang số êm ái, bốc máy.",app:"Wave, Sirius, Future, Viva."},
-    "Castrol Activ Scooter 10W-40":{s:"Công nghệ phân tử Actibond™",adv:"Bám dính bảo vệ ngay cả khi tắt máy.",app:"Xe tay ga phổ thông chạy hàng ngày."},
-    "Castrol Activ 4T 20W-40":{s:"Bảo vệ liên tục · JASO MA2",adv:"Chống mài mòn 3 giai đoạn.",app:"Xe số chạy dịch vụ, tải hàng."},
-    "Castrol Activ 2T":{s:"Dầu nhớt động cơ 2 kỳ · JASO FC",adv:"Chống cặn pít-tông, bảo vệ bugi.",app:"Xe máy 2 thì: Suzuki RGV 120 (Xipo), Yamaha Z125R (Ya Z), Yamaha SS 110."},
-
-    "Castrol Aircol PD 46":{s:"ISO VG 46 · Dầu máy nén khí",adv:"Chống oxy hóa, bảo vệ tách dầu.",app:"Máy nén khí trục vít Atlas Copco, Hitachi."},
-    "Castrol Aircol VDL 100":{s:"ISO VG 100 · Dầu máy nén khí",adv:"Ngăn cặn carbon ở van xả.",app:"Máy nén khí piston Fusheng, Pegasus."},
-    "Castrol Optigear BM 220":{s:"ISO VG 220 · Dầu bánh răng",adv:"Chịu cực áp, chống mài mòn rỗ mặt.",app:"Hộp giảm tốc công nghiệp SEW, Nord."},
-    "Castrol TLX Plus 3040":{s:"Dầu động cơ hàng hải SAE 30/40",adv:"Chống ăn mòn hiệu quả.",app:"Động cơ tàu sông, tàu biển Yanmar, Cummins."},
-    "Castrol TLX Plus 4040":{s:"Dầu động cơ hàng hải SAE 40",adv:"Tương thích nhiên liệu lưu huỳnh cao.",app:"Tàu tải biển, sà lan siêu trọng."},
-    "Castrol Spheerol EPL 2":{s:"Mỡ đa dụng Lithium",adv:"Chịu tải va đập cực tốt, kháng nước rửa trôi.",app:"Bôi trơn vòng bi bánh xe tải, ổ trục máy xúc, khớp nối gầm xe."}
+    "Castrol EDGE 0W-20":{s:"SAE 0W-20 · API SP",adv:"Bảo vệ động cơ gấp 3 lần, giảm ma sát tối đa.",app:"Camry, CR-V, CX-5 đời mới.", u:""},
+    "Castrol EDGE 5W-30":{s:"SAE 5W-30 · API SP",adv:"Bảo vệ cực bền ngay từ khi khởi động.",app:"Vios, Innova, Kia Cerato, Accent.", u:""},
+    "Castrol EDGE 0W-20 LL IV":{s:"SAE 0W-20 · BMW LL-17FE+",adv:"Chuyên dụng cho xe Đức đời mới.",app:"BMW, MINI, VinFast Lux.", u:""},
+    "Castrol EDGE 5W-30 M":{s:"SAE 5W-30 · MB-Approval 229.52",adv:"Bảo vệ bộ lọc DPF cho xe sang.",app:"Mercedes-Benz C, E, GLC.", u:""},
+    "Castrol EDGE 5W-30 C3":{s:"SAE 5W-30 · ACEA C3",adv:"Dầu tổng hợp cho máy dầu hiện đại.",app:"Ranger, Fortuner, SantaFe.", u:""},
+    "Castrol EDGE 5W-40":{s:"SAE 5W-40 · API SP",adv:"Hiệu suất tối đa cho xe hạng sang.",app:"Audi, Volkswagen, Skoda.", u:""},
+    "Castrol MAGNATEC Stop-Start 5W-30":{s:"SAE 5W-30 · DUALOCK™",adv:"Chuyên dụng cho điều kiện chạy-dừng liên tục đô thị.",app:"Xe chạy dịch vụ, Grab, Taxi.", u:""},
+    "Castrol MAGNATEC 5W-30":{s:"SAE 5W-30 · API SP",adv:"Phân tử dầu bám chặt như nam châm.",app:"Xpander, Honda City.", u:""},
+    "Castrol MAGNATEC SUV 5W-30":{s:"SAE 5W-30 · ACEA A5/B5",adv:"Thiết kế riêng cho dòng xe gầm cao.",app:"Fortuner, SantaFe, Everest.", u:""},
+    "Castrol MAGNATEC 10W-40":{s:"SAE 10W-40 · API SP",adv:"Bảo vệ vượt trội cho xe phổ thông.",app:"Xe đời 2005-2018.", u:""},
+    "Castrol GTX Ultraclean 10W-40":{s:"SAE 10W-40 · API SP",adv:"Làm sạch cặn bùn động cơ.",app:"Xe phổ thông đời cũ.", u:""},
+    "Castrol GTX Diesel 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Chống oxy hóa cho máy dầu cũ.",app:"Xe tải nhẹ, bán tải cũ.", u:""},
+    "Castrol CRB Turbomax 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Công nghệ DuraShield™ chống mài mòn gấp đôi.",app:"Xe tải, xe khách cỡ trung.", u:""},
+    "Castrol CRB Turbomax 20W-50":{s:"SAE 20W-50 · API CH-4",adv:"Bôi trơn hoàn hảo dưới tải nặng nhiệt cao.",app:"Xe tải nặng, xe ben, máy cày.", u:""},
+    "Castrol VECTON 15W-40 CK-4":{s:"SAE 15W-40 · API CK-4",adv:"Bảo vệ hệ thống khí thải Euro 5/6.",app:"Đầu kéo, xe tải đời mới.", u:""},
+    "Castrol VECTON 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Kéo dài chu kỳ thay dầu thêm 20%.",app:"Xe khách giường nằm, máy công trình.", u:""},
+    "Castrol Transmax ATF":{s:"Dầu hộp số tự động",adv:"Sang số mượt mà, chống rung giật.",app:"Hộp số AT, xe điện VinFast/BYD.", u:""},
+    "Castrol Transmax CVT":{s:"Dầu hộp số vô cấp",adv:"Kéo dài tuổi thọ dây đai hộp số.",app:"Hộp số CVT Honda, Toyota.", u:""},
+    "Castrol Transmax Dual":{s:"Dầu hộp số ly hợp kép",adv:"Đồng bộ hóa ly hợp tuyệt vời.",app:"Hộp số DCT/DSG.", u:""},
+    "Castrol Transmax Manual 80W-90":{s:"SAE 80W-90 · GL-4",adv:"Bôi trơn bánh răng hoàn hảo.",app:"Hộp số sàn, xe tải nhẹ.", u:""},
+    "Castrol Scooter Gear Oil 80W-90":{s:"Dầu láp xe tay ga",adv:"Chống hú láp, bảo vệ bánh răng.",app:"Mọi dòng xe tay ga.", u:""},
+    "Castrol Transmax Axle 85W-140":{s:"Dầu cầu tải nặng",adv:"Chịu cực áp cực tốt.",app:"Cầu xe ben, đầu kéo.", u:""},
+    "Castrol ON EV Transmission Fluid":{s:"Dầu hộp số xe điện",adv:"Giảm thất thoát năng lượng.",app:"Xe điện hiện đại.", u:""},
+    "Castrol Power1 Ultimate 10W-40":{s:"Tổng hợp · JASO MA2",adv:"Công nghệ Power Release™ bốc máy.",app:"Winner, Exciter, Raider.", u:""},
+    "Castrol Power1 Scooter Ultimate 5W-40":{s:"Tổng hợp · JASO MB",adv:"Tăng tốc mượt, giảm ma sát.",app:"SH, NVX, Vespa.", u:""},
+    "Castrol Activ 2T":{s:"Dầu nhớt 2 kỳ",adv:"Chống cặn pít-tông, bảo vệ bugi.",app:"Suzuki Xipo, Ya Z, Ya SS.", u:""},
+    "Castrol Radicool SF Premix":{s:"Nước làm mát",adv:"Chống rỉ sét, tuổi thọ 3 năm.",app:"Mọi loại phương tiện.", u:""}
 };
 
 var VALVOLINE_CATALOG = {
-    "Valvoline Modern Engine 0W-20":{s:"SAE 0W-20 · API SP",adv:"Chống cháy nổ sớm (LSPI), tối ưu hóa động cơ.",app:"Xe xăng đời mới: Camry, CR-V, CX-5."},
-    "Valvoline SynPower 5W-30":{s:"SAE 5W-30 · API SP",adv:"Chống mài mòn vượt trội, duy trì công suất.",app:"Vios, Xpander, Accent."},
-    "Valvoline SynPower MST 5W-30":{s:"SAE 5W-30 · ACEA C3",adv:"Bảo vệ bộ lọc hạt DPF.",app:"Ranger, Everest, SantaFe máy dầu."},
-    "Valvoline MaxLife High Mileage 10W-40":{s:"SAE 10W-40 · Phục hồi gioăng phớt",adv:"Giảm rò rỉ và tiêu hao dầu.",app:"Đặc chế cho xe chạy trên 100.000km."},
-    "Valvoline Daily Protection 10W-40":{s:"SAE 10W-40 · API SN",adv:"Ngăn cặn bùn tích tụ.",app:"Xe phổ thông đời cũ (i10, Morning)."},
-    
-    "Valvoline All-Fleet Plus 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Bảo vệ động cơ tải nặng, chống axit.",app:"Isuzu QKR, xe khách, bán tải."},
-    "Valvoline All-Fleet Extra 20W-50":{s:"SAE 20W-50 · API CH-4",adv:"Chống mài mòn xylanh cho vùng nóng.",app:"Xe ben, xe tải hạng nặng."},
-    "Valvoline Premium Blue 15W-40":{s:"SAE 15W-40 · Chứng nhận Cummins",adv:"Kéo dài tuổi thọ động cơ.",app:"Máy xây dựng, đầu kéo, xe khách giường nằm."},
-    "Valvoline Premium Blue 8600 15W-40":{s:"SAE 15W-40 · API CK-4",adv:"Tối ưu cho hệ thống phun cao áp.",app:"Xe tải hạng nặng đời mới (Euro 5/6)."},
-    "Valvoline Premium Blue 8400 15W-40":{s:"SAE 15W-40 · API CK-4",adv:"Bảo vệ toàn diện.",app:"HINO 500/700, Hyundai Universe, Howo."},
-
-    "Valvoline MaxLife Multi-Vehicle ATF":{s:"Dầu hộp số tự động đa dụng",adv:"Phục hồi gioăng phớt, sang số êm.",app:"Hộp số AT đa cấp."},
-    "Valvoline MaxLife CVT":{s:"Dầu hộp số vô cấp tổng hợp",adv:"Bảo vệ dây đai kim loại tối đa.",app:"Hộp số vô cấp CVT."},
-    "Valvoline Gear Oil GL-4 80W-90":{s:"SAE 80W-90 · Dầu hộp số sàn",adv:"Bảo vệ bánh răng tuyệt đối.",app:"Hộp số tay (MT) xe tải nhẹ, du lịch."},
-    "Valvoline Scooter Gear Oil 80W-90":{s:"SAE 80W-90 · Dầu láp xe tay ga",adv:"Bôi trơn hoàn hảo bánh răng truyền động.",app:"Nhớt láp xe tay ga phổ thông."},
-    "Valvoline HP Gear Oil 85W-140":{s:"SAE 85W-140 · Dầu cầu tải nặng",adv:"Bôi trơn bánh răng vi sai cực áp.",app:"Cầu sau xe ben, đầu kéo, xe khách."},
-    "Valvoline Unitrac 80W":{s:"Dầu máy kéo (UTTO)",adv:"Chống ồn phanh ướt.",app:"Hệ thống thủy lực & truyền động máy cày."},
-    "Valvoline Ultramax HVLP 46":{s:"ISO VG 46 · Dầu thủy lực",adv:"Chỉ số nhớt cao, chống bọt mài mòn bơm.",app:"Máy xúc, máy ép nhựa."},
-    "Valvoline Zerex Asian Vehicle Coolant":{s:"Nước làm mát pha sẵn",adv:"Công thức HOAT bảo vệ tới 5 năm.",app:"Xe ô tô Châu Á, máy công trình."},
-    "Valvoline DOT 4 Brake Fluid":{s:"Dầu phanh DOT 4",adv:"Chống tạo bọt hơi ở nhiệt độ cao.",app:"Phanh đĩa, phanh ABS ô tô/xe máy."},
-
-    "Valvoline EV Performance Fluid":{s:"Dầu hộp số xe điện cao cấp",adv:"Đặc tính cách điện xuất sắc, bôi trơn nhông giảm tốc cực êm.",app:"VinFast VF8, VF9, BYD, các xe thuần điện."},
-    "Valvoline Zerex EV Coolant":{s:"Nước làm mát Pin EV (Độ dẫn điện thấp)",adv:"Chống quá nhiệt đột ngột, triệt tiêu rủi ro chập điện Pin.",app:"Xe điện VinFast, BYD, Wuling."},
-    "Valvoline Multi-Purpose Grease":{s:"Mỡ bôi trơn đa dụng",adv:"Gốc Lithium Complex chịu nhiệt và kháng nước mạnh.",app:"Mâm xoay máy xúc, vòng bi trục bánh xe tải, ổ bi công nghiệp."},
-    "Valvoline Complete Fuel System Cleaner":{s:"Phụ gia nhiên liệu",adv:"Làm sạch kim phun, xupap và buồng đốt chỉ trong 1 lần sử dụng.",app:"Đổ trực tiếp vào bình xăng ô tô, xe máy giúp xe bốc hơn."},
-
-    "Valvoline SynPower 4T 10W-40":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Bảo vệ ly hợp ướt, chịu nhiệt tốt.",app:"Exciter, Winner, Satria."},
-    "Valvoline SynPower 4T 10W-50":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Chịu nhiệt độ cực cao.",app:"KTM, xe PKL, đi tour bạo lực."},
-    "Valvoline Scooter Ultimate 5W-40":{s:"Tổng hợp toàn phần · JASO MB",adv:"Giảm ồn, tăng tốc mượt.",app:"SH, NVX, Vespa."},
-    "Valvoline Scooter 4T 10W-30":{s:"Dầu tay ga · JASO MB",adv:"Làm sạch động cơ đi phố.",app:"Air Blade, Vision, Vario."},
-    "Valvoline Premium 4T 10W-30":{s:"Dầu xe số · JASO MA2",adv:"Đảm bảo sang số êm ái.",app:"Wave, Sirius, Suzuki Viva."},
-    "Valvoline Champ 4T 20W-40":{s:"Dầu khoáng bền bỉ",adv:"Chống cặn bùn, bảo vệ liên tục.",app:"Xe số chạy cường độ cao."},
-    "Valvoline 2T":{s:"Dầu nhớt 2 kỳ · JASO FC",adv:"Đốt sạch, giảm khói thải, chống xước nòng.",app:"Các dòng xe 2 thì: Suzuki RGV 120 (Xipo), Yamaha Z125R (Ya Z), Yamaha SS 110."},
-
-    "Valvoline SynGard AC 8000":{s:"ISO VG 46 · Dầu máy nén khí",adv:"Chống cặn bám, tuổi thọ dầu cao.",app:"Máy nén khí trục vít, piston."},
-    "Valvoline SynPower Gear Oil 220":{s:"ISO VG 220 · Dầu bánh răng",adv:"Phụ gia EP chống mài mòn cực áp.",app:"Hộp giảm tốc công nghiệp tải nặng."},
-    "Valvoline 40 PLUS":{s:"Dầu động cơ hàng hải SAE 40",adv:"Bảo vệ bề mặt kim loại.",app:"Tàu cá, tàu ven biển."},
-    "Valvoline PremBlue 7800 Plus":{s:"Dầu động cơ tàu thủy SAE 40",adv:"Kiểm soát axit tuyệt vời.",app:"Tàu kéo lớn, sà lan."}
+    "Valvoline Modern Engine 0W-20":{s:"SAE 0W-20 · API SP",adv:"Chống cháy nổ sớm (LSPI).",app:"Camry, CR-V, CX-5.", u:""},
+    "Valvoline SynPower 5W-30":{s:"SAE 5W-30 · API SP",adv:"Chống mài mòn vượt trội.",app:"Vios, Xpander, Accent.", u:""},
+    "Valvoline SynPower MST 5W-30":{s:"SAE 5W-30 · ACEA C3",adv:"Bảo vệ bộ lọc DPF.",app:"Ranger, Everest máy dầu.", u:""},
+    "Valvoline MaxLife 10W-40":{s:"SAE 10W-40 · Cao cấp",adv:"Phục hồi gioăng phớt, giảm hao dầu.",app:"Xe trên 100.000km.", u:""},
+    "Valvoline Daily Protection 10W-40":{s:"SAE 10W-40 · API SN",adv:"Ngăn cặn bùn tích tụ.",app:"Xe phổ thông đời cũ.", u:""},
+    "Valvoline All-Fleet Plus 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Bảo vệ động cơ tải nặng.",app:"Isuzu QKR, xe khách.", u:""},
+    "Valvoline Premium Blue 8400 15W-40":{s:"SAE 15W-40 · API CK-4",adv:"Dầu máy chuyên dụng Cummins.",app:"Đầu kéo, xe khách Universe.", u:""},
+    "Valvoline MaxLife Multi-Vehicle ATF":{s:"Dầu hộp số tự động",adv:"Phục hồi gioăng phớt, sang số êm.",app:"Mọi dòng hộp số AT.", u:""},
+    "Valvoline MaxLife CVT":{s:"Dầu hộp số vô cấp",adv:"Bảo vệ dây đai kim loại.",app:"Hộp số CVT.", u:""},
+    "Valvoline Scooter Gear Oil 80W-90":{s:"Dầu láp xe tay ga",adv:"Bôi trơn bánh răng truyền động cực êm.",app:"Xe tay ga phổ thông.", u:""},
+    "Valvoline EV Performance Fluid":{s:"Dầu hộp số xe điện",adv:"Đặc tính cách điện xuất sắc.",app:"Xe điện VinFast, BYD.", u:""},
+    "Valvoline SynPower 4T 10W-40":{s:"Tổng hợp · JASO MA2",adv:"Bảo vệ ly hợp ướt.",app:"Exciter, Winner, PKL.", u:""},
+    "Valvoline Scooter Ultimate 5W-40":{s:"Tổng hợp · JASO MB",adv:"Giảm ồn, mát máy.",app:"SH, NVX.", u:""},
+    "Valvoline 2T":{s:"Dầu nhớt 2 kỳ",adv:"Đốt sạch, giảm khói thải.",app:"Suzuki Xipo, Ya Z.", u:""},
+    "Valvoline Complete Fuel System Cleaner":{s:"Phụ gia xăng",adv:"Làm sạch kim phun buồng đốt.",app:"Ô tô, xe máy xăng.", u:""}
 };
+
 
 // ==================== TOÀN BỘ CƠ SỞ DỮ LIỆU PHƯƠNG TIỆN (TÁCH LẺ 100%) ====================
 var DB = {
@@ -1216,35 +1170,38 @@ function search(){
     document.getElementById('resultsTitle').textContent='Đề xuất cho '+brand.replace(/_/g, ' ')+' '+modelDisplay;
     document.getElementById('resultsSubtitle').textContent=catLabel + (yr?' — Năm '+yr:'') + ' · Thông số tiêu chuẩn tham khảo';
 
-    function makeProductCard(p, defCap, catalog, isCastrol, brand, model, catLabel){
+        function makeProductCard(p, defCap, catalog, isCastrol, brand, model, catLabel){
         var cap=(p.c!==undefined)?p.c:defCap;
-        var isRec=!!p.r;
         var info=catalog[p.n]||{};
         var cls=isCastrol?'c':'v';
         var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
         var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
         var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
         var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
-        var badgeClass = isCastrol ? 'castrol-badge' : 'valvoline-badge';
-        var h='<div class="product-block'+(isRec?' recommended '+blockClass:'')+'">';
-        if(isRec) h+='<div class="recommend-badge '+badgeClass+'">★ Khuyến nghị</div>';
-        h+='<div class="product-inner">';
-        h+='<div class="product-img-wrap '+wrapClass+'">';
-        h+='<div class="brand-icon-wrap '+iconClass+'">';
-        h+='<img src="'+brandLogoSrc+'" alt="brand logo">';
-        h+='</div>';
-        h+='</div>';
-        h+='<div class="product-info">';
-        h+='<div class="product-name'+(isRec?' recommended-pad':'')+'">'+p.n+'</div>';
-        var spec=info.s||'';
-        if(spec) h+='<div class="product-spec">'+spec+'</div>';
+        
+        // --- LOGIC TỰ ĐỘNG GÁN MÀU NÚT MUA NGAY ---
+        var buyBtnBg = isCastrol ? '#009F4D' : '#003087'; // Xanh lá Castrol, Xanh dương Valvoline
+
+        var h='<div class="product-block '+(p.r?'recommended ':'')+blockClass+'">';
+        if(p.r) h+='<div class="recommend-badge '+(isCastrol?'castrol-badge':'valvoline-badge')+'">★ Khuyến nghị</div>';
+        h+='<div class="product-inner"><div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
+        h+='<div class="product-info"><div class="product-name'+(p.r?' recommended-pad':'')+'">'+p.n+'</div>';
+        if(info.s) h+='<div class="product-spec">'+info.s+'</div>';
         h+='<div class="product-cap"><span>Khuyến nghị:</span><strong class="'+cls+'">'+cap+'</strong></div>';
-        h+='<button class="btn-detail '+cls+'" data-name="'+p.n.replace(/"/g,'&quot;')+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand.replace(/_/g, ' ')+'" data-model="'+model.replace(/_/g, ' ')+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">'
-          +'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.8"/><path d="M12 8v4l3 3" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>'
-          +'Xem chi tiết</button>';
-        h+='</div></div></div>';
+        
+        // KHU VỰC CHỨA 2 NÚT BẤM
+        h+='<div style="display:flex; gap:8px;">';
+        h+='<button class="btn-detail '+cls+'" data-name="'+p.n+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand+'" data-model="'+model+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">Chi tiết</button>';
+                // LUÔN HIỆN NÚT MUA NGAY (Dù có link hay chưa)
+        var hrefLink = info.u ? info.u : "javascript:void(0)";
+        var targetAttr = info.u ? 'target="_blank"' : "";
+        h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+'; color:white; border-color:transparent; text-decoration:none;">MUA NGAY</a>';
+
+        
+        h+='</div></div></div></div>';
         return h;
     }
+
 
     var h='';
     
@@ -1298,10 +1255,61 @@ function search(){
 function revSearch(){
     var pn=document.getElementById('reverseProductSelect').value;
     var rr=document.getElementById('reverseResults');
-    if(!pn){rr.innerHTML='<span style="color:#999">Vui lòng chọn sản phẩm.</span>';rr.style.display='block';return;}
+    if(!pn){ alert("Vui lòng chọn sản phẩm!"); return; }
+    
     var found=null;
     for(var i=0;i<ALLP.length;i++){if(ALLP[i].name===pn){found=ALLP[i];break;}}
-    if(!found||!found.vehicles.length){rr.innerHTML='<span style="color:#999">Không tìm thấy phương tiện phù hợp.</span>';rr.style.display='block';return;}
+    if(!found||!found.vehicles.length){rr.innerHTML='<span style="color:#999">Đang cập nhật...</span>';rr.style.display='block';return;}
+    
+    // Nhận diện Castrol hay Valvoline
+    var isCastrol = !pn.toLowerCase().includes('valvoline');
+    var catalog = isCastrol ? CASTROL_CATALOG : VALVOLINE_CATALOG;
+    var info = catalog[pn] || {};
+    var cls = isCastrol ? 'c' : 'v';
+    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
+    var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
+    var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
+    var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
+
+    // Màu nút mua ngay
+    var buyBtnBg = isCastrol ? '#009F4D' : '#003087';
+
+    var h = '';
+    
+    // 1. TẠO Ô THẺ SẢN PHẨM (Y hệt như lúc tìm xe ra sản phẩm)
+    h += '<div class="product-block ' + blockClass + '" style="margin-bottom: 20px;">';
+    h += '<div class="product-inner">';
+    h += '<div class="product-img-wrap ' + wrapClass + '"><div class="brand-icon-wrap ' + iconClass + '"><img src="' + brandLogoSrc + '"></div></div>';
+    h += '<div class="product-info">';
+    h += '<div class="product-name">' + pn + '</div>';
+    if(info.s) h += '<div class="product-spec">' + info.s + '</div>';
+
+    // Khu vực chứa nút bấm
+    h += '<div style="display:flex; gap:8px; margin-top: 10px;">';
+    h += '<button class="btn-detail ' + cls + ' rev-detail-btn" data-name="' + pn + '" data-castrol="' + (isCastrol?'1':'0') + '">Chi tiết</button>';
+    if(info.u) h += '<a href="' + info.u + '" target="_blank" class="btn-detail" style="background:'+buyBtnBg+'; color:white; border-color:transparent; text-decoration:none;">MUA NGAY</a>';
+    h += '</div></div></div></div>';
+
+    // 2. HIỂN THỊ DANH SÁCH XE KÈM THANH CUỘN (Scroll)
+    h += '<div class="rv-title">Phương tiện sử dụng sản phẩm này:</div>';
+    h += '<ul style="max-height: 250px; overflow-y: auto; padding-right: 10px; margin-top:10px;">'; 
+    found.vehicles.forEach(function(v){
+        h += '<li>[' + v.label + '] <strong>' + v.brand.replace(/_/g, ' ') + '</strong> ' + v.model.replace(/_/g, ' ') + '</li>';
+    });
+    h += '</ul>';
+
+    // Đổi màu nền hộp kết quả theo brand
+    if (!isCastrol) { rr.classList.add('valvoline-theme'); } else { rr.classList.remove('valvoline-theme'); }
+
+    rr.innerHTML = h;
+    rr.style.display = 'block';
+
+    // Kích hoạt nút xem chi tiết trong ô tra cứu ngược
+    rr.querySelector('.rev-detail-btn').addEventListener('click', function() {
+        showDetail(this.dataset.name, this.dataset.castrol === '1', 'Tùy theo xe', 'Nhiều dòng xe', 'Tra cứu để biết chi tiết', 'Nhiều danh mục', 'oto');
+    });
+}
+
     
     // Tự động nhận diện theme Valvoline hay Castrol
     if (pn.toLowerCase().includes('valvoline')) {
@@ -1318,47 +1326,22 @@ function revSearch(){
 
 function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
-    var info=catalog[name]||{s:'Đang cập nhật',adv:'Đang cập nhật',app:'Đang cập nhật'};
-    var cls=isCastrol?'c':'v';
-    var catIconSrc = CAT_ICONS[catKey] || CAT_ICONS['oto'];
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
-    var capClass = isCastrol ? '' : 'v-cap';
-    var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
+    var info=catalog[name]||{};
     var mb=document.getElementById('modalBox');
-    mb.innerHTML=
-        '<div class="modal-topbar '+cls+'">'
-        +'<button class="modal-back" id="modalBack"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Quay lại</button>'
-        +'<div class="modal-topbar-brand"><div class="modal-brand-logo-wrap"><img class="modal-brand-logo" src="'+brandLogoSrc+'" alt="brand"></div></div>'
-        +'</div>'
-        +'<div class="modal-hero">'
-        +'<div class="modal-category-icon-wrap '+iconWrapClass+'">'
-        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'">'
-        +'<span class="modal-brand-pill">'+catLabel+'</span>'
-        +'</div>'
-        +'<div class="modal-hero-text">'
-        +'<div class="modal-product-name">'+name+'</div>'
-        +'<div class="modal-vehicle-tag"><svg viewBox="0 0 24 24" fill="#B8900A"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg>'+brandName.replace(/_/g, ' ')+' '+modelName.replace(/_/g, ' ')+'</div>'
-        +'</div>'
-        +'</div>'
+    
+    // --- TÍCH HỢP LINK MUA NGAY VÀO MODAL CHI TIẾT ĐỔI MÀU TỰ ĐỘNG ---
+    var buyBtnBg = isCastrol ? '#009F4D' : '#003087';
+    var buyBtn = info.u ? '<a href="'+info.u+'" target="_blank" style="display:block; text-align:center; margin-top:15px; padding:12px; background:'+buyBtnBg+'; color:white; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px;">🛒 MUA NGAY SẢN PHẨM NÀY</a>' : '';
+    
+    mb.innerHTML='<div class="modal-topbar '+(isCastrol?'c':'v')+'"><button class="modal-back" onclick="document.getElementById(\'modalOverlay\').style.display=\'none\'">Quay lại</button></div>'
+        +'<div class="modal-hero"><div class="modal-product-name">'+name+'</div><div class="modal-vehicle-tag">'+brandName.replace(/_/g, ' ')+' '+modelName.replace(/_/g, ' ')+'</div></div>'
         +'<div class="modal-content"><div class="modal-sections">'
-        +'<div class="modal-section"><div class="modal-section-label">Tiêu chuẩn kỹ thuật</div>'
-        +'<div class="modal-spec-pills">'+specPills.map(function(s){return '<span class="modal-spec-pill">'+s+'</span>';}).join('')+'</div>'
-        +'</div>'
-        +'<div class="modal-section"><div class="modal-section-label">Ưu điểm nổi bật</div><div class="modal-section-text">'+info.adv+'</div></div>'
-        +'<div class="modal-section"><div class="modal-section-label">Phương tiện phù hợp</div><div class="modal-section-text">'+info.app+'</div></div>'
-        +'</div>'
-        +'<div class="modal-cap-box">'
-        +'<div><div class="modal-cap-label">Khuyến nghị lượng dùng</div><div class="modal-cap-value '+capClass+'" style="font-size:24px;">'+cap+'</div></div>'
-        +'</div>'
-        +'</div>';
-    document.getElementById('modalBack').addEventListener('click',function(){
-        document.getElementById('modalOverlay').style.display='none';
-        document.body.style.overflow='';
-    });
+        +'<div class="modal-section"><div class="modal-section-label">Ưu điểm</div><div class="modal-section-text">'+(info.adv||'Đang cập nhật')+'</div></div>'
+        +'<div class="modal-section"><div class="modal-section-label">Lượng dùng</div><div class="modal-cap-value">'+cap+'</div></div>'
+        +'</div>'+buyBtn+'</div>';
     document.getElementById('modalOverlay').style.display='flex';
-    document.body.style.overflow='hidden';
 }
+
 
 (function(){
     var cont = document.getElementById('navContainer');
