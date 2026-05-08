@@ -247,7 +247,14 @@
             .step-item { padding: 12px 16px 12px 28px; }
             .step-item:first-child { padding-left: 14px; }
             .selector-grid { grid-template-columns: 1fr 1fr; }
-            .results-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .reverse-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+        }
+        .btn-reverse {
+            width: 100% !important;
+            justify-content: center;
+            margin-top: 4px;
         }
 
         @media (max-width: 600px) {
