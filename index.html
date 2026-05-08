@@ -412,7 +412,13 @@
             <div class="selector-grid">
                 <div class="field-group"><label class="field-label">Hãng / Thương hiệu</label><select class="field-select" id="brandSelect"><option value="">-- Chọn hãng --</option></select></div>
                 <div class="field-group"><label class="field-label" id="modelSelectLabel">Dòng xe / Phân khối</label><select class="field-select" id="modelSelect"><option value="">-- Chọn dòng xe --</option></select></div>
-                <div class="field-group"><label class="field-label">Năm sản xuất</label><input class="field-input" id="yearInput" placeholder="Ví dụ: 2024" inputmode="numeric"></div>
+                <div class="field-group">
+    <label class="field-label">Năm sản xuất</label>
+    <select class="field-select" id="yearInput">
+        <option value="">Tùy chọn (Tất cả)</option>
+    </select>
+</div>
+
                 <button class="btn-search" id="searchBtn">Tìm kiếm</button>
             </div>
             <div class="divider-or"><div class="divider-line"></div><div class="divider-text">Hoặc</div><div class="divider-line"></div></div>
@@ -1395,6 +1401,18 @@ document.getElementById('reverseBtn').addEventListener('click',revSearch);
 document.getElementById('modalOverlay').addEventListener('click',function(e){
     if(e.target===this){this.style.display='none';document.body.style.overflow='';}
 });
+// Tự động tạo danh sách Năm Sản Xuất từ năm hiện tại lùi về 1990
+function popYears() {
+    var yearSelect = document.getElementById('yearInput');
+    var currentYear = new Date().getFullYear(); // Tự động lấy đúng năm thực tế của máy tính/điện thoại
+    for (var y = currentYear; y >= 1990; y--) {
+        var option = document.createElement('option');
+        option.value = y;
+        option.textContent = y;
+        yearSelect.appendChild(option);
+    }
+}
+popYears(); // Kích hoạt chạy hàm
 
 updNav('oto'); popBrands(); popReverse();
 </script>
