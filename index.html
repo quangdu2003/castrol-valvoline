@@ -337,16 +337,23 @@
             .product-block:hover { transform: none; box-shadow: none; }
             .btn-search:hover { transform: none; box-shadow: none; }
         }
-
-        @keyframes arrowPulse { 0% { opacity: 0.65; } 50% { opacity: 1; } 100% { opacity: 0.65; } }
-        .nav-arr.pulse { animation: arrowPulse 1s ease-in-out 3; }
-    </style>
-    /* Sửa lỗi co rút/zoom trang khi gõ bàn phím trên điện thoại */
 @media (max-width: 768px) {
     .field-input, .field-select {
         font-size: 16px !important; /* Bắt buộc phải là 16px để iOS/Android không tự động zoom */
     }
 }
+            /* Khóa tuyệt đối cuộn dọc, chỉ cho vuộn ngang thanh Menu Tab */
+.nav-container {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    touch-action: pan-x !important; 
+}
+
+        @keyframes arrowPulse { 0% { opacity: 0.65; } 50% { opacity: 1; } 100% { opacity: 0.65; } }
+        .nav-arr.pulse { animation: arrowPulse 1s ease-in-out 3; }
+    </style>
+   
+
 
 </head>
 <body>
@@ -877,7 +884,7 @@ var DB = {
         }}
     }},
 
-    thuongmai:{label:"Xe Khách & Thương mại",brands:{
+    thuongmai:{label:"Xe Thương mại",brands:{
         THACO:{models:{
             Mobihome:{e:{o:26.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu sau"}]},
             Meadow:{e:{o:26.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu sau"}]},
@@ -942,7 +949,7 @@ var DB = {
         }}
     }},
 
-    congtrinh:{label:"Xe cơ giới công trình",brands:{
+    congtrinh:{label:"Xe công trình",brands:{
         KOMATSU:{models:{
             PC200:{e:{o:24.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",c:"Hệ thống Thủy lực: ~140L",r:1},{n:"Castrol Transmax Offroad 30",c:"Hộp số quay toa"}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Hệ thống Thủy lực: ~140L",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Hộp số quay toa"}]},
             PC300:{e:{o:24.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",c:"Hệ thống Thủy lực: ~140L",r:1},{n:"Castrol Transmax Offroad 30",c:"Hộp số quay toa"}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Hệ thống Thủy lực: ~140L",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Hộp số quay toa"}]},
@@ -979,7 +986,7 @@ var DB = {
         }}
     }},
 
-    congnghiep:{label:"Công nghiệp & Cố định",brands:{
+    congnghiep:{label:"Công nghiệp",brands:{
         ATLAS_COPCO:{models:{
             Máy_Nén_Khí_Trục_Vít:{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",c:"Dầu máy nén khí",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",c:"Dầu máy nén khí",r:1}]}
         }},
@@ -1007,7 +1014,7 @@ var DB = {
         }}
     }},
 
-    hanghai:{label:"Hàng hải & Tàu sông",brands:{
+    hanghai:{label:"Hàng hải",brands:{
         YANMAR:{models:{
             Máy_Thủy_Dưới_500HP:{e:{o:25.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1},{n:"Castrol TLX Plus 3040"}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1},{n:"Valvoline 40 PLUS"}]}
         }},
