@@ -122,6 +122,20 @@
         .reverse-results .rv-title { font-weight: 700; font-size: 12px; color: var(--castrol-green); text-transform: uppercase; letter-spacing: 1px; }
 
         /* ===== RESULTS ===== */
+        /* Đổi màu hiển thị khi tra cứu sản phẩm Valvoline (Pha màu mượt mà) */
+.reverse-results.valvoline-theme {
+    border-left: 4px solid transparent !important;
+    /* Để màu đỏ giữ 15% ở trên, màu xanh giữ 85% trở xuống, khúc giữa tự động hòa trộn mềm mại */
+    border-image: linear-gradient(to bottom, #E31837 15%, #003087 85%) 1 !important;
+}
+
+.reverse-results.valvoline-theme .rv-title {
+    /* Chữ cũng được làm mượt lại chuyển sắc từ trái sang phải */
+    background: linear-gradient(90deg, #E31837 0%, #003087 80%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
         .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
         .results-title { font-family: var(--font-display); font-size: 28px; font-weight: 900; text-transform: uppercase; color: #111; letter-spacing: 1px; }
         .results-subtitle { font-size: 13px; color: var(--gray-500); margin-top: 2px; font-family: var(--font-body); }
