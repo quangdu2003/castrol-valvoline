@@ -134,7 +134,7 @@
         .brand-head-sub { font-size: 10px; color: rgba(255,255,255,.65); font-family: var(--font-body); }
         .brand-card-body { padding: 16px; }
 
-        /* PRODUCT BLOCK & CĂN CHỈNH BADGE TẠI ĐÂY */
+        /* PRODUCT BLOCK & CĂN CHỈNH BADGE */
         .product-block { border: 1.5px solid var(--gray-200); border-radius: 10px; overflow: hidden; position: relative; margin-bottom: 10px; transition: all .2s; background: white; }
         .product-block:hover { border-color: #C8C8C8; box-shadow: 0 4px 18px rgba(0,0,0,.09); transform: translateY(-1px); }
         .product-block.recommended.castrol-prod { border-color: var(--castrol-green); border-width: 2px; }
@@ -142,18 +142,16 @@
         
         .product-inner { display: flex; align-items: stretch; }
         
-        /* Cố định bề rộng của wrapper ảnh và badge trên Desktop */
+        /* Cố định cứng chiều rộng Badge và Wrapper ảnh trùng nhau */
         .product-img-wrap { 
-            width: 120px; 
-            flex-shrink: 0; 
+            width: 110px; flex-shrink: 0; 
             border-right: 1px solid var(--gray-200); 
             display: flex; align-items: center; justify-content: center; 
             padding: 12px; flex-direction: column; gap: 6px; align-self: stretch; 
         }
         .recommend-badge { 
             position: absolute; top: 0; left: 0; 
-            width: 120px; /* Khớp đúng bằng chiều rộng product-img-wrap */
-            box-sizing: border-box; text-align: center; 
+            width: 110px; box-sizing: border-box; text-align: center; 
             color: white; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; 
             text-transform: uppercase; padding: 5px 0; 
             border-radius: 0 0 10px 0; z-index: 2; font-family: var(--font-body); 
@@ -268,7 +266,7 @@
             .btn-search, .btn-reverse { width: 100%; height: 50px; justify-content: center; }
             .results-grid { grid-template-columns: 1fr; }
             
-            /* Sửa hụt ô Khuyến nghị trên Mobile (Gắn chặt width) */
+            /* Sửa hụt ô Khuyến nghị trên Mobile (Gắn chặt width là 100px) */
             .product-img-wrap { width: 100px; padding: 10px; }
             .recommend-badge { width: 100px; padding: 5px 0; font-size: 8px; border-radius: 0 0 10px 0; }
             
@@ -441,22 +439,28 @@ var CASTROL_CATALOG = {
     "Castrol Transmax Offroad 30":{s:"Dầu truyền động trợ lực",adv:"Chống mài mòn mạnh mẽ.",app:"Hộp số máy xúc, máy ủi Komatsu."},
     "Castrol Hyspin HVI 46":{s:"ISO VG 46 · Dầu thủy lực HVI",adv:"Chỉ số độ nhớt cao, chịu nhiệt tốt.",app:"Hệ thống thủy lực máy xúc, máy ép, cẩu tháp."},
     "Castrol Radicool SF Premix":{s:"Nước làm mát pha sẵn",adv:"Chống rỉ sét, tuổi thọ lên đến 3 năm.",app:"Ô tô, xe máy, xe điện, máy công nghiệp."},
-    "Castrol Brake Fluid DOT 4":{s:"Dầu phanh DOT 4",adv:"Nhiệt độ sôi cao, đảm bảo an toàn.",app:"Mọi hệ thống phanh thủy lực."},
+    "Castrol Brake Fluid DOT 3":{s:"Dầu phanh DOT 3",adv:"Hệ số sôi an toàn, truyền lực phanh chính xác.",app:"Hệ thống phanh xe du lịch phổ thông."},
+    "Castrol Brake Fluid DOT 4":{s:"Dầu phanh DOT 4",adv:"Nhiệt độ sôi cao, đảm bảo an toàn tải nặng.",app:"Mọi hệ thống phanh thủy lực hiện đại."},
+
+    // DÀNH CHO XE ĐIỆN (CASTROL ON EV)
+    "Castrol ON EV Transmission Fluid":{s:"Dầu hộp số xe điện (Reducer)",adv:"Giảm thất thoát năng lượng, tăng phạm vi hoạt động.",app:"VinFast, BYD, Wuling, xe điện hiện đại."},
+    "Castrol ON EV Thermal Fluid":{s:"Dung dịch quản lý nhiệt độ EV",adv:"Làm mát Pin nhanh chóng, ngăn ngừa quá nhiệt trạm sạc siêu tốc.",app:"VinFast, BYD, Tesla, các dòng xe điện hiệu suất cao."},
 
     "Castrol Power1 Ultimate 10W-40":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Công nghệ Power Release™ bứt tốc vượt trội.",app:"Xe côn tay: Exciter, Winner X, Raider."},
     "Castrol Power1 Ultimate 10W-50":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Ổn định dưới nhiệt độ cực cao.",app:"Xe phân khối lớn, đi tour."},
     "Castrol Power1 Scooter Ultimate 5W-40":{s:"Tổng hợp toàn phần · JASO MB",adv:"Giảm ma sát, tối ưu hóa công suất.",app:"SH, NVX, Vespa, xe ga cao cấp."},
     "Castrol Power1 Scooter 10W-30":{s:"Dầu bán tổng hợp · JASO MB",adv:"Bảo vệ bền bỉ trong điều kiện kẹt xe.",app:"Air Blade, Vision, Lead, Grande."},
-    "Castrol Power1 4T 10W-30":{s:"Dầu bán tổng hợp · JASO MA2",adv:"Sang số êm ái, bốc máy.",app:"Wave, Sirius, Future."},
+    "Castrol Power1 4T 10W-30":{s:"Dầu bán tổng hợp · JASO MA2",adv:"Sang số êm ái, bốc máy.",app:"Wave, Sirius, Future, Viva."},
     "Castrol Activ Scooter 10W-40":{s:"Công nghệ phân tử Actibond™",adv:"Bám dính bảo vệ ngay cả khi tắt máy.",app:"Xe tay ga phổ thông chạy hàng ngày."},
     "Castrol Activ 4T 20W-40":{s:"Bảo vệ liên tục · JASO MA2",adv:"Chống mài mòn 3 giai đoạn.",app:"Xe số chạy dịch vụ, tải hàng."},
-    "Castrol Activ 2T":{s:"Dầu nhớt động cơ 2 kỳ · JASO FC",adv:"Chống cặn pít-tông, bảo vệ bugi.",app:"Xe máy 2 thì: Xì po (RGV), Ya Z, Vespa cổ."},
+    "Castrol Activ 2T":{s:"Dầu nhớt động cơ 2 kỳ · JASO FC",adv:"Chống cặn pít-tông, bảo vệ bugi.",app:"Xe máy 2 thì: Suzuki RGV 120, Yamaha Z125R, Yamaha SS 110."},
 
     "Castrol Aircol PD 46":{s:"ISO VG 46 · Dầu máy nén khí",adv:"Chống oxy hóa, bảo vệ tách dầu.",app:"Máy nén khí trục vít Atlas Copco, Hitachi."},
     "Castrol Aircol VDL 100":{s:"ISO VG 100 · Dầu máy nén khí",adv:"Ngăn cặn carbon ở van xả.",app:"Máy nén khí piston Fusheng, Pegasus."},
     "Castrol Optigear BM 220":{s:"ISO VG 220 · Dầu bánh răng",adv:"Chịu cực áp, chống mài mòn rỗ mặt.",app:"Hộp giảm tốc công nghiệp SEW, Nord."},
     "Castrol TLX Plus 3040":{s:"Dầu động cơ hàng hải SAE 30/40",adv:"Chống ăn mòn hiệu quả.",app:"Động cơ tàu sông, tàu biển Yanmar, Cummins."},
-    "Castrol TLX Plus 4040":{s:"Dầu động cơ hàng hải SAE 40",adv:"Tương thích nhiên liệu lưu huỳnh cao.",app:"Tàu tải biển, sà lan siêu trọng."}
+    "Castrol TLX Plus 4040":{s:"Dầu động cơ hàng hải SAE 40",adv:"Tương thích nhiên liệu lưu huỳnh cao.",app:"Tàu tải biển, sà lan siêu trọng."},
+    "Castrol Spheerol EPL 2":{s:"Mỡ đa dụng Lithium",adv:"Chịu tải va đập cực tốt, kháng nước rửa trôi.",app:"Bôi trơn vòng bi bánh xe tải, ổ trục máy xúc, khớp nối gầm xe."}
 };
 
 var VALVOLINE_CATALOG = {
@@ -465,27 +469,34 @@ var VALVOLINE_CATALOG = {
     "Valvoline SynPower MST 5W-30":{s:"SAE 5W-30 · ACEA C3",adv:"Bảo vệ bộ lọc hạt DPF.",app:"Ranger, Everest, SantaFe máy dầu."},
     "Valvoline MaxLife High Mileage 10W-40":{s:"SAE 10W-40 · Phục hồi gioăng phớt",adv:"Giảm rò rỉ và tiêu hao dầu.",app:"Đặc chế cho xe chạy trên 100.000km."},
     "Valvoline Daily Protection 10W-40":{s:"SAE 10W-40 · API SN",adv:"Ngăn cặn bùn tích tụ.",app:"Xe phổ thông đời cũ (i10, Morning)."},
+    
     "Valvoline All-Fleet Plus 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Bảo vệ động cơ tải nặng, chống axit.",app:"Isuzu QKR, xe khách, bán tải."},
     "Valvoline All-Fleet Extra 20W-50":{s:"SAE 20W-50 · API CH-4",adv:"Chống mài mòn xylanh cho vùng nóng.",app:"Xe ben, xe tải hạng nặng."},
     "Valvoline Premium Blue 15W-40":{s:"SAE 15W-40 · Chứng nhận Cummins",adv:"Kéo dài tuổi thọ động cơ.",app:"Máy xây dựng, đầu kéo, xe khách giường nằm."},
     "Valvoline Premium Blue 8600 15W-40":{s:"SAE 15W-40 · API CK-4",adv:"Tối ưu cho hệ thống phun cao áp.",app:"Xe tải hạng nặng đời mới (Euro 5/6)."},
-    "Valvoline Premium Blue 8400 15W-40":{s:"SAE 15W-40 · API CK-4",adv:"Bảo vệ toàn diện.",app:"HINO 500/700, Hyundai Universe."},
+    "Valvoline Premium Blue 8400 15W-40":{s:"SAE 15W-40 · API CK-4",adv:"Bảo vệ toàn diện.",app:"HINO 500/700, Hyundai Universe, Howo."},
 
-    "Valvoline MaxLife Multi-Vehicle ATF":{s:"Dầu hộp số tự động đa dụng",adv:"Phục hồi gioăng phớt, sang số êm.",app:"Hộp số AT, xe điện (EV)."},
+    "Valvoline MaxLife Multi-Vehicle ATF":{s:"Dầu hộp số tự động đa dụng",adv:"Phục hồi gioăng phớt, sang số êm.",app:"Hộp số AT đa cấp."},
     "Valvoline MaxLife CVT":{s:"Dầu hộp số vô cấp tổng hợp",adv:"Bảo vệ dây đai kim loại tối đa.",app:"Hộp số vô cấp CVT."},
     "Valvoline Gear Oil GL-4 80W-90":{s:"SAE 80W-90 · Dầu hộp số sàn/láp",adv:"Bảo vệ bánh răng tuyệt đối.",app:"Hộp số tay (MT), dầu láp xe ga."},
     "Valvoline HP Gear Oil 85W-140":{s:"SAE 85W-140 · Dầu cầu tải nặng",adv:"Bôi trơn bánh răng vi sai cực áp.",app:"Cầu sau xe ben, đầu kéo, xe khách."},
     "Valvoline Unitrac 80W":{s:"Dầu máy kéo (UTTO)",adv:"Chống ồn phanh ướt.",app:"Hệ thống thủy lực & truyền động máy cày."},
     "Valvoline Ultramax HVLP 46":{s:"ISO VG 46 · Dầu thủy lực",adv:"Chỉ số nhớt cao, chống bọt mài mòn bơm.",app:"Máy xúc, máy ép nhựa."},
-    "Valvoline Zerex Asian Vehicle Coolant":{s:"Nước làm mát pha sẵn",adv:"Công thức HOAT bảo vệ tới 5 năm.",app:"Xe ô tô Châu Á, xe điện, máy công trình."},
-    
+    "Valvoline Zerex Asian Vehicle Coolant":{s:"Nước làm mát pha sẵn",adv:"Công thức HOAT bảo vệ tới 5 năm.",app:"Xe ô tô Châu Á, máy công trình."},
+    "Valvoline DOT 4 Brake Fluid":{s:"Dầu phanh DOT 4",adv:"Chống tạo bọt hơi ở nhiệt độ cao.",app:"Phanh đĩa, phanh ABS ô tô/xe máy."},
+
+    "Valvoline EV Performance Fluid":{s:"Dầu hộp số xe điện cao cấp",adv:"Đặc tính cách điện xuất sắc, bôi trơn nhông giảm tốc cực êm.",app:"VinFast VF8, VF9, BYD, các xe thuần điện."},
+    "Valvoline Zerex EV Coolant":{s:"Nước làm mát Pin EV (Độ dẫn điện thấp)",adv:"Chống quá nhiệt đột ngột, triệt tiêu rủi ro chập điện Pin.",app:"Xe điện VinFast, BYD, Wuling."},
+    "Valvoline Multi-Purpose Grease":{s:"Mỡ bôi trơn đa dụng",adv:"Gốc Lithium Complex chịu nhiệt và kháng nước mạnh.",app:"Mâm xoay máy xúc, vòng bi trục bánh xe tải, ổ bi công nghiệp."},
+    "Valvoline Complete Fuel System Cleaner":{s:"Phụ gia nhiên liệu",adv:"Làm sạch kim phun, xupap và buồng đốt chỉ trong 1 lần sử dụng.",app:"Đổ trực tiếp vào bình xăng ô tô, xe máy giúp xe bốc hơn."},
+
     "Valvoline SynPower 4T 10W-40":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Bảo vệ ly hợp ướt, chịu nhiệt tốt.",app:"Exciter, Winner, Satria."},
     "Valvoline SynPower 4T 10W-50":{s:"Tổng hợp toàn phần · JASO MA2",adv:"Chịu nhiệt độ cực cao.",app:"KTM, xe PKL, đi tour bạo lực."},
     "Valvoline Scooter Ultimate 5W-40":{s:"Tổng hợp toàn phần · JASO MB",adv:"Giảm ồn, tăng tốc mượt.",app:"SH, NVX, Vespa."},
     "Valvoline Scooter 4T 10W-30":{s:"Dầu tay ga · JASO MB",adv:"Làm sạch động cơ đi phố.",app:"Air Blade, Vision, Vario."},
-    "Valvoline Premium 4T 10W-30":{s:"Dầu xe số · JASO MA2",adv:"Đảm bảo sang số êm ái.",app:"Wave, Sirius."},
+    "Valvoline Premium 4T 10W-30":{s:"Dầu xe số · JASO MA2",adv:"Đảm bảo sang số êm ái.",app:"Wave, Sirius, Suzuki Viva."},
     "Valvoline Champ 4T 20W-40":{s:"Dầu khoáng bền bỉ",adv:"Chống cặn bùn, bảo vệ liên tục.",app:"Xe số chạy cường độ cao."},
-    "Valvoline 2T":{s:"Dầu nhớt 2 kỳ · JASO FC",adv:"Đốt sạch, giảm khói thải, chống xước nòng.",app:"Các dòng xe 2 thì: Xì po, Ya Z, Ya SS."},
+    "Valvoline 2T":{s:"Dầu nhớt 2 kỳ · JASO FC",adv:"Đốt sạch, giảm khói thải, chống xước nòng.",app:"Các dòng xe 2 thì: Suzuki RGV 120, Yamaha Z125R, Yamaha SS 110."},
 
     "Valvoline SynGard AC 8000":{s:"ISO VG 46 · Dầu máy nén khí",adv:"Chống cặn bám, tuổi thọ dầu cao.",app:"Máy nén khí trục vít, piston."},
     "Valvoline SynPower Gear Oil 220":{s:"ISO VG 220 · Dầu bánh răng",adv:"Phụ gia EP chống mài mòn cực áp.",app:"Hộp giảm tốc công nghiệp tải nặng."},
@@ -493,146 +504,36 @@ var VALVOLINE_CATALOG = {
     "Valvoline PremBlue 7800 Plus":{s:"Dầu động cơ tàu thủy SAE 40",adv:"Kiểm soát axit tuyệt vời.",app:"Tàu kéo lớn, sà lan."}
 };
 
-// ==================== TOÀN BỘ CƠ SỞ DỮ LIỆU (CẬP NHẬT 05/2026) ====================
+// ==================== TOÀN BỘ CƠ SỞ DỮ LIỆU PHƯƠNG TIỆN ====================
 var DB = {
     oto:{label:"Ôtô",brands:{
         TOYOTA:{models:{
-            Camry:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT: 6.5-8.0 Lít",r:1},{n:"Castrol Radicool SF Premix",c:"Làm mát"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1},{n:"Valvoline SynPower 5W-30"}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT: 6.5-8.0 Lít",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Làm mát"}]},
-            Vios:{e:{o:3.9},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC Stop-Start 5W-30"},{n:"Castrol MAGNATEC 10W-40"}],c_gear:[{n:"Castrol Transmax CVT",c:"Bản CVT: 7.0 Lít",r:1},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT: 1.9 Lít"},{n:"Castrol Brake Fluid DOT 4",c:"Dầu phanh"}],v:[{n:"Valvoline SynPower 5W-30",r:1},{n:"Valvoline MaxLife High Mileage 10W-40"}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Bản CVT: 7.0 Lít",r:1},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT: 1.9 Lít"}]},
-            Raize:{e:{o:4.0},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số D-CVT: ~6.5 Lít"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số D-CVT: ~6.5 Lít"}]},
-            Wigo:{e:{o:3.2},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC Stop-Start 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Bản CVT"},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT: 1.2 Lít"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Bản CVT"},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT: 1.2 Lít"}]},
-            Avanza_Premio:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Bản CVT: 6.5 Lít",r:1},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Bản CVT: 6.5 Lít",r:1},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT"}]},
-            VelozCross:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Bản CVT: 6.5 Lít"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Bản CVT: 6.5 Lít"}]},
-            YarisCross:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            CorollaCross:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol EDGE 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT: 7.5 Lít"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT: 7.5 Lít"}]},
-            Innova_Cross:{e:{o:4.3},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số e-CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số e-CVT"}]},
-            Innova:{e:{o:5.6},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC 10W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT: 8.0 Lít"},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT: 2.2 Lít"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT: 8.0 Lít"},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT: 2.2 Lít"}]},
-            Fortuner:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1},{n:"Castrol MAGNATEC SUV 5W-30"},{n:"Castrol CRB Turbomax 15W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT: 9.5 Lít",r:1},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau: 3.0 Lít"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1},{n:"Valvoline All-Fleet Plus 15W-40"}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT: 9.5 Lít",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau: 3.0 Lít"}]},
-            Hilux:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1},{n:"Castrol VECTON 15W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu trước/sau 4x4"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu trước/sau 4x4"}]},
-            LandCruiser:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol EDGE 5W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu trước/sau"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu trước/sau"}]},
-            Alphard:{e:{o:6.1},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 8 cấp"}]}
+            Camry:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT: 6.5-8.0 Lít",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1},{n:"Valvoline SynPower 5W-30"}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT: 6.5-8.0 Lít",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát"}]},
+            Vios:{e:{o:3.9},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC 10W-40"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT: 7.0 Lít",r:1},{n:"Castrol Brake Fluid DOT 4",c:"Dầu phanh"}],v:[{n:"Valvoline SynPower 5W-30",r:1},{n:"Valvoline Daily Protection 10W-40"}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT",r:1},{n:"Valvoline Complete Fuel System Cleaner",c:"Phụ gia xăng"}]},
+            Innova_Cross:{e:{o:4.3},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số e-CVT",r:1}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số e-CVT",r:1}]},
+            Fortuner:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1},{n:"Castrol CRB Turbomax 15W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT",r:1},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]}
         }},
         HONDA:{models:{
-            City:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC Stop-Start 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT: ~4.0 Lít"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT: ~4.0 Lít"}]},
-            Civic:{e:{o:3.7},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol EDGE 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            CRV:{e:{o:4.0},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC SUV 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT: ~5.0 Lít"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau (bản AWD)"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT: ~5.0 Lít"}]},
-            HRV:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol EDGE 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            BRV:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            WRV:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            Accord:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT: ~4.5 Lít"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT: ~4.5 Lít"}]}
-        }},
-        MITSUBISHI:{models:{
-            Xpander:{e:{o:4.0},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Bản CVT (Đời mới)"},{n:"Castrol Transmax ATF",c:"Bản AT (Đời cũ)"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Bản CVT (Đời mới)"},{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT (Đời cũ)"}]},
-            Xforce:{e:{o:4.0},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            Outlander:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            Triton:{e:{o:7.0},c:[{n:"Castrol EDGE 5W-30 C3",r:1},{n:"Castrol VECTON 15W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]},
-            PajeroSport:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau/trước"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau/trước"}]}
+            City:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC Stop-Start 5W-30"}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT",r:1}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT",r:1}]},
+            CRV:{e:{o:4.0},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT",r:1},{n:"Castrol Brake Fluid DOT 4",c:"Dầu phanh"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT",r:1},{n:"Valvoline DOT 4 Brake Fluid",c:"Dầu phanh"}]}
         }},
         HYUNDAI:{models:{
-            Accent:{e:{o:3.8},c:[{n:"Castrol MAGNATEC Stop-Start 5W-30",r:1},{n:"Castrol GTX Ultraclean 10W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT: ~6.5 Lít"},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT"}],v:[{n:"Valvoline SynPower 5W-30",r:1},{n:"Valvoline MaxLife High Mileage 10W-40"}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT: ~6.5 Lít"},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT"}]},
-            Grandi10:{e:{o:3.2},c:[{n:"Castrol MAGNATEC Stop-Start 5W-30",r:1},{n:"Castrol GTX Ultraclean 10W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT"},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT"}],v:[{n:"Valvoline Daily Protection 10W-40",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT"},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT"}]},
-            Creta:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số IVT (CVT)"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số IVT (CVT)"}]},
-            Stargazer:{e:{o:3.8},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số IVT (CVT)"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số IVT (CVT)"}]},
-            Venue:{e:{o:3.8},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số ly hợp kép (DCT)"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"DCT tùy chuẩn"}]},
-            Tucson:{e:{o:4.3},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Bản DCT"},{n:"Castrol Transmax ATF",c:"Bản AT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT"}]},
-            SantaFe:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1},{n:"Castrol MAGNATEC SUV 5W-30"}],c_gear:[{n:"Castrol Transmax Dual",c:"Bản DCT"},{n:"Castrol Transmax ATF",c:"Bản AT"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT"}]},
-            Palisade:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 8 cấp"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 8 cấp"}]},
-            Custin:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 8 cấp"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 8 cấp"}]},
-            Ioniq5:{e:{o:0},c_gear:[{n:"Castrol Radicool SF Premix",c:"Làm mát Pin/Motor",r:1}],v_gear:[{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Làm mát Pin/Motor",r:1}]}
-        }},
-        KIA:{models:{
-            Cerato:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC 10W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số tự động AT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số tự động AT"}]},
-            K3:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            Morning:{e:{o:3.2},c:[{n:"Castrol GTX Ultraclean 10W-40",r:1},{n:"Castrol MAGNATEC Stop-Start 5W-30"}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT"},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT"}],v:[{n:"Valvoline Daily Protection 10W-40",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT"},{n:"Valvoline Gear Oil GL-4 80W-90",c:"Bản MT"}]},
-            Soluto:{e:{o:3.3},c:[{n:"Castrol MAGNATEC 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT"},{n:"Castrol Transmax Manual 80W-90",c:"Bản MT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT"}]},
-            Sonet:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số IVT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số IVT"}]},
-            Seltos:{e:{o:4.2},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DCT 7 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}]},
-            Carens:{e:{o:4.2},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Bản IVT"},{n:"Castrol Transmax Dual",c:"Bản DCT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Bản IVT"}]},
-            K5:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp / 8 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            Sorento:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DCT"},{n:"Castrol Transmax ATF",c:"Hộp số AT"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            Carnival:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 8 cấp"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 8 cấp"}]}
+            Accent:{e:{o:3.8},c:[{n:"Castrol MAGNATEC 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT",r:1}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT",r:1}]},
+            SantaFe:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DCT",r:1}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số DCT",r:1}]}
         }},
         FORD:{models:{
-            Ranger:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1},{n:"Castrol CRB Turbomax 15W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT: ~10.0 Lít",r:1},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT: ~10.0 Lít",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]},
-            Everest:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT: ~10.0 Lít"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT: ~10.0 Lít"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu sau"}]},
-            Explorer:{e:{o:5.7},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 10 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            Territory:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DCT 7 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}]},
-            Transit:{e:{o:8.0},c:[{n:"Castrol VECTON 10W-40",r:1},{n:"Castrol CRB Turbomax 15W-40"}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số sàn MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số sàn MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]}
-        }},
-        MAZDA:{models:{
-            Mazda2:{e:{o:3.8},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 6 cấp"}]},
-            Mazda3:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol EDGE 5W-30"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 6 cấp"}]},
-            Mazda6:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 6 cấp"}]},
-            CX3:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            CX30:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            CX5:{e:{o:4.2},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC SUV 5W-30"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            CX8:{e:{o:4.5},c:[{n:"Castrol EDGE 0W-20",r:1},{n:"Castrol MAGNATEC SUV 5W-30"}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]},
-            BT50:{e:{o:7.0},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]}
-        }},
-        SUZUKI:{models:{
-            XL7:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1},{n:"Castrol MAGNATEC 10W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT 4 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT 4 cấp"}]},
-            Ertiga:{e:{o:4.0},c:[{n:"Castrol MAGNATEC 10W-40",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Bản AT"}],v:[{n:"Valvoline Daily Protection 10W-40",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Bản AT"}]},
-            Swift:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            Jimny:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 4 cấp"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu trước/sau"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu trước/sau"}]},
-            Ciaz:{e:{o:3.5},c:[{n:"Castrol MAGNATEC 10W-40",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 4 cấp"}],v:[{n:"Valvoline Daily Protection 10W-40",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"}]}
-        }},
-        NISSAN:{models:{
-            Almera:{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            Kicks:{e:{o:4.0},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số giảm tốc điện"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số giảm tốc điện"}]},
-            Navara:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 7 cấp"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
-            Terra:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]}
-        }},
-        SUBARU:{models:{
-            Forester:{e:{o:4.8},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số Lineartronic CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số Lineartronic CVT"}]},
-            Outback:{e:{o:4.8},c:[{n:"Castrol EDGE 0W-20",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số Lineartronic CVT"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số Lineartronic CVT"}]}
-        }},
-        MG:{models:{
-            ZS:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            MG5:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT"}]},
-            HS:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DCT 7 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}]},
-            RX5:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DCT 7 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}]}
-        }},
-        PEUGEOT:{models:{
-            "2008":{e:{o:3.5},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 6 cấp"}]},
-            "3008":{e:{o:4.25},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 6 cấp"}]},
-            "5008":{e:{o:4.25},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 6 cấp"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT 6 cấp"}]}
+            Ranger:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT 10 cấp",r:1},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
+            Everest:{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số AT",r:1},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số AT",r:1},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]}
         }},
         VINFAST:{models:{
-            Fadil:{e:{o:4.0},c:[{n:"Castrol EDGE 5W-30",r:1}],c_gear:[{n:"Castrol Transmax CVT",c:"Hộp số CVT: ~4.0 Lít"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",c:"Hộp số CVT: ~4.0 Lít"}]},
-            Lux_A2.0:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số ZF 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số ZF 8 cấp"}]},
-            Lux_SA2.0:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số ZF 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số ZF 8 cấp"}]},
-            VF_e34:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            VF3:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            VF5:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            VF6:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            VF7:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            VF8:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            VF9:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV (Reducer)",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]}
-        }},
-        MERCEDES_BENZ:{models:{
-            C_Class:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",r:1},{n:"Castrol EDGE 5W-40"}],c_gear:[{n:"Castrol Transmax ATF",c:"ATF (Premium)"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"ATF (Premium)"}]},
-            E_Class:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"ATF (Premium)"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"ATF (Premium)"}]},
-            S_Class:{e:{o:8.0},c:[{n:"Castrol EDGE 5W-30 M",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"ATF (Premium)"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"ATF (Premium)"}]},
-            GLC:{e:{o:6.5},c:[{n:"Castrol EDGE 5W-30 M",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"ATF (Premium)"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"ATF (Premium)"}]}
-        }},
-        BMW:{models:{
-            "3_Series_320i_330i":{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số ZF 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số ZF 8 cấp"}]},
-            "5_Series_520i_530i":{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số ZF 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số ZF 8 cấp"}]},
-            X3:{e:{o:5.8},c:[{n:"Castrol EDGE 0W-20 LL IV",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số ZF 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số ZF 8 cấp"}]},
-            X5:{e:{o:8.0},c:[{n:"Castrol EDGE 0W-20 LL IV",r:1}],c_gear:[{n:"Castrol Transmax ATF",c:"Hộp số ZF 8 cấp"}],v:[{n:"Valvoline Modern Engine 0W-20",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số ZF 8 cấp"}]}
+            VF8:{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",c:"Dầu hộp số EV",r:1},{n:"Castrol ON EV Thermal Fluid",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex EV Coolant",c:"Nước làm mát Pin",r:1}]},
+            VF5:{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",c:"Dầu hộp số EV",r:1},{n:"Castrol ON EV Thermal Fluid",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex EV Coolant",c:"Nước làm mát Pin",r:1}]}
         }},
         BYD:{models:{
-            Atto_3:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            Dolphin:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]},
-            Seal:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin",r:1}]}
+            Atto_3:{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",c:"Dầu hộp số EV",r:1},{n:"Castrol ON EV Thermal Fluid",c:"Nước làm mát Pin",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex EV Coolant",c:"Nước làm mát Pin",r:1}]}
         }},
         WULING:{models:{
-            Mini_EV:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV",r:1}]},
-            Bingo:{e:{o:0},c_gear:[{n:"Castrol Transmax ATF",c:"Dầu hộp số EV",r:1},{n:"Castrol Radicool SF Premix",c:"Nước làm mát Pin"}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Dầu hộp số EV",r:1},{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát Pin"}]}
-        }},
-        SKODA:{models:{
-            Kodiaq:{e:{o:5.5},c:[{n:"Castrol EDGE 5W-40",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DSG"}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số DSG"}]},
-            Karoq:{e:{o:4.5},c:[{n:"Castrol EDGE 5W-40",r:1}],c_gear:[{n:"Castrol Transmax Dual",c:"Hộp số DSG"}],v:[{n:"Valvoline SynPower 5W-30",r:1}],v_gear:[{n:"Valvoline MaxLife Multi-Vehicle ATF",c:"Hộp số DSG"}]}
+            Mini_EV:{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",c:"Dầu hộp số EV",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",c:"Dầu hộp số EV",r:1}]}
         }}
     }},
 
@@ -659,7 +560,7 @@ var DB = {
             PG_1:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",r:1}],v:[{n:"Valvoline Premium 4T 10W-30",r:1}]},
             MT_15_R15:{e:{o:0.85},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],c_gear:[{n:"Castrol Radicool SF Premix",c:"Nước làm mát"}],v:[{n:"Valvoline SynPower 4T 10W-40",r:1}],v_gear:[{n:"Valvoline Zerex Asian Vehicle Coolant",c:"Nước làm mát"}]},
             MT_03:{e:{o:2.4},c:[{n:"Castrol Power1 Ultimate 10W-50",r:1}],v:[{n:"Valvoline SynPower 4T 10W-50",r:1}]},
-            Z125_Ya_Z:{e:{o:"Pha xăng"},c:[{n:"Castrol Activ 2T",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu hộp số: 0.8 Lít"}],v:[{n:"Valvoline 2T",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu hộp số: 0.8 Lít"}]},
+            Z125R_Ya_Z:{e:{o:"Pha xăng"},c:[{n:"Castrol Activ 2T",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu hộp số: 0.8 Lít"}],v:[{n:"Valvoline 2T",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu hộp số: 0.8 Lít"}]},
             Ya_SS_110:{e:{o:"Pha xăng"},c:[{n:"Castrol Activ 2T",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu hộp số: 0.8 Lít"}],v:[{n:"Valvoline 2T",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu hộp số: 0.8 Lít"}]}
         }},
         SUZUKI:{models:{
@@ -678,7 +579,7 @@ var DB = {
             Attila:{e:{o:0.8},c:[{n:"Castrol Power1 Scooter 10W-30",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu láp: 120 mL"}],v:[{n:"Valvoline Scooter 4T 10W-30",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu láp: 120 mL"}]},
             Elegant_Angela_Galaxy:{e:{o:0.8},c:[{n:"Castrol Power1 4T 10W-30",r:1}],v:[{n:"Valvoline Premium 4T 10W-30",r:1}]}
         }},
-        VINFAST:{models:{
+        VINFAST_EV:{models:{
             Evo_200:{e:{o:0},c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu láp: 120 mL",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu láp: 120 mL",r:1}]},
             Feliz_S_Klara_S:{e:{o:0},c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu láp",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu láp",r:1}]},
             Vento_S_Theon_S:{e:{o:0},c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Dầu láp",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Dầu láp",r:1}]}
@@ -687,25 +588,25 @@ var DB = {
 
     xetai:{label:"Xe tải & Đầu kéo",brands:{
         ISUZU:{models:{
-            QKR_Tải_Nhẹ:{e:{o:6.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1},{n:"Castrol VECTON 10W-40"}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
+            QKR_Tải_Nhẹ:{e:{o:6.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1},{n:"Castrol VECTON 10W-40"}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"},{n:"Castrol Spheerol EPL 2",c:"Mỡ bôi trơn trục"}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"},{n:"Valvoline Multi-Purpose Grease",c:"Mỡ bôi trơn"}]},
             NPR_NQR:{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]},
             Giga_Đầu_Kéo:{e:{o:30.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu vi sai"}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu vi sai"}]}
         }},
         HYUNDAI:{models:{
             Porter_H150:{e:{o:7.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
             Mighty_N250_EX8:{e:{o:8.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
-            Xcient_Đầu_Kéo:{e:{o:35.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]}
+            Xcient_Đầu_Kéo:{e:{o:35.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"},{n:"Castrol Spheerol EPL 2",c:"Mỡ chịu tải"}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"},{n:"Valvoline Multi-Purpose Grease",c:"Mỡ chịu tải"}]}
         }},
         HINO:{models:{
             Hino_300_XZU:{e:{o:10.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT: ~5.0L"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau: ~6.0L"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT: ~5.0L"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu sau: ~6.0L"}]},
-            Hino_500_FG_FL:{e:{o:16.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT: 9.0L"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau: 14.0L"}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT: 9.0L"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu sau: 14.0L"}]}
+            Hino_500_FG_FL:{e:{o:16.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Cầu sau"}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Cầu sau"}]}
         }},
         THACO:{models:{
             Towner_990_TF280:{e:{o:3.0},c:[{n:"Castrol GTX Ultraclean 10W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số sàn"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline Daily Protection 10W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số sàn"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
             Ollin_S_Foton:{e:{o:6.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số sàn"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu sau"}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số sàn"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu sau"}]}
         }},
         HOWO:{models:{
-            Đầu_Kéo_Sitrak_A7:{e:{o:38.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]},
+            Đầu_Kéo_Sitrak_A7:{e:{o:38.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"},{n:"Castrol Spheerol EPL 2",c:"Mỡ khung gầm"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"},{n:"Valvoline Multi-Purpose Grease",c:"Mỡ khung gầm"}]},
             Xe_Ben_3_4_Chân:{e:{o:35.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",c:"Hộp số MT"},{n:"Castrol Transmax Axle 85W-140",c:"Dầu cầu"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Gear Oil GL-4 80W-90",c:"Hộp số MT"},{n:"Valvoline HP Gear Oil 85W-140",c:"Dầu cầu"}]}
         }},
         CHENGLONG:{models:{
@@ -743,7 +644,6 @@ var DB = {
     nongnghiep:{label:"Máy Nông nghiệp",brands:{
         KUBOTA:{models:{
             Máy_Kéo_L5018:{e:{o:7.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],c_gear:[{n:"Castrol Agri Trans Plus 80W",c:"Hộp số & Thủy lực (UTTO)",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",c:"Hộp số & Thủy lực (UTTO)",r:1}]},
-            Máy_Kéo_M6040:{e:{o:8.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],c_gear:[{n:"Castrol Agri Trans Plus 80W",c:"Hộp số & Thủy lực (UTTO)",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",c:"Hộp số & Thủy lực (UTTO)",r:1}]},
             Máy_Gặt_DC70_DC93:{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],c_gear:[{n:"Castrol Agri Trans Plus 80W",c:"Hộp số & Thủy lực"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",c:"Hộp số & Thủy lực"}]}
         }},
         YANMAR:{models:{
@@ -776,7 +676,7 @@ var DB = {
             Máy_Xúc_SK200_SK330:{e:{o:22.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",c:"Hệ thống Thủy lực"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Hệ thống Thủy lực"}]}
         }},
         CATERPILLAR:{models:{
-            Máy_Xúc_320GC_330GC:{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",c:"Hệ thống Thủy lực"}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Hệ thống Thủy lực"}]}
+            Máy_Xúc_320_330:{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",c:"Hệ thống Thủy lực"}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Hệ thống Thủy lực"}]}
         }},
         LIUGONG:{models:{
             Máy_Xúc_Lật_Các_Loại:{e:{o:18.0},c:[{n:"Castrol VECTON 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",c:"Hệ thống Thủy lực"}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Hệ thống Thủy lực"}]}
@@ -797,8 +697,7 @@ var DB = {
             Máy_Nén_Khí_OSP:{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",c:"Dầu máy nén khí",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",c:"Dầu máy nén khí",r:1}]}
         }},
         FUSHENG:{models:{
-            Máy_Nén_Khí_Trục_Vít:{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",c:"Dầu máy nén khí",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",c:"Dầu máy nén khí",r:1}]},
-            Máy_Nén_Khí_Piston:{e:{o:0},c_gear:[{n:"Castrol Aircol VDL 100",c:"Dầu máy nén khí",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",c:"Dầu máy nén khí",r:1}]}
+            Máy_Nén_Khí_Trục_Vít_Piston:{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",c:"Dầu máy nén khí",r:1},{n:"Castrol Aircol VDL 100",c:"Dầu máy piston",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",c:"Dầu máy nén khí",r:1}]}
         }},
         SEW:{models:{
             Hộp_Giảm_Tốc_Công_Nghiệp:{e:{o:0},c_gear:[{n:"Castrol Optigear BM 220",c:"Dầu bánh răng",r:1}],v_gear:[{n:"Valvoline SynPower Gear Oil 220",c:"Dầu bánh răng",r:1}]}
@@ -806,7 +705,7 @@ var DB = {
         PEGASUS:{models:{
             Máy_Nén_Khí_Piston:{e:{o:0},c_gear:[{n:"Castrol Aircol VDL 100",c:"Dầu máy nén khí",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",c:"Dầu máy nén khí",r:1}]}
         }},
-        CHUNG_LOẠI:{models:{
+        CÁC_HÃNG_KHÁC:{models:{
             Hệ_Thống_Thủy_Lực:{e:{o:0},c_gear:[{n:"Castrol Hyspin HVI 46",c:"Dầu thủy lực",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",c:"Dầu thủy lực",r:1}]}
         }}
     }},
@@ -936,13 +835,12 @@ function search(){
 
     var md=catData.brands[brand].models[model];
     
-    // Xử lý thông minh dung tích nhớt
     var oc = 'N/A';
     if(md.e && md.e.o !== undefined) {
         if (md.e.o === 0) {
             oc = 'Không dùng';
         } else if (typeof md.e.o === 'string') {
-            oc = md.e.o; // Ví dụ: "Pha xăng"
+            oc = md.e.o; 
         } else {
             oc = md.e.o + ' Lít';
         }
@@ -984,7 +882,7 @@ function search(){
 
     var h='';
     
-    // RENDER CARD CASTROL
+    // RENDER CASTROL
     h+='<div class="brand-card">';
     h+='<div class="brand-card-head castrol">';
     h+='<div class="brand-logo-badge"><img src="'+CASTROL_LOGO+'" alt="Castrol"></div>';
@@ -993,17 +891,17 @@ function search(){
     
     if((md.c && md.c.length > 0) || (md.c_gear && md.c_gear.length > 0)){
         if(md.c && md.c.length > 0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green); margin-bottom: 8px;"><img src="https://cdn-icons-png.flaticon.com/128/18890/18890568.png" width="16" height="16" style="margin-right:6px; margin-top:-3px; vertical-align: middle;"> DẦU ĐỘNG CƠ</div>';
+            h+='<div class="alt-heading" style="color:var(--castrol-green); margin-bottom: 8px;"><img src="https://cdn-icons-png.flaticon.com/128/18890/18890568.png" width="16" height="16" style="margin-right:6px; margin-top:-3px; vertical-align: middle;"> DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
             md.c.forEach(function(p){ h+=makeProductCard(p, oc, CASTROL_CATALOG, true, brand, model, catLabel); });
         }
         if(md.c_gear && md.c_gear.length > 0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green); margin-top: 20px; margin-bottom: 8px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-right:4px; vertical-align: middle;"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg> HỘP SỐ, TRUYỀN ĐỘNG & THỦY LỰC</div>';
+            h+='<div class="alt-heading" style="color:var(--castrol-green); margin-top: 20px; margin-bottom: 8px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-right:4px; vertical-align: middle;"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg> TRUYỀN ĐỘNG & THỦY LỰC (GEAR/ATF/CVT/HYDRAULIC)</div>';
             md.c_gear.forEach(function(p){ h+=makeProductCard(p, p.c || 'Tùy chọn', CASTROL_CATALOG, true, brand, model, catLabel); });
         }
     } else h+='<div class="no-result">Không có dữ liệu</div>';
     h+='</div></div>';
 
-    // RENDER CARD VALVOLINE
+    // RENDER VALVOLINE
     h+='<div class="brand-card">';
     h+='<div class="brand-card-head valvoline">';
     h+='<div class="brand-logo-badge"><img src="'+VALVOLINE_LOGO+'" alt="Valvoline"></div>';
@@ -1012,11 +910,11 @@ function search(){
     
     if((md.v && md.v.length > 0) || (md.v_gear && md.v_gear.length > 0)){
         if(md.v && md.v.length > 0){
-            h+='<div class="alt-heading" style="color:var(--blue); margin-bottom: 8px;"><img src="https://cdn-icons-png.flaticon.com/128/18890/18890568.png" width="16" height="16" style="margin-right:6px; margin-top:-3px; vertical-align: middle;"> DẦU ĐỘNG CƠ</div>';
+            h+='<div class="alt-heading" style="color:var(--blue); margin-bottom: 8px;"><img src="https://cdn-icons-png.flaticon.com/128/18890/18890568.png" width="16" height="16" style="margin-right:6px; margin-top:-3px; vertical-align: middle;"> DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
             md.v.forEach(function(p){ h+=makeProductCard(p, oc, VALVOLINE_CATALOG, false, brand, model, catLabel); });
         }
         if(md.v_gear && md.v_gear.length > 0){
-            h+='<div class="alt-heading" style="color:var(--blue); margin-top: 20px; margin-bottom: 8px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-right:4px; vertical-align: middle;"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg> HỘP SỐ, TRUYỀN ĐỘNG & THỦY LỰC</div>';
+            h+='<div class="alt-heading" style="color:var(--blue); margin-top: 20px; margin-bottom: 8px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-right:4px; vertical-align: middle;"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg> TRUYỀN ĐỘNG & THỦY LỰC (GEAR/ATF/CVT/HYDRAULIC)</div>';
             md.v_gear.forEach(function(p){ h+=makeProductCard(p, p.c || 'Tùy chọn', VALVOLINE_CATALOG, false, brand, model, catLabel); });
         }
     } else h+='<div class="no-result">Không có dữ liệu</div>';
@@ -1124,9 +1022,10 @@ document.getElementById('navContainer').addEventListener('click',function(e){
         document.getElementById('reverseResults').style.display='none';
     }
 });
-document.addEventListener('change',function(e){
-    if(e.target&&e.target.id==='brandSelect') popModels();
-});
+
+// SỬA LỖI KHÔNG CHỌN ĐƯỢC DROPDOWN TRÊN ĐIỆN THOẠI
+document.getElementById('brandSelect').addEventListener('change', popModels);
+
 document.getElementById('searchBtn').addEventListener('click',search);
 document.getElementById('reverseBtn').addEventListener('click',revSearch);
 document.getElementById('modalOverlay').addEventListener('click',function(e){
