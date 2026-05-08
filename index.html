@@ -2,7 +2,8 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Tra cứu Dầu nhớt | Viettin Mekong</title>
     <link rel="icon" type="image/png" href="vtm.png">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -329,6 +330,13 @@
         @keyframes arrowPulse { 0% { opacity: 0.65; } 50% { opacity: 1; } 100% { opacity: 0.65; } }
         .nav-arr.pulse { animation: arrowPulse 1s ease-in-out 3; }
     </style>
+    /* Sửa lỗi co rút/zoom trang khi gõ bàn phím trên điện thoại */
+@media (max-width: 768px) {
+    .field-input, .field-select {
+        font-size: 16px !important; /* Bắt buộc phải là 16px để iOS/Android không tự động zoom */
+    }
+}
+
 </head>
 <body>
 
