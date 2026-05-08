@@ -1256,6 +1256,14 @@ function revSearch(){
     var found=null;
     for(var i=0;i<ALLP.length;i++){if(ALLP[i].name===pn){found=ALLP[i];break;}}
     if(!found||!found.vehicles.length){rr.innerHTML='<span style="color:#999">Không tìm thấy phương tiện phù hợp.</span>';rr.style.display='block';return;}
+    
+    // Tự động nhận diện theme Valvoline hay Castrol
+    if (pn.toLowerCase().includes('valvoline')) {
+        rr.classList.add('valvoline-theme');
+    } else {
+        rr.classList.remove('valvoline-theme');
+    }
+
     var h='<div class="rv-title">Phương tiện sử dụng sản phẩm này</div><ul>';
     found.vehicles.forEach(function(v){h+='<li>['+v.label+'] '+v.brand.replace(/_/g, ' ')+' '+v.model.replace(/_/g, ' ')+'</li>';});
     h+='</ul>';
