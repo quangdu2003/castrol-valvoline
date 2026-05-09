@@ -1358,27 +1358,54 @@ function popModels(){
     }
 }
 
-function popReverse(){
-    var rs=document.getElementById('reverseProductSelect');
-    while(rs.options.length>1) rs.remove(1);
-    var sortedProds = ALLP.slice().sort(function(a,b){return a.name.localeCompare(b.name);});
+function popReverse() {
+    var rs = document.getElementById('reverseProductSelect');
+    if (!rs) return;
+
+    // Xóa các option cũ (giữ lại option đầu tiên)
+    while (rs.options.length > 1) rs.remove(1);
+
+    // Sắp xếp danh sách sản phẩm theo bảng chữ cái
+    var sortedProds = ALLP.slice().sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+    });
+
+    // Tạo các nhóm sản phẩm (Optgroup) để khách dễ nhìn
     var groups = {
         "Dầu nhớt Ô tô du lịch": [],
         "Dầu nhớt Xe máy": [],
         "Dầu tải nặng & Thương mại": [],
-        "Dầu Hộp số, Cầu & Láp xe ga": [],
-        "Dành cho xe điện (EV)": [],
-        "Nước làm mát & Phụ trợ": []
+        "Hộp số, Cầu & Xe điện": [],
+        "Sản phẩm khác": []
     };
-    sortedProds.forEach(
-    Object.keys(groups).forEach(function(key){
-        if(groups[key].length > 0){
-            var og = document.createElement('optgroup');
-            og.label = key;
-            groups[key].forEach(function(p){
-                var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; og.appendChild(o);
+
+    sortedProds.forEach(function(p) {
+        var n = p.name.toUpperCase();
+        if (n.includes('EDGE') || n.includes('MAGNATEC') || n.includes('GTX') || n.includes('MODERN') || n.includes('SYNPOWER')) {
+            groups["Dầu nhớt Ô tô du lịch"].push(p);
+        } else if (n.includes('POWER1') || n.includes('ACTIV') || n.includes('SCOOTER') || n.includes(' 4T') || n.includes(' 2T')) {
+            groups["Dầu nhớt Xe máy"].push(p);
+        } else if (n.includes('CRB') || n.includes('VECTON') || n.includes('ALL-FLEET') || n.includes('BLUE')) {
+            groups["Dầu tải nặng & Thương mại"].push(p);
+        } else if (n.includes('TRANSMAX') || n.includes('GEAR') || n.includes('ATF') || n.includes('CVT') || n.includes(' EV ')) {
+            groups["Hộp số, Cầu & Xe điện"].push(p);
+        } else {
+            groups["Sản phẩm khác"].push(p);
+        }
+    });
+
+    // Đổ dữ liệu vào Select
+    Object.keys(groups).forEach(function(groupName) {
+        if (groups[groupName].length > 0) {
+            var groupEl = document.createElement('optgroup');
+            groupEl.label = groupName;
+            groups[groupName].forEach(function(p) {
+                var o = document.createElement('option');
+                o.value = p.name;
+                o.textContent = p.name;
+                groupEl.appendChild(o);
             });
-            rs.appendChild(og);
+            rs.appendChild(groupEl);
         }
     });
 }
