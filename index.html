@@ -1684,22 +1684,21 @@ updNav('oto');
 popBrands();
 popReverse();
 </script>
-
-
-
-
-
 <script>
 
 function updateParentHeight(){
 
-    const target =
-        document.getElementById("dynamicContent");
+    const body = document.body;
+    const html = document.documentElement;
 
-    if(!target) return;
-
-    const height =
-        target.scrollHeight + 500;
+    const height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        body.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight,
+        html.clientHeight
+    ) + 1200;
 
     window.parent.postMessage({
         type:"setHeight",
@@ -1707,7 +1706,7 @@ function updateParentHeight(){
     },"*");
 }
 
-/* load */
+/* first load */
 window.addEventListener("load", () => {
 
     updateParentHeight();
@@ -1715,13 +1714,14 @@ window.addEventListener("load", () => {
     setTimeout(updateParentHeight, 500);
     setTimeout(updateParentHeight, 1000);
     setTimeout(updateParentHeight, 2000);
+    setTimeout(updateParentHeight, 3000);
 
 });
 
 /* resize */
 window.addEventListener("resize", updateParentHeight);
 
-/* detect DOM changes */
+/* realtime detect */
 const observer = new MutationObserver(() => {
 
     updateParentHeight();
@@ -1730,14 +1730,14 @@ const observer = new MutationObserver(() => {
 
 observer.observe(document.body,{
     childList:true,
-    subtree:true
+    subtree:true,
+    attributes:true
 });
 
 /* backup */
 setInterval(updateParentHeight,1000);
 
 </script>
-
 </body>
 </html>
         
