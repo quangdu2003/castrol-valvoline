@@ -31,7 +31,17 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background: var(--gray-100); color: #111; }
 
-        .site-header { background: var(--white); border-bottom: 1px solid #E5E5E5; padding: 12px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 200; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+        .site-header {
+            background: var(--white);
+            border-bottom: 1px solid #E5E5E5;
+            padding: 12px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 200;
+            box-shadow: 0 1px 6px rgba(0,0,0,.08);
+        }
         .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
         .header-logos { display: flex; align-items: center; gap: 24px; }
         .header-logo-wrap { display: inline-flex; align-items: center; justify-content: center; height: 56px; flex-shrink: 0; }
@@ -40,7 +50,13 @@
         .logo-divider { width: 1px; height: 36px; background: #E0E0E0; }
         .header-logo { width: 100%; height: 100%; object-fit: contain; }
 
-        .hero { margin-top: 0; background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg-mid) 60%, var(--hero-bg-dark) 100%); padding: 56px 24px 0; position: relative; overflow: hidden; }
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg-mid) 60%, var(--hero-bg-dark) 100%);
+            padding: 56px 24px 0;
+            position: relative;
+            overflow: hidden;
+        }
         .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E"); }
         .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: flex-end; position: relative; z-index: 1; }
         .hero-text { padding-bottom: 36px; }
@@ -52,7 +68,16 @@
         .hero-oil-drop { width: 180px; height: 220px; background: linear-gradient(160deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 100%); border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; border: 1px solid rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.2); }
         .hero-oil-drop svg { width: 80px; height: 80px; opacity: .6; }
 
-        .nav-scroll-outer { background: var(--nav-bg); border-bottom: 3px solid rgba(0,0,0,.25); display: flex; align-items: stretch; position: relative; top: 0; z-index: 10; width: 100%; }
+        .nav-scroll-outer {
+            background: var(--nav-bg);
+            border-bottom: 3px solid rgba(0,0,0,.25);
+            display: flex;
+            align-items: stretch;
+            position: relative;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+        }
         .nav-arr { display: none; flex-shrink: 0; width: 38px; background: transparent; border: none; color: rgba(255,255,255,.65); cursor: pointer; align-items: center; justify-content: center; transition: color .2s, background .2s; padding: 0; position: relative; z-index: 5; -webkit-tap-highlight-color: transparent; }
         .nav-arr:hover { color: white; background: rgba(255,255,255,.09); }
         .nav-arr:active { background: rgba(255,255,255,.15); }
@@ -60,16 +85,45 @@
         .nav-arr.nav-arr-left { border-right: 1px solid rgba(255,255,255,.08); }
         .nav-arr.nav-arr-right { border-left: 1px solid rgba(255,255,255,.08); }
         .nav-arr.hidden { opacity: 0; pointer-events: none; }
-        .nav-container { flex: 1; display: flex; overflow-x: auto; overflow-y: hidden; justify-content: center; scrollbar-width: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
+        .nav-container {
+            flex: 1;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            justify-content: center;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
+        }
         .nav-container::-webkit-scrollbar { display: none; }
-        .nav-item { flex: 1; min-width: 110px; max-width: 150px; display: flex; flex-direction: column; align-items: center; padding: 14px 10px; cursor: pointer; border-bottom: 4px solid transparent !important; margin-bottom: -3px; transition: all .25s; color: rgba(255,255,255,.6); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; gap: 6px; font-family: var(--font-body); -webkit-tap-highlight-color: transparent; }
+        .nav-item {
+            flex: 1;
+            min-width: 110px;
+            max-width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 10px;
+            cursor: pointer;
+            border-bottom: 4px solid transparent !important;
+            margin-bottom: -3px;
+            transition: all .25s;
+            color: rgba(255,255,255,.6);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            gap: 6px;
+            font-family: var(--font-body);
+            -webkit-tap-highlight-color: transparent;
+        }
         .nav-item:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); }
         .nav-item.active { color: #FFFFFF !important; border-bottom: 4px solid #FFC107 !important; background: rgba(255,255,255,.1); }
         .nav-icon { width: 26px; height: 26px; }
         .nav-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .6; }
         .nav-item.active .nav-icon img { opacity: 1; filter: brightness(0) invert(1); }
 
-        .main { width:100%; max-width:100%; margin:0; padding:0; }
+        .main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 60px; }
         .finder-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); margin-bottom: 28px; }
         .finder-header { background: var(--blue); padding: 20px 28px; display: flex; align-items: center; gap: 14px; }
         .finder-header-icon { width: 36px; height: 36px; background: rgba(0,0,0,.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -167,9 +221,40 @@
         .alt-heading::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
         .no-result { text-align: center; padding: 32px; color: #BBB; font-size: 13px; font-family: var(--font-body); }
 
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.72); z-index: 500; display: flex; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
-        .modal-box { background: white; border-radius: 14px; width: 100%; max-width: 640px; margin: 30px auto; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.35); }
-        .modal-topbar { padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 14px; }
+        /* ===== ĐÃ CHỈNH SỬA CSS MODAL ĐỂ HIỂN THỊ NGAY GIỮA MÀN HÌNH VÀ KHÔNG GIẬT TRANG ===== */
+        .modal-overlay { 
+            position: fixed; 
+            inset: 0; 
+            background: rgba(0,0,0,.72); 
+            z-index: 500; 
+            display: flex; 
+            align-items: center; /* Căn giữa theo chiều dọc */
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            padding: 20px; 
+        }
+        .modal-box { 
+            background: white; 
+            border-radius: 14px; 
+            width: 100%; 
+            max-width: 640px; 
+            margin: auto; /* Tự động căn lề */
+            overflow-y: auto; /* Thanh cuộn nằm bên trong nội dung Modal */
+            max-height: 90vh; /* Không để Modal dài quá màn hình */
+            box-shadow: 0 24px 64px rgba(0,0,0,.35); 
+            overscroll-behavior: contain; /* Ngăn chặn cuộn trang nền phía sau */
+        }
+        .modal-topbar { 
+            position: sticky; /* Giữ thanh này cố định trên cùng khi cuộn xuống */
+            top: 0; 
+            z-index: 10; 
+            padding: 0 20px; 
+            min-height: 56px; 
+            display: flex; 
+            align-items: center; 
+            gap: 14px; 
+        }
+        /* ================================================================================= */
+
         .modal-topbar.c { background: var(--castrol-green); }
         .modal-topbar.v { background: var(--dark); }
         .modal-back { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); color: white; padding: 6px 14px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .5px; transition: all .2s; display: flex; align-items: center; gap: 6px; flex-shrink: 0; -webkit-tap-highlight-color: transparent; }
@@ -216,7 +301,7 @@
             .hero-badge { font-size: 9px; letter-spacing: 2px; padding: 4px 10px; }
             .hero-title { font-size: clamp(36px, 10vw, 60px); }
             .nav-item { padding: 12px 14px; font-size: 9px; gap: 5px; }
-            .main { width:100%; max-width:100%; margin:0; padding:0; }
+            .main { padding: 20px 16px 40px; }
             .step-value { display: none; }
             .step-num { font-size: 22px; }
             .step-item { padding: 12px 16px 12px 28px; }
@@ -231,7 +316,7 @@
             .logo-divider { display: none; }
             .header-logo-wrap.valvoline-wrap { width: 100px; }
             .hero-title { font-size: clamp(32px, 11vw, 52px); }
-            .main { width:100%; max-width:100%; margin:0; padding:0; }
+            .main { padding: 14px 12px 36px; }
             .finder-header { padding: 14px 16px; gap: 10px; }
             .finder-body { padding: 14px 14px 18px; }
             .steps { gap: 2px; flex-wrap: nowrap; }
@@ -248,7 +333,6 @@
             .product-info { padding: 10px 12px 10px; }
             .product-name { font-size: 16px; }
             .product-name.recommended-pad { margin-top: 16px; }
-            .modal-box { border-radius: 16px; margin: 0; max-height: 92vh; }
             .modal-hero { padding: 16px; flex-direction: row; }
         }
         @media (max-width: 380px) {
@@ -287,62 +371,19 @@
 
         html { overflow-y: scroll; }
         body { min-height: 100vh; }
-    
-html,
-body {
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden !important;
-    background: #fff;
-}
-
-.hero,
-.nav-scroll-outer,
-.main,
-.finder-card,
-.finder-body,
-.results-grid {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-.hero-inner {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-}
-
-.finder-card {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-
-@media(max-width:768px){
-
-    .hero {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    .finder-body {
-        padding: 12px !important;
-    }
-
-}
-
-
-html, body{
-    min-height:100%;
-    height:auto!important;
-}
-
-</style>
+    </style>
 </head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
 <body>
 
-
+<header class="site-header">
+    <div class="header-inner">
+        <div class="header-logos">
+            <div class="header-logo-wrap castrol-wrap"><img class="header-logo" src="https://thelubricantoracle.castrol.com/images/brand_logo.jpeg" alt="Castrol"></div>
+            <div class="logo-divider"></div>
+            <div class="header-logo-wrap valvoline-wrap"><img class="header-logo" src="https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad" alt="Valvoline"></div>
+        </div>
+    </div>
+</header>
 
 <section class="hero">
     <div class="hero-inner">
@@ -435,7 +476,7 @@ var CAT_ICONS = {
 var CASTROL_LOGO = 'https://thelubricantoracle.castrol.com/images/brand_logo.jpeg';
 var VALVOLINE_LOGO = 'https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad';
 
-// ==================== CATALOG SẢN PHẨM (MỞ RỘNG) ====================
+// ==================== CATALOG SẢN PHẨM ====================
 var CASTROL_CATALOG = {
     // --- DẦU Ô TÔ DU LỊCH TỔNG HỢP CAO CẤP ---
     "Castrol EDGE 0W-20":{s:"SAE 0W-20 · API SP · ILSAC GF-6A",adv:"Bảo vệ động cơ gấp 3 lần so với dầu thường nhờ công nghệ Fluid Titanium™. Chống cháy nổ sớm (LSPI) cho động cơ GDI, Turbo đời mới.",app:"Toyota Camry, Honda CR-V, Mazda CX-5, Mitsubishi Outlander đời 2018 trở về sau.", c:"", u:""},
@@ -457,7 +498,7 @@ var CASTROL_CATALOG = {
     "Castrol CRB Multi 20W-50":{s:"SAE 20W-50 · API CF-4/SF · Đa dụng",adv:"Dầu đa dụng cho động cơ diesel và xăng cũ. Bảo vệ tốt cho thiết bị nông nghiệp.",app:"Máy kéo nông nghiệp Kubota, Yanmar, Iseki đời cũ.", c:"", u:""},
     "Castrol VECTON 15W-40":{s:"SAE 15W-40 · API CI-4 · ACEA E7",adv:"Kéo dài chu kỳ thay dầu thêm 20% nhờ công nghệ System Pro Technology™.",app:"Xe khách giường nằm, máy công trình, xe tải nặng đội xe lớn.", c:"", u:""},
     "Castrol VECTON 15W-40 CK-4":{s:"SAE 15W-40 · API CK-4 · ACEA E9",adv:"Bảo vệ hệ thống khí thải Euro 5/6 (SCR, EGR, DPF). Hiệu suất động cơ tối đa.",app:"Đầu kéo Scania, Volvo, xe tải Euro 5/6 đời mới nhất.", c:"", u:""},
-    // --- HỘP SỐ, CẦU, THỦY LỰC CÔNG TRÌNH & XE ĐIỆN ---
+    // --- HỘP SỐ, CẦU & XE ĐIỆN ---
     "Castrol Transmax ATF":{s:"Dầu hộp số tự động · Multi-Vehicle",adv:"Sang số mượt mà, chống rung giật. Tương thích đa hãng: Toyota WS, Honda DW-1, ZF, Aisin.",app:"Hộp số AT tất cả hãng, xe điện hybrid VinFast, BYD.", c:"", u:""},
     "Castrol Transmax CVT":{s:"Dầu hộp số vô cấp CVT · Full Synthetic",adv:"Kéo dài tuổi thọ dây đai hộp số CVT. Chống trượt và rung khi sang số.",app:"Hộp số CVT Honda (HMA), Toyota, Mitsubishi, Nissan (NS-3).", c:"", u:""},
     "Castrol Transmax Dual":{s:"Dầu hộp số ly hợp kép DCT/DSG",adv:"Đồng bộ hóa ly hợp ướt/khô tuyệt vời. Chống mài mòn đĩa ly hợp.",app:"Hộp số DCT/DSG Volkswagen, Ford PowerShift, Hyundai DCT 7 cấp.", c:"", u:""},
@@ -749,7 +790,7 @@ var DB = {
             "Dolphin EV":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]},
             "Atto 3 EV":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]},
             "Seal EV":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]},
-            "Sealion 6 PHEV":{e:{o:1.5},c:[{n:"Castrol MAGNATEC Hybrid 0W-16",r:1}],v:[{n:"Valvoline Hybrid Performance 0W-16",r:1}]},
+            "Sealion 6 PHEV":{e:{o:1.5},c:[{n:"Castrol MAGNATEC Hybrid 0W-16",r:1}],v:[{n:"Valvoline Hybrid Performance 0W-16",r:1}],c_gear:[{n:"Castrol Transmax CVT",r:1}],v_gear:[{n:"Valvoline MaxLife CVT",r:1}]},
             "Han EV":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]}
         }},
         MG:{models:{
@@ -1014,730 +1055,4 @@ var DB = {
         }},
         GAZ:{models:{
             "Gazelle Next 17 chỗ":{e:{o:6.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Gazelle Next 20 chỗ":{e:{o:6.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Sobol NN Van":{e:{o:6.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        IVECO:{models:{
-            "Daily 16 chỗ":{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Daily Plus 19 chỗ":{e:{o:7.5},c:[{n:"Castrol EDGE 5W-30 C3",r:1}],v:[{n:"Valvoline SynPower MST 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        "VINFAST BUS":{models:{
-            "VinBus eBus Đô thị":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]},
-            "VinBus eBus Nội đô":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]},
-            "VinBus eBus Liên tỉnh":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]}
-        }},
-        "ZONDA BUS":{models:{
-            "Zonda E10 City Bus":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]},
-            "Zonda E12 Tourist Bus":{e:{o:0},c_gear:[{n:"Castrol ON EV Transmission Fluid",r:1}],v_gear:[{n:"Valvoline EV Performance Fluid",r:1}]}
-        }},
-        "TOYOTA COMMERCIAL":{models:{
-            "Hiace Máy dầu 3.0":{e:{o:7.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Hiace Máy xăng 2.7":{e:{o:5.6},c:[{n:"Castrol EDGE 5W-30",r:1}],v:[{n:"Valvoline SynPower 5W-30",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        "NISSAN COMMERCIAL":{models:{
-            "Urvan 16 chỗ":{e:{o:6.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        TRACOMECO:{models:{
-            "Universe Noble 42 chỗ":{e:{o:24.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        "KING LONG":{models:{
-            "Nova 29 chỗ Euro 5":{e:{o:12.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }}
-    }},
-
-    nongnghiep:{label:"Máy Nông nghiệp",brands:{
-        KUBOTA:{models:{
-            "Máy kéo L3218 (18HP)":{e:{o:7.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo L4018 (40HP)":{e:{o:7.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo L5018 (50HP)":{e:{o:7.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo M6040 (60HP)":{e:{o:9.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo M7040 (70HP)":{e:{o:9.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo M9540 (95HP)":{e:{o:9.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy gặt DC70 Plus":{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy gặt DC93":{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy gặt DC105X":{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        YANMAR:{models:{
-            "Máy kéo YM351A":{e:{o:8.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo YM357A":{e:{o:8.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo EF494T":{e:{o:8.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy gặt YH850":{e:{o:9.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy gặt YH1100":{e:{o:9.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        "JOHN DEERE":{models:{
-            "Máy kéo 3036E (36HP)":{e:{o:8.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo 5042D (42HP)":{e:{o:8.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo 5050D (50HP)":{e:{o:8.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo 6110M (110HP)":{e:{o:15.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        "NEW HOLLAND":{models:{
-            "Máy kéo TT45 (45HP)":{e:{o:9.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo TT55 (55HP)":{e:{o:9.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo TT75 (75HP)":{e:{o:9.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo TD5 110 (110HP)":{e:{o:12.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        "LOVOL (THACO)":{models:{
-            "Máy kéo M504 (50HP)":{e:{o:8.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo M754 (75HP)":{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo M904 (90HP)":{e:{o:12.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo M1104 (110HP)":{e:{o:14.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        ISEKI:{models:{
-            "Máy kéo NT540":{e:{o:7.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo NT554":{e:{o:7.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo TJ75":{e:{o:9.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        MAHINDRA:{models:{
-            "Máy kéo 455 (45HP)":{e:{o:8.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "Máy kéo 605 (60HP)":{e:{o:10.0},c:[{n:"Castrol CRB Multi 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        BELARUS:{models:{
-            "MTZ 820 Máy kéo":{e:{o:12.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "MTZ 1025 Máy kéo":{e:{o:15.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        "MASSEY FERGUSON":{models:{
-            "MF 2635 Máy kéo":{e:{o:10.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]},
-            "MF 4708 Máy kéo":{e:{o:12.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }},
-        "ZETOR":{models:{
-            "Zetor Proxima 100":{e:{o:12.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1}],v_gear:[{n:"Valvoline Unitrac 80W",r:1}]}
-        }}
-    }},
-
-    congtrinh:{label:"Xe công trình",brands:{
-        KOMATSU:{models:{
-            "Máy xúc đào PC130":{e:{o:14.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào PC200":{e:{o:24.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào PC300":{e:{o:38.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc đào PC450":{e:{o:45.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc lật WA320":{e:{o:20.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc lật WA470":{e:{o:28.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy ủi D65P":{e:{o:24.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        CATERPILLAR:{models:{
-            "Máy xúc đào CAT 320 GC":{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào CAT 323":{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào CAT 330":{e:{o:32.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc đào CAT 349":{e:{o:45.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy ủi CAT D6R":{e:{o:28.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        HITACHI:{models:{
-            "Máy xúc đào ZX130":{e:{o:15.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào ZX200":{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào ZX330":{e:{o:35.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc đào ZX470":{e:{o:45.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        KOBELCO:{models:{
-            "Máy xúc đào SK200-8":{e:{o:22.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào SK250-8":{e:{o:24.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào SK330-8":{e:{o:35.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc đào SK500":{e:{o:45.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        "DEVELON (DOOSAN)":{models:{
-            "Máy xúc đào DX140W":{e:{o:15.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào DX225LCA":{e:{o:24.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào DX300LCA":{e:{o:32.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc đào DX480LCA":{e:{o:36.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        "HYUNDAI CONSTRUCTION":{models:{
-            "Máy xúc đào R210/R220":{e:{o:24.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào HX300":{e:{o:35.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc lật HL760":{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        "VOLVO CE":{models:{
-            "Máy xúc đào EC210":{e:{o:25.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào EC300":{e:{o:32.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc lật L120H":{e:{o:24.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        LIUGONG:{models:{
-            "Máy xúc lật CLG836":{e:{o:16.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc lật CLG856H":{e:{o:20.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Máy xúc đào CLG922E":{e:{o:22.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]}
-        }},
-        XCMG:{models:{
-            "Máy xúc lật LW500FN":{e:{o:20.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]},
-            "Xe lu rung XS143Vi":{e:{o:18.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]}
-        }},
-        SANY:{models:{
-            "Máy xúc đào SY215C":{e:{o:22.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc đào SY365C":{e:{o:32.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        SDLG:{models:{
-            "Máy xúc lật LG936L":{e:{o:16.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]},
-            "Máy xúc lật LG956L":{e:{o:20.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 68",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1},{n:"Valvoline Heavy Duty Gear Oil 85W-140",r:1}]}
-        }},
-        BOBCAT:{models:{
-            "Máy xúc lật mini S450":{e:{o:8.5},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]}
-        }},
-        JCB:{models:{
-            "Máy xúc đào 3CX / 4CX":{e:{o:14.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 15W-40",r:1}],c_gear:[{n:"Castrol Hyspin HVI 46",r:1},{n:"Castrol Transmax Offroad 30",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1},{n:"Valvoline Heavy Duty Gear Oil 80W-90",r:1}]}
-        }}
-    }},
-
-    congnghiep:{label:"Công nghiệp",brands:{
-        "ATLAS COPCO":{models:{
-            "Máy nén khí trục vít GA Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]},
-            "Máy nén khí trục vít GX Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]}
-        }},
-        "HITACHI INDUSTRIAL":{models:{
-            "Máy nén khí trục vít OSP Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]},
-            "Máy nén khí trục vít HISCREW":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]}
-        }},
-        FUSHENG:{models:{
-            "Máy nén khí trục vít SA Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]},
-            "Máy nén khí piston VA Series":{e:{o:0},c_gear:[{n:"Castrol Aircol VDL 100",r:1}],v_gear:[{n:"Valvoline SynGard AC 1500",r:1}]},
-            "Máy nén khí piston TA Series":{e:{o:0},c_gear:[{n:"Castrol Aircol VDL 100",r:1}],v_gear:[{n:"Valvoline SynGard AC 1500",r:1}]}
-        }},
-        "INGERSOLL RAND":{models:{
-            "Máy nén khí trục vít R Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]},
-            "Máy nén khí trục vít UP6 Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]}
-        }},
-        "CUMMINS POWER":{models:{
-            "Máy phát điện dưới 500kVA":{e:{o:38.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8100 15W-40",r:1}]},
-            "Máy phát điện trên 500kVA":{e:{o:60.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]}
-        }},
-        "DENYO GENERATOR":{models:{
-            "Máy phát điện cách âm DCA Series":{e:{o:25.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}]},
-            "Máy phát điện di động TLG Series":{e:{o:15.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}]}
-        }},
-        "SEW EURODRIVE":{models:{
-            "Hộp giảm tốc bánh răng thẳng":{e:{o:0},c_gear:[{n:"Castrol Optigear BM 220",r:1}],v_gear:[{n:"Valvoline SynPower Gear Oil 220",r:1}]},
-            "Hộp giảm tốc bánh răng côn":{e:{o:0},c_gear:[{n:"Castrol Optigear BM 320",r:1}],v_gear:[{n:"Valvoline SynPower Gear Oil 320",r:1}]}
-        }},
-        "MÁY ÉP NHỰA":{models:{
-            "Máy ép nhựa thủy lực ISO 46":{e:{o:0},c_gear:[{n:"Castrol Hyspin HVI 46",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 46",r:1}]},
-            "Máy ép nhựa thủy lực ISO 68":{e:{o:0},c_gear:[{n:"Castrol Hyspin HVI 68",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1}]}
-        }},
-        "MÁY CNC / MÁY CÔNG CỤ":{models:{
-            "Máy CNC trung tâm gia công":{e:{o:0},c_gear:[{n:"Castrol Magna SW 68 (Dầu rãnh trượt)",r:1}],v_gear:[{n:"Valvoline Way Oil 68",r:1}]},
-            "Máy chấn dập thủy lực lớn":{e:{o:0},c_gear:[{n:"Castrol Hyspin AWH-M 68",r:1}],v_gear:[{n:"Valvoline Ultramax HVLP 68",r:1}]}
-        }},
-        SULLAIR:{models:{
-            "Máy nén khí LS Series":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]}
-        }},
-        KAESER:{models:{
-            "Máy nén khí Sigma Profile":{e:{o:0},c_gear:[{n:"Castrol Aircol PD 46",r:1}],v_gear:[{n:"Valvoline SynGard AC 8000",r:1}]}
-        }},
-        "PEGASUS VN":{models:{
-            "Máy nén khí piston Việt Nam":{e:{o:0},c_gear:[{n:"Castrol Aircol VDL 100",r:1}],v_gear:[{n:"Valvoline SynGard AC 1500",r:1}]}
-        }}
-    }},
-
-    hanghai:{label:"Hàng hải",brands:{
-        "YAMAHA MARINE":{models:{
-            "Máy gắn ngoài 2 kỳ (pha xăng)":{e:{o:"Pha xăng"},c:[{n:"Castrol Activ 2T",r:1}],v:[{n:"Valvoline 2T Outboard",r:1}]},
-            "Máy gắn ngoài 4 kỳ F9.9-F25":{e:{o:1.6},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]},
-            "Máy gắn ngoài 4 kỳ F40-F90":{e:{o:3.5},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]},
-            "Máy gắn ngoài 4 kỳ F100-F150":{e:{o:4.5},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]},
-            "Máy gắn ngoài 4 kỳ F200-F350":{e:{o:6.5},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]}
-        }},
-        "SUZUKI MARINE":{models:{
-            "Máy gắn ngoài 4 kỳ DF20-DF60":{e:{o:2.5},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]},
-            "Máy gắn ngoài 4 kỳ DF70-DF140":{e:{o:4.0},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]},
-            "Máy gắn ngoài 4 kỳ DF150-DF350":{e:{o:8.0},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]}
-        }},
-        "HONDA MARINE":{models:{
-            "Máy gắn ngoài 4 kỳ BF20-BF50":{e:{o:2.0},c:[{n:"Castrol Power1 Ultimate 10W-30",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-30",r:1}]},
-            "Máy gắn ngoài 4 kỳ BF75-BF150":{e:{o:4.5},c:[{n:"Castrol Power1 Ultimate 10W-30",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-30",r:1}]},
-            "Máy gắn ngoài 4 kỳ BF200-BF350":{e:{o:7.8},c:[{n:"Castrol Power1 Ultimate 10W-30",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-30",r:1}]}
-        }},
-        "MERCURY MARINE":{models:{
-            "Máy gắn ngoài OptiMax 2 kỳ":{e:{o:"Pha xăng"},c:[{n:"Castrol Activ 2T",r:1}],v:[{n:"Valvoline 2T Outboard",r:1}]},
-            "Máy gắn ngoài Verado 4 kỳ":{e:{o:6.0},c:[{n:"Castrol Power1 Ultimate 10W-40",r:1}],v:[{n:"Valvoline Marine 4-Stroke 10W-40",r:1}]}
-        }},
-        "CUMMINS MARINE":{models:{
-            "Động cơ thủy 4BT / 6BT":{e:{o:15.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8100 15W-40",r:1}]},
-            "Động cơ thủy 6CT / 6L":{e:{o:24.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}]},
-            "Động cơ thủy KTA19":{e:{o:50.0},c:[{n:"Castrol TLX Plus 4040",r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",r:1}]},
-            "Động cơ thủy KTA38":{e:{o:110.0},c:[{n:"Castrol TLX Plus 4040",r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",r:1}]},
-            "Động cơ thủy KTA50":{e:{o:150.0},c:[{n:"Castrol TLX Plus 4040",r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",r:1}]}
-        }},
-        "YANMAR INBOARD":{models:{
-            "Động cơ thủy 4CHE / 6CHE":{e:{o:25.0},c:[{n:"Castrol CRB Turbomax 20W-50",r:1}],v:[{n:"Valvoline All-Fleet Extra 20W-50",r:1}]},
-            "Động cơ thủy 6HY / 6AY":{e:{o:60.0},c:[{n:"Castrol TLX Plus 3040",r:1}],v:[{n:"Valvoline Marine 40 PLUS",r:1}]}
-        }},
-        "MITSUBISHI MARINE":{models:{
-            "Động cơ thủy S6R / S6R2":{e:{o:60.0},c:[{n:"Castrol TLX Plus 4040",r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",r:1}]},
-            "Động cơ thủy S12R / S16R":{e:{o:180.0},c:[{n:"Castrol TLX Plus 4040",r:1}],v:[{n:"Valvoline PremBlue 7800 Plus",r:1}]}
-        }},
-        "VOLVO PENTA":{models:{
-            "Động cơ thủy D1 / D2 / D3":{e:{o:8.5},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]},
-            "Động cơ thủy D4 / D6 / D8":{e:{o:15.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]},
-            "Động cơ thủy D11 / D13 / D16":{e:{o:45.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]}
-        }},
-        "WEICHAI MARINE":{models:{
-            "Động cơ thủy WP4 / WP6":{e:{o:12.0},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}]},
-            "Động cơ thủy WP10 / WP12":{e:{o:28.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}]},
-            "Động cơ thủy Baudouin 6M26":{e:{o:50.0},c:[{n:"Castrol VECTON 15W-40",r:1}],v:[{n:"Valvoline Premium Blue 8400 15W-40",r:1}]}
-        }},
-        "CATERPILLAR MARINE":{models:{
-            "Động cơ thủy CAT C7 / C9":{e:{o:28.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]},
-            "Động cơ thủy CAT 3512 / 3516":{e:{o:150.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]}
-        }},
-        "MTU MARINE":{models:{
-            "Động cơ thủy MTU Series 2000":{e:{o:70.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]},
-            "Động cơ thủy MTU Series 4000":{e:{o:200.0},c:[{n:"Castrol VECTON 15W-40 CK-4",r:1}],v:[{n:"Valvoline Premium Blue 8600 15W-40",r:1}]}
-        }}
-    }}
-};
-
-// ==================== BUILD ALLP (DATA REVERSE SEARCH) ====================
-var ALLP = (function(){
-    var map = {};
-    function add(name, brand, model, catKey, catLabel){
-        if(!map[name]) map[name]={name:name,vehicles:[]};
-        map[name].vehicles.push({brand:brand,model:model,label:catLabel});
-    }
-    Object.keys(DB).forEach(function(catKey){
-        var cat=DB[catKey];
-        Object.keys(cat.brands).forEach(function(br){
-            Object.keys(cat.brands[br].models).forEach(function(mo){
-                var md=cat.brands[br].models[mo];
-                if(md.c) md.c.forEach(function(p){add(p.n,br,mo,catKey,cat.label);});
-                if(md.c_gear) md.c_gear.forEach(function(p){add(p.n,br,mo,catKey,cat.label);});
-                if(md.v) md.v.forEach(function(p){add(p.n,br,mo,catKey,cat.label);});
-                if(md.v_gear) md.v_gear.forEach(function(p){add(p.n,br,mo,catKey,cat.label);});
-            });
-        });
-    });
-    return Object.values(map);
-})();
-
-var curCat = 'oto';
-
-// ==================== HÀM CẬP NHẬT GIAO DIỆN CHUYỂN DANH MỤC ====================
-function updNav(cat){
-    document.querySelectorAll('.nav-item').forEach(function(el){
-        el.classList.toggle('active', el.getAttribute('data-category')===cat);
-    });
-    var label = DB[cat] ? DB[cat].label : '';
-    document.getElementById('finderTitle').textContent = 'Tìm kiếm dầu nhớt — ' + label;
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(cat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    document.querySelector('#step2 .step-label').textContent = isVehicle ? 'DÒNG XE' : 'DÒNG MÁY';
-    document.getElementById('step2val').textContent = 'Chọn ' + itemType;
-    document.querySelectorAll('.field-label')[1].textContent = (isVehicle ? 'DÒNG XE' : 'LOẠI MÁY') + ' / MODEL';
-    var ms = document.getElementById('modelSelect');
-    if(ms.options.length > 0) ms.options[0].textContent = '-- Chọn ' + itemType + ' --';
-}
-
-function popBrands(){
-    var bs=document.getElementById('brandSelect');
-    var ms=document.getElementById('modelSelect');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    while(bs.options.length>1) bs.remove(1);
-    while(ms.options.length>1) ms.remove(1);
-    document.getElementById('step1val').textContent='Chọn hãng';
-    document.getElementById('step2val').textContent='Chọn '+itemType;
-    document.getElementById('step1').className='step-item active';
-    document.getElementById('step2').className='step-item';
-    document.getElementById('step3').className='step-item';
-    document.getElementById('step4').className='step-item';
-    if(DB[curCat]){
-        Object.keys(DB[curCat].brands).sort().forEach(function(k){
-            var o=document.createElement('option'); o.value=k; o.textContent=k.replace(/_/g,' '); bs.appendChild(o);
-        });
-    }
-}
-
-function popModels(){
-    var brand=document.getElementById('brandSelect').value;
-    var ms=document.getElementById('modelSelect');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    while(ms.options.length>1) ms.remove(1);
-    document.getElementById('step2val').textContent='Chọn '+itemType;
-    if(brand){
-        document.getElementById('step1val').textContent=brand.replace(/_/g,' ');
-        document.getElementById('step1').className='step-item done';
-        document.getElementById('step2').className='step-item active';
-        if(DB[curCat]&&DB[curCat].brands[brand]){
-            Object.keys(DB[curCat].brands[brand].models).sort().forEach(function(k){
-                var o=document.createElement('option'); o.value=k; o.textContent=k.replace(/_/g,' '); ms.appendChild(o);
-            });
-        }
-    } else {
-        document.getElementById('step1val').textContent='Chọn hãng';
-        document.getElementById('step1').className='step-item active';
-        document.getElementById('step2').className='step-item';
-    }
-}
-
-function popReverse() {
-    var rs = document.getElementById('reverseProductSelect');
-    if (!rs) return;
-
-    while (rs.options.length > 1) rs.remove(1);
-
-    var sortedProds = ALLP.slice().sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-    });
-
-    var groups = {
-        "Dầu nhớt Ô tô du lịch": [],
-        "Dầu nhớt Xe máy": [],
-        "Dầu tải nặng & Thương mại": [],
-        "Hộp số, Cầu & Xe điện": [],
-        "Dầu công nghiệp & Thủy lực": [],
-        "Sản phẩm khác": []
-    };
-
-    sortedProds.forEach(function(p) {
-        var n = p.name.toUpperCase();
-        if (n.includes('EDGE') || n.includes('MAGNATEC') || n.includes('GTX') || n.includes('MODERN') || n.includes('SYNPOWER')) {
-            groups["Dầu nhớt Ô tô du lịch"].push(p);
-        } else if (n.includes('POWER1') || n.includes('ACTIV') || n.includes('SCOOTER') || n.includes(' 4T') || n.includes(' 2T') || n.includes('CHAMP')) {
-            groups["Dầu nhớt Xe máy"].push(p);
-        } else if (n.includes('CRB') || n.includes('VECTON') || n.includes('ALL-FLEET') || n.includes('BLUE')) {
-            groups["Dầu tải nặng & Thương mại"].push(p);
-        } else if (n.includes('TRANSMAX') || n.includes('GEAR') || n.includes('ATF') || n.includes('CVT') || n.includes(' EV ') || n.includes('LÁP') || n.includes('UNITRAC') || n.includes('DCT')) {
-            groups["Hộp số, Cầu & Xe điện"].push(p);
-        } else if (n.includes('HYSPIN') || n.includes('AIRCOL') || n.includes('OPTIGEAR') || n.includes('SYNGARD') || n.includes('ULTRAMAX') || n.includes('WAY OIL')) {
-            groups["Dầu công nghiệp & Thủy lực"].push(p);
-        } else {
-            groups["Sản phẩm khác"].push(p);
-        }
-    });
-
-    Object.keys(groups).forEach(function(groupName) {
-        if (groups[groupName].length > 0) {
-            var groupEl = document.createElement('optgroup');
-            groupEl.label = groupName;
-            groups[groupName].forEach(function(p) {
-                var o = document.createElement('option');
-                o.value = p.name;
-                o.textContent = p.name;
-                groupEl.appendChild(o);
-            });
-            rs.appendChild(groupEl);
-        }
-    });
-}
-
-// ==================== HÀM TÌM KIẾM (XUẤT RA DẦU CHÍNH VÀ DẦU PHỤ) ====================
-function search(){
-    var brand=document.getElementById('brandSelect').value;
-    var model=document.getElementById('modelSelect').value;
-    var rw=document.getElementById('resultsWrapper');
-    var rg=document.getElementById('resultsGrid');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    
-    if(!brand||!model){
-        rg.innerHTML='<div class="no-result" style="grid-column:span 2;font-size:14px;">Vui lòng chọn <strong>Hãng</strong> và <strong>'+itemType+'</strong>.</div>';
-        rw.style.display='block'; return;
-    }
-    
-    var catData=DB[curCat];
-    if(!catData||!catData.brands[brand]||!catData.brands[brand].models[model]){
-        rg.innerHTML='<div class="no-result" style="grid-column:span 2;">Không có dữ liệu cho lựa chọn này.</div>';
-        rw.style.display='block'; return;
-    }
-    
-    var modelDisplay=model.replace(/_/g,' ');
-    document.getElementById('step2val').textContent=modelDisplay;
-    document.getElementById('step2').className='step-item done';
-    var yr=document.getElementById('yearInput').value;
-    document.getElementById('step3val').textContent=yr||'—';
-    document.getElementById('step3').className='step-item done';
-    document.getElementById('step4').className='step-item active';
-    
-    var md=catData.brands[brand].models[model];
-    var oc='N/A';
-    if(md.e && md.e.o !== undefined){
-        if(md.e.o===0) oc='Không dùng';
-        else if(typeof md.e.o==='string') oc=md.e.o;
-        else oc=md.e.o+' Lít';
-    }
-    
-    var catLabel=catData.label;
-    document.getElementById('resultsTitle').textContent='Đề xuất cho '+brand.replace(/_/g,' ')+' '+modelDisplay;
-    document.getElementById('resultsSubtitle').textContent=catLabel+(yr?' — Năm '+yr:'')+'  · Thông số tiêu chuẩn tham khảo';
-
-    function makeProductCard(p, defCap, catalog, isCastrol, brand, model, catLabel){
-        var cap=(p.c!==undefined)?p.c:defCap;
-        var info=catalog[p.n]||{};
-        var cls=isCastrol?'c':'v';
-        var brandLogoSrc=isCastrol?CASTROL_LOGO:VALVOLINE_LOGO;
-        var iconClass=isCastrol?'castrol-icon':'valvoline-icon';
-        var wrapClass=isCastrol?'castrol-wrap-prod':'valvoline-wrap-prod';
-        var blockClass=isCastrol?'castrol-prod':'valvoline-prod';
-        var buyBtnBg=isCastrol?'#009F4D':'#003087';
-        
-        var h='<div class="product-block '+(p.r?'recommended ':'')+blockClass+'">';
-        if(p.r) h+='<div class="recommend-badge '+(isCastrol?'castrol-badge':'valvoline-badge')+'">★ Khuyến nghị</div>';
-        h+='<div class="product-inner"><div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
-        h+='<div class="product-info"><div class="product-name'+(p.r?' recommended-pad':'')+'">'+p.n+'</div>';
-        if(info.s) h+='<div class="product-spec">'+info.s+'</div>';
-        h+='<div class="product-cap"><span>Khuyến nghị:</span><strong class="'+cls+'">'+cap+'</strong></div>';
-        h+='<div style="display:flex;gap:8px;">';
-        h+='<button class="btn-detail '+cls+'" data-name="'+p.n+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand+'" data-model="'+model+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">Chi tiết</button>';
-        var hrefLink=info.u?info.u:'javascript:void(0)';
-        var targetAttr=info.u?'target="_blank"':'';
-        h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
-        h+='</div></div></div></div>';
-        return h;
-    }
-
-    var h='';
-    // CASTROL SECTION
-    h+='<div class="brand-card"><div class="brand-card-head castrol"><div class="brand-logo-badge"><img src="'+CASTROL_LOGO+'" alt="Castrol"></div><div><div class="brand-head-title">Castrol</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
-    if((md.c&&md.c.length>0)||(md.c_gear&&md.c_gear.length>0)){
-        if(md.c&&md.c.length>0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
-            md.c.forEach(function(p){h+=makeProductCard(p,oc,CASTROL_CATALOG,true,brand,model,catLabel);});
-        }
-        if(md.c_gear&&md.c_gear.length>0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
-            md.c_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',CASTROL_CATALOG,true,brand,model,catLabel);});
-        }
-    } else h+='<div class="no-result">Không có dữ liệu</div>';
-    h+='</div></div>';
-
-    // VALVOLINE SECTION
-    h+='<div class="brand-card"><div class="brand-card-head valvoline"><div class="brand-logo-badge"><img src="'+VALVOLINE_LOGO+'" alt="Valvoline"></div><div><div class="brand-head-title">Valvoline</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
-    if((md.v&&md.v.length>0)||(md.v_gear&&md.v_gear.length>0)){
-        if(md.v&&md.v.length>0){
-            h+='<div class="alt-heading" style="color:var(--blue);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
-            md.v.forEach(function(p){h+=makeProductCard(p,oc,VALVOLINE_CATALOG,false,brand,model,catLabel);});
-        }
-        if(md.v_gear&&md.v_gear.length>0){
-            h+='<div class="alt-heading" style="color:var(--blue);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
-            md.v_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',VALVOLINE_CATALOG,false,brand,model,catLabel);});
-        }
-    } else h+='<div class="no-result">Không có dữ liệu</div>';
-    h+='</div></div>';
-
-    rg.innerHTML=h;
-    rw.style.display='block';
-    document.getElementById('resultsAnchor').scrollIntoView({behavior:'smooth'});
-    rg.querySelectorAll('.btn-detail[data-name]').forEach(function(btn){
-        btn.addEventListener('click',function(){
-            showDetail(this.dataset.name,this.dataset.castrol==='1',this.dataset.cap,this.dataset.brand,this.dataset.model,this.dataset.cat,this.dataset.catkey);
-        });
-    });
-}
-
-// ==================== TÌM KIẾM NGƯỢC (TÌM THEO SẢN PHẨM) ====================
-function revSearch(){
-    var pn=document.getElementById('reverseProductSelect').value;
-    var rr=document.getElementById('reverseResults');
-    if(!pn){rr.innerHTML='<span style="color:#999">Vui lòng chọn sản phẩm.</span>';rr.style.display='block';return;}
-    
-    var found=null;
-    for(var i=0;i<ALLP.length;i++){if(ALLP[i].name===pn){found=ALLP[i];break;}}
-    if(!found||!found.vehicles.length){rr.innerHTML='<span style="color:#999">Không tìm thấy phương tiện phù hợp.</span>';rr.style.display='block';return;}
-    
-    var isCastrol = !pn.toLowerCase().includes('valvoline');
-    var catalog = isCastrol ? CASTROL_CATALOG : VALVOLINE_CATALOG;
-    var info = catalog[pn] || {};
-    var cls = isCastrol ? 'c' : 'v';
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
-    var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
-    var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
-    var buyBtnBg = isCastrol ? '#009F4D' : '#003087';
-
-    var h = '';
-    h += '<div class="product-block '+blockClass+'" style="margin-bottom:20px;">';
-    h += '<div class="product-inner">';
-    h += '<div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
-    h += '<div class="product-info">';
-    h += '<div class="product-name" style="margin-top:0;">'+pn+'</div>';
-    if(info.s) h += '<div class="product-spec">'+info.s+'</div>';
-    if(info.adv) h += '<div class="product-spec" style="color:#555;">'+info.adv+'</div>';
-    h += '<div style="display:flex;gap:8px;margin-top:10px;">';
-    
-    h += '<button class="btn-detail '+cls+' rev-detail-btn" data-name="'+pn+'" data-castrol="'+(isCastrol?'1':'0')+'">CHI TIẾT</button>';
-    var hrefLink = info.u ? info.u : 'javascript:void(0)';
-    var targetAttr = info.u ? 'target="_blank"' : '';
-    h += '<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
-    
-    h += '</div></div></div></div>';
-
-    h += '<div class="rv-title" style="margin-bottom: 8px;">PHƯƠNG TIỆN SỬ DỤNG SẢN PHẨM NÀY:</div>';
-    h += '<ul style="max-height:250px;overflow-y:auto;padding-right:10px;margin:0;list-style:none;">';
-    found.vehicles.forEach(function(v){
-        h += '<li style="margin-bottom:6px; color:#444;">['+v.label+'] <strong style="color:#111;">'+v.brand.replace(/_/g,' ')+'</strong> '+v.model.replace(/_/g,' ')+'</li>';
-    });
-    h += '</ul>';
-
-    if(!isCastrol){ rr.classList.add('valvoline-theme'); } else { rr.classList.remove('valvoline-theme'); }
-    rr.innerHTML = h;
-    rr.style.display = 'block';
-
-    var detBtn = rr.querySelector('.rev-detail-btn');
-    if(detBtn){
-        detBtn.addEventListener('click', function(){
-            showDetail(this.dataset.name, this.dataset.castrol==='1', 'Tùy theo xe', 'Nhiều dòng xe', 'Tra cứu để biết chi tiết', 'Nhiều danh mục', 'oto');
-        });
-    }
-}
-
-// ==================== HÀM HIỂN THỊ CHI TIẾT (MODAL) ====================
-function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
-    var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
-    var info=catalog[name]||{s:'Đang cập nhật',adv:'Đang cập nhật',app:'Đang cập nhật'};
-    var cls=isCastrol?'c':'v';
-    var catIconSrc = CAT_ICONS[catKey] || CAT_ICONS['oto'];
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
-    var capClass = isCastrol ? '' : 'v-cap';
-    var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
-    var mb=document.getElementById('modalBox');
-    
-    mb.innerHTML=
-        '<div class="modal-topbar '+cls+'">'
-        +'<button class="modal-back" id="modalBack"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Quay lại</button>'
-        +'<div class="modal-topbar-brand"><div class="modal-brand-logo-wrap"><img class="modal-brand-logo" src="'+brandLogoSrc+'" alt="brand"></div></div>'
-        +'</div>'
-        +'<div class="modal-hero">'
-        +'<div class="modal-category-icon-wrap '+iconWrapClass+'">'
-        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'">'
-        +'<span class="modal-brand-pill">'+catLabel+'</span>'
-        +'</div>'
-        +'<div class="modal-hero-text">'
-        +'<div class="modal-product-name">'+name+'</div>'
-        +'<div class="modal-vehicle-tag">'+brandName.replace(/_/g, ' ')+' '+modelName.replace(/_/g, ' ')+'</div>'
-        +'</div>'
-        +'</div>'
-        +'<div class="modal-content"><div class="modal-sections">'
-        +'<div class="modal-section"><div class="modal-section-label">Tiêu chuẩn kỹ thuật</div>'
-        +'<div class="modal-spec-pills">'+specPills.map(function(s){return '<span class="modal-spec-pill">'+s+'</span>';}).join('')+'</div>'
-        +'</div>'
-        +'<div class="modal-section"><div class="modal-section-label">Ưu điểm nổi bật</div><div class="modal-section-text">'+info.adv+'</div></div>'
-        +'<div class="modal-section"><div class="modal-section-label">Phương tiện phù hợp</div><div class="modal-section-text">'+info.app+'</div></div>'
-        +'</div>'
-        +'<div class="modal-cap-box">'
-        +'<div><div class="modal-cap-label">Khuyến nghị lượng dùng</div><div class="modal-cap-value '+capClass+'" style="font-size:24px;">'+cap+'</div></div>'
-        +'</div>'
-        +'</div>';
-        
-    document.getElementById('modalBack').addEventListener('click', function() {
-        document.getElementById('modalOverlay').style.display = 'none';
-        document.body.style.overflow = 'auto'; 
-        document.body.style.overflowY = 'scroll';
-    });
-
-    document.getElementById('modalOverlay').style.display='flex';
-    document.body.style.overflow='hidden';
-}
-
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-    if (e.target.id === 'modalOverlay') {
-        this.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        document.body.style.overflowY = 'scroll';
-    }
-});
-
-// ==================== NAV CÀI ĐẶT ====================
-(function(){
-    var cont=document.getElementById('navContainer');
-    var btnL=document.getElementById('navArrLeft');
-    var btnR=document.getElementById('navArrRight');
-    function updArrows(){
-        if(!btnL||!btnR||!cont) return;
-        btnL.classList.toggle('hidden', cont.scrollLeft<=4);
-        btnR.classList.toggle('hidden', cont.scrollLeft>=cont.scrollWidth-cont.clientWidth-4);
-    }
-    if(cont){ cont.addEventListener('scroll',updArrows,{passive:true}); updArrows(); }
-    if(btnL){ btnL.addEventListener('click',function(){ cont.scrollBy({left:-130,behavior:'smooth'}); }); }
-    if(btnR){ btnR.addEventListener('click',function(){ cont.scrollBy({left:130,behavior:'smooth'}); }); }
-    window.addEventListener('load',function(){
-        if(btnR&&!btnR.classList.contains('hidden')){
-            btnR.classList.add('pulse');
-            btnR.addEventListener('animationend',function(){btnR.classList.remove('pulse');},{once:true});
-        }
-    });
-    window.addEventListener('resize',updArrows);
-})();
-
-document.getElementById('navContainer').addEventListener('click',function(e){
-    var t=e.target.closest('.nav-item');
-    if(!t) return;
-    var c=t.getAttribute('data-category');
-    if(c&&DB[c]){
-        curCat=c; updNav(c); popBrands();
-        document.getElementById('resultsWrapper').style.display='none';
-        document.getElementById('resultsGrid').innerHTML='';
-        document.getElementById('reverseResults').style.display='none';
-    }
-});
-
-document.getElementById('brandSelect').addEventListener('change', popModels);
-document.getElementById('searchBtn').addEventListener('click', search);
-document.getElementById('reverseBtn').addEventListener('click', revSearch);
-
-function popYears(){
-    var yearSelect=document.getElementById('yearInput');
-    var currentYear=new Date().getFullYear();
-    for(var y=currentYear;y>=1990;y--){
-        var option=document.createElement('option');
-        option.value=y; option.textContent=y;
-        yearSelect.appendChild(option);
-    }
-}
-popYears();
-updNav('oto');
-popBrands();
-popReverse();
-</script>
-<script>
-
-function updateParentHeight(){
-
-    const body = document.body;
-    const html = document.documentElement;
-
-    const height = Math.max(
-        body.scrollHeight,
-        body.offsetHeight,
-        body.clientHeight,
-        html.scrollHeight,
-        html.offsetHeight,
-        html.clientHeight
-    ) + 1200;
-
-    window.parent.postMessage({
-        type:"setHeight",
-        height:height
-    },"*");
-}
-
-/* first load */
-window.addEventListener("load", () => {
-
-    updateParentHeight();
-
-    setTimeout(updateParentHeight, 500);
-    setTimeout(updateParentHeight, 1000);
-    setTimeout(updateParentHeight, 2000);
-    setTimeout(updateParentHeight, 3000);
-
-});
-
-/* resize */
-window.addEventListener("resize", updateParentHeight);
-
-/* realtime detect */
-const observer = new MutationObserver(() => {
-
-    updateParentHeight();
-
-});
-
-observer.observe(document.body,{
-    childList:true,
-    subtree:true,
-    attributes:true
-});
-
-/* backup */
-setInterval(updateParentHeight,1000);
-
-</script>
-</body>
-</html>
-        
+            "Gazelle Next 20 chỗ":{e:{o:6.5},c:[{n:"Castrol CRB Turbomax 15W-40",r:1}],v:[{n:"Valvoline All-Fleet Plus 15W-40",r:1}],c_gear:[{n:"Castrol Transmax Manual 80W-90",r:1},{n:"Castrol Transmax Axle 85W-140",r:1}],v_gear:[{n:"Valvoline Heavy Duty Gear Oil 8Tôi là một công nghệ trí tuệ nhân tạo dựa trên văn bản, nên việc đó nằm ngoài khả năng của tôi.
