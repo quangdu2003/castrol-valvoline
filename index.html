@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -32,6 +31,7 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background: var(--gray-100); color: #111; }
 
+        /* ===== HEADER ===== */
         .site-header { background: var(--white); border-bottom: 1px solid #E5E5E5; padding: 12px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 200; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
         .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
         .header-logos { display: flex; align-items: center; gap: 24px; }
@@ -41,267 +41,232 @@
         .logo-divider { width: 1px; height: 36px; background: #E0E0E0; }
         .header-logo { width: 100%; height: 100%; object-fit: contain; }
 
-        .hero { margin-top: 80px; background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg-mid) 60%, var(--hero-bg-dark) 100%); padding: 56px 24px 0; position: relative; overflow: hidden; }
+        /* ===== HERO ===== */
+        .hero { margin-top: 80px; background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg-mid) 60%, var(--hero-bg-dark) 100%); padding: 40px 24px 0; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E"); }
-        .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: flex-end; position: relative; z-index: 1; }
-        .hero-text { padding-bottom: 36px; }
-        .hero-badge { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: white; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 16px; }
-        .hero-title { font-family: var(--font-display); font-size: clamp(42px, 7vw, 84px); font-weight: 900; color: white; line-height: .9; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 1px; }
+        .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; padding-bottom: 28px; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: white; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 14px; }
+        .hero-title { font-family: var(--font-display); font-size: clamp(38px, 6vw, 72px); font-weight: 900; color: white; line-height: .9; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
         .hero-title span { color: rgba(255,255,255,.4); }
-        .hero-desc { font-size: 15px; color: rgba(255,255,255,.75); max-width: 500px; line-height: 1.6; font-weight: 400; }
-        .hero-visual { width: 220px; position: relative; flex-shrink: 0; align-self: flex-end; }
-        .hero-oil-drop { width: 180px; height: 220px; background: linear-gradient(160deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 100%); border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; border: 1px solid rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.2); }
-        .hero-oil-drop svg { width: 80px; height: 80px; opacity: .6; }
+        .hero-desc { font-size: 14px; color: rgba(255,255,255,.75); max-width: 480px; line-height: 1.6; font-weight: 400; }
 
+        /* ===== NAV SCROLL ===== */
         .nav-scroll-outer { background: var(--nav-bg); border-bottom: 3px solid rgba(0,0,0,.25); display: flex; align-items: stretch; position: relative; top: 0; z-index: 10; width: 100%; }
         .nav-arr { display: none; flex-shrink: 0; width: 38px; background: transparent; border: none; color: rgba(255,255,255,.65); cursor: pointer; align-items: center; justify-content: center; transition: color .2s, background .2s; padding: 0; position: relative; z-index: 5; -webkit-tap-highlight-color: transparent; }
         .nav-arr:hover { color: white; background: rgba(255,255,255,.09); }
-        .nav-arr:active { background: rgba(255,255,255,.15); }
         .nav-arr svg { width: 18px; height: 18px; pointer-events: none; flex-shrink: 0; }
         .nav-arr.nav-arr-left { border-right: 1px solid rgba(255,255,255,.08); }
         .nav-arr.nav-arr-right { border-left: 1px solid rgba(255,255,255,.08); }
         .nav-arr.hidden { opacity: 0; pointer-events: none; }
         .nav-container { flex: 1; display: flex; overflow-x: auto; overflow-y: hidden; justify-content: center; scrollbar-width: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
         .nav-container::-webkit-scrollbar { display: none; }
-        .nav-item { flex: 1; min-width: 110px; max-width: 150px; display: flex; flex-direction: column; align-items: center; padding: 14px 10px; cursor: pointer; border-bottom: 4px solid transparent !important; margin-bottom: -3px; transition: all .25s; color: rgba(255,255,255,.6); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; gap: 6px; font-family: var(--font-body); -webkit-tap-highlight-color: transparent; }
+        .nav-item { flex: 1; min-width: 110px; max-width: 150px; display: flex; flex-direction: column; align-items: center; padding: 12px 10px; cursor: pointer; border-bottom: 4px solid transparent !important; margin-bottom: -3px; transition: all .25s; color: rgba(255,255,255,.6); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; gap: 5px; font-family: var(--font-body); -webkit-tap-highlight-color: transparent; }
         .nav-item:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); }
         .nav-item.active { color: #FFFFFF !important; border-bottom: 4px solid #FFC107 !important; background: rgba(255,255,255,.1); }
-        .nav-icon { width: 26px; height: 26px; }
-        .nav-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .6; }
-        .nav-item.active .nav-icon img { opacity: 1; filter: brightness(0) invert(1); }
+        .nav-icon { width: 24px; height: 24px; }
+        .nav-icon img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1); opacity: .6; }
+        .nav-item.active .nav-icon img { opacity: 1; }
 
-        .main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 60px; }
-        .finder-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); margin-bottom: 28px; }
-        .finder-header { background: var(--blue); padding: 20px 28px; display: flex; align-items: center; gap: 14px; }
-        .finder-header-icon { width: 36px; height: 36px; background: rgba(0,0,0,.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .finder-header-icon svg { width: 20px; height: 20px; fill: white; }
-        .finder-header-title { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: .5px; line-height: 1; }
-        .finder-header-sub { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 3px; font-family: var(--font-body); }
-        .finder-body { padding: 28px; }
+        /* ===== MAIN ===== */
+        .main { max-width: 1200px; margin: 0 auto; padding: 24px 24px 40px; }
 
-        .steps { display: flex; gap: 0; margin-bottom: 28px; overflow-x: auto; }
-        .step-item { flex: 1; position: relative; min-width: 0; background: var(--gray-100); padding: 14px 20px 14px 36px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%); }
-        .step-item:first-child { padding-left: 20px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%); }
+        /* ===== FINDER CARD ===== */
+        .finder-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); margin-bottom: 20px; }
+        .finder-header { background: var(--blue); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+        .finder-header-icon { width: 32px; height: 32px; background: rgba(0,0,0,.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .finder-header-icon svg { width: 18px; height: 18px; }
+        .finder-header-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: .5px; line-height: 1; }
+        .finder-header-sub { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 2px; }
+        .finder-body { padding: 20px 24px; }
+
+        /* ===== STEPS ===== */
+        .steps { display: flex; gap: 0; margin-bottom: 20px; overflow-x: auto; }
+        .step-item { flex: 1; position: relative; min-width: 0; background: var(--gray-100); padding: 10px 16px 10px 30px; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%); }
+        .step-item:first-child { padding-left: 16px; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
         .step-item.active { background: var(--red); }
         .step-item.done { background: var(--red-dark); }
-        .step-num { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: rgba(0,0,0,.12); line-height: 1; }
+        .step-num { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: rgba(0,0,0,.12); line-height: 1; }
         .step-item.active .step-num, .step-item.done .step-num { color: rgba(255,255,255,.25); }
-        .step-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; line-height: 1.2; margin-top: 2px; }
+        .step-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-top: 2px; }
         .step-item.active .step-label { color: rgba(255,255,255,.9); }
         .step-item.done .step-label { color: rgba(255,255,255,.7); }
-        .step-value { font-size: 13px; font-weight: 600; color: #111; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .step-value { font-size: 11px; font-weight: 600; color: #111; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .step-item.active .step-value, .step-item.done .step-value { color: white; }
 
-        .selector-grid { display: grid; grid-template-columns: 1fr 1fr 160px auto; gap: 12px; align-items: flex-end; }
-        .field-group { display: flex; flex-direction: column; gap: 6px; }
-        .field-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); font-family: var(--font-body); }
-        .field-select, .field-input { width: 100%; height: 46px; padding: 0 38px 0 14px; border: 2px solid var(--gray-300); border-radius: 6px; font-size: 14px; font-family: var(--font-body); font-weight: 500; color: #111; background: white; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; transition: all .2s; }
-        .field-input { background-image: none; padding: 0 14px; }
+        /* ===== SELECTOR GRID ===== */
+        .selector-grid { display: grid; grid-template-columns: 1fr 1fr 160px auto; gap: 10px; align-items: flex-end; }
+        .field-group { display: flex; flex-direction: column; gap: 5px; }
+        .field-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); }
+        .field-select, .field-input { width: 100%; height: 44px; padding: 0 36px 0 12px; border: 2px solid var(--gray-300); border-radius: 6px; font-size: 14px; font-family: var(--font-body); font-weight: 500; color: #111; background: white; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; cursor: pointer; transition: all .2s; }
+        .field-input { background-image: none; padding: 0 12px; }
         .field-select:focus, .field-input:focus { border-color: var(--castrol-green); outline: none; box-shadow: 0 0 0 3px rgba(26,122,60,.12); }
         optgroup { font-weight: 700; color: var(--blue); background: #f0f0f0; }
         option { font-weight: 500; color: #111; background: white; }
 
-        .btn-search { height: 46px; padding: 0 28px; background: var(--castrol-green); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; -webkit-tap-highlight-color: transparent; }
-        .btn-search:hover { background: var(--castrol-green-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,122,60,.4); }
+        .btn-search { height: 44px; padding: 0 24px; background: var(--castrol-green); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; -webkit-tap-highlight-color: transparent; }
+        .btn-search:hover { background: var(--castrol-green-dark); }
 
-        .divider-or { display: flex; align-items: center; gap: 16px; margin: 24px 0; }
+        /* ===== DIVIDER ===== */
+        .divider-or { display: flex; align-items: center; gap: 14px; margin: 18px 0; }
         .divider-line { flex: 1; height: 1px; background: var(--gray-200); }
-        .divider-text { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: #BBB; background: white; padding: 0 12px; }
+        .divider-text { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: #BBB; background: white; padding: 0 10px; }
 
-        .reverse-card { background: var(--gray-100); border: 2px dashed var(--gray-300); border-radius: 8px; padding: 20px 24px; }
-        .reverse-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gray-700); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-        .reverse-title::before { content: ''; display: block; width: 3px; height: 16px; background: var(--castrol-green); border-radius: 2px; flex-shrink: 0; }
-        .reverse-grid { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: flex-end; }
-        .btn-reverse { height: 46px; padding: 0 24px; background: var(--castrol-green-dark); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
-        .reverse-results { margin-top: 14px; display: none; background: white; border-radius: 6px; border-left: 4px solid var(--castrol-green); padding: 14px 18px; }
-        .reverse-results ul { margin: 8px 0 0 16px; }
-        .reverse-results li { font-size: 13px; color: var(--gray-700); margin-bottom: 4px; }
-        .reverse-results .rv-title { font-weight: 700; font-size: 12px; color: var(--castrol-green); text-transform: uppercase; letter-spacing: 1px; }
+        /* ===== REVERSE CARD ===== */
+        .reverse-card { background: var(--gray-100); border: 2px dashed var(--gray-300); border-radius: 8px; padding: 16px 20px; }
+        .reverse-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--gray-700); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .reverse-title::before { content: ''; display: block; width: 3px; height: 14px; background: var(--castrol-green); border-radius: 2px; flex-shrink: 0; }
+        .reverse-grid { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: flex-end; }
+        .btn-reverse { height: 44px; padding: 0 20px; background: var(--castrol-green-dark); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
+
+        /* ===== INLINE RESULTS (Reverse) ===== */
+        .reverse-results { margin-top: 12px; display: none; background: white; border-radius: 6px; border-left: 4px solid var(--castrol-green); padding: 12px 16px; }
         .reverse-results.valvoline-theme { border-left: 4px solid transparent !important; border-image: linear-gradient(to bottom, #E31837 15%, #003087 85%) 1 !important; }
-        .reverse-results.valvoline-theme .rv-title { background: linear-gradient(90deg, #E31837 0%, #003087 80%) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: transparent !important; }
+        .reverse-results.valvoline-theme .rv-title { background: linear-gradient(90deg, #E31837 0%, #003087 80%) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; }
+        .rv-title { font-weight: 700; font-size: 11px; color: var(--castrol-green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
 
-        .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .results-title { font-family: var(--font-display); font-size: 28px; font-weight: 900; text-transform: uppercase; color: #111; letter-spacing: 1px; }
-        .results-subtitle { font-size: 13px; color: var(--gray-500); margin-top: 2px; font-family: var(--font-body); }
-        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        /* ===== RESULTS ===== */
+        .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+        .results-title { font-family: var(--font-display); font-size: 24px; font-weight: 900; text-transform: uppercase; color: #111; letter-spacing: 1px; }
+        .results-subtitle { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
+        /* ===== BRAND CARD ===== */
         .brand-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
-        .brand-card-head { padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+        .brand-card-head { padding: 12px 18px; display: flex; align-items: center; gap: 10px; }
         .brand-card-head.castrol { background: var(--castrol-green); }
         .brand-card-head.valvoline { background: var(--dark); }
-        .brand-logo-badge { background: white; border-radius: 8px; width: 90px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 4px 8px; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
-        .brand-logo-badge img { max-width: 78px; max-height: 28px; object-fit: contain; display: block; }
-        .brand-head-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1px; }
-        .brand-head-sub { font-size: 10px; color: rgba(255,255,255,.65); font-family: var(--font-body); }
-        .brand-card-body { padding: 16px; }
+        .brand-logo-badge { background: white; border-radius: 6px; width: 80px; height: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 3px 6px; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+        .brand-logo-badge img { max-width: 70px; max-height: 26px; object-fit: contain; display: block; }
+        .brand-head-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1px; }
+        .brand-head-sub { font-size: 9px; color: rgba(255,255,255,.65); }
+        .brand-card-body { padding: 14px; }
 
-        .product-block { border: 1.5px solid var(--gray-200); border-radius: 10px; overflow: hidden; position: relative; margin-bottom: 10px; transition: all .2s; background: white; }
-        .product-block:hover { border-color: #C8C8C8; box-shadow: 0 4px 18px rgba(0,0,0,.09); transform: translateY(-1px); }
+        /* ===== PRODUCT BLOCK ===== */
+        .product-block { border: 1.5px solid var(--gray-200); border-radius: 8px; overflow: hidden; position: relative; margin-bottom: 8px; transition: all .2s; background: white; }
+        .product-block:hover { border-color: #C8C8C8; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
         .product-block.recommended.castrol-prod { border-color: var(--castrol-green); border-width: 2px; }
         .product-block.recommended.valvoline-prod { border-color: var(--green); border-width: 2px; }
         .product-inner { display: flex; align-items: stretch; }
-        .product-img-wrap { width: 120px; flex-shrink: 0; border-right: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; padding: 12px; flex-direction: column; gap: 6px; align-self: stretch; }
-        .recommend-badge { position: absolute; top: 0; left: 0; width: 120px; box-sizing: border-box; text-align: center; color: white; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 0; border-radius: 0 0 10px 0; z-index: 2; font-family: var(--font-body); }
+        .product-img-wrap { width: 100px; flex-shrink: 0; border-right: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; padding: 10px; flex-direction: column; gap: 4px; align-self: stretch; }
+        .recommend-badge { position: absolute; top: 0; left: 0; width: 100px; box-sizing: border-box; text-align: center; color: white; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 0; border-radius: 0 0 8px 0; z-index: 2; }
         .product-img-wrap.castrol-wrap-prod { background: linear-gradient(160deg, #E8F5EE 0%, #C8E6D3 100%); }
         .product-img-wrap.valvoline-wrap-prod { background: linear-gradient(160deg, #EEF2FF 0%, #DBEAFE 100%); }
         .recommend-badge.castrol-badge { background: var(--castrol-green); }
         .recommend-badge.valvoline-badge { background: var(--green); }
-        .brand-icon-wrap { width: 80px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: white; box-shadow: 0 2px 8px rgba(0,0,0,.10); }
-        .brand-icon-wrap img { width: 72px; height: 72px; object-fit: contain; }
+        .brand-icon-wrap { width: 68px; height: 68px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: white; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+        .brand-icon-wrap img { width: 60px; height: 60px; object-fit: contain; }
         .brand-icon-wrap.castrol-icon { background: #F0FAF4; border: 1.5px solid #A7D9B8; }
         .brand-icon-wrap.valvoline-icon { background: #EEF2FF; border: 1.5px solid #BFDBFE; }
-        .product-info { padding: 14px 16px 12px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
-        .product-name { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: #111; line-height: 1.05; margin-bottom: 5px; letter-spacing: .5px; text-transform: uppercase; }
-        .product-name.recommended-pad { margin-top: 18px; }
-        .product-spec { font-size: 11px; color: var(--gray-500); margin-bottom: 10px; line-height: 1.5; font-weight: 400; font-family: var(--font-body); }
-        .product-cap { display: inline-flex; align-items: center; gap: 6px; background: var(--gray-100); border-radius: 6px; padding: 5px 11px; margin-bottom: 11px; width: fit-content; font-size: 11px; font-weight: 500; color: var(--gray-500); font-family: var(--font-body); }
-        .product-cap strong { font-size: 17px; font-weight: 800; font-family: var(--font-display); }
+        .product-info { padding: 10px 14px 10px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
+        .product-name { font-family: var(--font-display); font-size: 17px; font-weight: 800; color: #111; line-height: 1.05; margin-bottom: 4px; letter-spacing: .5px; text-transform: uppercase; }
+        .product-name.recommended-pad { margin-top: 14px; }
+        .product-spec { font-size: 10px; color: var(--gray-500); margin-bottom: 8px; line-height: 1.5; font-weight: 400; }
+        .product-cap { display: inline-flex; align-items: center; gap: 5px; background: var(--gray-100); border-radius: 5px; padding: 4px 10px; margin-bottom: 8px; width: fit-content; font-size: 10px; font-weight: 500; color: var(--gray-500); }
+        .product-cap strong { font-size: 15px; font-weight: 800; font-family: var(--font-display); }
         .product-cap strong.c { color: var(--castrol-green); }
         .product-cap strong.v { color: var(--blue); }
-        .btn-detail { display: inline-flex; align-items: center; gap: 7px; padding: 7px 18px; border: none; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; cursor: pointer; transition: all .2s; width: fit-content; margin-top: auto; -webkit-tap-highlight-color: transparent; }
+        .btn-detail { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border: none; border-radius: 5px; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; cursor: pointer; transition: all .2s; width: fit-content; margin-top: auto; -webkit-tap-highlight-color: transparent; }
         .btn-detail.c { background: var(--castrol-green); color: white; }
-        .btn-detail.c:hover { background: var(--castrol-green-dark); box-shadow: 0 3px 10px rgba(26,122,60,.35); }
+        .btn-detail.c:hover { background: var(--castrol-green-dark); }
         .btn-detail.v { background: var(--dark); color: white; }
-        .btn-detail.v:hover { background: #002070; box-shadow: 0 3px 10px rgba(0,48,135,.3); }
-        .btn-detail svg { width: 13px; height: 13px; fill: white; }
-        .alt-heading { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #AAA; padding: 10px 0 8px; font-family: var(--font-body); display: flex; align-items: center; gap: 10px; }
+        .btn-detail.v:hover { background: #002070; }
+        .alt-heading { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #AAA; padding: 8px 0 6px; display: flex; align-items: center; gap: 8px; }
         .alt-heading::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
-        .no-result { text-align: center; padding: 32px; color: #BBB; font-size: 13px; font-family: var(--font-body); }
+        .no-result { text-align: center; padding: 24px; color: #BBB; font-size: 12px; }
 
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.72); z-index: 500; display: flex; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
-        .modal-box { background: white; border-radius: 14px; width: 100%; max-width: 640px; margin: 30px auto; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.35); }
-        .modal-topbar { padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 14px; }
-        .modal-topbar.c { background: var(--castrol-green); }
-        .modal-topbar.v { background: var(--dark); }
-        .modal-back { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); color: white; padding: 6px 14px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .5px; transition: all .2s; display: flex; align-items: center; gap: 6px; flex-shrink: 0; -webkit-tap-highlight-color: transparent; }
-        .modal-back:hover { background: rgba(255,255,255,.28); }
-        .modal-back svg { width: 14px; height: 14px; fill: white; }
-        .modal-topbar-brand { display: flex; align-items: center; gap: 10px; margin-left: auto; }
-        .modal-brand-logo-wrap { background: white; border-radius: 8px; padding: 5px 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
-        .modal-brand-logo { height: 28px; width: auto; max-width: 140px; object-fit: contain; }
-        .modal-hero { display: flex; align-items: center; gap: 20px; padding: 22px 24px 18px; border-bottom: 1px solid var(--gray-200); }
-        .modal-category-icon-wrap { width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 14px; border: 2px solid; position: relative; overflow: hidden; }
-        .modal-category-icon-wrap.castrol-wrap-modal { background: linear-gradient(135deg, #E8F5EE 0%, #A7D9B8 60%); border-color: #6DBF8A; }
-        .modal-category-icon-wrap.valvoline-wrap-modal { background: linear-gradient(135deg, #EEF2FF 0%, #DBEAFE 100%); border-color: #93C5FD; }
-        .modal-category-icon { width: 52px; height: 52px; object-fit: contain; opacity: 0.9; }
-        .modal-brand-pill { position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); border-radius: 4px; padding: 2px 8px; font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; font-family: var(--font-body); }
-        .castrol-wrap-modal .modal-brand-pill { background: rgba(26,122,60,.15); color: #1A7A3C; }
-        .valvoline-wrap-modal .modal-brand-pill { background: rgba(0,48,135,.12); color: #003087; }
-        .modal-product-name { font-family: var(--font-display); font-size: 30px; font-weight: 900; color: #111; line-height: 1; margin-bottom: 6px; letter-spacing: .5px; text-transform: uppercase; }
-        .modal-vehicle-tag { display: inline-flex; align-items: center; gap: 7px; background: #FFF8E1; border: 1px solid #EDD96A; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 500; color: #7A6000; font-family: var(--font-body); }
-        .modal-vehicle-tag svg { width: 13px; height: 13px; fill: #B8900A; flex-shrink: 0; }
-        .modal-content { padding: 20px 24px 28px; }
-        .modal-sections { display: flex; flex-direction: column; gap: 16px; }
-        .modal-section-label { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: #AAAAAA; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; font-family: var(--font-body); }
-        .modal-section-label::after { content: ''; flex: 1; height: 1px; background: #EEEEEE; }
-        .modal-spec-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-        .modal-spec-pill { background: var(--gray-100); border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 600; color: var(--gray-700); font-family: var(--font-body); }
-        .modal-section-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.75; font-weight: 400; font-family: var(--font-body); }
-        .modal-cap-box { background: var(--gray-100); border-radius: 10px; padding: 14px 20px; margin-top: 18px; display: flex; align-items: center; gap: 20px; }
-        .modal-cap-label { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); font-family: var(--font-body); }
-        .modal-cap-value { font-family: var(--font-display); font-size: 38px; font-weight: 800; color: var(--castrol-green); line-height: 1; }
-        .modal-cap-value.v-cap { color: var(--dark); }
+        /* ===== INLINE DETAIL PANEL ===== */
+        .detail-panel { display: none; background: white; border-radius: 10px; box-shadow: 0 8px 40px rgba(0,0,0,.15); margin-top: 10px; overflow: hidden; border: 2px solid var(--gray-200); }
+        .detail-panel.open { display: block; animation: slideDown .25s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+        .detail-topbar { padding: 0 18px; height: 48px; display: flex; align-items: center; gap: 12px; }
+        .detail-topbar.c { background: var(--castrol-green); }
+        .detail-topbar.v { background: var(--dark); }
+        .detail-close { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); color: white; padding: 5px 12px; border-radius: 5px; font-size: 11px; font-weight: 600; cursor: pointer; letter-spacing: .5px; transition: all .2s; display: flex; align-items: center; gap: 5px; -webkit-tap-highlight-color: transparent; }
+        .detail-close:hover { background: rgba(255,255,255,.28); }
+        .detail-brand-logo-wrap { background: white; border-radius: 6px; padding: 4px 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,.15); margin-left: auto; }
+        .detail-brand-logo { height: 24px; width: auto; max-width: 120px; object-fit: contain; }
+        .detail-hero { display: flex; align-items: center; gap: 16px; padding: 16px 20px 14px; border-bottom: 1px solid var(--gray-200); }
+        .detail-icon-wrap { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 12px; border: 2px solid; }
+        .detail-icon-wrap.c { background: linear-gradient(135deg, #E8F5EE 0%, #A7D9B8 60%); border-color: #6DBF8A; }
+        .detail-icon-wrap.v { background: linear-gradient(135deg, #EEF2FF 0%, #DBEAFE 100%); border-color: #93C5FD; }
+        .detail-icon { width: 42px; height: 42px; object-fit: contain; opacity: .9; }
+        .detail-product-name { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: #111; line-height: 1; margin-bottom: 5px; text-transform: uppercase; }
+        .detail-vehicle-tag { display: inline-flex; align-items: center; gap: 6px; background: #FFF8E1; border: 1px solid #EDD96A; border-radius: 5px; padding: 5px 10px; font-size: 11px; font-weight: 500; color: #7A6000; }
+        .detail-content { padding: 16px 20px 20px; }
+        .detail-sections { display: flex; flex-direction: column; gap: 14px; }
+        .detail-section-label { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: #AAAAAA; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .detail-section-label::after { content: ''; flex: 1; height: 1px; background: #EEEEEE; }
+        .detail-spec-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+        .detail-spec-pill { background: var(--gray-100); border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 600; color: var(--gray-700); }
+        .detail-section-text { font-size: 12.5px; color: var(--gray-700); line-height: 1.7; font-weight: 400; }
+        .detail-cap-box { background: var(--gray-100); border-radius: 8px; padding: 12px 18px; margin-top: 14px; display: flex; align-items: center; gap: 18px; }
+        .detail-cap-label { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); }
+        .detail-cap-value { font-family: var(--font-display); font-size: 30px; font-weight: 800; line-height: 1; }
+        .detail-cap-value.c { color: var(--castrol-green); }
+        .detail-cap-value.v { color: var(--dark); }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-arr { display: flex; }
             .nav-container { justify-content: flex-start; }
-            .header-inner { padding: 0 16px; gap: 10px; }
-            .header-logo-wrap { height: 44px; }
-            .header-logo-wrap.castrol-wrap { width: 150px; }
-            .header-logo-wrap.valvoline-wrap { width: 130px; }
-            .header-logos { gap: 14px; }
-            .hero { padding: 36px 16px 0; }
-            .hero-inner { grid-template-columns: 1fr; gap: 0; }
-            .hero-visual { display: none; }
-            .hero-text { padding-bottom: 28px; }
-            .hero-badge { font-size: 9px; letter-spacing: 2px; padding: 4px 10px; }
-            .hero-title { font-size: clamp(36px, 10vw, 60px); }
-            .nav-item { padding: 12px 14px; font-size: 9px; gap: 5px; }
-            .main { padding: 20px 16px 40px; }
-            .step-value { display: none; }
-            .step-num { font-size: 22px; }
-            .step-item { padding: 12px 16px 12px 28px; }
-            .step-item:first-child { padding-left: 14px; }
+            .header-inner { padding: 0 14px; gap: 8px; }
+            .header-logo-wrap { height: 42px; }
+            .header-logo-wrap.castrol-wrap { width: 140px; }
+            .header-logo-wrap.valvoline-wrap { width: 120px; }
+            .header-logos { gap: 12px; }
+            .hero { padding: 28px 16px 0; }
+            .hero-title { font-size: clamp(32px, 9vw, 52px); }
+            .main { padding: 16px 14px 30px; }
             .selector-grid { grid-template-columns: 1fr 1fr; }
-            .reverse-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
-            .btn-reverse { width: 100% !important; justify-content: center; margin-top: 4px; }
+            .reverse-grid { grid-template-columns: 1fr !important; }
+            .btn-reverse { width: 100% !important; justify-content: center; }
             .field-input, .field-select { font-size: 16px !important; }
         }
         @media (max-width: 600px) {
-            .header-logo-wrap.castrol-wrap { width: 120px; }
+            .header-logo-wrap.castrol-wrap { width: 110px; }
             .logo-divider { display: none; }
-            .header-logo-wrap.valvoline-wrap { width: 100px; }
-            .hero-title { font-size: clamp(32px, 11vw, 52px); }
-            .main { padding: 14px 12px 36px; }
-            .finder-header { padding: 14px 16px; gap: 10px; }
-            .finder-body { padding: 14px 14px 18px; }
-            .steps { gap: 2px; flex-wrap: nowrap; }
-            .step-item { padding: 8px 10px 8px 20px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%); }
-            .step-item:first-child { padding-left: 10px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); }
-            .step-num { font-size: 16px; }
-            .selector-grid { grid-template-columns: 1fr; gap: 10px; }
-            .btn-search, .btn-reverse { width: 100%; height: 50px; justify-content: center; }
+            .header-logo-wrap.valvoline-wrap { width: 90px; }
+            .finder-body { padding: 14px; }
+            .selector-grid { grid-template-columns: 1fr; gap: 8px; }
+            .btn-search, .btn-reverse { width: 100%; height: 46px; justify-content: center; }
             .results-grid { grid-template-columns: 1fr; }
-            .product-img-wrap { width: 100px; padding: 10px; }
-            .recommend-badge { width: 100px; padding: 5px 0; font-size: 8px; border-radius: 0 0 10px 0; }
-            .brand-icon-wrap { width: 68px; height: 68px; }
-            .brand-icon-wrap img { width: 56px; height: 56px; }
-            .product-info { padding: 10px 12px 10px; }
-            .product-name { font-size: 16px; }
-            .product-name.recommended-pad { margin-top: 16px; }
-            .modal-box { border-radius: 16px; margin: 0; max-height: 92vh; }
-            .modal-hero { padding: 16px; flex-direction: row; }
+            .product-img-wrap { width: 90px; padding: 8px; }
+            .recommend-badge { width: 90px; }
+            .brand-icon-wrap { width: 60px; height: 60px; }
+            .brand-icon-wrap img { width: 52px; height: 52px; }
+            .product-name { font-size: 15px; }
+            .steps { gap: 2px; }
+            .step-item { padding: 8px 8px 8px 18px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%); }
+            .step-item:first-child { padding-left: 8px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%); }
+            .step-value { display: none; }
         }
         @media (max-width: 380px) {
-            .header-logo-wrap.castrol-wrap { width: 100px; }
-            .header-logo-wrap.valvoline-wrap { width: 85px; }
-            .hero-title { font-size: 30px; }
-            .nav-item { padding: 9px 10px; font-size: 7px; }
-            .nav-icon, .nav-icon img { width: 18px; height: 18px; }
-            .nav-arr { width: 30px; }
-            .product-img-wrap { width: 90px; padding: 8px; }
-            .recommend-badge { width: 90px; padding: 4px 0; font-size: 7.5px; }
-            .brand-icon-wrap { width: 64px; height: 64px; }
-            .brand-icon-wrap img { width: 54px; height: 54px; }
-            .product-name { font-size: 14px; }
-            .finder-header-title { font-size: 12px; }
-            .modal-product-name { font-size: 18px; }
+            .header-logo-wrap.castrol-wrap { width: 95px; }
+            .header-logo-wrap.valvoline-wrap { width: 80px; }
+            .hero-title { font-size: 28px; }
+            .nav-item { font-size: 8px; padding: 8px 8px; }
+            .nav-icon, .nav-icon img { width: 20px; height: 20px; }
         }
         @media (hover: none) and (pointer: coarse) {
             .btn-search, .btn-reverse, .btn-detail { min-height: 44px; }
-            .nav-item { min-width: 60px; }
-            .product-block:hover { transform: none; box-shadow: none; }
-            .btn-search:hover { transform: none; box-shadow: none; }
         }
         @keyframes arrowPulse { 0% { opacity: 0.65; } 50% { opacity: 1; } 100% { opacity: 0.65; } }
         .nav-arr.pulse { animation: arrowPulse 1s ease-in-out 3; }
-
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,.35); }
-
-        @media (min-width: 769px) {
-            .nav-container { scrollbar-width: thin; padding-bottom: 6px; }
-            .nav-container::-webkit-scrollbar { display: block !important; height: 6px; }
-        }
-
         html { overflow-y: scroll; }
         body { min-height: 100vh; }
     </style>
 </head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
 <body>
-
-
 
 <section class="hero">
     <div class="hero-inner">
-        <div class="hero-text">
-            <div class="hero-badge">Viettin Mekong — Nhà phân phối chính thức</div>
-            <h1 class="hero-title">Tìm đúng<br><span>dầu nhớt</span><br>cho xe của bạn</h1>
-            <p class="hero-desc">Công cụ tra cứu thông minh giúp bạn chọn đúng loại dầu nhớt phù hợp với từng loại phương tiện — nhanh chóng và chính xác.</p>
-        </div>
+        <div class="hero-badge">Viettin Mekong — Nhà phân phối chính thức</div>
+        <h1 class="hero-title">Tìm đúng<br><span>dầu nhớt</span><br>cho xe của bạn</h1>
+        <p class="hero-desc">Công cụ tra cứu thông minh giúp bạn chọn đúng loại dầu nhớt phù hợp với từng loại phương tiện — nhanh chóng và chính xác.</p>
     </div>
 </section>
 
@@ -323,7 +288,7 @@
 <main class="main">
     <div class="finder-card">
         <div class="finder-header">
-            <div class="finder-header-icon"><svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 9.5 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 9.5 12 2 12 2ZM9 15C9 15 8 13 8 12" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M12 2C12 2 5 9.5 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 9.5 12 2 12 2Z" fill="white" opacity=".9"/></svg></div>
+            <div class="finder-header-icon"><svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 9.5 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 9.5 12 2 12 2Z" fill="white" opacity=".9"/></svg></div>
             <div class="finder-header-text">
                 <div class="finder-header-title" id="finderTitle">Tìm kiếm dầu nhớt — Ôtô</div>
                 <div class="finder-header-sub">Chọn hãng và dòng máy để xem khuyến nghị phù hợp</div>
@@ -341,7 +306,7 @@
                 <div class="field-group"><label class="field-label" id="modelSelectLabel">Dòng xe / Phân khối</label><select class="field-select" id="modelSelect"><option value="">-- Chọn dòng xe --</option></select></div>
                 <div class="field-group">
                     <label class="field-label">Năm sản xuất</label>
-                    <select class="field-select" id="yearInput"><option value="">Chọn năm sản xuất</option></select>
+                    <select class="field-select" id="yearInput"><option value="">Chọn năm SX</option></select>
                 </div>
                 <button class="btn-search" id="searchBtn">Tìm kiếm</button>
             </div>
@@ -352,10 +317,14 @@
                     <div class="field-group"><label class="field-label">Tên sản phẩm</label><select class="field-select" id="reverseProductSelect"><option value="">-- Chọn sản phẩm --</option></select></div>
                     <button class="btn-reverse" id="reverseBtn">Tra cứu phương tiện</button>
                 </div>
+                <!-- Inline reverse results -->
                 <div class="reverse-results" id="reverseResults"></div>
             </div>
         </div>
     </div>
+
+    <!-- Inline detail panel (shown below search results) -->
+    <div class="detail-panel" id="detailPanel"></div>
 
     <div id="resultsAnchor"></div>
     <div id="resultsWrapper" style="display:none;">
@@ -368,8 +337,6 @@
         <div class="results-grid" id="resultsGrid"></div>
     </div>
 </main>
-
-<div class="modal-overlay" id="modalOverlay" style="display:none;"><div class="modal-box" id="modalBox"></div></div>
 
 <script>
 var CAT_ICONS = {
@@ -386,116 +353,101 @@ var CAT_ICONS = {
 var CASTROL_LOGO = 'https://thelubricantoracle.castrol.com/images/brand_logo.jpeg';
 var VALVOLINE_LOGO = 'https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad';
 
-// ==================== CATALOG SẢN PHẨM (MỞ RỘNG) ====================
+// ==================== CATALOG SẢN PHẨM ====================
 var CASTROL_CATALOG = {
-    // --- DẦU Ô TÔ DU LỊCH TỔNG HỢP CAO CẤP ---
-    "Castrol EDGE 0W-20":{s:"SAE 0W-20 · API SP · ILSAC GF-6A",adv:"Bảo vệ động cơ gấp 3 lần so với dầu thường nhờ công nghệ Fluid Titanium™. Chống cháy nổ sớm (LSPI) cho động cơ GDI, Turbo đời mới.",app:"Toyota Camry, Honda CR-V, Mazda CX-5, Mitsubishi Outlander đời 2018 trở về sau.", c:"", u:""},
-    "Castrol EDGE 5W-30":{s:"SAE 5W-30 · API SP · ILSAC GF-6A",adv:"Bảo vệ cực bền ngay từ giây khởi động đầu tiên. Giảm ma sát, tối ưu tiết kiệm nhiên liệu.",app:"Toyota Vios, Innova, Honda City, Hyundai Accent, Mitsubishi Xpander.", c:"", u:""},
-    "Castrol EDGE 0W-20 LL IV":{s:"SAE 0W-20 · BMW LL-17FE+ · MB 229.71",adv:"Chuyên dụng cho xe Đức thế hệ mới. Kéo dài chu kỳ thay dầu tới 30.000 km.",app:"BMW 3/5 Series, MINI Cooper, VinFast Lux.", c:"", u:""},
-    "Castrol EDGE 5W-30 M":{s:"SAE 5W-30 · MB-Approval 229.52 · 229.51",adv:"Bảo vệ bộ lọc DPF cho xe sang Mercedes, duy trì sạch động cơ tuyệt đối.",app:"Mercedes-Benz C200, E300, GLC300, GLE.", c:"", u:""},
-    "Castrol EDGE 5W-30 C3":{s:"SAE 5W-30 · ACEA C3 · BMW LL-04",adv:"Dầu tổng hợp toàn phần cho động cơ diesel hiện đại có DPF/SCR.",app:"Ford Ranger, Fortuner, Hyundai SantaFe, Kia Sportage máy dầu.", c:"", u:""},
-    "Castrol EDGE 5W-40":{s:"SAE 5W-40 · API SP · ACEA A3/B4",adv:"Hiệu suất tối đa cho xe hạng sang, chịu tải nhiệt cao trong điều kiện vận hành nặng.",app:"Audi A4/Q5/Q7, Volkswagen Tiguan, Skoda Karoq, Porsche Macan.", c:"", u:""},
-    "Castrol MAGNATEC Hybrid 0W-16":{s:"SAE 0W-16 · API SP · ILSAC GF-6B",adv:"Bảo vệ tối ưu cho động cơ Hybrid (HSD). Phân tử Intelligent Molecules™ bám chặt khi động cơ tắt/bật liên tục.",app:"Toyota Corolla Cross Hybrid, Camry Hybrid, Yaris Cross Hybrid, Honda CR-V eHEV.", c:"", u:""},
-    "Castrol MAGNATEC Stop-Start 5W-30":{s:"SAE 5W-30 · DUALOCK™ Technology",adv:"Chuyên dụng cho điều kiện dừng-đỗ liên tục đô thị. Giảm mài mòn tới 75% trong các pha tắt-bật máy.",app:"Xe chạy dịch vụ, Grab, Taxi, xe đô thị chạy nhiều đèn đỏ.", c:"", u:""},
-    "Castrol MAGNATEC 5W-30":{s:"SAE 5W-30 · API SP · ILSAC GF-5",adv:"Phân tử dầu bám chặt như nam châm vào bộ phận máy, bảo vệ ngay từ khi chưa khởi động.",app:"Honda City, Mitsubishi Xpander, Suzuki Ertiga, Kia Seltos.", c:"", u:""},
-    "Castrol MAGNATEC SUV 5W-30":{s:"SAE 5W-30 · ACEA A5/B5",adv:"Thiết kế riêng cho dòng xe gầm cao SUV. Chịu được điều kiện tải nặng, địa hình đa dạng.",app:"Toyota Fortuner, Hyundai SantaFe, Mitsubishi Outlander, Ford Everest.", c:"", u:""},
-    "Castrol MAGNATEC 10W-40":{s:"SAE 10W-40 · API SP",adv:"Bảo vệ vượt trội cho xe phổ thông, phù hợp khí hậu nhiệt đới nóng ẩm.",app:"Xe đời 2005–2018, xe cũ chưa nâng cấp tiêu chuẩn khí thải.", c:"", u:""},
-    "Castrol GTX Ultraclean 10W-40":{s:"SAE 10W-40 · API SP",adv:"Công nghệ Dual Action™ làm sạch cặn bùn động cơ và ngăn cặn bùn mới hình thành.",app:"Xe phổ thông đời cũ, xe chạy nhiều địa hình khắc nghiệt.", c:"", u:""},
-    "Castrol GTX Diesel 15W-40":{s:"SAE 15W-40 · API CI-4/SL",adv:"Chống oxy hóa và tích tụ cặn cho máy dầu cũ, kéo dài tuổi thọ động cơ.",app:"Xe tải nhẹ, xe bán tải cũ trước 2015.", c:"", u:""},
-    // --- DẦU TẢI NẶNG ---
-    "Castrol CRB Turbomax 15W-40":{s:"SAE 15W-40 · API CI-4 · JASO DH-1",adv:"Công nghệ DuraShield™ chống mài mòn gấp đôi tiêu chuẩn. Kiểm soát cặn bùn xuất sắc trong điều kiện Việt Nam.",app:"Xe tải Isuzu, Hyundai Mighty, xe khách cỡ trung, đầu kéo hạng trung.", c:"", u:""},
-    "Castrol CRB Turbomax 20W-50":{s:"SAE 20W-50 · API CH-4",adv:"Bôi trơn hoàn hảo dưới tải nặng và nhiệt độ cao. Phù hợp khí hậu nhiệt đới.",app:"Xe tải nặng, xe ben, máy kéo nông nghiệp cũ.", c:"", u:""},
-    "Castrol CRB Multi 20W-50":{s:"SAE 20W-50 · API CF-4/SF · Đa dụng",adv:"Dầu đa dụng cho động cơ diesel và xăng cũ. Bảo vệ tốt cho thiết bị nông nghiệp.",app:"Máy kéo nông nghiệp Kubota, Yanmar, Iseki đời cũ.", c:"", u:""},
-    "Castrol VECTON 15W-40":{s:"SAE 15W-40 · API CI-4 · ACEA E7",adv:"Kéo dài chu kỳ thay dầu thêm 20% nhờ công nghệ System Pro Technology™.",app:"Xe khách giường nằm, máy công trình, xe tải nặng đội xe lớn.", c:"", u:""},
-    "Castrol VECTON 15W-40 CK-4":{s:"SAE 15W-40 · API CK-4 · ACEA E9",adv:"Bảo vệ hệ thống khí thải Euro 5/6 (SCR, EGR, DPF). Hiệu suất động cơ tối đa.",app:"Đầu kéo Scania, Volvo, xe tải Euro 5/6 đời mới nhất.", c:"", u:""},
-    // --- HỘP SỐ, CẦU, THỦY LỰC CÔNG TRÌNH & XE ĐIỆN ---
-    "Castrol Transmax ATF":{s:"Dầu hộp số tự động · Multi-Vehicle",adv:"Sang số mượt mà, chống rung giật. Tương thích đa hãng: Toyota WS, Honda DW-1, ZF, Aisin.",app:"Hộp số AT tất cả hãng, xe điện hybrid VinFast, BYD.", c:"", u:""},
-    "Castrol Transmax CVT":{s:"Dầu hộp số vô cấp CVT · Full Synthetic",adv:"Kéo dài tuổi thọ dây đai hộp số CVT. Chống trượt và rung khi sang số.",app:"Hộp số CVT Honda (HMA), Toyota, Mitsubishi, Nissan (NS-3).", c:"", u:""},
-    "Castrol Transmax Dual":{s:"Dầu hộp số ly hợp kép DCT/DSG",adv:"Đồng bộ hóa ly hợp ướt/khô tuyệt vời. Chống mài mòn đĩa ly hợp.",app:"Hộp số DCT/DSG Volkswagen, Ford PowerShift, Hyundai DCT 7 cấp.", c:"", u:""},
-    "Castrol Transmax Manual 80W-90":{s:"SAE 80W-90 · API GL-4 · GL-5",adv:"Bôi trơn bánh răng hộp số sàn hoàn hảo. Chống gỉ và ăn mòn chi tiết đồng.",app:"Hộp số sàn xe tải nhẹ, xe khách, xe du lịch số sàn.", c:"", u:""},
-    "Castrol Transmax Axle 85W-140":{s:"SAE 85W-140 · API GL-5 · MT-1",adv:"Chịu cực áp cực tốt cho cầu xe tải nặng và đầu kéo.",app:"Cầu xe ben, đầu kéo Isuzu Giga, Hino, Hyundai Xcient.", c:"", u:""},
-    "Castrol Transmax Offroad 30":{s:"SAE 30 · CAT TO-4",adv:"Chuyên dụng cho thiết bị thi công cơ giới, chống trượt ly hợp.",app:"Hộp số, truyền động cuối, thủy lực máy xúc, máy ủi.", c:"", u:""},
-    "Castrol ON EV Transmission Fluid":{s:"Dầu hộp số xe điện · EV Grade",adv:"Giảm thất thoát năng lượng, đặc tính cách điện cao. Bảo vệ motor điện và bánh răng.",app:"Xe điện VinFast VF3/5/6/7/8/9, BYD Dolphin/Atto 3/Seal.", c:"", u:""},
-    "Castrol ON EV Thermal Fluid":{s:"Nước làm mát pin EV · Dielectric",adv:"Giải nhiệt pin hiệu quả cao, không dẫn điện, an toàn tuyệt đối.",app:"Hệ thống làm mát pin xe điện VinFast, BYD, Hyundai Ioniq 5.", c:"", u:""},
-    // --- DẦU LÁPMÁY, HỘP SỐ XE MÁY ---
-    "Castrol Scooter Gear Oil 80W-90":{s:"SAE 80W-90 · API GL-4 · Dầu láp xe tay ga",adv:"Chống hú láp, bảo vệ bánh răng truyền động cực êm. Chịu nhiệt và tải trọng tốt.",app:"Tất cả xe tay ga: Honda SH, Air Blade, Vision, PCX, NVX, Vario, Yamaha Janus, Grande.", c:"", u:""},
-    "Castrol Power1 4T 10W-30":{s:"SAE 10W-30 · JASO MA2 · API SL",adv:"Bảo vệ toàn diện cho xe số phổ thông. Giữ sạch piston và buồng đốt.",app:"Honda Wave, Future, Dream, Yamaha Sirius, Jupiter, Suzuki Axelo.", c:"", u:""},
-    "Castrol Power1 Scooter 10W-30":{s:"SAE 10W-30 · JASO MB · Xe tay ga",adv:"Tối ưu cho hộp số tự động xe tay ga phổ thông. Khởi động mượt, tiết kiệm xăng.",app:"Honda Vision, Yamaha Grande Hybrid, Janus 125, Suzuki Burgman Street.", c:"", u:""},
-    "Castrol Power1 Ultimate 10W-40":{s:"SAE 10W-40 · JASO MA2 · Full Synthetic",adv:"Công nghệ 5 trong 1: bốc máy tức thì, bảo vệ ly hợp, mát máy, tiết kiệm xăng, sạch máy.",app:"Honda Winner X, CB150R, CBR150R, Yamaha Exciter 150/155, Suzuki Raider R150.", c:"", u:""},
-    "Castrol Power1 Scooter Ultimate 5W-40":{s:"SAE 5W-40 · JASO MB · Full Synthetic",adv:"Tăng tốc mượt, giảm ma sát tối đa cho xe tay ga cao cấp. Bảo vệ dưới tải nặng kẹt xe.",app:"Honda SH 125/150/160/350, Air Blade 150/160, PCX 125/160, NVX 155, Vespa Sprint/GTS.", c:"", u:""},
-    "Castrol Power1 Ultimate 10W-50":{s:"SAE 10W-50 · JASO MA2 · Full Synthetic",adv:"Dầu tổng hợp cao cấp cho xe phân khối lớn. Chịu nhiệt độ cao, bảo vệ động cơ thể thao.",app:"Honda CBR650R, CB500F/X, Kawasaki Z900, Z1000, Ducati, Triumph, Yamaha R7.", c:"", u:""},
-    "Castrol Power1 Ultimate 10W-30":{s:"SAE 10W-30 · JASO MA2 · Full Synthetic",adv:"Bảo vệ động cơ 4 kỳ cho máy gắn ngoài 4 thì công suất trung bình.",app:"Honda Marine BF20-BF50, máy thủy 4 kỳ phổ thông.", c:"", u:""},
-    "Castrol Activ 4T 20W-40":{s:"SAE 20W-40 · JASO MA · API SJ",adv:"Chống cặn pít-tông, bảo vệ bugi và xi-lanh cho xe số đời cũ.",app:"Honda Dream 100, các xe số thế hệ cũ dùng dầu 20W-40.", c:"", u:""},
-    "Castrol Activ 2T":{s:"Dầu nhớt 2 kỳ · Pha xăng · JASO FC",adv:"Chống cặn pít-tông, giảm khói xanh, bảo vệ bugi hiệu quả.",app:"Honda NSR 150 2T, Yamaha YZ, Suzuki Xipo/RGV, máy thủy 2 kỳ.", c:"", u:""},
-    // --- PHỤ TRỢ ---
-    "Castrol Radicool SF Premix":{s:"Nước làm mát · Glycol 50/50 Premix",adv:"Chống rỉ sét, ăn mòn kim loại. Tuổi thọ 3 năm hoặc 150.000 km.",app:"Mọi loại phương tiện có hệ thống làm mát nước.", c:"", u:""},
-    "Castrol Brake Fluid DOT 4":{s:"Dầu thắng / Phanh DOT 4",adv:"An toàn tuyệt đối cho hệ thống phanh, điểm sôi cao.",app:"Mọi hệ thống phanh thủy lực hiện đại ô tô, xe tải.", c:"", u:""},
-    // --- DẦU CÔNG NGHIỆP ---
-    "Castrol Aircol PD 46":{s:"Dầu máy nén khí trục vít · ISO VG 46",adv:"Tuổi thọ dầu tới 8.000 giờ. Chống tạo cặn, giảm nhiệt độ vận hành.",app:"Máy nén khí trục vít Atlas Copco, Ingersoll Rand, Hitachi, Fusheng GA/GX/R Series.", c:"", u:""},
-    "Castrol Aircol VDL 100":{s:"Dầu máy nén khí piston · ISO VG 100",adv:"Chịu nhiệt độ cao, chống oxy hóa tốt cho piston máy nén.",app:"Máy nén khí piston Fusheng VA/TA, Pegasus, các hãng Việt Nam.", c:"", u:""},
-    "Castrol Optigear BM 220":{s:"Dầu hộp giảm tốc bánh răng · ISO VG 220",adv:"Bảo vệ cực áp vượt trội, kéo dài tuổi thọ bánh răng và ổ bi.",app:"Hộp giảm tốc SEW Eurodrive, các hộp số công nghiệp nhà máy.", c:"", u:""},
-    "Castrol Optigear BM 320":{s:"Dầu hộp giảm tốc bánh răng côn · ISO VG 320",adv:"Màng dầu bền vững ngay cả dưới tải rất nặng.",app:"Hộp giảm tốc bánh răng côn, bánh vít trục vít công nghiệp.", c:"", u:""},
-    "Castrol Hyspin HVI 46":{s:"Dầu thủy lực · ISO VG 46 · HVI",adv:"Chỉ số độ nhớt cao, hoạt động ổn định từ nhiệt độ thấp tới cao.",app:"Hệ thống thủy lực máy ép nhựa, máy chấn, cẩu, forklift.", c:"", u:""},
-    "Castrol Hyspin HVI 68":{s:"Dầu thủy lực · ISO VG 68 · HVI",adv:"Phù hợp hệ thống thủy lực áp suất cao, hoạt động liên tục.",app:"Máy ép nhựa thủy lực ISO 68, máy chấn tôn, xe nâng hạng nặng.", c:"", u:""},
-    "Castrol Hyspin AWH-M 68":{s:"Dầu thủy lực cao cấp · ISO VG 68 · AW/HM",adv:"Chống ăn mòn, chống tạo bọt, kéo dài tuổi thọ bơm thủy lực.",app:"Máy chấn dập công suất lớn, hệ thống thủy lực nhà máy công nghiệp.", c:"", u:""},
-    "Castrol Magna SW 68 (Dầu rãnh trượt)":{s:"Dầu rãnh trượt máy CNC · ISO VG 68",adv:"Bám dính tốt trên bề mặt kim loại, chống stick-slip. Tương thích với dầu cắt.",app:"Máy CNC trung tâm gia công, máy tiện, máy phay CNC.", c:"", u:""},
-    // --- DẦU HÀ HÀNG HẢI ---
-    "Castrol TLX Plus 3040":{s:"Dầu thủy điện hàng hải · SAE 40 · TBN 30",adv:"Bảo vệ xi lanh, chống kiềm trung hòa axit lưu huỳnh trong nhiên liệu.",app:"Động cơ tàu thủy Yanmar 4CHE/6CHE, động cơ diesel hàng hải tầm trung.", c:"", u:""},
-    "Castrol TLX Plus 4040":{s:"Dầu hàng hải · SAE 40 · TBN 40 · Crosshead",adv:"TBN 40 trung hòa axit mạnh, bảo vệ xi-lanh động cơ tàu lớn.",app:"Cummins KTA19/38/50, Mitsubishi S6R/S12R, MTU Series 2000/4000, Caterpillar 3512.", c:"", u:""}
+    "Castrol EDGE 0W-20":{s:"SAE 0W-20 · API SP · ILSAC GF-6A",adv:"Bảo vệ động cơ gấp 3 lần so với dầu thường nhờ công nghệ Fluid Titanium™. Chống cháy nổ sớm (LSPI) cho động cơ GDI, Turbo đời mới.",app:"Toyota Camry, Honda CR-V, Mazda CX-5, Mitsubishi Outlander đời 2018 trở về sau.",u:""},
+    "Castrol EDGE 5W-30":{s:"SAE 5W-30 · API SP · ILSAC GF-6A",adv:"Bảo vệ cực bền ngay từ giây khởi động đầu tiên. Giảm ma sát, tối ưu tiết kiệm nhiên liệu.",app:"Toyota Vios, Innova, Honda City, Hyundai Accent, Mitsubishi Xpander.",u:""},
+    "Castrol EDGE 0W-20 LL IV":{s:"SAE 0W-20 · BMW LL-17FE+ · MB 229.71",adv:"Chuyên dụng cho xe Đức thế hệ mới. Kéo dài chu kỳ thay dầu tới 30.000 km.",app:"BMW 3/5 Series, MINI Cooper, VinFast Lux.",u:""},
+    "Castrol EDGE 5W-30 M":{s:"SAE 5W-30 · MB-Approval 229.52 · 229.51",adv:"Bảo vệ bộ lọc DPF cho xe sang Mercedes, duy trì sạch động cơ tuyệt đối.",app:"Mercedes-Benz C200, E300, GLC300, GLE.",u:""},
+    "Castrol EDGE 5W-30 C3":{s:"SAE 5W-30 · ACEA C3 · BMW LL-04",adv:"Dầu tổng hợp toàn phần cho động cơ diesel hiện đại có DPF/SCR.",app:"Ford Ranger, Fortuner, Hyundai SantaFe, Kia Sportage máy dầu.",u:""},
+    "Castrol EDGE 5W-40":{s:"SAE 5W-40 · API SP · ACEA A3/B4",adv:"Hiệu suất tối đa cho xe hạng sang, chịu tải nhiệt cao trong điều kiện vận hành nặng.",app:"Audi A4/Q5/Q7, Volkswagen Tiguan, Skoda Karoq, Porsche Macan.",u:""},
+    "Castrol MAGNATEC Hybrid 0W-16":{s:"SAE 0W-16 · API SP · ILSAC GF-6B",adv:"Bảo vệ tối ưu cho động cơ Hybrid (HSD). Phân tử Intelligent Molecules™ bám chặt khi động cơ tắt/bật liên tục.",app:"Toyota Corolla Cross Hybrid, Camry Hybrid, Yaris Cross Hybrid, Honda CR-V eHEV.",u:""},
+    "Castrol MAGNATEC Stop-Start 5W-30":{s:"SAE 5W-30 · DUALOCK™ Technology",adv:"Chuyên dụng cho điều kiện dừng-đỗ liên tục đô thị. Giảm mài mòn tới 75% trong các pha tắt-bật máy.",app:"Xe chạy dịch vụ, Grab, Taxi, xe đô thị chạy nhiều đèn đỏ.",u:""},
+    "Castrol MAGNATEC 5W-30":{s:"SAE 5W-30 · API SP · ILSAC GF-5",adv:"Phân tử dầu bám chặt như nam châm vào bộ phận máy, bảo vệ ngay từ khi chưa khởi động.",app:"Honda City, Mitsubishi Xpander, Suzuki Ertiga, Kia Seltos.",u:""},
+    "Castrol MAGNATEC SUV 5W-30":{s:"SAE 5W-30 · ACEA A5/B5",adv:"Thiết kế riêng cho dòng xe gầm cao SUV. Chịu được điều kiện tải nặng, địa hình đa dạng.",app:"Toyota Fortuner, Hyundai SantaFe, Mitsubishi Outlander, Ford Everest.",u:""},
+    "Castrol MAGNATEC 10W-40":{s:"SAE 10W-40 · API SP",adv:"Bảo vệ vượt trội cho xe phổ thông, phù hợp khí hậu nhiệt đới nóng ẩm.",app:"Xe đời 2005–2018, xe cũ chưa nâng cấp tiêu chuẩn khí thải.",u:""},
+    "Castrol GTX Ultraclean 10W-40":{s:"SAE 10W-40 · API SP",adv:"Công nghệ Dual Action™ làm sạch cặn bùn động cơ và ngăn cặn bùn mới hình thành.",app:"Xe phổ thông đời cũ, xe chạy nhiều địa hình khắc nghiệt.",u:""},
+    "Castrol GTX Diesel 15W-40":{s:"SAE 15W-40 · API CI-4/SL",adv:"Chống oxy hóa và tích tụ cặn cho máy dầu cũ, kéo dài tuổi thọ động cơ.",app:"Xe tải nhẹ, xe bán tải cũ trước 2015.",u:""},
+    "Castrol CRB Turbomax 15W-40":{s:"SAE 15W-40 · API CI-4 · JASO DH-1",adv:"Công nghệ DuraShield™ chống mài mòn gấp đôi tiêu chuẩn. Kiểm soát cặn bùn xuất sắc trong điều kiện Việt Nam.",app:"Xe tải Isuzu, Hyundai Mighty, xe khách cỡ trung, đầu kéo hạng trung.",u:""},
+    "Castrol CRB Turbomax 20W-50":{s:"SAE 20W-50 · API CH-4",adv:"Bôi trơn hoàn hảo dưới tải nặng và nhiệt độ cao. Phù hợp khí hậu nhiệt đới.",app:"Xe tải nặng, xe ben, máy kéo nông nghiệp cũ.",u:""},
+    "Castrol CRB Multi 20W-50":{s:"SAE 20W-50 · API CF-4/SF · Đa dụng",adv:"Dầu đa dụng cho động cơ diesel và xăng cũ. Bảo vệ tốt cho thiết bị nông nghiệp.",app:"Máy kéo nông nghiệp Kubota, Yanmar, Iseki đời cũ.",u:""},
+    "Castrol VECTON 15W-40":{s:"SAE 15W-40 · API CI-4 · ACEA E7",adv:"Kéo dài chu kỳ thay dầu thêm 20% nhờ công nghệ System Pro Technology™.",app:"Xe khách giường nằm, máy công trình, xe tải nặng đội xe lớn.",u:""},
+    "Castrol VECTON 15W-40 CK-4":{s:"SAE 15W-40 · API CK-4 · ACEA E9",adv:"Bảo vệ hệ thống khí thải Euro 5/6 (SCR, EGR, DPF). Hiệu suất động cơ tối đa.",app:"Đầu kéo Scania, Volvo, xe tải Euro 5/6 đời mới nhất.",u:""},
+    "Castrol Transmax ATF":{s:"Dầu hộp số tự động · Multi-Vehicle",adv:"Sang số mượt mà, chống rung giật. Tương thích đa hãng: Toyota WS, Honda DW-1, ZF, Aisin.",app:"Hộp số AT tất cả hãng, xe điện hybrid VinFast, BYD.",u:""},
+    "Castrol Transmax CVT":{s:"Dầu hộp số vô cấp CVT · Full Synthetic",adv:"Kéo dài tuổi thọ dây đai hộp số CVT. Chống trượt và rung khi sang số.",app:"Hộp số CVT Honda (HMA), Toyota, Mitsubishi, Nissan (NS-3).",u:""},
+    "Castrol Transmax Dual":{s:"Dầu hộp số ly hợp kép DCT/DSG",adv:"Đồng bộ hóa ly hợp ướt/khô tuyệt vời. Chống mài mòn đĩa ly hợp.",app:"Hộp số DCT/DSG Volkswagen, Ford PowerShift, Hyundai DCT 7 cấp.",u:""},
+    "Castrol Transmax Manual 80W-90":{s:"SAE 80W-90 · API GL-4 · GL-5",adv:"Bôi trơn bánh răng hộp số sàn hoàn hảo. Chống gỉ và ăn mòn chi tiết đồng.",app:"Hộp số sàn xe tải nhẹ, xe khách, xe du lịch số sàn.",u:""},
+    "Castrol Transmax Axle 85W-140":{s:"SAE 85W-140 · API GL-5 · MT-1",adv:"Chịu cực áp cực tốt cho cầu xe tải nặng và đầu kéo.",app:"Cầu xe ben, đầu kéo Isuzu Giga, Hino, Hyundai Xcient.",u:""},
+    "Castrol Transmax Offroad 30":{s:"SAE 30 · CAT TO-4",adv:"Chuyên dụng cho thiết bị thi công cơ giới, chống trượt ly hợp.",app:"Hộp số, truyền động cuối, thủy lực máy xúc, máy ủi.",u:""},
+    "Castrol ON EV Transmission Fluid":{s:"Dầu hộp số xe điện · EV Grade",adv:"Giảm thất thoát năng lượng, đặc tính cách điện cao. Bảo vệ motor điện và bánh răng.",app:"Xe điện VinFast VF3/5/6/7/8/9, BYD Dolphin/Atto 3/Seal.",u:""},
+    "Castrol ON EV Thermal Fluid":{s:"Nước làm mát pin EV · Dielectric",adv:"Giải nhiệt pin hiệu quả cao, không dẫn điện, an toàn tuyệt đối.",app:"Hệ thống làm mát pin xe điện VinFast, BYD, Hyundai Ioniq 5.",u:""},
+    "Castrol Scooter Gear Oil 80W-90":{s:"SAE 80W-90 · API GL-4 · Dầu láp xe tay ga",adv:"Chống hú láp, bảo vệ bánh răng truyền động cực êm. Chịu nhiệt và tải trọng tốt.",app:"Tất cả xe tay ga: Honda SH, Air Blade, Vision, PCX, NVX, Vario, Yamaha Janus, Grande.",u:""},
+    "Castrol Power1 4T 10W-30":{s:"SAE 10W-30 · JASO MA2 · API SL",adv:"Bảo vệ toàn diện cho xe số phổ thông. Giữ sạch piston và buồng đốt.",app:"Honda Wave, Future, Dream, Yamaha Sirius, Jupiter, Suzuki Axelo.",u:""},
+    "Castrol Power1 Scooter 10W-30":{s:"SAE 10W-30 · JASO MB · Xe tay ga",adv:"Tối ưu cho hộp số tự động xe tay ga phổ thông. Khởi động mượt, tiết kiệm xăng.",app:"Honda Vision, Yamaha Grande Hybrid, Janus 125, Suzuki Burgman Street.",u:""},
+    "Castrol Power1 Ultimate 10W-40":{s:"SAE 10W-40 · JASO MA2 · Full Synthetic",adv:"Công nghệ 5 trong 1: bốc máy tức thì, bảo vệ ly hợp, mát máy, tiết kiệm xăng, sạch máy.",app:"Honda Winner X, CB150R, CBR150R, Yamaha Exciter 150/155, Suzuki Raider R150.",u:""},
+    "Castrol Power1 Scooter Ultimate 5W-40":{s:"SAE 5W-40 · JASO MB · Full Synthetic",adv:"Tăng tốc mượt, giảm ma sát tối đa cho xe tay ga cao cấp. Bảo vệ dưới tải nặng kẹt xe.",app:"Honda SH 125/150/160/350, Air Blade 150/160, PCX 125/160, NVX 155, Vespa Sprint/GTS.",u:""},
+    "Castrol Power1 Ultimate 10W-50":{s:"SAE 10W-50 · JASO MA2 · Full Synthetic",adv:"Dầu tổng hợp cao cấp cho xe phân khối lớn. Chịu nhiệt độ cao, bảo vệ động cơ thể thao.",app:"Honda CBR650R, CB500F/X, Kawasaki Z900, Z1000, Ducati, Triumph, Yamaha R7.",u:""},
+    "Castrol Power1 Ultimate 10W-30":{s:"SAE 10W-30 · JASO MA2 · Full Synthetic",adv:"Bảo vệ động cơ 4 kỳ cho máy gắn ngoài 4 thì công suất trung bình.",app:"Honda Marine BF20-BF50, máy thủy 4 kỳ phổ thông.",u:""},
+    "Castrol Activ 4T 20W-40":{s:"SAE 20W-40 · JASO MA · API SJ",adv:"Chống cặn pít-tông, bảo vệ bugi và xi-lanh cho xe số đời cũ.",app:"Honda Dream 100, các xe số thế hệ cũ dùng dầu 20W-40.",u:""},
+    "Castrol Activ 2T":{s:"Dầu nhớt 2 kỳ · Pha xăng · JASO FC",adv:"Chống cặn pít-tông, giảm khói xanh, bảo vệ bugi hiệu quả.",app:"Honda NSR 150 2T, Yamaha YZ, Suzuki Xipo/RGV, máy thủy 2 kỳ.",u:""},
+    "Castrol Radicool SF Premix":{s:"Nước làm mát · Glycol 50/50 Premix",adv:"Chống rỉ sét, ăn mòn kim loại. Tuổi thọ 3 năm hoặc 150.000 km.",app:"Mọi loại phương tiện có hệ thống làm mát nước.",u:""},
+    "Castrol Brake Fluid DOT 4":{s:"Dầu thắng / Phanh DOT 4",adv:"An toàn tuyệt đối cho hệ thống phanh, điểm sôi cao.",app:"Mọi hệ thống phanh thủy lực hiện đại ô tô, xe tải.",u:""},
+    "Castrol Aircol PD 46":{s:"Dầu máy nén khí trục vít · ISO VG 46",adv:"Tuổi thọ dầu tới 8.000 giờ. Chống tạo cặn, giảm nhiệt độ vận hành.",app:"Máy nén khí trục vít Atlas Copco, Ingersoll Rand, Hitachi, Fusheng GA/GX/R Series.",u:""},
+    "Castrol Aircol VDL 100":{s:"Dầu máy nén khí piston · ISO VG 100",adv:"Chịu nhiệt độ cao, chống oxy hóa tốt cho piston máy nén.",app:"Máy nén khí piston Fusheng VA/TA, Pegasus, các hãng Việt Nam.",u:""},
+    "Castrol Optigear BM 220":{s:"Dầu hộp giảm tốc bánh răng · ISO VG 220",adv:"Bảo vệ cực áp vượt trội, kéo dài tuổi thọ bánh răng và ổ bi.",app:"Hộp giảm tốc SEW Eurodrive, các hộp số công nghiệp nhà máy.",u:""},
+    "Castrol Optigear BM 320":{s:"Dầu hộp giảm tốc bánh răng côn · ISO VG 320",adv:"Màng dầu bền vững ngay cả dưới tải rất nặng.",app:"Hộp giảm tốc bánh răng côn, bánh vít trục vít công nghiệp.",u:""},
+    "Castrol Hyspin HVI 46":{s:"Dầu thủy lực · ISO VG 46 · HVI",adv:"Chỉ số độ nhớt cao, hoạt động ổn định từ nhiệt độ thấp tới cao.",app:"Hệ thống thủy lực máy ép nhựa, máy chấn, cẩu, forklift.",u:""},
+    "Castrol Hyspin HVI 68":{s:"Dầu thủy lực · ISO VG 68 · HVI",adv:"Phù hợp hệ thống thủy lực áp suất cao, hoạt động liên tục.",app:"Máy ép nhựa thủy lực ISO 68, máy chấn tôn, xe nâng hạng nặng.",u:""},
+    "Castrol Hyspin AWH-M 68":{s:"Dầu thủy lực cao cấp · ISO VG 68 · AW/HM",adv:"Chống ăn mòn, chống tạo bọt, kéo dài tuổi thọ bơm thủy lực.",app:"Máy chấn dập công suất lớn, hệ thống thủy lực nhà máy công nghiệp.",u:""},
+    "Castrol Magna SW 68 (Dầu rãnh trượt)":{s:"Dầu rãnh trượt máy CNC · ISO VG 68",adv:"Bám dính tốt trên bề mặt kim loại, chống stick-slip. Tương thích với dầu cắt.",app:"Máy CNC trung tâm gia công, máy tiện, máy phay CNC.",u:""},
+    "Castrol TLX Plus 3040":{s:"Dầu thủy điện hàng hải · SAE 40 · TBN 30",adv:"Bảo vệ xi lanh, chống kiềm trung hòa axit lưu huỳnh trong nhiên liệu.",app:"Động cơ tàu thủy Yanmar 4CHE/6CHE, động cơ diesel hàng hải tầm trung.",u:""},
+    "Castrol TLX Plus 4040":{s:"Dầu hàng hải · SAE 40 · TBN 40 · Crosshead",adv:"TBN 40 trung hòa axit mạnh, bảo vệ xi-lanh động cơ tàu lớn.",app:"Cummins KTA19/38/50, Mitsubishi S6R/S12R, MTU Series 2000/4000, Caterpillar 3512.",u:""}
 };
 
 var VALVOLINE_CATALOG = {
-    // --- DẦU Ô TÔ ---
-    "Valvoline Modern Engine 0W-20":{s:"SAE 0W-20 · API SP · ILSAC GF-6A",adv:"Chống cháy nổ sớm (LSPI) vượt trội. Làm sạch động cơ GDI và Turbo đời mới. Tiết kiệm nhiên liệu.",app:"Toyota Camry, Honda CR-V, Mazda CX-5, Mitsubishi Outlander, Nissan X-Trail 2018+.", c:"", u:""},
-    "Valvoline SynPower 5W-30":{s:"SAE 5W-30 · API SP · ILSAC GF-6A",adv:"Chống mài mòn vượt trội hơn tiêu chuẩn API SP 47%. Bảo vệ 10.000 km mỗi lần thay.",app:"Toyota Vios, Mitsubishi Xpander, Suzuki XL7, Nissan Almera, Kia Seltos.", c:"", u:""},
-    "Valvoline SynPower MST 5W-30":{s:"SAE 5W-30 · ACEA C3 · BMW LL-04",adv:"Bảo vệ bộ lọc DPF/SCR cho xe Âu-Mỹ máy dầu đời mới.",app:"Ford Ranger, Everest máy dầu, Mitsubishi Triton, Nissan Navara, Isuzu D-Max.", c:"", u:""},
-    "Valvoline Hybrid Performance 0W-16":{s:"SAE 0W-16 · API SP · ILSAC GF-6B",adv:"Tối ưu hóa khả năng khởi động lại liên tục trong hệ thống Hybrid. Bảo vệ khi máy tắt thường xuyên.",app:"Toyota Hybrid (Corolla Cross, Yaris Cross, Camry Hybrid), Nissan e-Power.", c:"", u:""},
-    "Valvoline MaxLife 10W-40":{s:"SAE 10W-40 · MaxLife Technology",adv:"Phục hồi gioăng phớt, giảm hao dầu hiệu quả. Bổ sung phụ gia chống rò rỉ đặc biệt.",app:"Xe trên 100.000 km, xe cũ bị hao dầu, xe muốn kéo dài tuổi thọ động cơ.", c:"", u:""},
-    "Valvoline Daily Protection 10W-40":{s:"SAE 10W-40 · API SN",adv:"Ngăn cặn bùn tích tụ, bảo vệ cơ bản cho xe phổ thông.",app:"Xe phổ thông đời cũ, xe gia đình dùng hàng ngày.", c:"", u:""},
-    // --- DẦU TẢI NẶNG ---
-    "Valvoline All-Fleet Plus 15W-40":{s:"SAE 15W-40 · API CI-4/SL",adv:"Bảo vệ toàn diện cho động cơ tải nặng. Kiểm soát cặn và bùn tốt trong điều kiện khai thác liên tục.",app:"Isuzu QKR/NMR, Hyundai Porter/Mighty, Thaco Ollin, JAC N350, Suzuki Carry.", c:"", u:""},
-    "Valvoline Premium Blue 15W-40":{s:"SAE 15W-40 · API CI-4 · Khuyến nghị Cummins",adv:"Được Cummins khuyến nghị. Chống mài mòn và oxy hóa xuất sắc.",app:"Hino FC/FG/FL, Isuzu FRR/FVR, Cummins Marine, máy phát điện diesel.", c:"", u:""},
-    "Valvoline Premium Blue 8400 15W-40":{s:"SAE 15W-40 · API CK-4 · Cummins Approved",adv:"Chứng nhận Cummins CES 20086. Bảo vệ động cơ Euro 5 cho xe hạng nặng.",app:"Hyundai Universe, Thaco Mobihome, Isuzu Giga, đầu kéo, máy phát điện lớn.", c:"", u:""},
-    "Valvoline Premium Blue 8600 15W-40":{s:"SAE 15W-40 · API CK-4 · CES 20086",adv:"Hiệu suất đỉnh cao cho động cơ Cummins thế hệ mới nhất.",app:"Scania R450, HOWO Sitrak T7H, Volvo Penta đầu kéo, Ford Ranger/Everest diesel.", c:"", u:""},
-    "Valvoline All-Fleet Extra 20W-50":{s:"SAE 20W-50 · API CF-4",adv:"Bảo vệ tốt cho máy kéo nông nghiệp trong điều kiện khắc nghiệt.",app:"Máy kéo Kubota, Yanmar, Iseki, LOVOL. Phù hợp thời tiết nóng ẩm miền Nam.", c:"", u:""},
-    // --- HỘP SỐ & XE ĐIỆN ---
-    "Valvoline MaxLife Multi-Vehicle ATF":{s:"Dầu hộp số tự động · Multi-Vehicle · Full Synthetic",adv:"Phục hồi gioăng phớt, sang số êm. Tương thích hơn 90 loại hộp số trên thị trường.",app:"Mọi dòng hộp số AT: Toyota, Honda, Ford, Hyundai, Kia, Mitsubishi.", c:"", u:""},
-    "Valvoline MaxLife CVT":{s:"Dầu hộp số CVT · Full Synthetic",adv:"Bảo vệ dây đai kim loại, chống trượt và giật. Tối ưu hiệu suất truyền lực.",app:"Hộp số CVT: Toyota, Honda, Nissan, Mitsubishi, Subaru.", c:"", u:""},
-    "Valvoline DCT Fluid":{s:"Dầu hộp số ly hợp kép (DCT)",adv:"Sang số mượt mà, chống mài mòn đĩa ly hợp.",app:"Các dòng xe dùng hộp số ly hợp kép DCT/DSG.", c:"", u:""},
-    "Valvoline Heavy Duty Gear Oil 80W-90":{s:"SAE 80W-90 · API GL-5",adv:"Bảo vệ bánh răng, hộp số sàn và cầu xe tải nhẹ.",app:"Hộp số sàn, cầu xe tải, xe khách, truyền động cơ giới.", c:"", u:""},
-    "Valvoline Heavy Duty Gear Oil 85W-140":{s:"SAE 85W-140 · API GL-5",adv:"Bảo vệ cầu xe tải nặng, chịu tải trọng và cực áp xuất sắc.",app:"Cầu sau xe tải nặng, đầu kéo, xe ben, thiết bị thi công.", c:"", u:""},
-    "Valvoline EV Performance Fluid":{s:"Dầu hộp số xe điện · EV Grade · Dielectric",adv:"Đặc tính cách điện xuất sắc, bảo vệ motor điện. Tản nhiệt hiệu quả.",app:"Xe điện VinFast VF3/5/6/7/8/9, BYD Dolphin/Atto 3/Seal, Hyundai Ioniq 5.", c:"", u:""},
-    // --- DẦU LÁPMÁY & XE MÁY ---
-    "Valvoline Scooter Gear Oil 80W-90":{s:"SAE 80W-90 · API GL-4 · Dầu láp xe tay ga",adv:"Bôi trơn bánh răng truyền động êm ái, chống hú láp. Chịu nhiệt và bền bỉ.",app:"Tất cả xe tay ga: Honda SH, Air Blade, PCX, Vision, NVX, Vario, Yamaha Janus, Grande.", c:"", u:""},
-    "Valvoline Premium 4T 10W-30":{s:"SAE 10W-30 · JASO MA2 · API SL",adv:"Bảo vệ toàn diện cho xe số phổ thông, giữ sạch động cơ lâu dài.",app:"Honda Wave, Future 125, Yamaha Sirius, Jupiter, Suzuki Axelo 125.", c:"", u:""},
-    "Valvoline Champ 4T 20W-40":{s:"SAE 20W-40 · JASO MA · API SJ",adv:"Bảo vệ cơ bản cho xe số đời cũ dùng dầu 20W-40.",app:"Honda Dream 100, xe số thế hệ cũ.", c:"", u:""},
-    "Valvoline Scooter 4T 10W-30":{s:"SAE 10W-30 · JASO MB · Xe tay ga",adv:"Dành riêng cho hộp số tự động tay ga. Tối ưu truyền lực đai và bánh răng.",app:"Honda Vision, Yamaha Grande Hybrid, Janus 125, Suzuki Burgman Street.", c:"", u:""},
-    "Valvoline SynPower 4T 10W-40":{s:"SAE 10W-40 · JASO MA2 · Full Synthetic",adv:"Bảo vệ ly hợp ướt, chịu nhiệt cực cao. Tăng tốc mạnh mẽ và mượt mà.",app:"Yamaha Exciter 135/150/155, Honda Winner X, CB150R, Suzuki Raider/GSX-R150.", c:"", u:""},
-    "Valvoline Scooter Ultimate 5W-40":{s:"SAE 5W-40 · JASO MB · Full Synthetic",adv:"Giảm ồn, mát máy, kéo dài tuổi thọ hộp số CVT. Phù hợp xe tay ga cao cấp.",app:"Honda SH 125/150/160/350, PCX 125/160, Air Blade 150/160, Yamaha NVX 155.", c:"", u:""},
-    "Valvoline SynPower 4T 10W-50":{s:"SAE 10W-50 · JASO MA2 · Full Synthetic",adv:"Dầu tổng hợp cấp độ đua. Chịu nhiệt độ cực cao, bảo vệ động cơ thể thao.",app:"Kawasaki Ninja 400/650/Z900, Ducati Scrambler/Monster, Triumph, Yamaha R7/MT07.", c:"", u:""},
-    "Valvoline 2T":{s:"Dầu nhớt 2 kỳ · Pha xăng · JASO FC",adv:"Đốt sạch, giảm khói thải, chống tích tụ carbon trong buồng đốt.",app:"Suzuki Xipo/RGV, Yamaha YZ 2T, Honda NSR 2T, máy thủy 2 kỳ.", c:"", u:""},
-    "Valvoline 2T Outboard":{s:"Dầu 2 kỳ máy gắn ngoài · TC-W3",adv:"Tan trong nước biển, bảo vệ động cơ thủy 2 kỳ khỏi ăn mòn muối.",app:"Yamaha OptiMax 2T, Mercury 2T, máy gắn ngoài 2 kỳ thủy.", c:"", u:""},
-    "Valvoline Marine 4-Stroke 10W-40":{s:"SAE 10W-40 · API SL · Máy thủy 4 kỳ",adv:"Chống ăn mòn nước mặn, bảo vệ động cơ máy gắn ngoài 4 thì.",app:"Yamaha F40-F350, Suzuki DF20-DF350, Mercury Verado 4T.", c:"", u:""},
-    "Valvoline Marine 4-Stroke 10W-30":{s:"SAE 10W-30 · API SL · Máy thủy 4 kỳ",adv:"Bảo vệ động cơ 4T hàng hải trọng tải trung bình. Chống ăn mòn môi trường biển.",app:"Honda Marine BF20-BF350.", c:"", u:""},
-    // --- PHỤ GIA ---
-    "Valvoline Complete Fuel System Cleaner":{s:"Phụ gia xăng · Làm sạch kim phun",adv:"Làm sạch kim phun, buồng đốt, van nạp, giảm kích nổ và tiêu thụ nhiên liệu.",app:"Ô tô và xe máy động cơ xăng.", c:"", u:""},
-    "Valvoline Brake Fluid DOT 4":{s:"Dầu thắng / Phanh DOT 4",adv:"Điểm sôi cao, an toàn cho hệ thống phanh thủy lực.",app:"Hệ thống phanh ô tô, xe tải, xe máy.", c:"", u:""},
-    // --- CÔNG NGHIỆP ---
-    "Valvoline SynGard AC 8000":{s:"Dầu máy nén khí trục vít · ISO VG 46 · Full Synthetic",adv:"Tuổi thọ dầu tới 8.000 giờ. Chống oxy hóa và tạo cặn trong điều kiện nóng.",app:"Máy nén khí trục vít Atlas Copco, Ingersoll Rand, Kobelco, Kaeser, Sullair.", c:"", u:""},
-    "Valvoline SynGard AC 1500":{s:"Dầu máy nén khí piston · ISO VG 100",adv:"Bảo vệ xy lanh và van máy nén khí piston. Chống oxy hóa nhiệt độ cao.",app:"Máy nén khí piston Fusheng VA/TA, Pegasus VN.", c:"", u:""},
-    "Valvoline SynPower Gear Oil 220":{s:"Dầu hộp giảm tốc · ISO VG 220 · EP",adv:"Bảo vệ cực áp, chống mài mòn bánh răng và ổ lăn công nghiệp.",app:"Hộp giảm tốc SEW Eurodrive, Flender, các hộp số công nghiệp.", c:"", u:""},
-    "Valvoline SynPower Gear Oil 320":{s:"Dầu hộp giảm tốc · ISO VG 320 · EP",adv:"Phù hợp hộp giảm tốc bánh vít trục vít, chịu tải cao.",app:"Hộp giảm tốc bánh vít trục vít công nghiệp nhà máy.", c:"", u:""},
-    "Valvoline Ultramax HVLP 46":{s:"Dầu thủy lực · ISO VG 46 · HVLP",adv:"HVI cao, hoạt động ổn định từ -30°C tới 90°C. Chống tạo bọt tốt.",app:"Hệ thống thủy lực máy ép nhựa, cẩu, forklift, máy nâng.", c:"", u:""},
-    "Valvoline Ultramax HVLP 68":{s:"Dầu thủy lực · ISO VG 68 · HVLP",adv:"Bảo vệ bơm piston và bánh răng. Tuổi thọ dài trong hệ thống áp suất cao.",app:"Máy chấn tôn, máy ép nhựa tải nặng, xe cẩu, máy chấn dập.", c:"", u:""},
-    "Valvoline Way Oil 68":{s:"Dầu rãnh trượt máy CNC · ISO VG 68",adv:"Bám dính bề mặt kim loại, chống stick-slip, tăng độ chính xác gia công.",app:"Máy CNC trung tâm gia công, máy tiện, máy phay.", c:"", u:""},
-    // --- HÀ HÀNG HẢI ---
-    "Valvoline Marine 40 PLUS":{s:"Dầu hàng hải · SAE 40 · TBN 30",adv:"Trung hòa axit, bảo vệ xi-lanh động cơ tàu thủy. Chống ăn mòn nước mặn.",app:"Yanmar 6HY/6AY, động cơ tàu thủy diesel tầm trung.", c:"", u:""},
-    "Valvoline PremBlue 7800 Plus":{s:"Dầu hàng hải · API CF · TBN 40",adv:"Trung hòa axit mạnh cho nhiên liệu lưu huỳnh cao. Bảo vệ xi-lanh động cơ tàu lớn.",app:"Cummins KTA19/38/50 tàu thủy, Mitsubishi S6R/S12R, MTU Series 2000/4000.", c:"", u:""},
-    "Valvoline Unitrac 80W":{s:"Dầu hộp số máy kéo · SAE 80W · GL-4",adv:"Đa năng cho hộp số, cầu trước và sau, hệ thống thủy lực máy kéo nông nghiệp.",app:"Kubota L/M Series, Yanmar, Iseki, LOVOL hộp số máy kéo.", c:"", u:""},
-    "Valvoline Premium Blue 8100 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Bảo vệ toàn diện cho máy phát điện công nghiệp.",app:"Máy phát điện Cummins, Denyo, các máy phát diesel dưới 500 kVA.", c:"", u:""}
+    "Valvoline Modern Engine 0W-20":{s:"SAE 0W-20 · API SP · ILSAC GF-6A",adv:"Chống cháy nổ sớm (LSPI) vượt trội. Làm sạch động cơ GDI và Turbo đời mới. Tiết kiệm nhiên liệu.",app:"Toyota Camry, Honda CR-V, Mazda CX-5, Mitsubishi Outlander, Nissan X-Trail 2018+.",u:""},
+    "Valvoline SynPower 5W-30":{s:"SAE 5W-30 · API SP · ILSAC GF-6A",adv:"Chống mài mòn vượt trội hơn tiêu chuẩn API SP 47%. Bảo vệ 10.000 km mỗi lần thay.",app:"Toyota Vios, Mitsubishi Xpander, Suzuki XL7, Nissan Almera, Kia Seltos.",u:""},
+    "Valvoline SynPower MST 5W-30":{s:"SAE 5W-30 · ACEA C3 · BMW LL-04",adv:"Bảo vệ bộ lọc DPF/SCR cho xe Âu-Mỹ máy dầu đời mới.",app:"Ford Ranger, Everest máy dầu, Mitsubishi Triton, Nissan Navara, Isuzu D-Max.",u:""},
+    "Valvoline Hybrid Performance 0W-16":{s:"SAE 0W-16 · API SP · ILSAC GF-6B",adv:"Tối ưu hóa khả năng khởi động lại liên tục trong hệ thống Hybrid. Bảo vệ khi máy tắt thường xuyên.",app:"Toyota Hybrid (Corolla Cross, Yaris Cross, Camry Hybrid), Nissan e-Power.",u:""},
+    "Valvoline MaxLife 10W-40":{s:"SAE 10W-40 · MaxLife Technology",adv:"Phục hồi gioăng phớt, giảm hao dầu hiệu quả. Bổ sung phụ gia chống rò rỉ đặc biệt.",app:"Xe trên 100.000 km, xe cũ bị hao dầu, xe muốn kéo dài tuổi thọ động cơ.",u:""},
+    "Valvoline Daily Protection 10W-40":{s:"SAE 10W-40 · API SN",adv:"Ngăn cặn bùn tích tụ, bảo vệ cơ bản cho xe phổ thông.",app:"Xe phổ thông đời cũ, xe gia đình dùng hàng ngày.",u:""},
+    "Valvoline All-Fleet Plus 15W-40":{s:"SAE 15W-40 · API CI-4/SL",adv:"Bảo vệ toàn diện cho động cơ tải nặng. Kiểm soát cặn và bùn tốt trong điều kiện khai thác liên tục.",app:"Isuzu QKR/NMR, Hyundai Porter/Mighty, Thaco Ollin, JAC N350, Suzuki Carry.",u:""},
+    "Valvoline Premium Blue 15W-40":{s:"SAE 15W-40 · API CI-4 · Khuyến nghị Cummins",adv:"Được Cummins khuyến nghị. Chống mài mòn và oxy hóa xuất sắc.",app:"Hino FC/FG/FL, Isuzu FRR/FVR, Cummins Marine, máy phát điện diesel.",u:""},
+    "Valvoline Premium Blue 8400 15W-40":{s:"SAE 15W-40 · API CK-4 · Cummins Approved",adv:"Chứng nhận Cummins CES 20086. Bảo vệ động cơ Euro 5 cho xe hạng nặng.",app:"Hyundai Universe, Thaco Mobihome, Isuzu Giga, đầu kéo, máy phát điện lớn.",u:""},
+    "Valvoline Premium Blue 8600 15W-40":{s:"SAE 15W-40 · API CK-4 · CES 20086",adv:"Hiệu suất đỉnh cao cho động cơ Cummins thế hệ mới nhất.",app:"Scania R450, HOWO Sitrak T7H, Volvo Penta đầu kéo, Ford Ranger/Everest diesel.",u:""},
+    "Valvoline All-Fleet Extra 20W-50":{s:"SAE 20W-50 · API CF-4",adv:"Bảo vệ tốt cho máy kéo nông nghiệp trong điều kiện khắc nghiệt.",app:"Máy kéo Kubota, Yanmar, Iseki, LOVOL. Phù hợp thời tiết nóng ẩm miền Nam.",u:""},
+    "Valvoline MaxLife Multi-Vehicle ATF":{s:"Dầu hộp số tự động · Multi-Vehicle · Full Synthetic",adv:"Phục hồi gioăng phớt, sang số êm. Tương thích hơn 90 loại hộp số trên thị trường.",app:"Mọi dòng hộp số AT: Toyota, Honda, Ford, Hyundai, Kia, Mitsubishi.",u:""},
+    "Valvoline MaxLife CVT":{s:"Dầu hộp số CVT · Full Synthetic",adv:"Bảo vệ dây đai kim loại, chống trượt và giật. Tối ưu hiệu suất truyền lực.",app:"Hộp số CVT: Toyota, Honda, Nissan, Mitsubishi, Subaru.",u:""},
+    "Valvoline DCT Fluid":{s:"Dầu hộp số ly hợp kép (DCT)",adv:"Sang số mượt mà, chống mài mòn đĩa ly hợp.",app:"Các dòng xe dùng hộp số ly hợp kép DCT/DSG.",u:""},
+    "Valvoline Heavy Duty Gear Oil 80W-90":{s:"SAE 80W-90 · API GL-5",adv:"Bảo vệ bánh răng, hộp số sàn và cầu xe tải nhẹ.",app:"Hộp số sàn, cầu xe tải, xe khách, truyền động cơ giới.",u:""},
+    "Valvoline Heavy Duty Gear Oil 85W-140":{s:"SAE 85W-140 · API GL-5",adv:"Bảo vệ cầu xe tải nặng, chịu tải trọng và cực áp xuất sắc.",app:"Cầu sau xe tải nặng, đầu kéo, xe ben, thiết bị thi công.",u:""},
+    "Valvoline EV Performance Fluid":{s:"Dầu hộp số xe điện · EV Grade · Dielectric",adv:"Đặc tính cách điện xuất sắc, bảo vệ motor điện. Tản nhiệt hiệu quả.",app:"Xe điện VinFast VF3/5/6/7/8/9, BYD Dolphin/Atto 3/Seal, Hyundai Ioniq 5.",u:""},
+    "Valvoline Scooter Gear Oil 80W-90":{s:"SAE 80W-90 · API GL-4 · Dầu láp xe tay ga",adv:"Bôi trơn bánh răng truyền động êm ái, chống hú láp. Chịu nhiệt và bền bỉ.",app:"Tất cả xe tay ga: Honda SH, Air Blade, PCX, Vision, NVX, Vario, Yamaha Janus, Grande.",u:""},
+    "Valvoline Premium 4T 10W-30":{s:"SAE 10W-30 · JASO MA2 · API SL",adv:"Bảo vệ toàn diện cho xe số phổ thông, giữ sạch động cơ lâu dài.",app:"Honda Wave, Future 125, Yamaha Sirius, Jupiter, Suzuki Axelo 125.",u:""},
+    "Valvoline Champ 4T 20W-40":{s:"SAE 20W-40 · JASO MA · API SJ",adv:"Bảo vệ cơ bản cho xe số đời cũ dùng dầu 20W-40.",app:"Honda Dream 100, xe số thế hệ cũ.",u:""},
+    "Valvoline Scooter 4T 10W-30":{s:"SAE 10W-30 · JASO MB · Xe tay ga",adv:"Dành riêng cho hộp số tự động tay ga. Tối ưu truyền lực đai và bánh răng.",app:"Honda Vision, Yamaha Grande Hybrid, Janus 125, Suzuki Burgman Street.",u:""},
+    "Valvoline SynPower 4T 10W-40":{s:"SAE 10W-40 · JASO MA2 · Full Synthetic",adv:"Bảo vệ ly hợp ướt, chịu nhiệt cực cao. Tăng tốc mạnh mẽ và mượt mà.",app:"Yamaha Exciter 135/150/155, Honda Winner X, CB150R, Suzuki Raider/GSX-R150.",u:""},
+    "Valvoline Scooter Ultimate 5W-40":{s:"SAE 5W-40 · JASO MB · Full Synthetic",adv:"Giảm ồn, mát máy, kéo dài tuổi thọ hộp số CVT. Phù hợp xe tay ga cao cấp.",app:"Honda SH 125/150/160/350, PCX 125/160, Air Blade 150/160, Yamaha NVX 155.",u:""},
+    "Valvoline SynPower 4T 10W-50":{s:"SAE 10W-50 · JASO MA2 · Full Synthetic",adv:"Dầu tổng hợp cấp độ đua. Chịu nhiệt độ cực cao, bảo vệ động cơ thể thao.",app:"Kawasaki Ninja 400/650/Z900, Ducati Scrambler/Monster, Triumph, Yamaha R7/MT07.",u:""},
+    "Valvoline 2T":{s:"Dầu nhớt 2 kỳ · Pha xăng · JASO FC",adv:"Đốt sạch, giảm khói thải, chống tích tụ carbon trong buồng đốt.",app:"Suzuki Xipo/RGV, Yamaha YZ 2T, Honda NSR 2T, máy thủy 2 kỳ.",u:""},
+    "Valvoline 2T Outboard":{s:"Dầu 2 kỳ máy gắn ngoài · TC-W3",adv:"Tan trong nước biển, bảo vệ động cơ thủy 2 kỳ khỏi ăn mòn muối.",app:"Yamaha OptiMax 2T, Mercury 2T, máy gắn ngoài 2 kỳ thủy.",u:""},
+    "Valvoline Marine 4-Stroke 10W-40":{s:"SAE 10W-40 · API SL · Máy thủy 4 kỳ",adv:"Chống ăn mòn nước mặn, bảo vệ động cơ máy gắn ngoài 4 thì.",app:"Yamaha F40-F350, Suzuki DF20-DF350, Mercury Verado 4T.",u:""},
+    "Valvoline Marine 4-Stroke 10W-30":{s:"SAE 10W-30 · API SL · Máy thủy 4 kỳ",adv:"Bảo vệ động cơ 4T hàng hải trọng tải trung bình. Chống ăn mòn môi trường biển.",app:"Honda Marine BF20-BF350.",u:""},
+    "Valvoline Complete Fuel System Cleaner":{s:"Phụ gia xăng · Làm sạch kim phun",adv:"Làm sạch kim phun, buồng đốt, van nạp, giảm kích nổ và tiêu thụ nhiên liệu.",app:"Ô tô và xe máy động cơ xăng.",u:""},
+    "Valvoline Brake Fluid DOT 4":{s:"Dầu thắng / Phanh DOT 4",adv:"Điểm sôi cao, an toàn cho hệ thống phanh thủy lực.",app:"Hệ thống phanh ô tô, xe tải, xe máy.",u:""},
+    "Valvoline SynGard AC 8000":{s:"Dầu máy nén khí trục vít · ISO VG 46 · Full Synthetic",adv:"Tuổi thọ dầu tới 8.000 giờ. Chống oxy hóa và tạo cặn trong điều kiện nóng.",app:"Máy nén khí trục vít Atlas Copco, Ingersoll Rand, Kobelco, Kaeser, Sullair.",u:""},
+    "Valvoline SynGard AC 1500":{s:"Dầu máy nén khí piston · ISO VG 100",adv:"Bảo vệ xy lanh và van máy nén khí piston. Chống oxy hóa nhiệt độ cao.",app:"Máy nén khí piston Fusheng VA/TA, Pegasus VN.",u:""},
+    "Valvoline SynPower Gear Oil 220":{s:"Dầu hộp giảm tốc · ISO VG 220 · EP",adv:"Bảo vệ cực áp, chống mài mòn bánh răng và ổ lăn công nghiệp.",app:"Hộp giảm tốc SEW Eurodrive, Flender, các hộp số công nghiệp.",u:""},
+    "Valvoline SynPower Gear Oil 320":{s:"Dầu hộp giảm tốc · ISO VG 320 · EP",adv:"Phù hợp hộp giảm tốc bánh vít trục vít, chịu tải cao.",app:"Hộp giảm tốc bánh vít trục vít công nghiệp nhà máy.",u:""},
+    "Valvoline Ultramax HVLP 46":{s:"Dầu thủy lực · ISO VG 46 · HVLP",adv:"HVI cao, hoạt động ổn định từ -30°C tới 90°C. Chống tạo bọt tốt.",app:"Hệ thống thủy lực máy ép nhựa, cẩu, forklift, máy nâng.",u:""},
+    "Valvoline Ultramax HVLP 68":{s:"Dầu thủy lực · ISO VG 68 · HVLP",adv:"Bảo vệ bơm piston và bánh răng. Tuổi thọ dài trong hệ thống áp suất cao.",app:"Máy chấn tôn, máy ép nhựa tải nặng, xe cẩu, máy chấn dập.",u:""},
+    "Valvoline Way Oil 68":{s:"Dầu rãnh trượt máy CNC · ISO VG 68",adv:"Bám dính bề mặt kim loại, chống stick-slip, tăng độ chính xác gia công.",app:"Máy CNC trung tâm gia công, máy tiện, máy phay.",u:""},
+    "Valvoline Marine 40 PLUS":{s:"Dầu hàng hải · SAE 40 · TBN 30",adv:"Trung hòa axit, bảo vệ xi-lanh động cơ tàu thủy. Chống ăn mòn nước mặn.",app:"Yanmar 6HY/6AY, động cơ tàu thủy diesel tầm trung.",u:""},
+    "Valvoline PremBlue 7800 Plus":{s:"Dầu hàng hải · API CF · TBN 40",adv:"Trung hòa axit mạnh cho nhiên liệu lưu huỳnh cao. Bảo vệ xi-lanh động cơ tàu lớn.",app:"Cummins KTA19/38/50 tàu thủy, Mitsubishi S6R/S12R, MTU Series 2000/4000.",u:""},
+    "Valvoline Unitrac 80W":{s:"Dầu hộp số máy kéo · SAE 80W · GL-4",adv:"Đa năng cho hộp số, cầu trước và sau, hệ thống thủy lực máy kéo nông nghiệp.",app:"Kubota L/M Series, Yanmar, Iseki, LOVOL hộp số máy kéo.",u:""},
+    "Valvoline Premium Blue 8100 15W-40":{s:"SAE 15W-40 · API CI-4",adv:"Bảo vệ toàn diện cho máy phát điện công nghiệp.",app:"Máy phát điện Cummins, Denyo, các máy phát diesel dưới 500 kVA.",u:""}
 };
 
-// ==================== DATABASE PHƯƠNG TIỆN ====================
 var DB = {
     oto:{label:"Ôtô",brands:{
         TOYOTA:{models:{
@@ -1232,7 +1184,9 @@ var DB = {
     }}
 };
 
-// ==================== BUILD ALLP (DATA REVERSE SEARCH) ====================
+// *** KẾT THÚC PHẦN DATABASE ***
+
+// ==================== BUILD ALLP (REVERSE SEARCH) ====================
 var ALLP = (function(){
     var map = {};
     function add(name, brand, model, catKey, catLabel){
@@ -1256,7 +1210,6 @@ var ALLP = (function(){
 
 var curCat = 'oto';
 
-// ==================== HÀM CẬP NHẬT GIAO DIỆN CHUYỂN DANH MỤC ====================
 function updNav(cat){
     document.querySelectorAll('.nav-item').forEach(function(el){
         el.classList.toggle('active', el.getAttribute('data-category')===cat);
@@ -1265,9 +1218,9 @@ function updNav(cat){
     document.getElementById('finderTitle').textContent = 'Tìm kiếm dầu nhớt — ' + label;
     var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(cat) >= 0;
     var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    document.querySelector('#step2 .step-label').textContent = isVehicle ? 'DÒNG XE' : 'DÒNG MÁY';
+    document.getElementById('step2').querySelector('.step-label').textContent = isVehicle ? 'DÒNG XE' : 'DÒNG MÁY';
     document.getElementById('step2val').textContent = 'Chọn ' + itemType;
-    document.querySelectorAll('.field-label')[1].textContent = (isVehicle ? 'DÒNG XE' : 'LOẠI MÁY') + ' / MODEL';
+    document.getElementById('modelSelectLabel').textContent = (isVehicle ? 'DÒNG XE' : 'LOẠI MÁY') + ' / MODEL';
     var ms = document.getElementById('modelSelect');
     if(ms.options.length > 0) ms.options[0].textContent = '-- Chọn ' + itemType + ' --';
 }
@@ -1315,15 +1268,16 @@ function popModels(){
     }
 }
 
-function popReverse() {
-    var rs = document.getElementById('reverseProductSelect');
-    if (!rs) return;
+function popReverse(){
+    var rs=document.getElementById('reverseProductSelect');
+    if(!rs) return;
+    while(rs.options.length>1) rs.remove(1);
 
-    while (rs.options.length > 1) rs.remove(1);
-
-    var sortedProds = ALLP.slice().sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-    });
+    // Combine both catalogs
+    var allNames = [];
+    Object.keys(CASTROL_CATALOG).forEach(function(n){ allNames.push({n:n,isCastrol:true}); });
+    Object.keys(VALVOLINE_CATALOG).forEach(function(n){ allNames.push({n:n,isCastrol:false}); });
+    allNames.sort(function(a,b){ return a.n.localeCompare(b.n); });
 
     var groups = {
         "Dầu nhớt Ô tô du lịch": [],
@@ -1334,58 +1288,52 @@ function popReverse() {
         "Sản phẩm khác": []
     };
 
-    sortedProds.forEach(function(p) {
-        var n = p.name.toUpperCase();
-        if (n.includes('EDGE') || n.includes('MAGNATEC') || n.includes('GTX') || n.includes('MODERN') || n.includes('SYNPOWER')) {
+    allNames.forEach(function(p){
+        var n=p.n.toUpperCase();
+        if(n.includes('EDGE')||n.includes('MAGNATEC')||n.includes('GTX')||n.includes('MODERN')||n.includes('SYNPOWER 5')||n.includes('MAXLIFE 10')||n.includes('DAILY PROT')||n.includes('HYBRID PERF')){
             groups["Dầu nhớt Ô tô du lịch"].push(p);
-        } else if (n.includes('POWER1') || n.includes('ACTIV') || n.includes('SCOOTER') || n.includes(' 4T') || n.includes(' 2T') || n.includes('CHAMP')) {
+        } else if(n.includes('POWER1')||n.includes('ACTIV')||n.includes('SCOOTER')||n.includes(' 4T')||n.includes(' 2T')||n.includes('CHAMP')||n.includes('PREMIUM 4T')||n.includes('MARINE 4-S')||n.includes('MARINE 4-STROKE')){
             groups["Dầu nhớt Xe máy"].push(p);
-        } else if (n.includes('CRB') || n.includes('VECTON') || n.includes('ALL-FLEET') || n.includes('BLUE')) {
+        } else if(n.includes('CRB')||n.includes('VECTON')||n.includes('ALL-FLEET')||n.includes('PREMIUM BLUE')||n.includes('PREMBLUE')){
             groups["Dầu tải nặng & Thương mại"].push(p);
-        } else if (n.includes('TRANSMAX') || n.includes('GEAR') || n.includes('ATF') || n.includes('CVT') || n.includes(' EV ') || n.includes('LÁP') || n.includes('UNITRAC') || n.includes('DCT')) {
+        } else if(n.includes('TRANSMAX')||n.includes('GEAR OIL')||n.includes('ATF')||n.includes('CVT')||n.includes('EV ')||n.includes('UNITRAC')||n.includes('DCT')){
             groups["Hộp số, Cầu & Xe điện"].push(p);
-        } else if (n.includes('HYSPIN') || n.includes('AIRCOL') || n.includes('OPTIGEAR') || n.includes('SYNGARD') || n.includes('ULTRAMAX') || n.includes('WAY OIL')) {
+        } else if(n.includes('HYSPIN')||n.includes('AIRCOL')||n.includes('OPTIGEAR')||n.includes('SYNGARD')||n.includes('ULTRAMAX')||n.includes('WAY OIL')){
             groups["Dầu công nghiệp & Thủy lực"].push(p);
         } else {
             groups["Sản phẩm khác"].push(p);
         }
     });
 
-    Object.keys(groups).forEach(function(groupName) {
-        if (groups[groupName].length > 0) {
-            var groupEl = document.createElement('optgroup');
-            groupEl.label = groupName;
-            groups[groupName].forEach(function(p) {
-                var o = document.createElement('option');
-                o.value = p.name;
-                o.textContent = p.name;
-                groupEl.appendChild(o);
+    Object.keys(groups).forEach(function(gn){
+        if(groups[gn].length>0){
+            var g=document.createElement('optgroup'); g.label=gn;
+            groups[gn].forEach(function(p){
+                var o=document.createElement('option'); o.value=p.n; o.textContent=p.n; g.appendChild(o);
             });
-            rs.appendChild(groupEl);
+            rs.appendChild(g);
         }
     });
 }
 
-// ==================== HÀM TÌM KIẾM (XUẤT RA DẦU CHÍNH VÀ DẦU PHỤ) ====================
 function search(){
     var brand=document.getElementById('brandSelect').value;
     var model=document.getElementById('modelSelect').value;
     var rw=document.getElementById('resultsWrapper');
     var rg=document.getElementById('resultsGrid');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    
+    var isVehicle=['oto','xemay','xetai','thuongmai'].indexOf(curCat)>=0;
+    var itemType=isVehicle?'dòng xe':'dòng máy';
+
     if(!brand||!model){
-        rg.innerHTML='<div class="no-result" style="grid-column:span 2;font-size:14px;">Vui lòng chọn <strong>Hãng</strong> và <strong>'+itemType+'</strong>.</div>';
+        rg.innerHTML='<div class="no-result" style="grid-column:span 2;">Vui lòng chọn <strong>Hãng</strong> và <strong>'+itemType+'</strong>.</div>';
         rw.style.display='block'; return;
     }
-    
     var catData=DB[curCat];
     if(!catData||!catData.brands[brand]||!catData.brands[brand].models[model]){
         rg.innerHTML='<div class="no-result" style="grid-column:span 2;">Không có dữ liệu cho lựa chọn này.</div>';
         rw.style.display='block'; return;
     }
-    
+
     var modelDisplay=model.replace(/_/g,' ');
     document.getElementById('step2val').textContent=modelDisplay;
     document.getElementById('step2').className='step-item done';
@@ -1393,20 +1341,20 @@ function search(){
     document.getElementById('step3val').textContent=yr||'—';
     document.getElementById('step3').className='step-item done';
     document.getElementById('step4').className='step-item active';
-    
+
     var md=catData.brands[brand].models[model];
     var oc='N/A';
-    if(md.e && md.e.o !== undefined){
+    if(md.e&&md.e.o!==undefined){
         if(md.e.o===0) oc='Không dùng';
         else if(typeof md.e.o==='string') oc=md.e.o;
         else oc=md.e.o+' Lít';
     }
-    
+
     var catLabel=catData.label;
     document.getElementById('resultsTitle').textContent='Đề xuất cho '+brand.replace(/_/g,' ')+' '+modelDisplay;
     document.getElementById('resultsSubtitle').textContent=catLabel+(yr?' — Năm '+yr:'')+'  · Thông số tiêu chuẩn tham khảo';
 
-    function makeProductCard(p, defCap, catalog, isCastrol, brand, model, catLabel){
+    function makeProductCard(p,defCap,catalog,isCastrol,brand,model,catLabel){
         var cap=(p.c!==undefined)?p.c:defCap;
         var info=catalog[p.n]||{};
         var cls=isCastrol?'c':'v';
@@ -1415,46 +1363,43 @@ function search(){
         var wrapClass=isCastrol?'castrol-wrap-prod':'valvoline-wrap-prod';
         var blockClass=isCastrol?'castrol-prod':'valvoline-prod';
         var buyBtnBg=isCastrol?'#009F4D':'#003087';
-        
         var h='<div class="product-block '+(p.r?'recommended ':'')+blockClass+'">';
         if(p.r) h+='<div class="recommend-badge '+(isCastrol?'castrol-badge':'valvoline-badge')+'">★ Khuyến nghị</div>';
         h+='<div class="product-inner"><div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
         h+='<div class="product-info"><div class="product-name'+(p.r?' recommended-pad':'')+'">'+p.n+'</div>';
         if(info.s) h+='<div class="product-spec">'+info.s+'</div>';
-        h+='<div class="product-cap"><span>Khuyến nghị:</span><strong class="'+cls+'">'+cap+'</strong></div>';
-        h+='<div style="display:flex;gap:8px;">';
-        h+='<button class="btn-detail '+cls+'" data-name="'+p.n+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand+'" data-model="'+model+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">Chi tiết</button>';
+        h+='<div class="product-cap"><span>Lượng dùng:</span><strong class="'+cls+'">'+cap+'</strong></div>';
+        h+='<div style="display:flex;gap:6px;">';
+        h+='<button class="btn-detail '+cls+' detail-btn" data-name="'+p.n+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand+'" data-model="'+model+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">Chi tiết</button>';
         var hrefLink=info.u?info.u:'javascript:void(0)';
         var targetAttr=info.u?'target="_blank"':'';
-        h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
+        h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">Mua ngay</a>';
         h+='</div></div></div></div>';
         return h;
     }
 
     var h='';
-    // CASTROL SECTION
     h+='<div class="brand-card"><div class="brand-card-head castrol"><div class="brand-logo-badge"><img src="'+CASTROL_LOGO+'" alt="Castrol"></div><div><div class="brand-head-title">Castrol</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
     if((md.c&&md.c.length>0)||(md.c_gear&&md.c_gear.length>0)){
         if(md.c&&md.c.length>0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
+            h+='<div class="alt-heading" style="color:var(--castrol-green)">DẦU ĐỘNG CƠ</div>';
             md.c.forEach(function(p){h+=makeProductCard(p,oc,CASTROL_CATALOG,true,brand,model,catLabel);});
         }
         if(md.c_gear&&md.c_gear.length>0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
+            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-top:12px;">DẦU PHỤ (HỘP SỐ / CẦU)</div>';
             md.c_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',CASTROL_CATALOG,true,brand,model,catLabel);});
         }
     } else h+='<div class="no-result">Không có dữ liệu</div>';
     h+='</div></div>';
 
-    // VALVOLINE SECTION
     h+='<div class="brand-card"><div class="brand-card-head valvoline"><div class="brand-logo-badge"><img src="'+VALVOLINE_LOGO+'" alt="Valvoline"></div><div><div class="brand-head-title">Valvoline</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
     if((md.v&&md.v.length>0)||(md.v_gear&&md.v_gear.length>0)){
         if(md.v&&md.v.length>0){
-            h+='<div class="alt-heading" style="color:var(--blue);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
+            h+='<div class="alt-heading" style="color:var(--blue)">DẦU ĐỘNG CƠ</div>';
             md.v.forEach(function(p){h+=makeProductCard(p,oc,VALVOLINE_CATALOG,false,brand,model,catLabel);});
         }
         if(md.v_gear&&md.v_gear.length>0){
-            h+='<div class="alt-heading" style="color:var(--blue);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
+            h+='<div class="alt-heading" style="color:var(--blue);margin-top:12px;">DẦU PHỤ (HỘP SỐ / CẦU)</div>';
             md.v_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',VALVOLINE_CATALOG,false,brand,model,catLabel);});
         }
     } else h+='<div class="no-result">Không có dữ liệu</div>';
@@ -1462,128 +1407,117 @@ function search(){
 
     rg.innerHTML=h;
     rw.style.display='block';
-    document.getElementById('resultsAnchor').scrollIntoView({behavior:'smooth'});
-    rg.querySelectorAll('.btn-detail[data-name]').forEach(function(btn){
+
+    // Bind detail buttons → inline panel below results
+    rg.querySelectorAll('.detail-btn').forEach(function(btn){
         btn.addEventListener('click',function(){
-            showDetail(this.dataset.name,this.dataset.castrol==='1',this.dataset.cap,this.dataset.brand,this.dataset.model,this.dataset.cat,this.dataset.catkey);
+            showInlineDetail(this.dataset.name,this.dataset.castrol==='1',this.dataset.cap,this.dataset.brand,this.dataset.model,this.dataset.cat,this.dataset.catkey);
         });
     });
 }
 
-// ==================== TÌM KIẾM NGƯỢC (TÌM THEO SẢN PHẨM) ====================
+// ==================== REVERSE SEARCH ====================
 function revSearch(){
     var pn=document.getElementById('reverseProductSelect').value;
     var rr=document.getElementById('reverseResults');
     if(!pn){rr.innerHTML='<span style="color:#999">Vui lòng chọn sản phẩm.</span>';rr.style.display='block';return;}
-    
+
+    var isCastrol=pn in CASTROL_CATALOG;
+    var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
+    var info=catalog[pn]||{};
+    var cls=isCastrol?'c':'v';
+    var brandLogoSrc=isCastrol?CASTROL_LOGO:VALVOLINE_LOGO;
+    var wrapClass=isCastrol?'castrol-wrap-prod':'valvoline-wrap-prod';
+    var iconClass=isCastrol?'castrol-icon':'valvoline-icon';
+    var blockClass=isCastrol?'castrol-prod':'valvoline-prod';
+    var buyBtnBg=isCastrol?'#009F4D':'#003087';
+
     var found=null;
     for(var i=0;i<ALLP.length;i++){if(ALLP[i].name===pn){found=ALLP[i];break;}}
-    if(!found||!found.vehicles.length){rr.innerHTML='<span style="color:#999">Không tìm thấy phương tiện phù hợp.</span>';rr.style.display='block';return;}
-    
-    var isCastrol = !pn.toLowerCase().includes('valvoline');
-    var catalog = isCastrol ? CASTROL_CATALOG : VALVOLINE_CATALOG;
-    var info = catalog[pn] || {};
-    var cls = isCastrol ? 'c' : 'v';
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
-    var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
-    var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
-    var buyBtnBg = isCastrol ? '#009F4D' : '#003087';
 
-    var h = '';
-    h += '<div class="product-block '+blockClass+'" style="margin-bottom:20px;">';
-    h += '<div class="product-inner">';
-    h += '<div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
-    h += '<div class="product-info">';
-    h += '<div class="product-name" style="margin-top:0;">'+pn+'</div>';
-    if(info.s) h += '<div class="product-spec">'+info.s+'</div>';
-    if(info.adv) h += '<div class="product-spec" style="color:#555;">'+info.adv+'</div>';
-    h += '<div style="display:flex;gap:8px;margin-top:10px;">';
-    
-    h += '<button class="btn-detail '+cls+' rev-detail-btn" data-name="'+pn+'" data-castrol="'+(isCastrol?'1':'0')+'">CHI TIẾT</button>';
-    var hrefLink = info.u ? info.u : 'javascript:void(0)';
-    var targetAttr = info.u ? 'target="_blank"' : '';
-    h += '<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
-    
-    h += '</div></div></div></div>';
+    var h='';
+    h+='<div class="product-block '+blockClass+'" style="margin-bottom:14px;">';
+    h+='<div class="product-inner">';
+    h+='<div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
+    h+='<div class="product-info">';
+    h+='<div class="product-name">'+pn+'</div>';
+    if(info.s) h+='<div class="product-spec">'+info.s+'</div>';
+    if(info.adv) h+='<div class="product-spec" style="color:#555;">'+info.adv+'</div>';
+    h+='<div style="display:flex;gap:6px;margin-top:8px;">';
+    h+='<button class="btn-detail '+cls+' rev-detail-btn" data-name="'+pn+'" data-castrol="'+(isCastrol?'1':'0')+'">Chi tiết</button>';
+    var hrefLink=info.u?info.u:'javascript:void(0)';
+    var targetAttr=info.u?'target="_blank"':'';
+    h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">Mua ngay</a>';
+    h+='</div></div></div></div>';
 
-    h += '<div class="rv-title" style="margin-bottom: 8px;">PHƯƠNG TIỆN SỬ DỤNG SẢN PHẨM NÀY:</div>';
-    h += '<ul style="max-height:250px;overflow-y:auto;padding-right:10px;margin:0;list-style:none;">';
-    found.vehicles.forEach(function(v){
-        h += '<li style="margin-bottom:6px; color:#444;">['+v.label+'] <strong style="color:#111;">'+v.brand.replace(/_/g,' ')+'</strong> '+v.model.replace(/_/g,' ')+'</li>';
-    });
-    h += '</ul>';
+    if(found&&found.vehicles.length){
+        h+='<div class="rv-title">PHƯƠNG TIỆN SỬ DỤNG SẢN PHẨM NÀY:</div>';
+        h+='<ul style="max-height:200px;overflow-y:auto;padding-right:8px;margin:0;list-style:none;">';
+        found.vehicles.forEach(function(v){
+            h+='<li style="margin-bottom:5px;color:#444;font-size:12px;">['+v.label+'] <strong style="color:#111;">'+v.brand.replace(/_/g,' ')+'</strong> '+v.model.replace(/_/g,' ')+'</li>';
+        });
+        h+='</ul>';
+    }
 
-    if(!isCastrol){ rr.classList.add('valvoline-theme'); } else { rr.classList.remove('valvoline-theme'); }
-    rr.innerHTML = h;
-    rr.style.display = 'block';
+    if(!isCastrol){rr.classList.add('valvoline-theme');}else{rr.classList.remove('valvoline-theme');}
+    rr.innerHTML=h;
+    rr.style.display='block';
 
-    var detBtn = rr.querySelector('.rev-detail-btn');
+    // Detail button in reverse results
+    var detBtn=rr.querySelector('.rev-detail-btn');
     if(detBtn){
-        detBtn.addEventListener('click', function(){
-            showDetail(this.dataset.name, this.dataset.castrol==='1', 'Tùy theo xe', 'Nhiều dòng xe', 'Tra cứu để biết chi tiết', 'Nhiều danh mục', 'oto');
+        detBtn.addEventListener('click',function(){
+            showInlineDetail(this.dataset.name,this.dataset.castrol==='1','Tùy theo xe','Tra cứu','theo sản phẩm','Nhiều danh mục','oto');
         });
     }
 }
 
-// ==================== HÀM HIỂN THỊ CHI TIẾT (MODAL) ====================
-function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
+// ==================== INLINE DETAIL PANEL ====================
+function showInlineDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
     var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
     var info=catalog[name]||{s:'Đang cập nhật',adv:'Đang cập nhật',app:'Đang cập nhật'};
     var cls=isCastrol?'c':'v';
-    var catIconSrc = CAT_ICONS[catKey] || CAT_ICONS['oto'];
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
-    var capClass = isCastrol ? '' : 'v-cap';
+    var catIconSrc=CAT_ICONS[catKey]||CAT_ICONS['oto'];
+    var brandLogoSrc=isCastrol?CASTROL_LOGO:VALVOLINE_LOGO;
     var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
-    var mb=document.getElementById('modalBox');
-    
-    mb.innerHTML=
-        '<div class="modal-topbar '+cls+'">'
-        +'<button class="modal-back" id="modalBack"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Quay lại</button>'
-        +'<div class="modal-topbar-brand"><div class="modal-brand-logo-wrap"><img class="modal-brand-logo" src="'+brandLogoSrc+'" alt="brand"></div></div>'
+
+    var dp=document.getElementById('detailPanel');
+    dp.innerHTML=
+        '<div class="detail-topbar '+cls+'">'
+        +'<button class="detail-close" id="detailClose">✕ Đóng</button>'
+        +'<div class="detail-brand-logo-wrap"><img class="detail-brand-logo" src="'+brandLogoSrc+'" alt="brand"></div>'
         +'</div>'
-        +'<div class="modal-hero">'
-        +'<div class="modal-category-icon-wrap '+iconWrapClass+'">'
-        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'">'
-        +'<span class="modal-brand-pill">'+catLabel+'</span>'
-        +'</div>'
-        +'<div class="modal-hero-text">'
-        +'<div class="modal-product-name">'+name+'</div>'
-        +'<div class="modal-vehicle-tag">'+brandName.replace(/_/g, ' ')+' '+modelName.replace(/_/g, ' ')+'</div>'
+        +'<div class="detail-hero">'
+        +'<div class="detail-icon-wrap '+cls+'"><img class="detail-icon" src="'+catIconSrc+'" alt="'+catLabel+'"></div>'
+        +'<div>'
+        +'<div class="detail-product-name">'+name+'</div>'
+        +'<div class="detail-vehicle-tag">'+brandName.replace(/_/g,' ')+' '+modelName.replace(/_/g,' ')+'</div>'
         +'</div>'
         +'</div>'
-        +'<div class="modal-content"><div class="modal-sections">'
-        +'<div class="modal-section"><div class="modal-section-label">Tiêu chuẩn kỹ thuật</div>'
-        +'<div class="modal-spec-pills">'+specPills.map(function(s){return '<span class="modal-spec-pill">'+s+'</span>';}).join('')+'</div>'
+        +'<div class="detail-content"><div class="detail-sections">'
+        +'<div><div class="detail-section-label">Tiêu chuẩn kỹ thuật</div>'
+        +'<div class="detail-spec-pills">'+specPills.map(function(s){return '<span class="detail-spec-pill">'+s+'</span>';}).join('')+'</div>'
         +'</div>'
-        +'<div class="modal-section"><div class="modal-section-label">Ưu điểm nổi bật</div><div class="modal-section-text">'+info.adv+'</div></div>'
-        +'<div class="modal-section"><div class="modal-section-label">Phương tiện phù hợp</div><div class="modal-section-text">'+info.app+'</div></div>'
+        +'<div><div class="detail-section-label">Ưu điểm nổi bật</div><div class="detail-section-text">'+info.adv+'</div></div>'
+        +'<div><div class="detail-section-label">Phương tiện phù hợp</div><div class="detail-section-text">'+info.app+'</div></div>'
         +'</div>'
-        +'<div class="modal-cap-box">'
-        +'<div><div class="modal-cap-label">Khuyến nghị lượng dùng</div><div class="modal-cap-value '+capClass+'" style="font-size:24px;">'+cap+'</div></div>'
+        +'<div class="detail-cap-box">'
+        +'<div><div class="detail-cap-label">Lượng dùng khuyến nghị</div><div class="detail-cap-value '+cls+'">'+cap+'</div></div>'
         +'</div>'
         +'</div>';
-        
-    document.getElementById('modalBack').addEventListener('click', function() {
-        document.getElementById('modalOverlay').style.display = 'none';
-        document.body.style.overflow = 'auto'; 
-        document.body.style.overflowY = 'scroll';
-    });
 
-    document.getElementById('modalOverlay').style.display='flex';
-    document.body.style.overflow='hidden';
+    dp.classList.add('open');
+    // Scroll to detail panel smoothly
+    setTimeout(function(){
+        dp.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }, 50);
+
+    document.getElementById('detailClose').addEventListener('click',function(){
+        dp.classList.remove('open');
+    });
 }
 
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-    if (e.target.id === 'modalOverlay') {
-        this.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        document.body.style.overflowY = 'scroll';
-    }
-});
-
-// ==================== NAV CÀI ĐẶT ====================
+// ==================== NAV ARROWS ====================
 (function(){
     var cont=document.getElementById('navContainer');
     var btnL=document.getElementById('navArrLeft');
@@ -1593,9 +1527,9 @@ document.getElementById('modalOverlay').addEventListener('click', function(e) {
         btnL.classList.toggle('hidden', cont.scrollLeft<=4);
         btnR.classList.toggle('hidden', cont.scrollLeft>=cont.scrollWidth-cont.clientWidth-4);
     }
-    if(cont){ cont.addEventListener('scroll',updArrows,{passive:true}); updArrows(); }
-    if(btnL){ btnL.addEventListener('click',function(){ cont.scrollBy({left:-130,behavior:'smooth'}); }); }
-    if(btnR){ btnR.addEventListener('click',function(){ cont.scrollBy({left:130,behavior:'smooth'}); }); }
+    if(cont){cont.addEventListener('scroll',updArrows,{passive:true});updArrows();}
+    if(btnL){btnL.addEventListener('click',function(){cont.scrollBy({left:-130,behavior:'smooth'});});}
+    if(btnR){btnR.addEventListener('click',function(){cont.scrollBy({left:130,behavior:'smooth'});});}
     window.addEventListener('load',function(){
         if(btnR&&!btnR.classList.contains('hidden')){
             btnR.classList.add('pulse');
@@ -1614,20 +1548,19 @@ document.getElementById('navContainer').addEventListener('click',function(e){
         document.getElementById('resultsWrapper').style.display='none';
         document.getElementById('resultsGrid').innerHTML='';
         document.getElementById('reverseResults').style.display='none';
+        document.getElementById('detailPanel').classList.remove('open');
     }
 });
 
-document.getElementById('brandSelect').addEventListener('change', popModels);
-document.getElementById('searchBtn').addEventListener('click', search);
-document.getElementById('reverseBtn').addEventListener('click', revSearch);
+document.getElementById('brandSelect').addEventListener('change',popModels);
+document.getElementById('searchBtn').addEventListener('click',search);
+document.getElementById('reverseBtn').addEventListener('click',revSearch);
 
 function popYears(){
-    var yearSelect=document.getElementById('yearInput');
-    var currentYear=new Date().getFullYear();
-    for(var y=currentYear;y>=1990;y--){
-        var option=document.createElement('option');
-        option.value=y; option.textContent=y;
-        yearSelect.appendChild(option);
+    var ys=document.getElementById('yearInput');
+    var y=new Date().getFullYear();
+    for(var i=y;i>=1990;i--){
+        var o=document.createElement('option'); o.value=i; o.textContent=i; ys.appendChild(o);
     }
 }
 popYears();
