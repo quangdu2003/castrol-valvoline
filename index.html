@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -19,7 +20,7 @@
             --hero-bg-dark: #0D3D1E;
             --nav-bg: #1A7A3C;
             --gray-100: #F7F7F7;
-            --gray-200: #EEEEEE
+            --gray-200: #EEEEEE;
             --gray-300: #DDDDDD;
             --gray-500: #888888;
             --gray-700: #444444;
@@ -91,7 +92,6 @@
         .step-value { font-size: 13px; font-weight: 600; color: #111; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .step-item.active .step-value, .step-item.done .step-value { color: white; }
 
-        /* GIAO DIỆN CŨ: HIỂN THỊ SẴN LƯỚI */
         .selector-grid { display: grid; grid-template-columns: 1fr 1fr 160px auto; gap: 12px; align-items: flex-end; }
         .field-group { display: flex; flex-direction: column; gap: 6px; }
         .field-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); font-family: var(--font-body); }
@@ -101,7 +101,7 @@
         optgroup { font-weight: 700; color: var(--blue); background: #f0f0f0; }
         option { font-weight: 500; color: #111; background: white; }
 
-        .btn-search { height: 46px; padding: 0 28px; background: var(--castrol-green); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: 8px; -webkit-tap-highlight-color: transparent; }
+        .btn-search { height: 46px; padding: 0 28px; background: var(--castrol-green); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; -webkit-tap-highlight-color: transparent; }
         .btn-search:hover { background: var(--castrol-green-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,122,60,.4); }
 
         .divider-or { display: flex; align-items: center; gap: 16px; margin: 24px 0; }
@@ -113,17 +113,12 @@
         .reverse-title::before { content: ''; display: block; width: 3px; height: 16px; background: var(--castrol-green); border-radius: 2px; flex-shrink: 0; }
         .reverse-grid { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: flex-end; }
         .btn-reverse { height: 46px; padding: 0 24px; background: var(--castrol-green-dark); color: white; border: none; border-radius: 6px; font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
-        
-        .reverse-results { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; opacity: 0; margin-top: 0; }
-        .reverse-results.show { max-height: 1000px; opacity: 1; margin-top: 14px; background: white; border-radius: 6px; border-left: 4px solid var(--castrol-green); padding: 14px 18px; }
+        .reverse-results { margin-top: 14px; display: none; background: white; border-radius: 6px; border-left: 4px solid var(--castrol-green); padding: 14px 18px; }
         .reverse-results ul { margin: 8px 0 0 16px; }
         .reverse-results li { font-size: 13px; color: var(--gray-700); margin-bottom: 4px; }
         .reverse-results .rv-title { font-weight: 700; font-size: 12px; color: var(--castrol-green); text-transform: uppercase; letter-spacing: 1px; }
         .reverse-results.valvoline-theme { border-left: 4px solid transparent !important; border-image: linear-gradient(to bottom, #E31837 15%, #003087 85%) 1 !important; }
         .reverse-results.valvoline-theme .rv-title { background: linear-gradient(90deg, #E31837 0%, #003087 80%) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: transparent !important; }
-
-        .results-wrapper-animated { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; opacity: 0; }
-        .results-wrapper-animated.show { max-height: 3000px; opacity: 1; padding-top: 10px;}
 
         .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
         .results-title { font-family: var(--font-display); font-size: 28px; font-weight: 900; text-transform: uppercase; color: #111; letter-spacing: 1px; }
@@ -173,36 +168,9 @@
         .alt-heading::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
         .no-result { text-align: center; padding: 32px; color: #BBB; font-size: 13px; font-family: var(--font-body); }
 
-        /* MODAL CĂN GIỮA VÀ HIỆU ỨNG MƯỢT */
-        .modal-overlay { 
-            position: fixed; 
-            inset: 0; 
-            background: rgba(0,0,0,.72); 
-            z-index: 500; 
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            padding: 20px; 
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        .modal-overlay.show { opacity: 1; visibility: visible; }
-        .modal-box { 
-            background: white; 
-            border-radius: 14px; 
-            width: 100%; 
-            max-width: 640px; 
-            margin: auto;
-            overflow-y: auto;
-            max-height: 90vh;
-            box-shadow: 0 24px 64px rgba(0,0,0,.35); 
-            overscroll-behavior: contain;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.show .modal-box { transform: scale(1); }
-        .modal-topbar { position: sticky; top: 0; z-index: 10; padding: 0 20px; min-height: 56px; display: flex; align-items: center; gap: 14px; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.72); z-index: 500; display: flex; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
+        .modal-box { background: white; border-radius: 14px; width: 100%; max-width: 640px; margin: 30px auto; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.35); }
+        .modal-topbar { padding: 0 20px; height: 56px; display: flex; align-items: center; gap: 14px; }
         .modal-topbar.c { background: var(--castrol-green); }
         .modal-topbar.v { background: var(--dark); }
         .modal-back { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); color: white; padding: 6px 14px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .5px; transition: all .2s; display: flex; align-items: center; gap: 6px; flex-shrink: 0; -webkit-tap-highlight-color: transparent; }
@@ -254,7 +222,7 @@
             .step-num { font-size: 22px; }
             .step-item { padding: 12px 16px 12px 28px; }
             .step-item:first-child { padding-left: 14px; }
-            .selector-grid { grid-template-columns: 1fr 1fr; gap: 12px;}
+            .selector-grid { grid-template-columns: 1fr 1fr; }
             .reverse-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
             .btn-reverse { width: 100% !important; justify-content: center; margin-top: 4px; }
             .field-input, .field-select { font-size: 16px !important; }
@@ -281,6 +249,7 @@
             .product-info { padding: 10px 12px 10px; }
             .product-name { font-size: 16px; }
             .product-name.recommended-pad { margin-top: 16px; }
+            .modal-box { border-radius: 16px; margin: 0; max-height: 92vh; }
             .modal-hero { padding: 16px; flex-direction: row; }
         }
         @media (max-width: 380px) {
@@ -321,17 +290,10 @@
         body { min-height: 100vh; }
     </style>
 </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
 <body>
 
-<header class="site-header">
-    <div class="header-inner">
-        <div class="header-logos">
-            <div class="header-logo-wrap castrol-wrap"><img class="header-logo" src="https://thelubricantoracle.castrol.com/images/brand_logo.jpeg" alt="Castrol"></div>
-            <div class="logo-divider"></div>
-            <div class="header-logo-wrap valvoline-wrap"><img class="header-logo" src="https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad" alt="Valvoline"></div>
-        </div>
-    </div>
-</header>
+
 
 <section class="hero">
     <div class="hero-inner">
@@ -374,26 +336,15 @@
                 <div class="step-item" id="step3"><div class="step-num">03</div><div class="step-label">Năm SX</div><div class="step-value" id="step3val">Tùy chọn</div></div>
                 <div class="step-item" id="step4"><div class="step-num">04</div><div class="step-label">Kết quả</div><div class="step-value">Xem đề xuất</div></div>
             </div>
-            
             <div class="selector-grid">
-                <div class="field-group">
-                    <label class="field-label">Hãng / Thương hiệu</label>
-                    <select class="field-select" id="brandSelect"><option value="">-- Chọn hãng --</option></select>
-                </div>
-                
-                <div class="field-group">
-                    <label class="field-label" id="modelSelectLabel">Dòng xe / Phân khối</label>
-                    <select class="field-select" id="modelSelect"><option value="">-- Chọn dòng xe --</option></select>
-                </div>
-                
+                <div class="field-group"><label class="field-label">Hãng / Thương hiệu</label><select class="field-select" id="brandSelect"><option value="">-- Chọn hãng --</option></select></div>
+                <div class="field-group"><label class="field-label" id="modelSelectLabel">Dòng xe / Phân khối</label><select class="field-select" id="modelSelect"><option value="">-- Chọn dòng xe --</option></select></div>
                 <div class="field-group">
                     <label class="field-label">Năm sản xuất</label>
                     <select class="field-select" id="yearInput"><option value="">Chọn năm sản xuất</option></select>
                 </div>
-                
-                <button class="btn-search" id="searchBtn">TÌM KIẾM</button>
+                <button class="btn-search" id="searchBtn">Tìm kiếm</button>
             </div>
-            
             <div class="divider-or"><div class="divider-line"></div><div class="divider-text">Hoặc</div><div class="divider-line"></div></div>
             <div class="reverse-card">
                 <div class="reverse-title">Tra cứu theo tên sản phẩm</div>
@@ -407,7 +358,7 @@
     </div>
 
     <div id="resultsAnchor"></div>
-    <div class="results-wrapper-animated" id="resultsWrapper">
+    <div id="resultsWrapper" style="display:none;">
         <div class="results-header">
             <div>
                 <div class="results-title" id="resultsTitle">Kết quả đề xuất</div>
@@ -418,9 +369,7 @@
     </div>
 </main>
 
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-box" id="modalBox"></div>
-</div>
+<div class="modal-overlay" id="modalOverlay" style="display:none;"><div class="modal-box" id="modalBox"></div></div>
 
 <script>
 var CAT_ICONS = {
@@ -433,354 +382,6 @@ var CAT_ICONS = {
     congnghiep: 'https://cdn-icons-png.flaticon.com/128/3401/3401629.png',
     hanghai: 'https://cdn-icons-png.flaticon.com/128/903/903255.png'
 };
-
-var CASTROL_LOGO = 'https://thelubricantoracle.castrol.com/images/brand_logo.jpeg';
-var VALVOLINE_LOGO = 'https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad';
-
-// ==================== CÁC HÀM XỬ LÝ SỰ KIỆN GIAO DIỆN & TÌM KIẾM ====================
-
-var curCat = 'oto';
-
-function updNav(cat){
-    document.querySelectorAll('.nav-item').forEach(function(el){
-        el.classList.toggle('active', el.getAttribute('data-category')===cat);
-    });
-    var label = DB[cat] ? DB[cat].label : '';
-    document.getElementById('finderTitle').textContent = 'Tìm kiếm dầu nhớt — ' + label;
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(cat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    document.querySelector('#step2 .step-label').textContent = isVehicle ? 'DÒNG XE' : 'DÒNG MÁY';
-    document.getElementById('step2val').textContent = 'Chọn ' + itemType;
-    document.querySelectorAll('.field-label')[1].textContent = (isVehicle ? 'DÒNG XE' : 'LOẠI MÁY') + ' / MODEL';
-    var ms = document.getElementById('modelSelect');
-    if(ms.options.length > 0) ms.options[0].textContent = '-- Chọn ' + itemType + ' --';
-    
-    // Ẩn bảng kết quả cũ đi khi chuyển danh mục
-    document.getElementById('resultsWrapper').classList.remove('show');
-    setTimeout(() => { document.getElementById('resultsWrapper').style.display = 'none'; }, 600);
-}
-
-function popBrands(){
-    var bs=document.getElementById('brandSelect');
-    var ms=document.getElementById('modelSelect');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    while(bs.options.length>1) bs.remove(1);
-    while(ms.options.length>1) ms.remove(1);
-    document.getElementById('step1val').textContent='Chọn hãng';
-    document.getElementById('step2val').textContent='Chọn '+itemType;
-    document.getElementById('step1').className='step-item active';
-    document.getElementById('step2').className='step-item';
-    document.getElementById('step3').className='step-item';
-    document.getElementById('step4').className='step-item';
-    
-    if(DB[curCat]){
-        Object.keys(DB[curCat].brands).sort().forEach(function(k){
-            var o=document.createElement('option'); o.value=k; o.textContent=k.replace(/_/g,' '); bs.appendChild(o);
-        });
-    }
-}
-
-function popModels(){
-    var brand=document.getElementById('brandSelect').value;
-    var ms=document.getElementById('modelSelect');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    while(ms.options.length>1) ms.remove(1);
-    document.getElementById('step2val').textContent='Chọn '+itemType;
-    
-    if(brand){
-        document.getElementById('step1val').textContent=brand.replace(/_/g,' ');
-        document.getElementById('step1').className='step-item done';
-        document.getElementById('step2').className='step-item active';
-        if(DB[curCat]&&DB[curCat].brands[brand]){
-            Object.keys(DB[curCat].brands[brand].models).sort().forEach(function(k){
-                var o=document.createElement('option'); o.value=k; o.textContent=k.replace(/_/g,' '); ms.appendChild(o);
-            });
-        }
-    } else {
-        document.getElementById('step1val').textContent='Chọn hãng';
-        document.getElementById('step1').className='step-item active';
-        document.getElementById('step2').className='step-item';
-    }
-}
-
-function search(){
-    var brand=document.getElementById('brandSelect').value;
-    var model=document.getElementById('modelSelect').value;
-    var rw=document.getElementById('resultsWrapper');
-    var rg=document.getElementById('resultsGrid');
-    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
-    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
-    
-    if(!brand||!model){
-        alert('Vui lòng chọn Hãng và ' + itemType);
-        return;
-    }
-    
-    var catData=DB[curCat];
-    if(!catData||!catData.brands[brand]||!catData.brands[brand].models[model]){
-        alert('Không có dữ liệu cho lựa chọn này.');
-        return;
-    }
-    
-    var modelDisplay=model.replace(/_/g,' ');
-    document.getElementById('step2val').textContent=modelDisplay;
-    document.getElementById('step2').className='step-item done';
-    var yr=document.getElementById('yearInput').value;
-    document.getElementById('step3val').textContent=yr||'—';
-    document.getElementById('step3').className='step-item done';
-    document.getElementById('step4').className='step-item active';
-    
-    var md=catData.brands[brand].models[model];
-    var oc='N/A';
-    if(md.e && md.e.o !== undefined){
-        if(md.e.o===0) oc='Không dùng';
-        else if(typeof md.e.o==='string') oc=md.e.o;
-        else oc=md.e.o+' Lít';
-    }
-    
-    var catLabel=catData.label;
-    document.getElementById('resultsTitle').textContent='Đề xuất cho '+brand.replace(/_/g,' ')+' '+modelDisplay;
-    document.getElementById('resultsSubtitle').textContent=catLabel+(yr?' — Năm '+yr:'')+'  · Thông số tiêu chuẩn tham khảo';
-
-    function makeProductCard(p, defCap, catalog, isCastrol, brand, model, catLabel){
-        var cap=(p.c!==undefined)?p.c:defCap;
-        var info=catalog[p.n]||{};
-        var cls=isCastrol?'c':'v';
-        var brandLogoSrc=isCastrol?CASTROL_LOGO:VALVOLINE_LOGO;
-        var iconClass=isCastrol?'castrol-icon':'valvoline-icon';
-        var wrapClass=isCastrol?'castrol-wrap-prod':'valvoline-wrap-prod';
-        var blockClass=isCastrol?'castrol-prod':'valvoline-prod';
-        var buyBtnBg=isCastrol?'#009F4D':'#003087';
-        
-        var h='<div class="product-block '+(p.r?'recommended ':'')+blockClass+'">';
-        if(p.r) h+='<div class="recommend-badge '+(isCastrol?'castrol-badge':'valvoline-badge')+'">★ Khuyến nghị</div>';
-        h+='<div class="product-inner"><div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
-        h+='<div class="product-info"><div class="product-name'+(p.r?' recommended-pad':'')+'">'+p.n+'</div>';
-        if(info.s) h+='<div class="product-spec">'+info.s+'</div>';
-        h+='<div class="product-cap"><span>Khuyến nghị:</span><strong class="'+cls+'">'+cap+'</strong></div>';
-        h+='<div style="display:flex;gap:8px;">';
-        h+='<button class="btn-detail '+cls+'" data-name="'+p.n+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand+'" data-model="'+model+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">Chi tiết</button>';
-        var hrefLink=info.u?info.u:'javascript:void(0)';
-        var targetAttr=info.u?'target="_blank"':'';
-        h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
-        h+='</div></div></div></div>';
-        return h;
-    }
-
-    var h='';
-    // CASTROL SECTION
-    h+='<div class="brand-card"><div class="brand-card-head castrol"><div class="brand-logo-badge"><img src="'+CASTROL_LOGO+'" alt="Castrol"></div><div><div class="brand-head-title">Castrol</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
-    if((md.c&&md.c.length>0)||(md.c_gear&&md.c_gear.length>0)){
-        if(md.c&&md.c.length>0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
-            md.c.forEach(function(p){h+=makeProductCard(p,oc,CASTROL_CATALOG,true,brand,model,catLabel);});
-        }
-        if(md.c_gear&&md.c_gear.length>0){
-            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
-            md.c_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',CASTROL_CATALOG,true,brand,model,catLabel);});
-        }
-    } else h+='<div class="no-result">Không có dữ liệu</div>';
-    h+='</div></div>';
-
-    // VALVOLINE SECTION
-    h+='<div class="brand-card"><div class="brand-card-head valvoline"><div class="brand-logo-badge"><img src="'+VALVOLINE_LOGO+'" alt="Valvoline"></div><div><div class="brand-head-title">Valvoline</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
-    if((md.v&&md.v.length>0)||(md.v_gear&&md.v_gear.length>0)){
-        if(md.v&&md.v.length>0){
-            h+='<div class="alt-heading" style="color:var(--blue);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
-            md.v.forEach(function(p){h+=makeProductCard(p,oc,VALVOLINE_CATALOG,false,brand,model,catLabel);});
-        }
-        if(md.v_gear&&md.v_gear.length>0){
-            h+='<div class="alt-heading" style="color:var(--blue);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
-            md.v_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',VALVOLINE_CATALOG,false,brand,model,catLabel);});
-        }
-    } else h+='<div class="no-result">Không có dữ liệu</div>';
-    h+='</div></div>';
-
-    rg.innerHTML=h;
-    
-    // Hiển thị phần kết quả bằng hiệu ứng
-    rw.style.display='block';
-    setTimeout(() => { rw.classList.add('show'); }, 10);
-    
-    setTimeout(() => { document.getElementById('resultsAnchor').scrollIntoView({behavior:'smooth'}); }, 300);
-    
-    rg.querySelectorAll('.btn-detail[data-name]').forEach(function(btn){
-        btn.addEventListener('click',function(){
-            showDetail(this.dataset.name,this.dataset.castrol==='1',this.dataset.cap,this.dataset.brand,this.dataset.model,this.dataset.cat,this.dataset.catkey);
-        });
-    });
-}
-
-function revSearch(){
-    var pn=document.getElementById('reverseProductSelect').value;
-    var rr=document.getElementById('reverseResults');
-    if(!pn){
-        rr.innerHTML='<span style="color:#999">Vui lòng chọn sản phẩm.</span>';
-        rr.classList.add('show');
-        return;
-    }
-    
-    var found=null;
-    for(var i=0;i<ALLP.length;i++){if(ALLP[i].name===pn){found=ALLP[i];break;}}
-    if(!found||!found.vehicles.length){
-        rr.innerHTML='<span style="color:#999">Không tìm thấy phương tiện phù hợp.</span>';
-        rr.classList.add('show');
-        return;
-    }
-    
-    var isCastrol = !pn.toLowerCase().includes('valvoline');
-    var catalog = isCastrol ? CASTROL_CATALOG : VALVOLINE_CATALOG;
-    var info = catalog[pn] || {};
-    var cls = isCastrol ? 'c' : 'v';
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
-    var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
-    var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
-    var buyBtnBg = isCastrol ? '#009F4D' : '#003087';
-
-    var h = '';
-    h += '<div class="product-block '+blockClass+'" style="margin-bottom:20px;">';
-    h += '<div class="product-inner">';
-    h += '<div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
-    h += '<div class="product-info">';
-    h += '<div class="product-name" style="margin-top:0;">'+pn+'</div>';
-    if(info.s) h += '<div class="product-spec">'+info.s+'</div>';
-    if(info.adv) h += '<div class="product-spec" style="color:#555;">'+info.adv+'</div>';
-    h += '<div style="display:flex;gap:8px;margin-top:10px;">';
-    
-    h += '<button class="btn-detail '+cls+' rev-detail-btn" data-name="'+pn+'" data-castrol="'+(isCastrol?'1':'0')+'">CHI TIẾT</button>';
-    var hrefLink = info.u ? info.u : 'javascript:void(0)';
-    var targetAttr = info.u ? 'target="_blank"' : '';
-    h += '<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
-    
-    h += '</div></div></div></div>';
-
-    h += '<div class="rv-title" style="margin-bottom: 8px;">PHƯƠNG TIỆN SỬ DỤNG SẢN PHẨM NÀY:</div>';
-    h += '<ul style="max-height:250px;overflow-y:auto;padding-right:10px;margin:0;list-style:none;">';
-    found.vehicles.forEach(function(v){
-        h += '<li style="margin-bottom:6px; color:#444;">['+v.label+'] <strong style="color:#111;">'+v.brand.replace(/_/g,' ')+'</strong> '+v.model.replace(/_/g,' ')+'</li>';
-    });
-    h += '</ul>';
-
-    if(!isCastrol){ rr.classList.add('valvoline-theme'); } else { rr.classList.remove('valvoline-theme'); }
-    rr.innerHTML = h;
-    rr.classList.add('show');
-
-    var detBtn = rr.querySelector('.rev-detail-btn');
-    if(detBtn){
-        detBtn.addEventListener('click', function(){
-            showDetail(this.dataset.name, this.dataset.castrol==='1', 'Tùy theo xe', 'Nhiều dòng xe', 'Tra cứu để biết chi tiết', 'Nhiều danh mục', 'oto');
-        });
-    }
-}
-
-function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
-    var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
-    var info=catalog[name]||{s:'Đang cập nhật',adv:'Đang cập nhật',app:'Đang cập nhật'};
-    var cls=isCastrol?'c':'v';
-    var catIconSrc = CAT_ICONS[catKey] || CAT_ICONS['oto'];
-    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
-    var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
-    var capClass = isCastrol ? '' : 'v-cap';
-    var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
-    var mb=document.getElementById('modalBox');
-    
-    mb.innerHTML=
-        '<div class="modal-topbar '+cls+'">'
-        +'<button class="modal-back" id="modalBack"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Đóng</button>'
-        +'<div class="modal-topbar-brand"><div class="modal-brand-logo-wrap"><img class="modal-brand-logo" src="'+brandLogoSrc+'" alt="brand"></div></div>'
-        +'</div>'
-        +'<div class="modal-hero">'
-        +'<div class="modal-category-icon-wrap '+iconWrapClass+'">'
-        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'">'
-        +'<span class="modal-brand-pill">'+catLabel+'</span>'
-        +'</div>'
-        +'<div class="modal-hero-text">'
-        +'<div class="modal-product-name">'+name+'</div>'
-        +'<div class="modal-vehicle-tag">'+brandName.replace(/_/g, ' ')+' '+modelName.replace(/_/g, ' ')+'</div>'
-        +'</div>'
-        +'</div>'
-        +'<div class="modal-content"><div class="modal-sections">'
-        +'<div class="modal-section"><div class="modal-section-label">Tiêu chuẩn kỹ thuật</div>'
-        +'<div class="modal-spec-pills">'+specPills.map(function(s){return '<span class="modal-spec-pill">'+s+'</span>';}).join('')+'</div>'
-        +'</div>'
-        +'<div class="modal-section"><div class="modal-section-label">Ưu điểm nổi bật</div><div class="modal-section-text">'+info.adv+'</div></div>'
-        +'<div class="modal-section"><div class="modal-section-label">Phương tiện phù hợp</div><div class="modal-section-text">'+info.app+'</div></div>'
-        +'</div>'
-        +'<div class="modal-cap-box">'
-        +'<div><div class="modal-cap-label">Khuyến nghị lượng dùng</div><div class="modal-cap-value '+capClass+'" style="font-size:24px;">'+cap+'</div></div>'
-        +'</div>'
-        +'</div>';
-        
-    document.getElementById('modalBack').addEventListener('click', function() {
-        document.getElementById('modalOverlay').classList.remove('show');
-        document.body.style.overflow = 'auto'; 
-    });
-
-    document.getElementById('modalOverlay').classList.add('show');
-    document.body.style.overflow='hidden';
-}
-
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-    if (e.target.id === 'modalOverlay') {
-        this.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// ==================== NAV CAROUSEL & EVENTS ====================
-(function(){
-    var cont=document.getElementById('navContainer');
-    var btnL=document.getElementById('navArrLeft');
-    var btnR=document.getElementById('navArrRight');
-    function updArrows(){
-        if(!btnL||!btnR||!cont) return;
-        btnL.classList.toggle('hidden', cont.scrollLeft<=4);
-        btnR.classList.toggle('hidden', cont.scrollLeft>=cont.scrollWidth-cont.clientWidth-4);
-    }
-    if(cont){ cont.addEventListener('scroll',updArrows,{passive:true}); updArrows(); }
-    if(btnL){ btnL.addEventListener('click',function(){ cont.scrollBy({left:-130,behavior:'smooth'}); }); }
-    if(btnR){ btnR.addEventListener('click',function(){ cont.scrollBy({left:130,behavior:'smooth'}); }); }
-    window.addEventListener('load',function(){
-        if(btnR&&!btnR.classList.contains('hidden')){
-            btnR.classList.add('pulse');
-            btnR.addEventListener('animationend',function(){btnR.classList.remove('pulse');},{once:true});
-        }
-    });
-    window.addEventListener('resize',updArrows);
-})();
-
-document.getElementById('navContainer').addEventListener('click',function(e){
-    var t=e.target.closest('.nav-item');
-    if(!t) return;
-    var c=t.getAttribute('data-category');
-    if(c&&DB[c]){
-        curCat=c; 
-        updNav(c); 
-        popBrands();
-    }
-});
-
-document.getElementById('brandSelect').addEventListener('change', popModels);
-document.getElementById('searchBtn').addEventListener('click', search);
-document.getElementById('reverseBtn').addEventListener('click', revSearch);
-
-function popYears(){
-    var yearSelect=document.getElementById('yearInput');
-    var currentYear=new Date().getFullYear();
-    for(var y=currentYear;y>=1990;y--){
-        var option=document.createElement('option');
-        option.value=y; option.textContent=y;
-        yearSelect.appendChild(option);
-    }
-}
-
-// Khởi chạy khi load trang
-popYears();
-updNav('oto');
-popBrands();
 
 var CASTROL_LOGO = 'https://thelubricantoracle.castrol.com/images/brand_logo.jpeg';
 var VALVOLINE_LOGO = 'https://www.valvolineglobal.com/493765/globalassets/vcom/us_valvoline_logo_horizontal_pms_nav.svg?format=svg&quality=80&width=182&height=55&rmode=pad';
@@ -1630,29 +1231,8 @@ var DB = {
         }}
     }}
 };
-    function popReverse() {
-    var rs = document.getElementById('reverseProductSelect');
-    if (!rs) return;
-    while (rs.options.length > 1) rs.remove(1);
-    var sortedProds = ALLP.slice().sort(function(a, b) { return a.name.localeCompare(b.name); });
-    var groups = { "Dầu nhớt Ô tô du lịch": [], "Dầu nhớt Xe máy": [], "Dầu tải nặng & Thương mại": [], "Hộp số, Cầu & Xe điện": [], "Dầu công nghiệp & Thủy lực": [], "Sản phẩm khác": [] };
-    sortedProds.forEach(function(p) {
-        var n = p.name.toUpperCase();
-        if (n.includes('EDGE') || n.includes('MAGNATEC') || n.includes('GTX') || n.includes('MODERN') || n.includes('SYNPOWER')) { groups["Dầu nhớt Ô tô du lịch"].push(p); } 
-        else if (n.includes('POWER1') || n.includes('ACTIV') || n.includes('SCOOTER') || n.includes(' 4T') || n.includes(' 2T') || n.includes('CHAMP')) { groups["Dầu nhớt Xe máy"].push(p); } 
-        else if (n.includes('CRB') || n.includes('VECTON') || n.includes('ALL-FLEET') || n.includes('BLUE')) { groups["Dầu tải nặng & Thương mại"].push(p); } 
-        else if (n.includes('TRANSMAX') || n.includes('GEAR') || n.includes('ATF') || n.includes('CVT') || n.includes(' EV ') || n.includes('LÁP') || n.includes('UNITRAC') || n.includes('DCT') || n.includes('OFFROAD')) { groups["Hộp số, Cầu & Xe điện"].push(p); } 
-        else if (n.includes('HYSPIN') || n.includes('AIRCOL') || n.includes('OPTIGEAR') || n.includes('SYNGARD') || n.includes('ULTRAMAX') || n.includes('WAY OIL')) { groups["Dầu công nghiệp & Thủy lực"].push(p); } 
-        else { groups["Sản phẩm khác"].push(p); }
-    });
-    Object.keys(groups).forEach(function(groupName) {
-        if (groups[groupName].length > 0) {
-            var groupEl = document.createElement('optgroup'); groupEl.label = groupName;
-            groups[groupName].forEach(function(p) { var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; groupEl.appendChild(o); });
-            rs.appendChild(groupEl);
-        }
-    });
-}
+
+// ==================== BUILD ALLP (DATA REVERSE SEARCH) ====================
 var ALLP = (function(){
     var map = {};
     function add(name, brand, model, catKey, catLabel){
@@ -1673,7 +1253,387 @@ var ALLP = (function(){
     });
     return Object.values(map);
 })();
-setTimeout(popReverse, 500); // Đảm bảo database load xong mới tạo select
+
+var curCat = 'oto';
+
+// ==================== HÀM CẬP NHẬT GIAO DIỆN CHUYỂN DANH MỤC ====================
+function updNav(cat){
+    document.querySelectorAll('.nav-item').forEach(function(el){
+        el.classList.toggle('active', el.getAttribute('data-category')===cat);
+    });
+    var label = DB[cat] ? DB[cat].label : '';
+    document.getElementById('finderTitle').textContent = 'Tìm kiếm dầu nhớt — ' + label;
+    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(cat) >= 0;
+    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
+    document.querySelector('#step2 .step-label').textContent = isVehicle ? 'DÒNG XE' : 'DÒNG MÁY';
+    document.getElementById('step2val').textContent = 'Chọn ' + itemType;
+    document.querySelectorAll('.field-label')[1].textContent = (isVehicle ? 'DÒNG XE' : 'LOẠI MÁY') + ' / MODEL';
+    var ms = document.getElementById('modelSelect');
+    if(ms.options.length > 0) ms.options[0].textContent = '-- Chọn ' + itemType + ' --';
+}
+
+function popBrands(){
+    var bs=document.getElementById('brandSelect');
+    var ms=document.getElementById('modelSelect');
+    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
+    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
+    while(bs.options.length>1) bs.remove(1);
+    while(ms.options.length>1) ms.remove(1);
+    document.getElementById('step1val').textContent='Chọn hãng';
+    document.getElementById('step2val').textContent='Chọn '+itemType;
+    document.getElementById('step1').className='step-item active';
+    document.getElementById('step2').className='step-item';
+    document.getElementById('step3').className='step-item';
+    document.getElementById('step4').className='step-item';
+    if(DB[curCat]){
+        Object.keys(DB[curCat].brands).sort().forEach(function(k){
+            var o=document.createElement('option'); o.value=k; o.textContent=k.replace(/_/g,' '); bs.appendChild(o);
+        });
+    }
+}
+
+function popModels(){
+    var brand=document.getElementById('brandSelect').value;
+    var ms=document.getElementById('modelSelect');
+    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
+    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
+    while(ms.options.length>1) ms.remove(1);
+    document.getElementById('step2val').textContent='Chọn '+itemType;
+    if(brand){
+        document.getElementById('step1val').textContent=brand.replace(/_/g,' ');
+        document.getElementById('step1').className='step-item done';
+        document.getElementById('step2').className='step-item active';
+        if(DB[curCat]&&DB[curCat].brands[brand]){
+            Object.keys(DB[curCat].brands[brand].models).sort().forEach(function(k){
+                var o=document.createElement('option'); o.value=k; o.textContent=k.replace(/_/g,' '); ms.appendChild(o);
+            });
+        }
+    } else {
+        document.getElementById('step1val').textContent='Chọn hãng';
+        document.getElementById('step1').className='step-item active';
+        document.getElementById('step2').className='step-item';
+    }
+}
+
+function popReverse() {
+    var rs = document.getElementById('reverseProductSelect');
+    if (!rs) return;
+
+    while (rs.options.length > 1) rs.remove(1);
+
+    var sortedProds = ALLP.slice().sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+    });
+
+    var groups = {
+        "Dầu nhớt Ô tô du lịch": [],
+        "Dầu nhớt Xe máy": [],
+        "Dầu tải nặng & Thương mại": [],
+        "Hộp số, Cầu & Xe điện": [],
+        "Dầu công nghiệp & Thủy lực": [],
+        "Sản phẩm khác": []
+    };
+
+    sortedProds.forEach(function(p) {
+        var n = p.name.toUpperCase();
+        if (n.includes('EDGE') || n.includes('MAGNATEC') || n.includes('GTX') || n.includes('MODERN') || n.includes('SYNPOWER')) {
+            groups["Dầu nhớt Ô tô du lịch"].push(p);
+        } else if (n.includes('POWER1') || n.includes('ACTIV') || n.includes('SCOOTER') || n.includes(' 4T') || n.includes(' 2T') || n.includes('CHAMP')) {
+            groups["Dầu nhớt Xe máy"].push(p);
+        } else if (n.includes('CRB') || n.includes('VECTON') || n.includes('ALL-FLEET') || n.includes('BLUE')) {
+            groups["Dầu tải nặng & Thương mại"].push(p);
+        } else if (n.includes('TRANSMAX') || n.includes('GEAR') || n.includes('ATF') || n.includes('CVT') || n.includes(' EV ') || n.includes('LÁP') || n.includes('UNITRAC') || n.includes('DCT')) {
+            groups["Hộp số, Cầu & Xe điện"].push(p);
+        } else if (n.includes('HYSPIN') || n.includes('AIRCOL') || n.includes('OPTIGEAR') || n.includes('SYNGARD') || n.includes('ULTRAMAX') || n.includes('WAY OIL')) {
+            groups["Dầu công nghiệp & Thủy lực"].push(p);
+        } else {
+            groups["Sản phẩm khác"].push(p);
+        }
+    });
+
+    Object.keys(groups).forEach(function(groupName) {
+        if (groups[groupName].length > 0) {
+            var groupEl = document.createElement('optgroup');
+            groupEl.label = groupName;
+            groups[groupName].forEach(function(p) {
+                var o = document.createElement('option');
+                o.value = p.name;
+                o.textContent = p.name;
+                groupEl.appendChild(o);
+            });
+            rs.appendChild(groupEl);
+        }
+    });
+}
+
+// ==================== HÀM TÌM KIẾM (XUẤT RA DẦU CHÍNH VÀ DẦU PHỤ) ====================
+function search(){
+    var brand=document.getElementById('brandSelect').value;
+    var model=document.getElementById('modelSelect').value;
+    var rw=document.getElementById('resultsWrapper');
+    var rg=document.getElementById('resultsGrid');
+    var isVehicle = ['oto','xemay','xetai','thuongmai'].indexOf(curCat) >= 0;
+    var itemType = isVehicle ? 'dòng xe' : 'dòng máy';
+    
+    if(!brand||!model){
+        rg.innerHTML='<div class="no-result" style="grid-column:span 2;font-size:14px;">Vui lòng chọn <strong>Hãng</strong> và <strong>'+itemType+'</strong>.</div>';
+        rw.style.display='block'; return;
+    }
+    
+    var catData=DB[curCat];
+    if(!catData||!catData.brands[brand]||!catData.brands[brand].models[model]){
+        rg.innerHTML='<div class="no-result" style="grid-column:span 2;">Không có dữ liệu cho lựa chọn này.</div>';
+        rw.style.display='block'; return;
+    }
+    
+    var modelDisplay=model.replace(/_/g,' ');
+    document.getElementById('step2val').textContent=modelDisplay;
+    document.getElementById('step2').className='step-item done';
+    var yr=document.getElementById('yearInput').value;
+    document.getElementById('step3val').textContent=yr||'—';
+    document.getElementById('step3').className='step-item done';
+    document.getElementById('step4').className='step-item active';
+    
+    var md=catData.brands[brand].models[model];
+    var oc='N/A';
+    if(md.e && md.e.o !== undefined){
+        if(md.e.o===0) oc='Không dùng';
+        else if(typeof md.e.o==='string') oc=md.e.o;
+        else oc=md.e.o+' Lít';
+    }
+    
+    var catLabel=catData.label;
+    document.getElementById('resultsTitle').textContent='Đề xuất cho '+brand.replace(/_/g,' ')+' '+modelDisplay;
+    document.getElementById('resultsSubtitle').textContent=catLabel+(yr?' — Năm '+yr:'')+'  · Thông số tiêu chuẩn tham khảo';
+
+    function makeProductCard(p, defCap, catalog, isCastrol, brand, model, catLabel){
+        var cap=(p.c!==undefined)?p.c:defCap;
+        var info=catalog[p.n]||{};
+        var cls=isCastrol?'c':'v';
+        var brandLogoSrc=isCastrol?CASTROL_LOGO:VALVOLINE_LOGO;
+        var iconClass=isCastrol?'castrol-icon':'valvoline-icon';
+        var wrapClass=isCastrol?'castrol-wrap-prod':'valvoline-wrap-prod';
+        var blockClass=isCastrol?'castrol-prod':'valvoline-prod';
+        var buyBtnBg=isCastrol?'#009F4D':'#003087';
+        
+        var h='<div class="product-block '+(p.r?'recommended ':'')+blockClass+'">';
+        if(p.r) h+='<div class="recommend-badge '+(isCastrol?'castrol-badge':'valvoline-badge')+'">★ Khuyến nghị</div>';
+        h+='<div class="product-inner"><div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
+        h+='<div class="product-info"><div class="product-name'+(p.r?' recommended-pad':'')+'">'+p.n+'</div>';
+        if(info.s) h+='<div class="product-spec">'+info.s+'</div>';
+        h+='<div class="product-cap"><span>Khuyến nghị:</span><strong class="'+cls+'">'+cap+'</strong></div>';
+        h+='<div style="display:flex;gap:8px;">';
+        h+='<button class="btn-detail '+cls+'" data-name="'+p.n+'" data-castrol="'+(isCastrol?'1':'0')+'" data-cap="'+cap+'" data-brand="'+brand+'" data-model="'+model+'" data-cat="'+catLabel+'" data-catkey="'+curCat+'">Chi tiết</button>';
+        var hrefLink=info.u?info.u:'javascript:void(0)';
+        var targetAttr=info.u?'target="_blank"':'';
+        h+='<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
+        h+='</div></div></div></div>';
+        return h;
+    }
+
+    var h='';
+    // CASTROL SECTION
+    h+='<div class="brand-card"><div class="brand-card-head castrol"><div class="brand-logo-badge"><img src="'+CASTROL_LOGO+'" alt="Castrol"></div><div><div class="brand-head-title">Castrol</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
+    if((md.c&&md.c.length>0)||(md.c_gear&&md.c_gear.length>0)){
+        if(md.c&&md.c.length>0){
+            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
+            md.c.forEach(function(p){h+=makeProductCard(p,oc,CASTROL_CATALOG,true,brand,model,catLabel);});
+        }
+        if(md.c_gear&&md.c_gear.length>0){
+            h+='<div class="alt-heading" style="color:var(--castrol-green);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
+            md.c_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',CASTROL_CATALOG,true,brand,model,catLabel);});
+        }
+    } else h+='<div class="no-result">Không có dữ liệu</div>';
+    h+='</div></div>';
+
+    // VALVOLINE SECTION
+    h+='<div class="brand-card"><div class="brand-card-head valvoline"><div class="brand-logo-badge"><img src="'+VALVOLINE_LOGO+'" alt="Valvoline"></div><div><div class="brand-head-title">Valvoline</div><div class="brand-head-sub">Khuyến nghị chính hãng</div></div></div><div class="brand-card-body">';
+    if((md.v&&md.v.length>0)||(md.v_gear&&md.v_gear.length>0)){
+        if(md.v&&md.v.length>0){
+            h+='<div class="alt-heading" style="color:var(--blue);margin-bottom:8px;">DẦU ĐỘNG CƠ (ENGINE OIL)</div>';
+            md.v.forEach(function(p){h+=makeProductCard(p,oc,VALVOLINE_CATALOG,false,brand,model,catLabel);});
+        }
+        if(md.v_gear&&md.v_gear.length>0){
+            h+='<div class="alt-heading" style="color:var(--blue);margin-top:20px;margin-bottom:8px;">DẦU PHỤ (HỘP SỐ / CẦU / THỦY LỰC / MỠ)</div>';
+            md.v_gear.forEach(function(p){h+=makeProductCard(p,p.c||'Tùy chọn',VALVOLINE_CATALOG,false,brand,model,catLabel);});
+        }
+    } else h+='<div class="no-result">Không có dữ liệu</div>';
+    h+='</div></div>';
+
+    rg.innerHTML=h;
+    rw.style.display='block';
+    document.getElementById('resultsAnchor').scrollIntoView({behavior:'smooth'});
+    rg.querySelectorAll('.btn-detail[data-name]').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            showDetail(this.dataset.name,this.dataset.castrol==='1',this.dataset.cap,this.dataset.brand,this.dataset.model,this.dataset.cat,this.dataset.catkey);
+        });
+    });
+}
+
+// ==================== TÌM KIẾM NGƯỢC (TÌM THEO SẢN PHẨM) ====================
+function revSearch(){
+    var pn=document.getElementById('reverseProductSelect').value;
+    var rr=document.getElementById('reverseResults');
+    if(!pn){rr.innerHTML='<span style="color:#999">Vui lòng chọn sản phẩm.</span>';rr.style.display='block';return;}
+    
+    var found=null;
+    for(var i=0;i<ALLP.length;i++){if(ALLP[i].name===pn){found=ALLP[i];break;}}
+    if(!found||!found.vehicles.length){rr.innerHTML='<span style="color:#999">Không tìm thấy phương tiện phù hợp.</span>';rr.style.display='block';return;}
+    
+    var isCastrol = !pn.toLowerCase().includes('valvoline');
+    var catalog = isCastrol ? CASTROL_CATALOG : VALVOLINE_CATALOG;
+    var info = catalog[pn] || {};
+    var cls = isCastrol ? 'c' : 'v';
+    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
+    var wrapClass = isCastrol ? 'castrol-wrap-prod' : 'valvoline-wrap-prod';
+    var iconClass = isCastrol ? 'castrol-icon' : 'valvoline-icon';
+    var blockClass = isCastrol ? 'castrol-prod' : 'valvoline-prod';
+    var buyBtnBg = isCastrol ? '#009F4D' : '#003087';
+
+    var h = '';
+    h += '<div class="product-block '+blockClass+'" style="margin-bottom:20px;">';
+    h += '<div class="product-inner">';
+    h += '<div class="product-img-wrap '+wrapClass+'"><div class="brand-icon-wrap '+iconClass+'"><img src="'+brandLogoSrc+'"></div></div>';
+    h += '<div class="product-info">';
+    h += '<div class="product-name" style="margin-top:0;">'+pn+'</div>';
+    if(info.s) h += '<div class="product-spec">'+info.s+'</div>';
+    if(info.adv) h += '<div class="product-spec" style="color:#555;">'+info.adv+'</div>';
+    h += '<div style="display:flex;gap:8px;margin-top:10px;">';
+    
+    h += '<button class="btn-detail '+cls+' rev-detail-btn" data-name="'+pn+'" data-castrol="'+(isCastrol?'1':'0')+'">CHI TIẾT</button>';
+    var hrefLink = info.u ? info.u : 'javascript:void(0)';
+    var targetAttr = info.u ? 'target="_blank"' : '';
+    h += '<a href="'+hrefLink+'" '+targetAttr+' class="btn-detail" style="background:'+buyBtnBg+';color:white;border-color:transparent;text-decoration:none;">MUA NGAY</a>';
+    
+    h += '</div></div></div></div>';
+
+    h += '<div class="rv-title" style="margin-bottom: 8px;">PHƯƠNG TIỆN SỬ DỤNG SẢN PHẨM NÀY:</div>';
+    h += '<ul style="max-height:250px;overflow-y:auto;padding-right:10px;margin:0;list-style:none;">';
+    found.vehicles.forEach(function(v){
+        h += '<li style="margin-bottom:6px; color:#444;">['+v.label+'] <strong style="color:#111;">'+v.brand.replace(/_/g,' ')+'</strong> '+v.model.replace(/_/g,' ')+'</li>';
+    });
+    h += '</ul>';
+
+    if(!isCastrol){ rr.classList.add('valvoline-theme'); } else { rr.classList.remove('valvoline-theme'); }
+    rr.innerHTML = h;
+    rr.style.display = 'block';
+
+    var detBtn = rr.querySelector('.rev-detail-btn');
+    if(detBtn){
+        detBtn.addEventListener('click', function(){
+            showDetail(this.dataset.name, this.dataset.castrol==='1', 'Tùy theo xe', 'Nhiều dòng xe', 'Tra cứu để biết chi tiết', 'Nhiều danh mục', 'oto');
+        });
+    }
+}
+
+// ==================== HÀM HIỂN THỊ CHI TIẾT (MODAL) ====================
+function showDetail(name,isCastrol,cap,brandName,modelName,catLabel,catKey){
+    var catalog=isCastrol?CASTROL_CATALOG:VALVOLINE_CATALOG;
+    var info=catalog[name]||{s:'Đang cập nhật',adv:'Đang cập nhật',app:'Đang cập nhật'};
+    var cls=isCastrol?'c':'v';
+    var catIconSrc = CAT_ICONS[catKey] || CAT_ICONS['oto'];
+    var brandLogoSrc = isCastrol ? CASTROL_LOGO : VALVOLINE_LOGO;
+    var iconWrapClass = isCastrol ? 'castrol-wrap-modal' : 'valvoline-wrap-modal';
+    var capClass = isCastrol ? '' : 'v-cap';
+    var specPills=info.s?info.s.split('·').map(function(s){return s.trim();}).filter(Boolean):[];
+    var mb=document.getElementById('modalBox');
+    
+    mb.innerHTML=
+        '<div class="modal-topbar '+cls+'">'
+        +'<button class="modal-back" id="modalBack"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Quay lại</button>'
+        +'<div class="modal-topbar-brand"><div class="modal-brand-logo-wrap"><img class="modal-brand-logo" src="'+brandLogoSrc+'" alt="brand"></div></div>'
+        +'</div>'
+        +'<div class="modal-hero">'
+        +'<div class="modal-category-icon-wrap '+iconWrapClass+'">'
+        +'<img class="modal-category-icon" src="'+catIconSrc+'" alt="'+catLabel+'">'
+        +'<span class="modal-brand-pill">'+catLabel+'</span>'
+        +'</div>'
+        +'<div class="modal-hero-text">'
+        +'<div class="modal-product-name">'+name+'</div>'
+        +'<div class="modal-vehicle-tag">'+brandName.replace(/_/g, ' ')+' '+modelName.replace(/_/g, ' ')+'</div>'
+        +'</div>'
+        +'</div>'
+        +'<div class="modal-content"><div class="modal-sections">'
+        +'<div class="modal-section"><div class="modal-section-label">Tiêu chuẩn kỹ thuật</div>'
+        +'<div class="modal-spec-pills">'+specPills.map(function(s){return '<span class="modal-spec-pill">'+s+'</span>';}).join('')+'</div>'
+        +'</div>'
+        +'<div class="modal-section"><div class="modal-section-label">Ưu điểm nổi bật</div><div class="modal-section-text">'+info.adv+'</div></div>'
+        +'<div class="modal-section"><div class="modal-section-label">Phương tiện phù hợp</div><div class="modal-section-text">'+info.app+'</div></div>'
+        +'</div>'
+        +'<div class="modal-cap-box">'
+        +'<div><div class="modal-cap-label">Khuyến nghị lượng dùng</div><div class="modal-cap-value '+capClass+'" style="font-size:24px;">'+cap+'</div></div>'
+        +'</div>'
+        +'</div>';
+        
+    document.getElementById('modalBack').addEventListener('click', function() {
+        document.getElementById('modalOverlay').style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+        document.body.style.overflowY = 'scroll';
+    });
+
+    document.getElementById('modalOverlay').style.display='flex';
+    document.body.style.overflow='hidden';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target.id === 'modalOverlay') {
+        this.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.body.style.overflowY = 'scroll';
+    }
+});
+
+// ==================== NAV CÀI ĐẶT ====================
+(function(){
+    var cont=document.getElementById('navContainer');
+    var btnL=document.getElementById('navArrLeft');
+    var btnR=document.getElementById('navArrRight');
+    function updArrows(){
+        if(!btnL||!btnR||!cont) return;
+        btnL.classList.toggle('hidden', cont.scrollLeft<=4);
+        btnR.classList.toggle('hidden', cont.scrollLeft>=cont.scrollWidth-cont.clientWidth-4);
+    }
+    if(cont){ cont.addEventListener('scroll',updArrows,{passive:true}); updArrows(); }
+    if(btnL){ btnL.addEventListener('click',function(){ cont.scrollBy({left:-130,behavior:'smooth'}); }); }
+    if(btnR){ btnR.addEventListener('click',function(){ cont.scrollBy({left:130,behavior:'smooth'}); }); }
+    window.addEventListener('load',function(){
+        if(btnR&&!btnR.classList.contains('hidden')){
+            btnR.classList.add('pulse');
+            btnR.addEventListener('animationend',function(){btnR.classList.remove('pulse');},{once:true});
+        }
+    });
+    window.addEventListener('resize',updArrows);
+})();
+
+document.getElementById('navContainer').addEventListener('click',function(e){
+    var t=e.target.closest('.nav-item');
+    if(!t) return;
+    var c=t.getAttribute('data-category');
+    if(c&&DB[c]){
+        curCat=c; updNav(c); popBrands();
+        document.getElementById('resultsWrapper').style.display='none';
+        document.getElementById('resultsGrid').innerHTML='';
+        document.getElementById('reverseResults').style.display='none';
+    }
+});
+
+document.getElementById('brandSelect').addEventListener('change', popModels);
+document.getElementById('searchBtn').addEventListener('click', search);
+document.getElementById('reverseBtn').addEventListener('click', revSearch);
+
+function popYears(){
+    var yearSelect=document.getElementById('yearInput');
+    var currentYear=new Date().getFullYear();
+    for(var y=currentYear;y>=1990;y--){
+        var option=document.createElement('option');
+        option.value=y; option.textContent=y;
+        yearSelect.appendChild(option);
+    }
+}
+popYears();
+updNav('oto');
+popBrands();
+popReverse();
 </script>
 </body>
 </html>
