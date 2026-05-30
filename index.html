@@ -1575,119 +1575,37 @@ popBrands();
 popReverse();
 </script>
 <script>
-(function () {
-
-    function updateHeight() {
-
-        const h = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight,
-            document.body.offsetHeight,
-            document.documentElement.offsetHeight
-        );
-
-        parent.postMessage({
-            type: "iframeHeight",
-            height: h
-        }, "*");
-    }
-
-    // gửi liên tục
-    setInterval(updateHeight, 500);
-
-    window.addEventListener("load", updateHeight);
-    window.addEventListener("resize", updateHeight);
-
-})();
-</script>
-    <script>
-function resizeParent() {
+function updateIframeHeight() {
 
     const height = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight
-    );
-
-    parent.postMessage({
-        type: 'resize-iframe',
-        height: height
-    }, '*');
-}
-
-window.addEventListener('load', resizeParent);
-window.addEventListener('resize', resizeParent);
-
-/* theo dõi mọi thay đổi DOM */
-new MutationObserver(() => {
-    resizeParent();
-}).observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true
-});
-
-/* gửi định kỳ để chắc chắn */
-setInterval(resizeParent, 300);
-</script>
-    <script>
-function forceResize() {
-    if (window.parent) {
-        const height = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight,
-            document.body.offsetHeight,
-            document.documentElement.offsetHeight
-        );
-
-        window.parent.postMessage({
-            type: 'resize',
-            height: height
-        }, '*');
-    }
-}
-
-window.addEventListener('load', forceResize);
-
-new ResizeObserver(forceResize).observe(document.body);
-
-setInterval(forceResize, 1000);
-</script>
-    <script>
-function updateParentHeight() {
-
-    const h = Math.max(
         document.body.scrollHeight,
         document.documentElement.scrollHeight,
         document.body.offsetHeight,
         document.documentElement.offsetHeight
     );
 
-    if (window.parent) {
-        window.parent.postMessage({
-            type: 'iframeHeight',
-            height: h
-        }, '*');
-    }
+    parent.postMessage({
+        type: "iframeHeight",
+        height: height
+    }, "*");
 }
 
-/* load */
-window.addEventListener('load', updateParentHeight);
+window.addEventListener("load", updateIframeHeight);
+window.addEventListener("resize", updateIframeHeight);
 
-/* resize */
-window.addEventListener('resize', updateParentHeight);
+const observer = new MutationObserver(function() {
+    updateIframeHeight();
+});
 
-/* DOM thay đổi */
-new MutationObserver(updateParentHeight).observe(
-    document.body,
-    {
-        childList: true,
-        subtree: true,
-        attributes: true
-    }
-);
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    characterData: true
+});
 
-/* backup */
-setInterval(updateParentHeight, 500);
+/* gửi lại liên tục để bắt các nội dung render bằng JS */
+setInterval(updateIframeHeight, 500);
 </script>
 </body>
 </html>
