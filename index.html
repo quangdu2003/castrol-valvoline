@@ -1600,5 +1600,34 @@ popReverse();
 
 })();
 </script>
+    <script>
+function resizeParent() {
+
+    const height = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+    );
+
+    parent.postMessage({
+        type: 'resize-iframe',
+        height: height
+    }, '*');
+}
+
+window.addEventListener('load', resizeParent);
+window.addEventListener('resize', resizeParent);
+
+/* theo dõi mọi thay đổi DOM */
+new MutationObserver(() => {
+    resizeParent();
+}).observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true
+});
+
+/* gửi định kỳ để chắc chắn */
+setInterval(resizeParent, 300);
+</script>
 </body>
 </html>
