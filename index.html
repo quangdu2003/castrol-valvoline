@@ -1629,5 +1629,28 @@ new MutationObserver(() => {
 /* gửi định kỳ để chắc chắn */
 setInterval(resizeParent, 300);
 </script>
+    <script>
+function forceResize() {
+    if (window.parent) {
+        const height = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight
+        );
+
+        window.parent.postMessage({
+            type: 'resize',
+            height: height
+        }, '*');
+    }
+}
+
+window.addEventListener('load', forceResize);
+
+new ResizeObserver(forceResize).observe(document.body);
+
+setInterval(forceResize, 1000);
+</script>
 </body>
 </html>
