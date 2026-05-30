@@ -1569,5 +1569,38 @@ updNav('oto');
 popBrands();
 popReverse();
 </script>
+    <script>
+function sendHeight() {
+    const height = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight
+    );
+
+    parent.postMessage({
+        type: "iframeHeight",
+        height: height
+    }, "*");
+}
+
+window.addEventListener("load", sendHeight);
+window.addEventListener("resize", sendHeight);
+
+const observer = new MutationObserver(() => {
+    sendHeight();
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    characterData: true
+});
+
+setTimeout(sendHeight, 500);
+setTimeout(sendHeight, 1000);
+setTimeout(sendHeight, 2000);
+</script>
 </body>
 </html>
