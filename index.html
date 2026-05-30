@@ -1652,5 +1652,42 @@ new ResizeObserver(forceResize).observe(document.body);
 
 setInterval(forceResize, 1000);
 </script>
+    <script>
+function updateParentHeight() {
+
+    const h = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight
+    );
+
+    if (window.parent) {
+        window.parent.postMessage({
+            type: 'iframeHeight',
+            height: h
+        }, '*');
+    }
+}
+
+/* load */
+window.addEventListener('load', updateParentHeight);
+
+/* resize */
+window.addEventListener('resize', updateParentHeight);
+
+/* DOM thay đổi */
+new MutationObserver(updateParentHeight).observe(
+    document.body,
+    {
+        childList: true,
+        subtree: true,
+        attributes: true
+    }
+);
+
+/* backup */
+setInterval(updateParentHeight, 500);
+</script>
 </body>
 </html>
