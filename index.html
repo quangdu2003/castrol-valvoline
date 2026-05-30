@@ -265,7 +265,7 @@ body {
 }
     </style>
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
+
 <body>
 
 <section class="hero">
@@ -1574,38 +1574,6 @@ updNav('oto');
 popBrands();
 popReverse();
 </script>
-<script>
-function updateIframeHeight() {
-
-    const height = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight
-    );
-
-    parent.postMessage({
-        type: "iframeHeight",
-        height: height
-    }, "*");
-}
-
-window.addEventListener("load", updateIframeHeight);
-window.addEventListener("resize", updateIframeHeight);
-
-const observer = new MutationObserver(function() {
-    updateIframeHeight();
-});
-
-observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    characterData: true
-});
-
-/* gửi lại liên tục để bắt các nội dung render bằng JS */
-setInterval(updateIframeHeight, 500);
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
 </body>
 </html>
