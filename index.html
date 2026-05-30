@@ -1575,38 +1575,30 @@ popBrands();
 popReverse();
 </script>
 <script>
-function updateParentHeight() {
+(function () {
 
-    const height = Math.max(
-        document.documentElement.scrollHeight,
-        document.body.scrollHeight,
-        document.documentElement.offsetHeight,
-        document.body.offsetHeight
-    );
+    function updateHeight() {
 
-    parent.postMessage({
-        type: 'iframeHeight',
-        height: height
-    }, '*');
-}
+        const h = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight
+        );
 
-window.addEventListener('load', updateParentHeight);
-window.addEventListener('resize', updateParentHeight);
+        parent.postMessage({
+            type: "iframeHeight",
+            height: h
+        }, "*");
+    }
 
-document.addEventListener('click', function() {
-    setTimeout(updateParentHeight, 100);
-    setTimeout(updateParentHeight, 500);
-    setTimeout(updateParentHeight, 1000);
-});
+    // gửi liên tục
+    setInterval(updateHeight, 500);
 
-const observer = new MutationObserver(function() {
-    updateParentHeight();
-});
+    window.addEventListener("load", updateHeight);
+    window.addEventListener("resize", updateHeight);
 
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
+})();
 </script>
 </body>
 </html>
